@@ -7,8 +7,10 @@ Updated: 2026-08-26
 These were identified during the initial probe:
 
 1. Command targets and current-directory state: creating a directory does not
-   change into it; relative targets depend on the current directory. Introduced
-   on 2026-08-26; practical demonstration still pending.
+   change into it; relative targets depend on the current directory. Retrieved
+   correctly in words on 2026-08-26; practical demonstration still pending.
+   Briefly confused `touch practice/notes.txt` with the invalid no-space form
+   `touch/practice/notes.txt`, so reinforce command/argument separation.
 2. Moving and renaming files safely. Not yet taught.
 3. User/group/other permission notation, ownership, and the meaning of
    read/write/execute for files versus directories.

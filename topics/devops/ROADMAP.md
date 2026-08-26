@@ -4,8 +4,9 @@ Updated: 2026-08-26
 Target window: 14–16 weeks  
 Current phase: Phase 1
 
-Current checkpoint: command targets and working-directory state introduced;
-the first Ubuntu file-management lab is pending.
+Current checkpoint: command targets and working-directory state retrieved
+correctly in words; terminal verification and the first Ubuntu file-management
+lab are pending.
 
 The dates are pacing estimates, not permission to advance. Each phase has an
 exit check; demonstrated skill matters more than merely completing a week.
@@ -36,8 +37,9 @@ flowchart TD
 
 ## Phase 1 — Linux command line and filesystem (Week 1)
 
-Next session: retrieve the path/current-directory concept, complete the
-`sysadmin-lab-01` create/copy/rename/delete lab, and explain each command.
+Next session: verify the path/current-directory concept at the Ubuntu terminal,
+complete the `sysadmin-lab-01` create/copy/rename/delete lab, and explain each
+command.
 
 Learn:
 

@@ -5,9 +5,10 @@ Updated: 2026-08-26
 ## Current stage
 
 Initial probe and roadmap complete. Phase 1 (Linux command line and filesystem)
-is active. One concept was introduced: commands operate on their path arguments,
-and creating a directory does not enter it. This has not yet been demonstrated
-in the Ubuntu lab.
+is active. The learner correctly retrieved that commands operate on their path
+arguments, relative paths are resolved from the current directory, and creating
+a directory does not enter it. This has not yet been demonstrated in the Ubuntu
+lab.
 
 Last session: `sessions/2026-08-26.md`
 
@@ -20,6 +21,10 @@ Last session: `sessions/2026-08-26.md`
 ## Demonstrated knowledge
 
 - Understands the distinction between absolute and relative paths.
+- Can correctly predict the working directory and resulting absolute paths after
+  `mkdir practice` and `touch notes.txt` from `/home/raffi`.
+- Recognizes `touch practice/notes.txt` as a command plus a relative-path
+  argument after brief uncertainty about the required separating space.
 - Uses `whoami`, `pwd`, `ls`, `neofetch`, `top`, and `htop` at a basic level.
 - Can create files/directories and copy/delete files with basic commands.
 - Knows the standard `ssh user@address` form.
@@ -32,8 +37,8 @@ Last session: `sessions/2026-08-26.md`
 
 ## Partial or missing foundations
 
-- Needs practice with command targets and current working directory; file
-  moves/renames and safe file operations are not yet reliable.
+- Needs terminal practice with command targets and current working directory;
+  file moves/renames and safe file operations are not yet reliable.
 - Does not yet understand Unix permission notation and ownership reliably.
 - Process, service, `systemd`, and `systemctl` concepts are conflated.
 - Does not yet know the core commands for resource, OS, network, and log
@@ -52,5 +57,6 @@ without hints. Revisit weak concepts through short retrieval questions.
 
 ## Next action
 
-Give a short retrieval check on paths and working-directory state. Then resume
-the pending `sysadmin-lab-01` file-management exercise on the Ubuntu server.
+Resume the pending `sysadmin-lab-01` exercise on the Ubuntu server: create the
+directory and a file inside it without changing directories, verify the result,
+then continue to moving, renaming, and safe deletion.
