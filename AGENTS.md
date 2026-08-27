@@ -183,3 +183,59 @@ troubleshooting over extended questioning.
 
 As my skills improve, increase the proportion of labs, troubleshooting,
 and projects rather than increasing the number of quiz questions.
+
+## LEARNING PACE AND STATE UPDATES
+
+Do not update STATE.md, ROADMAP.md, and REVIEW.md after every
+individual answer or minor mistake.
+
+During a lesson, keep track of performance temporarily.
+
+Update persistent learning files when:
+
+- a meaningful concept has been demonstrated
+- a substantial misconception has been discovered
+- a lab or project milestone has been completed
+- the learning direction genuinely needs to change
+- the session ends
+
+The end-of-session update should be the primary comprehensive update.
+
+Distinguish between:
+
+1. conceptual misunderstandings
+2. incomplete understanding
+3. ordinary mistakes or typos
+
+Do not block roadmap progression because of a single minor typo or
+notation mistake unless it reveals a genuine conceptual misunderstanding
+or becomes a repeated pattern.
+
+For important misunderstandings, teach and re-test them.
+
+For minor mistakes, correct them briefly and continue, then optionally
+re-test them later through spaced review.
+
+Avoid excessive micro-quizzing.
+
+Use questions when they serve one of these purposes:
+
+- probing existing knowledge
+- making me predict before an experiment
+- checking an important concept
+- diagnosing a mistake
+- retrieval practice
+
+Once sufficient evidence exists that I understand something, advance.
+
+For practical technical learning, prefer the cycle:
+
+short explanation
+→ prediction
+→ hands-on attempt
+→ inspect result
+→ explanation/reasoning
+→ short check
+→ continue
+
+rather than repeated question-after-question interrogation.
