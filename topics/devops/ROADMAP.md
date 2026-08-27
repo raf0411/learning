@@ -1,12 +1,26 @@
 # ROADMAP
 
-Updated: 2026-08-26  
-Target window: 14–16 weeks  
+Updated: 2026-08-27
+Target window: 14–16 weeks
 Current phase: Phase 1
 
-Current checkpoint: command targets and working-directory state retrieved
-correctly in words; terminal verification and the first Ubuntu file-management
-lab are pending.
+Current checkpoint: command/argument separation, home-directory expansion, and
+working-directory state have been verified. The learner created and inspected
+`sysadmin-lab-01/notes.txt` on Ubuntu without changing directories, then
+renamed it with `mv` and verified the result. Copying, moving between
+directories, and safe deletion are next. Nested relative paths need immediate
+reinforcement: a first copy attempt targeted `~/backups` instead of
+`~/sysadmin-lab-01/backups`; this was corrected and the copy was completed. An
+accidentally repeated `cp` word was then parsed as another source operand and
+needed reinforcement: the learner initially grouped multiple words as one
+argument, then passed the immediate tokenization and multi-source `cp` re-tests.
+Collision-safe copying with `cp -i` was then verified by declining an overwrite
+prompt. Collision-safe moving with `mv -i` was verified the same way. Moving a
+file between directories was then completed and verified while retaining an
+independent backup. Safe file deletion with `rm -i` was demonstrated by first
+declining, then accepting a prompt and verifying that the backup remained. Safe
+empty-directory deletion with `rmdir` was also predicted and verified. A short
+unprompted transfer check is next before text inspection and searching.
 
 The dates are pacing estimates, not permission to advance. Each phase has an
 exit check; demonstrated skill matters more than merely completing a week.
@@ -37,9 +51,8 @@ flowchart TD
 
 ## Phase 1 — Linux command line and filesystem (Week 1)
 
-Next session: verify the path/current-directory concept at the Ubuntu terminal,
-complete the `sysadmin-lab-01` create/copy/rename/delete lab, and explain each
-command.
+Current work: complete the pending unprompted file-management transfer check.
+If successful, begin text inspection with `less`, `head`, and `tail`.
 
 Learn:
 
