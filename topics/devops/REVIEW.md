@@ -1,6 +1,6 @@
 # REVIEW
 
-Updated: 2026-08-27
+Updated: 2026-08-28
 
 ## Active review queue
 
@@ -25,7 +25,10 @@ These were identified during the initial probe:
    how `cp` assigns multiple source arguments and the final destination. After
    teaching, correctly predicted both retained sources and both destination
    copies; re-test later. Wrote `extra/` once for a file named `extra`, so
-   reinforce that a trailing slash denotes a directory path.
+   reinforce that a trailing slash denotes a directory path. On 2026-08-28,
+   correctly expanded an exact home-relative path and completed an unprompted
+   transfer using nested relative paths without changing directories. Move this
+   item to spaced review rather than immediate remediation.
 2. Renaming a file with `mv SOURCE DESTINATION`: predicted, explained, and
    demonstrated successfully on 2026-08-27. Collision-safe moving with `mv -i`
    was then demonstrated by declining an overwrite and verifying both paths.
@@ -33,7 +36,9 @@ These were identified during the initial probe:
    that the separate backup remained. Re-test later in a new scenario.
 3. Collision-safe copying: used installed `cp --help` documentation to identify
    `-i`, correctly predicted the overwrite prompt, and declined it successfully
-   on 2026-08-27. Re-test later without prompting.
+   on 2026-08-27. Re-tested without a command hint on 2026-08-28: selected
+   `cp -i`, declined the overwrite, and verified both files. Re-test later in an
+   unfamiliar scenario.
 4. Safe file deletion: predicted the scope of `rm -i`, declined once, then
    accepted deletion of the archive copy and verified that the backup remained
    on 2026-08-27. Initially answered an absolute-path question with a relative
@@ -47,7 +52,21 @@ These were identified during the initial probe:
 7. System inspection: OS, memory, disk, processes, addresses, sockets, and logs.
 8. Localhost, private addresses, ports, gateways, and layered connectivity
    troubleshooting.
-9. Standard streams, pipelines, and output/error redirection.
+9. Standard streams, pipelines, and output/error redirection: on 2026-08-28,
+   correctly explained and demonstrated left-to-right pipeline flow. Initially
+   could not distinguish standard output from standard error, split one long
+   command at the wrong point, and described `>`/`2>` as appending. After a
+   diagram and simpler retry, correctly explained how one `ls` routes its valid
+   result through `>` and its missing-path error through `2>`, then selected
+   `2>>` when error output must be appended. Re-test stream selection and the
+   overwrite/append distinction in a later unfamiliar scenario.
+10. Command-specific option semantics: on 2026-08-28, transferred the syntax of
+    `head -n 5` to `grep` by running `grep -n 5 bin/bash /etc/passwd`. Correctly
+    repaired it to `grep -n bin/bash /etc/passwd` after learning that `grep -n`
+    is a standalone flag, making `5` the unintended pattern and `bin/bash` an
+    unintended file operand. Re-test with unfamiliar commands and reinforce
+    checking each command's own help rather than assuming shared option syntax.
 
-Re-test each item after its lesson, again several sessions later, and during an
-unfamiliar troubleshooting scenario.
+Begin the next session with short retrieval from items 9 and 10. Re-test each
+item after its lesson, again several sessions later, and during an unfamiliar
+troubleshooting scenario.

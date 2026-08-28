@@ -1,17 +1,18 @@
 # STATE
 
-Updated: 2026-08-27
+Updated: 2026-08-28
 
 ## Current stage
 
 Initial probe and roadmap complete. Phase 1 (Linux command line and filesystem)
-is active. The learner has now demonstrated in the Ubuntu lab that commands
-operate on their path arguments, relative paths are resolved from the current
-directory, and creating a directory does not enter it. The guided
-create/copy/rename/move/delete portion of `sysadmin-lab-01` is complete; an
-unprompted transfer check is next.
+is active. The learner has demonstrated both guided and unprompted file
+management in the Ubuntu lab: exact nested paths, copying with a new filename,
+renaming, and collision-safe copying while remaining in the home directory.
+Basic text inspection and searching with `head`, `tail`, `less`, `grep`, and
+`find` have also been demonstrated, followed by pipelines and output/error
+redirection. Command discovery with manual pages and help output is next.
 
-Last session: `sessions/2026-08-27.md`
+Last completed session: `sessions/2026-08-28.md`
 
 ## Environment and capacity
 
@@ -49,6 +50,32 @@ Last session: `sessions/2026-08-27.md`
   preserving the backup.
 - Correctly demonstrated that `rmdir` removes an empty directory but refuses a
   non-empty directory.
+- Completed the unprompted file-management transfer check from
+  `/home/raf_0411` without using `cd`: created a nested directory, copied a
+  backup under a new temporary filename, renamed it, declined an overwrite with
+  `cp -i`, and verified both exact paths and the unchanged working directory.
+- Used `head -n` and `tail -n` to select an exact number of lines from the
+  beginning and end of `/etc/passwd`, explaining the option, its value, and the
+  file operand.
+- Used `less` to navigate `/etc/passwd`, jump between its beginning and end,
+  quit back to the shell, search forward for `bin/bash`, and repeat that search
+  with `n`.
+- Used `grep` to print all matching lines from `/etc/passwd`, distinguish exact
+  case from `-i` case-insensitive matching, and add source line numbers with
+  `-n`. Initially treated `grep -n` like `head -n NUMBER`, then correctly
+  repaired the command after its arguments and resulting error were diagnosed.
+- Used `find` with absolute and relative starting paths, exact names, quoted
+  wildcard patterns, and `-type f`. Correctly predicted and demonstrated that
+  name-only matching can include a directory named `pretend.txt`, while
+  `-type f` excludes it, then removed the temporary directory with `rmdir`.
+- Correctly explained that a pipeline passes the left command's standard output
+  to the right command's standard input, then demonstrated that reversing
+  `head` and `grep` changes the result.
+- Demonstrated `>` overwrite and `>>` append behavior with a status file.
+- Separated normal `ls` output and an error from the same command into
+  `results.txt` with `>` and `errors.txt` with `2>`. Needed the distinction
+  retaught with a diagram and simpler examples, then correctly explained the
+  two channels and selected `2>>` for appending an error history.
 - Recognizes `touch practice/notes.txt` as a command plus a relative-path
   argument after brief uncertainty about the required separating space.
 - Uses `whoami`, `pwd`, `ls`, `neofetch`, `top`, and `htop` at a basic level.
@@ -63,11 +90,9 @@ Last session: `sessions/2026-08-27.md`
 
 ## Partial or missing foundations
 
-- The guided file-management lab is complete, but the same skills have not yet
-  been demonstrated in the pending unprompted transfer check.
-- Exact nested paths still need reinforcement after mixing `~` with an absolute
-  home path, targeting `~/backups` instead of the nested directory, and using a
-  trailing slash once for a file.
+- Exact nested paths have now been demonstrated in an unprompted transfer check,
+  but should still receive later spaced review after earlier mistakes involving
+  `~`, a nested backup directory, and a trailing slash on a filename.
 - Does not yet understand Unix permission notation and ownership reliably.
 - Process, service, `systemd`, and `systemctl` concepts are conflated.
 - Does not yet know the core commands for resource, OS, network, and log
@@ -76,8 +101,9 @@ Last session: `sessions/2026-08-27.md`
   ports, and troubleshooting need development.
 - Little demonstrated experience configuring services or diagnosing homelab
   failures.
-- Redirection, configuration files, virtualization, cloud platforms, web
-  servers, and operational routines need structured practice.
+- Basic output/error redirection has been demonstrated but needs spaced review;
+  configuration files, virtualization, cloud platforms, web servers, and
+  operational routines still need structured practice.
 
 ## Teaching approach
 
@@ -86,5 +112,6 @@ without hints. Revisit weak concepts through short retrieval questions.
 
 ## Next action
 
-Perform an unprompted file-management transfer check, then continue Phase 1
-with text inspection and searching.
+At the next session, begin with retrieval on command-specific options, pipeline
+order, and stream redirection. Then build command-discovery habits with `man`
+and `--help` before a combined inspection/search/redirection exercise.

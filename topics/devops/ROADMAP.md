@@ -1,26 +1,23 @@
 # ROADMAP
 
-Updated: 2026-08-27
+Updated: 2026-08-28
 Target window: 14–16 weeks
 Current phase: Phase 1
 
-Current checkpoint: command/argument separation, home-directory expansion, and
-working-directory state have been verified. The learner created and inspected
-`sysadmin-lab-01/notes.txt` on Ubuntu without changing directories, then
-renamed it with `mv` and verified the result. Copying, moving between
-directories, and safe deletion are next. Nested relative paths need immediate
-reinforcement: a first copy attempt targeted `~/backups` instead of
-`~/sysadmin-lab-01/backups`; this was corrected and the copy was completed. An
-accidentally repeated `cp` word was then parsed as another source operand and
-needed reinforcement: the learner initially grouped multiple words as one
-argument, then passed the immediate tokenization and multi-source `cp` re-tests.
-Collision-safe copying with `cp -i` was then verified by declining an overwrite
-prompt. Collision-safe moving with `mv -i` was verified the same way. Moving a
-file between directories was then completed and verified while retaining an
-independent backup. Safe file deletion with `rm -i` was demonstrated by first
-declining, then accepting a prompt and verifying that the backup remained. Safe
-empty-directory deletion with `rmdir` was also predicted and verified. A short
-unprompted transfer check is next before text inspection and searching.
+Current checkpoint: the guided file-management work and the unprompted transfer
+check are complete. From `/home/raf_0411`, without using `cd`, the learner
+created a nested transfer directory, copied the backup under a new temporary
+filename, renamed it, declined a collision with `cp -i`, and verified both
+exact paths plus the unchanged working directory. The learner then used
+`head -n`, `tail -n`, and `less` on `/etc/passwd`, including navigation and
+forward search in `less`. The learner also demonstrated exact and
+case-insensitive `grep`, line-numbered matches, and recursive `find` searches
+using names, quoted wildcard patterns, and `-type f`. Pipelines were then used
+to connect standard output to standard input, with order-dependent results.
+The learner demonstrated `>`, `>>`, `2>`, and the meaning of `2>>` after a
+slower, diagram-assisted treatment of normal versus error output. Command
+discovery is next; path construction and stream selection remain queued for
+spaced review.
 
 The dates are pacing estimates, not permission to advance. Each phase has an
 exit check; demonstrated skill matters more than merely completing a week.
@@ -51,8 +48,10 @@ flowchart TD
 
 ## Phase 1 — Linux command line and filesystem (Week 1)
 
-Current work: complete the pending unprompted file-management transfer check.
-If successful, begin text inspection with `less`, `head`, and `tail`.
+Current work: begin the next session with retrieval on `grep -n`, pipeline
+order, and output/error redirection. Then practice command discovery with `man`
+and `--help` before combining the existing inspection, search, pipeline, and
+redirection tools in a small log-reading exercise.
 
 Learn:
 
