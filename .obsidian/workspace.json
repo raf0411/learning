@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "b86cde388352a58e",
+        "id": "6705330fd085e039",
         "type": "tabs",
         "children": [
           {
-            "id": "08367de8bdd32049",
+            "id": "9e4aff6c21d39a5c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "topics/spanish/GOAL.md",
+                "mode": "preview",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "GOAL"
             }
           }
         ]
@@ -181,8 +185,18 @@
       "bases:Create new base": false
     }
   },
-  "active": "08367de8bdd32049",
+  "active": "9e4aff6c21d39a5c",
   "lastOpenFiles": [
+    "topics/spanish/sessions/2026-08-28.md",
+    "topics/spanish/RESOURCES.md",
+    "topics/spanish/GOAL.md",
+    "topics/spanish/STATE.md",
+    "topics/spanish/ROADMAP.md",
+    "topics/spanish/REVIEW.md",
+    "topics/spanish/sessions",
+    "topics/spanish/labs",
+    "topics/spanish/diagrams",
+    "topics/spanish",
     "topics/devops/sessions/2026-08-28.md",
     "topics/devops/diagrams/standard-streams.md",
     "AGENTS.md",
