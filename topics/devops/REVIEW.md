@@ -1,6 +1,6 @@
 # REVIEW
 
-Updated: 2026-08-28
+Updated: 2026-08-29
 
 ## Active review queue
 
@@ -58,15 +58,31 @@ These were identified during the initial probe:
    command at the wrong point, and described `>`/`2>` as appending. After a
    diagram and simpler retry, correctly explained how one `ls` routes its valid
    result through `>` and its missing-path error through `2>`, then selected
-   `2>>` when error output must be appended. Re-test stream selection and the
-   overwrite/append distinction in a later unfamiliar scenario.
+   `2>>` when error output must be appended. On 2026-08-29, the opening
+   prediction again confused the two destinations, but the learner immediately
+   transferred the corrected mapping to a new `grep` example and verified it.
+   During the append check, Enter was pressed after `>>`; Bash then treated
+   `matches.txt 2>> diagnostics.txt` as a separate command and captured its
+   `command not found` diagnostic. The three-line history was inspected and
+   explained, but the clean append re-test remains unfinished. Begin the next
+   session with command-boundary and stream-routing retrieval, then complete it.
 10. Command-specific option semantics: on 2026-08-28, transferred the syntax of
     `head -n 5` to `grep` by running `grep -n 5 bin/bash /etc/passwd`. Correctly
     repaired it to `grep -n bin/bash /etc/passwd` after learning that `grep -n`
     is a standalone flag, making `5` the unintended pattern and `bin/bash` an
-    unintended file operand. Re-test with unfamiliar commands and reinforce
-    checking each command's own help rather than assuming shared option syntax.
+    unintended file operand. On 2026-08-29, initially repeated the line-count
+    assumption, then established that each command owns its option meanings.
+    Used `man grep` to find the exact definition of `-n`, demonstrated the
+    numbered output, and correctly parsed a new multi-file command after one
+    correction of the old malformed command. Move this to spaced review using
+    an unfamiliar command option.
+11. Command type and documentation source: on 2026-08-29, initially predicted
+    that `head`, `grep`, and `cd` were all Bash builtins because they can all be
+    used in scripts. `type` and `type -a` showed an external executable, an
+    alias with underlying paths, and a builtin. The learner then correctly chose
+    `help cd`, `head --help` or `man head`, and `grep --help` or `man grep`.
+    Re-test later with a different builtin and external command.
 
-Begin the next session with short retrieval from items 9 and 10. Re-test each
-item after its lesson, again several sessions later, and during an unfamiliar
-troubleshooting scenario.
+Begin the next session with short retrieval from item 9, especially the command
+boundary created by Enter, then complete the clean append check. Re-test items
+10 and 11 after a delay and during an unfamiliar troubleshooting scenario.

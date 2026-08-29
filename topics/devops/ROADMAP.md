@@ -1,6 +1,6 @@
 # ROADMAP
 
-Updated: 2026-08-28
+Updated: 2026-08-29
 Target window: 14–16 weeks
 Current phase: Phase 1
 
@@ -15,9 +15,17 @@ case-insensitive `grep`, line-numbered matches, and recursive `find` searches
 using names, quoted wildcard patterns, and `-type f`. Pipelines were then used
 to connect standard output to standard input, with order-dependent results.
 The learner demonstrated `>`, `>>`, `2>`, and the meaning of `2>>` after a
-slower, diagram-assisted treatment of normal versus error output. Command
-discovery is next; path construction and stream selection remain queued for
-spaced review.
+slower, diagram-assisted treatment of normal versus error output. Path
+construction and stream selection remain queued for spaced review.
+
+On 2026-08-29, the learner used `type` to distinguish aliases, builtins, and
+external programs and selected `help`, `--help`, or `man` appropriately. They
+used `man grep` to repair `grep -n`, then correctly demonstrated its line-number
+prefix and parsed a multi-file command. Separate stdout and stderr overwrite
+redirection was repaired on an immediate transfer check. An append experiment
+was interrupted by pressing Enter after `>>`, which created a second unintended
+command and an extra captured diagnostic; diagnosis is complete, but the clean
+append re-test remains unfinished.
 
 The dates are pacing estimates, not permission to advance. Each phase has an
 exit check; demonstrated skill matters more than merely completing a week.
@@ -48,10 +56,10 @@ flowchart TD
 
 ## Phase 1 — Linux command line and filesystem (Week 1)
 
-Current work: begin the next session with retrieval on `grep -n`, pipeline
-order, and output/error redirection. Then practice command discovery with `man`
-and `--help` before combining the existing inspection, search, pipeline, and
-redirection tools in a small log-reading exercise.
+Current work: begin with retrieval on command boundaries and exact stream
+routing. Complete the clean overwrite-then-append experiment, test which stream
+a normal pipeline carries, and finish by combining inspection, search,
+pipelines, and redirection in a small transfer exercise on the Ubuntu homelab.
 
 Learn:
 

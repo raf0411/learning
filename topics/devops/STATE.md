@@ -1,18 +1,18 @@
 # STATE
 
-Updated: 2026-08-28
+Updated: 2026-08-29
 
 ## Current stage
 
 Initial probe and roadmap complete. Phase 1 (Linux command line and filesystem)
-is active. The learner has demonstrated both guided and unprompted file
-management in the Ubuntu lab: exact nested paths, copying with a new filename,
-renaming, and collision-safe copying while remaining in the home directory.
-Basic text inspection and searching with `head`, `tail`, `less`, `grep`, and
-`find` have also been demonstrated, followed by pipelines and output/error
-redirection. Command discovery with manual pages and help output is next.
+is active. Guided and unprompted file management, basic text inspection,
+searching, and pipeline order have been demonstrated. Command discovery was
+added on 2026-08-29: the learner used `type`, `man`, and command-specific help to
+resolve the earlier `grep -n` confusion. Separate stdout/stderr overwrite
+redirection was repaired on an immediate transfer check. A clean append re-test
+and a combined pipeline/redirection lab are next.
 
-Last completed session: `sessions/2026-08-28.md`
+Last completed session: `sessions/2026-08-29.md`
 
 ## Environment and capacity
 
@@ -64,6 +64,10 @@ Last completed session: `sessions/2026-08-28.md`
   case from `-i` case-insensitive matching, and add source line numbers with
   `-n`. Initially treated `grep -n` like `head -n NUMBER`, then correctly
   repaired the command after its arguments and resulting error were diagnosed.
+- Used `type` and `type -a` to distinguish an external executable, an alias,
+  and a Bash builtin, then selected `help`, `--help`, or `man` appropriately.
+- Used `man grep` to discover that `grep -n` prefixes matches with input line
+  numbers, demonstrated it live, and parsed a new multi-file `grep` command.
 - Used `find` with absolute and relative starting paths, exact names, quoted
   wildcard patterns, and `-type f`. Correctly predicted and demonstrated that
   name-only matching can include a directory named `pretend.txt`, while
@@ -76,6 +80,10 @@ Last completed session: `sessions/2026-08-28.md`
   `results.txt` with `>` and `errors.txt` with `2>`. Needed the distinction
   retaught with a diagram and simpler examples, then correctly explained the
   two channels and selected `2>>` for appending an error history.
+- Re-tested stdout/stderr separation on 2026-08-29. The initial prediction was
+  incorrect, but the learner then correctly predicted a new `grep` example and
+  verified separate `>` and `2>` destinations with no command output remaining
+  on the terminal.
 - Recognizes `touch practice/notes.txt` as a command plus a relative-path
   argument after brief uncertainty about the required separating space.
 - Uses `whoami`, `pwd`, `ls`, `neofetch`, `top`, and `htop` at a basic level.
@@ -101,9 +109,12 @@ Last completed session: `sessions/2026-08-28.md`
   ports, and troubleshooting need development.
 - Little demonstrated experience configuring services or diagnosing homelab
   failures.
-- Basic output/error redirection has been demonstrated but needs spaced review;
-  configuration files, virtualization, cloud platforms, web servers, and
-  operational routines still need structured practice.
+- Basic output/error redirection has been demonstrated but needs spaced review.
+  An append command was split after `>>`, causing an incomplete-command syntax
+  error and a second unintended command whose stderr was appended to the lab
+  file; the diagnosis was explained but not yet re-tested. Configuration files,
+  virtualization, cloud platforms, web servers, and operational routines still
+  need structured practice.
 
 ## Teaching approach
 
@@ -112,6 +123,6 @@ without hints. Revisit weak concepts through short retrieval questions.
 
 ## Next action
 
-At the next session, begin with retrieval on command-specific options, pipeline
-order, and stream redirection. Then build command-discovery habits with `man`
-and `--help` before a combined inspection/search/redirection exercise.
+At the next session, retrieve command boundaries and exact stream routing, then
+complete the clean overwrite-then-append re-test. Continue with pipeline stream
+behavior and the combined inspection/search/redirection transfer exercise.
