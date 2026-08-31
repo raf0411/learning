@@ -1,6 +1,6 @@
 # STATE
 
-Updated: 2026-08-29
+Updated: 2026-08-31
 
 ## Current stage
 
@@ -9,10 +9,17 @@ is active. Guided and unprompted file management, basic text inspection,
 searching, and pipeline order have been demonstrated. Command discovery was
 added on 2026-08-29: the learner used `type`, `man`, and command-specific help to
 resolve the earlier `grep -n` confusion. Separate stdout/stderr overwrite
-redirection was repaired on an immediate transfer check. A clean append re-test
-and a combined pipeline/redirection lab are next.
+redirection was repaired on an immediate transfer check. On 2026-08-31, the
+learner established that Bash parses a complete command before execution,
+completed the clean overwrite/append re-test, identified the streams in a
+normal pipeline, and constructed a correct combined `grep`/`head` pipeline with
+separate result and diagnostic files. Command boundaries still need spaced
+review because long pasted commands were repeatedly split at unsafe points. A
+probe and verified dependency plan for filesystem roles, Nano, and archives are
+complete; the configuration-versus-log distinction was introduced but not yet
+checked.
 
-Last completed session: `sessions/2026-08-29.md`
+Last completed session: `sessions/2026-08-31.md`
 
 ## Environment and capacity
 
@@ -84,6 +91,21 @@ Last completed session: `sessions/2026-08-29.md`
   incorrect, but the learner then correctly predicted a new `grep` example and
   verified separate `>` and `2>` destinations with no command output remaining
   on the terminal.
+- On 2026-08-30, correctly predicted stdout/stderr destinations, terminal
+  visibility, and overwrite versus append behavior for a complete command
+  using `>` and `2>>`.
+- On 2026-08-31, verified that a parse error from an incomplete `2>>` prevents
+  the command, its earlier `>`, and all other redirections from executing.
+  Then correctly identified that a later redirection affects only its own
+  submitted command, not a command that has already finished.
+- Completed a clean stdout-overwrite/stderr-append experiment and verified the
+  expected one-line result file and two-line diagnostic history.
+- Correctly identified that a normal pipeline carries `ls` stdout into
+  `wc -l` while `ls` stderr remains on the terminal.
+- Independently constructed the correct stream structure for a pipeline that
+  sent `grep` stderr to an append-only error file, piped stdout through
+  `head -n 3`, and overwrote a result file. Only the requested filenames were
+  given unnecessary `.txt` suffixes; the pipeline and redirections were right.
 - Recognizes `touch practice/notes.txt` as a command plus a relative-path
   argument after brief uncertainty about the required separating space.
 - Uses `whoami`, `pwd`, `ls`, `neofetch`, `top`, and `htop` at a basic level.
@@ -109,12 +131,23 @@ Last completed session: `sessions/2026-08-29.md`
   ports, and troubleshooting need development.
 - Little demonstrated experience configuring services or diagnosing homelab
   failures.
-- Basic output/error redirection has been demonstrated but needs spaced review.
-  An append command was split after `>>`, causing an incomplete-command syntax
-  error and a second unintended command whose stderr was appended to the lab
-  file; the diagnosis was explained but not yet re-tested. Configuration files,
+- Basic output/error redirection and ordinary pipeline routing have been
+  demonstrated but need spaced review. On 2026-08-31, the learner initially
+  predicted that a syntactically invalid command would still perform an earlier
+  `>` and that a later `2>` could capture an already-finished command's stderr.
+  Concrete experiments repaired both predictions. Several long pasted commands
+  also acquired real newlines after redirection operators or inside quoted
+  paths, so command-entry discipline and visual wrapping versus submitted
+  newlines need re-testing in a later scenario. Configuration files,
   virtualization, cloud platforms, web servers, and operational routines still
   need structured practice.
+- Recognizes `/etc`, `/var/log`, `/home`, and `/tmp` in common scenarios but
+  cannot yet derive their roles from data purpose, ownership, and lifetime.
+- Can predict basic `tar -czf` creation and `tar -xzf` extraction outcomes, but
+  archive versus compression and safe inspection/restoration are not yet
+  demonstrated.
+- Selected Nano's reliable `Ctrl+O`, `Enter`, `Ctrl+X` workflow when prompted,
+  but buffer-versus-disk state and an actual save have not been demonstrated.
 
 ## Teaching approach
 
@@ -123,6 +156,7 @@ without hints. Revisit weak concepts through short retrieval questions.
 
 ## Next action
 
-At the next session, retrieve command boundaries and exact stream routing, then
-complete the clean overwrite-then-append re-test. Continue with pipeline stream
-behavior and the combined inspection/search/redirection transfer exercise.
+Begin the next session with a short retrieval check on configuration versus
+logs and one delayed command-boundary question. Then teach directory roles,
+Nano's buffer/save states, and archive versus compression through the planned
+mock-service snapshot/restore lab before the Phase 1 exit check.

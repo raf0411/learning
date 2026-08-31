@@ -83,7 +83,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "f4dfa73b80c2066b",
@@ -187,6 +187,12 @@
   },
   "active": "ed9624219eebe3c6",
   "lastOpenFiles": [
+    "topics/devops/sessions/2026-08-31.md",
+    "README.md",
+    "PROFILE.md",
+    "topics/devops/GOAL.md",
+    "topics/devops/ROADMAP.md",
+    "AGENTS.md",
     "topics/devops/sessions/2026-08-29.md",
     "topics/spanish/GOAL.md",
     "topics/spanish/sessions/2026-08-28.md",
@@ -200,15 +206,10 @@
     "topics/spanish",
     "topics/devops/sessions/2026-08-28.md",
     "topics/devops/diagrams/standard-streams.md",
-    "AGENTS.md",
-    "README.md",
-    "topics/devops/GOAL.md",
     "topics/devops/REVIEW.md",
-    "topics/devops/ROADMAP.md",
     "topics/devops/STATE.md",
     "topics/devops/RESOURCES.md",
     "topics/devops/sessions/2026-08-27.md",
-    "topics/devops/sessions/2026-08-26.md",
-    "PROFILE.md"
+    "topics/devops/sessions/2026-08-26.md"
   ]
 }

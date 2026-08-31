@@ -1,6 +1,6 @@
 # ROADMAP
 
-Updated: 2026-08-29
+Updated: 2026-08-31
 Target window: 14–16 weeks
 Current phase: Phase 1
 
@@ -26,6 +26,28 @@ redirection was repaired on an immediate transfer check. An append experiment
 was interrupted by pressing Enter after `>>`, which created a second unintended
 command and an extra captured diagnostic; diagnosis is complete, but the clean
 append re-test remains unfinished.
+
+On 2026-08-30, exact stream destinations and overwrite/append modes were
+retrieved correctly for a complete command. The learner still expected an
+incomplete `2>>` to affect a filename entered after pressing Enter. Bash's
+parse-first behavior was demonstrated, but it has not yet been explained back
+or re-tested by the learner.
+
+On 2026-08-31, the learner repaired that model through concrete experiments:
+an invalid trailing `2>>` prevented an earlier `>` from executing, and a later
+redirection-only submission could not capture stderr from an already-finished
+command. A clean overwrite/append check then produced the expected file state.
+The learner identified ordinary pipeline stream routing and independently
+constructed a correct `grep` stderr-redirection plus `head` stdout pipeline.
+Long pasted commands were repeatedly split by real newlines, so command
+boundaries remain queued for spaced review rather than blocking progression.
+
+The filesystem-hierarchy, Nano, and archive strands were probed on 2026-08-31.
+The learner can choose common locations and predict basic archive outcomes, but
+cannot yet derive directory placement from purpose/lifetime or explain editor
+buffer state and archive versus compression. A verified dependency plan is in
+place. Configuration versus logs was introduced, but its check was deferred by
+the end of the session.
 
 The dates are pacing estimates, not permission to advance. Each phase has an
 exit check; demonstrated skill matters more than merely completing a week.
@@ -56,10 +78,26 @@ flowchart TD
 
 ## Phase 1 — Linux command line and filesystem (Week 1)
 
-Current work: begin with retrieval on command boundaries and exact stream
-routing. Complete the clean overwrite-then-append experiment, test which stream
-a normal pipeline carries, and finish by combining inspection, search,
-pipelines, and redirection in a small transfer exercise on the Ubuntu homelab.
+Current work: standard stream and pipeline labs are complete. Begin with a
+retrieval check on configuration versus logs, then follow the lesson map through
+filesystem roles, Nano, and `tar` to the Phase 1 written-scenario exit check.
+Re-test command boundaries with short, manually entered commands.
+
+Current lesson dependency map:
+
+```mermaid
+flowchart TD
+    A[Known: paths identify locations] --> E[Choose locations by data role]
+    B[Config controls; logs record] --> E
+    A --> F[Choose user or temporary storage]
+    C[Editor buffer differs from disk file] --> G[Nano save then exit]
+    D[Archive differs from compression] --> H[tar create, list and extract]
+    E --> I[Service snapshot and restore lab]
+    F --> I
+    G --> I
+    H --> I
+    I --> J[Phase 1 written-scenario exit check]
+```
 
 Learn:
 

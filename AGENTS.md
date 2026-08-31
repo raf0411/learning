@@ -386,3 +386,34 @@ Everything written in a session is rendered to him through Obsidian, which rende
 - Centered display math: `$$` fenced on its own lines, e.g. `$$\n f(x) \n$$`
 
 If LaTeX can be used, it should be. Write $f(x) = x^2$, not `f(x) = x^2`.
+
+
+## TERMINAL COMMAND FORMATTING
+
+When giving commands that I should execute in a shell, be extremely
+careful about physical newlines.
+
+If multiple shell tokens must belong to one command submission,
+present them on ONE physical line whenever reasonably possible.
+
+Never visually split a command in a way that could cause me to press
+Enter at the wrong location.
+
+If a command genuinely needs multiple displayed lines, use an explicit
+shell continuation such as:
+
+command first-part \
+  second-part \
+  third-part
+
+Clearly distinguish between:
+
+- terminal visual wrapping
+- a real newline
+- a new shell command
+
+For beginner shell lessons, prefer shorter commands over long commands
+that wrap across the terminal.
+
+Before asking me to paste or type a command, check that the formatting
+will behave correctly if copied literally.

@@ -1,1 +1,6 @@
-{}
+{
+  "theme": "obsidian",
+  "accentColor": "#098a00",
+  "cssTheme": "Dark Moss",
+  "interfaceFontFamily": "SF Pro Rounded"
+}

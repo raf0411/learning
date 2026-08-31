@@ -1,6 +1,6 @@
 # REVIEW
 
-Updated: 2026-08-29
+Updated: 2026-08-31
 
 ## Active review queue
 
@@ -66,6 +66,22 @@ These were identified during the initial probe:
    `command not found` diagnostic. The three-line history was inspected and
    explained, but the clean append re-test remains unfinished. Begin the next
    session with command-boundary and stream-routing retrieval, then complete it.
+   On 2026-08-30, the learner correctly retrieved exact stdout/stderr routing,
+   terminal visibility, and overwrite versus append for a complete command.
+   They still predicted that an incomplete `2>>` might apply to
+   `diagnostics.txt` entered at the next prompt. The parse error and separate
+   second command were demonstrated, but not yet explained back or re-tested.
+   On 2026-08-31, the learner initially predicted that the earlier `>` in a
+   parse-invalid command would still overwrite its file. A live experiment
+   established parse-before-execute. They then initially expected a later
+   redirection-only command to capture stderr from an already-finished command;
+   a stepwise experiment produced the error on the terminal and a zero-byte
+   later error file. The learner finally identified that a redirection affects
+   only its own submitted command. A clean overwrite/append lab and a combined
+   `grep`/`head` pipeline were completed successfully. Re-test after a delay,
+   especially the distinction between harmless visual wrapping and real pasted
+   newlines; multiple pasted commands split after redirection operators or
+   inside a quoted pathname during this session.
 10. Command-specific option semantics: on 2026-08-28, transferred the syntax of
     `head -n 5` to `grep` by running `grep -n 5 bin/bash /etc/passwd`. Correctly
     repaired it to `grep -n bin/bash /etc/passwd` after learning that `grep -n`
@@ -82,7 +98,16 @@ These were identified during the initial probe:
     alias with underlying paths, and a builtin. The learner then correctly chose
     `help cd`, `head --help` or `man head`, and `grep --help` or `man grep`.
     Re-test later with a different builtin and external command.
+12. Filesystem roles, archives, and Nano: on 2026-08-31, correctly associated
+    `/home` with user files, `/tmp` with temporary data, and `/var/log` with
+    recorded events. Correctly selected basic `tar` create/extract outcomes and
+    Nano's `Ctrl+O`, `Enter`, `Ctrl+X` workflow when given choices. The learner
+    could not yet explain why `/etc` and `/var/log` have their roles, distinguish
+    archive structure from compression, or demonstrate Nano's buffer/save
+    states. Configuration as intended input and logs as observed output were
+    introduced, but the immediate check was not attempted before session end.
 
-Begin the next session with short retrieval from item 9, especially the command
-boundary created by Enter, then complete the clean append check. Re-test items
-10 and 11 after a delay and during an unfamiliar troubleshooting scenario.
+At the next session, retrieve the unfinished configuration-versus-log node from
+item 12, then continue its planned lab. Re-test item 9 briefly with short
+commands typed one at a time. Re-test items 10 and 11 later in an unfamiliar
+troubleshooting scenario.
