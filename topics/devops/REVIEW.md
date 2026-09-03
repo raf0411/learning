@@ -1,6 +1,6 @@
 # REVIEW
 
-Updated: 2026-08-31
+Updated: 2026-09-03
 
 ## Active review queue
 
@@ -29,6 +29,10 @@ These were identified during the initial probe:
    correctly expanded an exact home-relative path and completed an unprompted
    transfer using nested relative paths without changing directories. Move this
    item to spaced review rather than immediate remediation.
+   During the Phase 1 exit check on 2026-09-03, omitted the slash after `~` in
+   one output path (`~phase1-exit` rather than `~/phase1-exit`). This caused the
+   final redirection to fail. The learner identified the missing slash after
+   diagnosis; re-test the meaning of `~/` versus `~name/` later.
 2. Renaming a file with `mv SOURCE DESTINATION`: predicted, explained, and
    demonstrated successfully on 2026-08-27. Collision-safe moving with `mv -i`
    was then demonstrated by declining an overwrite and verifying both paths.
@@ -82,6 +86,20 @@ These were identified during the initial probe:
    especially the distinction between harmless visual wrapping and real pasted
    newlines; multiple pasted commands split after redirection operators or
    inside a quoted pathname during this session.
+   On 2026-09-01, the learner correctly retrieved that an incomplete trailing
+   redirect prevents execution and preserves the output file. They initially
+   thought a fresh command could not be submitted after the syntax error, then
+   correctly selected the new command's diagnostic after learning that each
+   redirection belongs only to its own submission. The Phase 1 exit-check
+   pipeline using `>`, `2>>`, and `|` is assigned but not yet attempted; use it
+   as the next practical transfer check. On 2026-09-03, the learner completed
+   that transfer check. Their first construction redirected `grep` stdout to an
+   append-only file before the pipe; they repaired it to route `grep` stdout
+   through `head` and overwrite the final report. A second run verified two
+   stable match lines and two accumulated diagnostics. The learner initially
+   forgot that a normal pipe connects the left command's stdout to the right
+   command's stdin, but after a stream diagram correctly distinguished matches
+   entering `head` from stderr diagnostics bypassing it. Move to spaced review.
 10. Command-specific option semantics: on 2026-08-28, transferred the syntax of
     `head -n 5` to `grep` by running `grep -n 5 bin/bash /etc/passwd`. Correctly
     repaired it to `grep -n bin/bash /etc/passwd` after learning that `grep -n`
@@ -92,6 +110,12 @@ These were identified during the initial probe:
     numbered output, and correctly parsed a new multi-file command after one
     correction of the old malformed command. Move this to spaced review using
     an unfamiliar command option.
+    On 2026-09-01, the learner added an unnecessary `nano -p`, then used the
+    installed `nano --help` output to identify it as preserving XON/XOFF keys.
+    They initially guessed that `-p` caused saving, but repaired the causal model
+    by comparing two runs that both used `-p`: `Ctrl+O` plus `Enter` saved the
+    first, while declining with `N` discarded the second. Re-test option meaning
+    later with another unfamiliar command rather than immediately.
 11. Command type and documentation source: on 2026-08-29, initially predicted
     that `head`, `grep`, and `cd` were all Bash builtins because they can all be
     used in scripts. `type` and `type -a` showed an external executable, an
@@ -106,8 +130,21 @@ These were identified during the initial probe:
     archive structure from compression, or demonstrate Nano's buffer/save
     states. Configuration as intended input and logs as observed output were
     introduced, but the immediate check was not attempted before session end.
+    On 2026-09-01, correctly explained configuration as intended behavior and
+    logs as observed events, then assigned `/etc`, `/var/log`, `/home`, and
+    `/tmp` from purpose and lifetime. Nano buffer-versus-disk behavior was
+    predicted and demonstrated through one saved and one discarded edit.
+    Archive versus compression was explained correctly; `tar` create, list,
+    gzip, extract, and `-C` restoration were demonstrated. The learner diagnosed
+    a missing archive member by finding that the source log had never been
+    created, recreated the snapshot, and verified an independent restore.
+    During exit-check Part 1, an unfiltered `find` initially included
+    directories and was repaired with `-type f`; a wrong `cat` path was corrected
+    immediately. Move these concepts to spaced operational review after the
+    Phase 1 exit gate.
 
-At the next session, retrieve the unfinished configuration-versus-log node from
-item 12, then continue its planned lab. Re-test item 9 briefly with short
-commands typed one at a time. Re-test items 10 and 11 later in an unfamiliar
-troubleshooting scenario.
+Phase 1 has passed. During Phase 2, use short operational retrieval of item 9
+and the `~/` distinction from item 1. Re-test items 10 and 11 later in an
+unfamiliar troubleshooting scenario. At the next session, use one short
+retrieval question, then resume the unanswered Phase 2 `ls -l` permission
+scenario before planning or teaching the new topic.

@@ -1,8 +1,8 @@
 # ROADMAP
 
-Updated: 2026-08-31
+Updated: 2026-09-03
 Target window: 14–16 weeks
-Current phase: Phase 1
+Current phase: Phase 2 probe
 
 Current checkpoint: the guided file-management work and the unprompted transfer
 check are complete. From `/home/raf_0411`, without using `cd`, the learner
@@ -42,12 +42,23 @@ constructed a correct `grep` stderr-redirection plus `head` stdout pipeline.
 Long pasted commands were repeatedly split by real newlines, so command
 boundaries remain queued for spaced review rather than blocking progression.
 
-The filesystem-hierarchy, Nano, and archive strands were probed on 2026-08-31.
-The learner can choose common locations and predict basic archive outcomes, but
-cannot yet derive directory placement from purpose/lifetime or explain editor
-buffer state and archive versus compression. A verified dependency plan is in
-place. Configuration versus logs was introduced, but its check was deferred by
-the end of the session.
+On 2026-09-01, the learner completed the filesystem-hierarchy, Nano, and archive
+strands. They chose common directories from data purpose and lifetime,
+demonstrated Nano's buffer-versus-disk behavior, separated archiving from gzip
+compression, inspected a snapshot before extraction, and restored it to a
+controlled destination. An initially incomplete snapshot became a successful
+troubleshooting exercise: the learner inspected the source, added the missing
+log, recreated the archive, and verified a point-in-time restore.
+
+Phase 1 passed its exit gate on 2026-09-03. From `/home/raf_0411` without `cd`,
+the learner completed the configuration/log/report hierarchy and file-selection
+scenario. They then constructed, repaired, ran, verified, and explained a
+`grep`/`head` pipeline that overwrote matching results while appending `grep`
+diagnostics separately. A repeated run produced a stable two-line match report
+and a diagnostic report that grew from one line to two. Pipeline routing and
+the `~/` boundary needed focused repair, so both remain queued for spaced
+review rather than blocking progression. Phase 2 now begins with a probe of
+identity, ownership, permissions, `sudo`, and least privilege.
 
 The dates are pacing estimates, not permission to advance. Each phase has an
 exit check; demonstrated skill matters more than merely completing a week.
@@ -78,10 +89,10 @@ flowchart TD
 
 ## Phase 1 — Linux command line and filesystem (Week 1)
 
-Current work: standard stream and pipeline labs are complete. Begin with a
-retrieval check on configuration versus logs, then follow the lesson map through
-filesystem roles, Nano, and `tar` to the Phase 1 written-scenario exit check.
-Re-test command boundaries with short, manually entered commands.
+Status: passed on 2026-09-03. The directory-role, Nano, `tar` snapshot/restore,
+written file-management scenario, and independent stream-routing pipeline are
+complete. Revisit exact `~/` paths and stdout-to-stdin pipeline explanations
+through later operational work.
 
 Current lesson dependency map:
 
@@ -112,6 +123,12 @@ Exit check: complete a file-management and log-search lab from a written
 scenario, without command-by-command instructions, and explain every command.
 
 ## Phase 2 — Core Ubuntu administration (Weeks 2–3)
+
+Current work: probe the learner's boundary across identities, ownership,
+permission bits, file-versus-directory semantics, `sudo`, and least privilege.
+The opening `ls -l` permission-string scenario was assigned but not attempted
+before the session ended. Resume it after a short retrieval check, then build
+the dependency map and lesson plan from the completed probe before teaching.
 
 Learn:
 

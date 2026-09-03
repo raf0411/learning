@@ -27,3 +27,26 @@ flowchart LR
 - `2>` means redirect channel 2, standard error.
 - A failed `ls` has no successful listing to send on channel 1; it sends an
   error message on channel 2.
+
+## Pipeline with separate error routing
+
+In this pipeline, `grep` can produce both successful matches and diagnostics.
+The normal pipe carries only `grep`'s standard output:
+
+```mermaid
+flowchart LR
+    G[grep]
+    H[head -n 2]
+    M[matches.txt]
+    D[diagnostics.txt]
+
+    G -->|stdout: matching lines| P[pipe]
+    P -->|stdin| H
+    H -->|stdout via greater-than: overwrite| M
+    G -->|stderr via 2 greater-than greater-than: append| D
+```
+
+- A matching line travels as `grep` stdout, crosses the pipe as `head` stdin,
+  and leaves `head` as stdout. `>` writes that final stdout to `matches.txt`.
+- A missing-file diagnostic travels as `grep` stderr. `2>>` sends it directly
+  to `diagnostics.txt`, so it never enters the pipe or reaches `head`.

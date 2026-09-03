@@ -1,25 +1,19 @@
 # STATE
 
-Updated: 2026-08-31
+Updated: 2026-09-03
 
 ## Current stage
 
 Initial probe and roadmap complete. Phase 1 (Linux command line and filesystem)
-is active. Guided and unprompted file management, basic text inspection,
-searching, and pipeline order have been demonstrated. Command discovery was
-added on 2026-08-29: the learner used `type`, `man`, and command-specific help to
-resolve the earlier `grep -n` confusion. Separate stdout/stderr overwrite
-redirection was repaired on an immediate transfer check. On 2026-08-31, the
-learner established that Bash parses a complete command before execution,
-completed the clean overwrite/append re-test, identified the streams in a
-normal pipeline, and constructed a correct combined `grep`/`head` pipeline with
-separate result and diagnostic files. Command boundaries still need spaced
-review because long pasted commands were repeatedly split at unsafe points. A
-probe and verified dependency plan for filesystem roles, Nano, and archives are
-complete; the configuration-versus-log distinction was introduced but not yet
-checked.
+passed its exit gate on 2026-09-03. The learner completed the written
+file-management scenario, then constructed, repaired, ran, verified, and
+explained a `grep`/`head` pipeline with stdout overwritten to one report and
+stderr appended to another. Phase 2 (core Ubuntu administration) is next; begin
+by probing users, groups, ownership, permissions, and least privilege. The
+opening `ls -l` permissions scenario was presented but not attempted before the
+session ended.
 
-Last completed session: `sessions/2026-08-31.md`
+Last completed session: `sessions/2026-09-03.md`
 
 ## Environment and capacity
 
@@ -106,6 +100,29 @@ Last completed session: `sessions/2026-08-31.md`
   sent `grep` stderr to an append-only error file, piped stdout through
   `head -n 3`, and overwrote a result file. Only the requested filenames were
   given unnecessary `.txt` suffixes; the pipeline and redirections were right.
+- On 2026-09-01, correctly classified configuration as intended behavior and
+  logs as observed events, then placed service configuration, service logs,
+  personal data, and disposable data under the appropriate conventional roles.
+- Demonstrated that Nano edits an in-memory buffer and writes it to disk only
+  on save: a saved `port=8080` persisted, while an unsaved `port=9090` change
+  was discarded. Used installed `nano --help` to identify an unnecessary `-p`
+  option, then correctly attributed saving to `Ctrl+O` plus `Enter`.
+- Distinguished archive structure from gzip compression and parsed `tar`'s
+  `-c`, `-z`, `-f`, `-t`, and `-x` operations. Diagnosed an incomplete archive
+  by inspecting the source tree, recreated it with the missing log, listed its
+  members, and restored it under a separate directory with `-C`. Verified that
+  the current source contained `port=9090` while the point-in-time restored
+  copy contained `port=8080`.
+- Completed Phase 1 exit-check Part 1 without changing directories: created a
+  mock configuration/log/report hierarchy, wrote the specified files with
+  Nano, displayed their contents, and verified `/home/raf_0411` with `pwd`.
+  After initially listing all entry types, repaired `find` with `-type f`.
+- Passed Phase 1 exit-check Part 2: searched one existing and one missing log
+  operand with `grep -n`, appended `grep` diagnostics with `2>>`, piped matching
+  stdout through `head -n 2`, and overwrote the final report with `>`. A second
+  run verified that the match report stayed at two lines while the diagnostic
+  report grew from one line to two. Correctly explained that stdout enters the
+  pipe and stderr bypasses `head` after focused repair.
 - Recognizes `touch practice/notes.txt` as a command plus a relative-path
   argument after brief uncertainty about the required separating space.
 - Uses `whoami`, `pwd`, `ls`, `neofetch`, `top`, and `htop` at a basic level.
@@ -132,22 +149,23 @@ Last completed session: `sessions/2026-08-31.md`
 - Little demonstrated experience configuring services or diagnosing homelab
   failures.
 - Basic output/error redirection and ordinary pipeline routing have been
-  demonstrated but need spaced review. On 2026-08-31, the learner initially
-  predicted that a syntactically invalid command would still perform an earlier
-  `>` and that a later `2>` could capture an already-finished command's stderr.
-  Concrete experiments repaired both predictions. Several long pasted commands
-  also acquired real newlines after redirection operators or inside quoted
-  paths, so command-entry discipline and visual wrapping versus submitted
-  newlines need re-testing in a later scenario. Configuration files,
-  virtualization, cloud platforms, web servers, and operational routines still
-  need structured practice.
-- Recognizes `/etc`, `/var/log`, `/home`, and `/tmp` in common scenarios but
-  cannot yet derive their roles from data purpose, ownership, and lifetime.
-- Can predict basic `tar -czf` creation and `tar -xzf` extraction outcomes, but
-  archive versus compression and safe inspection/restoration are not yet
-  demonstrated.
-- Selected Nano's reliable `Ctrl+O`, `Enter`, `Ctrl+X` workflow when prompted,
-  but buffer-versus-disk state and an actual save have not been demonstrated.
+  demonstrated but need spaced review. The opening 2026-09-01 retrieval was
+  correct about parse failure and file preservation, though the learner first
+  thought a fresh command could not be submitted after the error and initially
+  explained a new command's error capture only through overwrite behavior.
+  The command-ownership distinction was repaired in words. Long pasted-command
+  boundaries still need delayed re-testing.
+- Phase 1 stream routing has passed the exit check but needs spaced review. The
+  learner initially placed an append redirect before the pipe, later needed
+  the stdout-to-stdin pipe route retaught, and omitted the slash in `~/` once
+  when running the repaired command. The final execution and explanation were
+  correct after focused repair.
+- Nano's buffer-versus-disk state and `tar` snapshot/restore are demonstrated.
+  The initial description that Nano creates and edits a file "directly" was
+  refined to opening a buffer and creating/updating the disk file only on save.
+  Re-test later through operational use rather than immediate drilling.
+- Configuration files, virtualization, cloud platforms, web servers, and
+  operational routines still need structured practice.
 
 ## Teaching approach
 
@@ -156,7 +174,7 @@ without hints. Revisit weak concepts through short retrieval questions.
 
 ## Next action
 
-Begin the next session with a short retrieval check on configuration versus
-logs and one delayed command-boundary question. Then teach directory roles,
-Nano's buffer/save states, and archive versus compression through the planned
-mock-service snapshot/restore lab before the Phase 1 exit check.
+Probe the learner's current boundary across users, groups, ownership,
+file-versus-directory permission bits, `sudo`, and least privilege. Use the
+results to plan the first Phase 2 lesson before teaching it. Begin with a short
+retrieval check, then resume the unanswered `ls -l` scenario.
