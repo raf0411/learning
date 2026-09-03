@@ -8,10 +8,12 @@ Initial probe and roadmap complete. Phase 1 (Linux command line and filesystem)
 passed its exit gate on 2026-09-03. The learner completed the written
 file-management scenario, then constructed, repaired, ran, verified, and
 explained a `grep`/`head` pipeline with stdout overwritten to one report and
-stderr appended to another. Phase 2 (core Ubuntu administration) is next; begin
-by probing users, groups, ownership, permissions, and least privilege. The
-opening `ls -l` permissions scenario was presented but not attempted before the
-session ended.
+stderr appended to another. The opening Phase 2 users-and-permissions lesson is
+now complete, including a live least-privilege access repair and a deletion
+experiment separating file permissions from parent-directory permissions.
+The numeric-modes and service-account probe and plan checkpoint are complete.
+Numeric modes were introduced as weighted `rwx` positions; the first
+calculation check was not attempted before session end.
 
 Last completed session: `sessions/2026-09-03.md`
 
@@ -20,6 +22,9 @@ Last completed session: `sessions/2026-09-03.md`
 - Uses macOS Terminal and has an Ubuntu homelab server.
 - Can study about 5 hours daily.
 - Prefers practical, job-oriented learning.
+- Ubuntu currently retains `~/permissions-lab/mode-practice.txt` as
+  `raf_0411:raf_0411` mode `664` and `service-access-lab.conf` as `root:sudo`
+  mode `640`; the disposable deletion-test file was removed.
 
 ## Demonstrated knowledge
 
@@ -134,13 +139,39 @@ Last completed session: `sessions/2026-09-03.md`
   check.
 - Reports being comfortable with Git; has tried Bash, Docker, databases, SSH
   keys, and firewalls.
+- Can decode the type marker and owner/group/other triplets in basic `ls -l`
+  output and select exactly one applicable permission class from a process's
+  user and group identities.
+- Understands regular-file `r`, `w`, and `x`, and distinguishes them from
+  directory listing, modification, and traversal/search permissions.
+- Demonstrated that a read-only, root-owned file can be deleted by a process
+  with `w+x` on its parent directory.
+- Used symbolic `chmod` with `+`, `-`, and `=`, changed an owning group with
+  `chgrp`, changed and restored ownership with `sudo chown`, and verified that
+  permission mode and ownership are independent metadata.
+- Repaired group read access with `g+r` and explained why a narrowly authorized
+  ordinary service identity is preferable to unrestricted `sudo`.
 
 ## Partial or missing foundations
 
 - Exact nested paths have now been demonstrated in an unprompted transfer check,
   but should still receive later spaced review after earlier mistakes involving
   `~`, a nested backup directory, and a trailing slash on a filename.
-- Does not yet understand Unix permission notation and ownership reliably.
+- Numeric permission modes, `umask`, special bits, and ACLs have not yet been
+  taught. The basic symbolic model should receive delayed transfer checks after
+  needing focused repair for exclusive class selection and least privilege.
+- User and group creation/modification commands and restricted service-account
+  design have not yet been demonstrated.
+- The follow-up probe found no binary-to-decimal foundation and no ability to
+  decode `640` or `755`. The learner knows that numeric modes represent access
+  but has not yet demonstrated how the digits derive from `rwx`. Weights
+  `r=4`, `w=2`, and `x=1` have now been introduced.
+- Recognizes `adduser`, `useradd`, `groupadd`, and `passwd` at a broad level but
+  does not know how to add an existing user to an existing group and currently
+  suspects one account-creation command automatically grants `sudo`.
+- Correctly reasons that a software identity need not have human-oriented home
+  or interactive-login features, and would give it narrow group-based file
+  access. Configuration-read and log-write needs still need to be separated.
 - Process, service, `systemd`, and `systemctl` concepts are conflated.
 - Does not yet know the core commands for resource, OS, network, and log
   inspection.
@@ -174,7 +205,6 @@ without hints. Revisit weak concepts through short retrieval questions.
 
 ## Next action
 
-Probe the learner's current boundary across users, groups, ownership,
-file-versus-directory permission bits, `sudo`, and least privilege. Use the
-results to plan the first Phase 2 lesson before teaching it. Begin with a short
-retrieval check, then resume the unanswered `ls -l` scenario.
+Resume the unanswered calculation of `r-x`, `-wx`, and `---` using weights
+`r=4`, `w=2`, and `x=1`. Then build from one digit to three-digit modes and
+continue the approved, collision-checked restricted-service-account lesson.

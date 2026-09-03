@@ -50,7 +50,26 @@ These were identified during the initial probe:
    remove an empty directory and interpreted its refusal to remove a non-empty
    backup directory.
 5. User/group/other permission notation, ownership, and the meaning of
-   read/write/execute for files versus directories.
+   read/write/execute for files versus directories. The 2026-09-03 Phase 2
+   probe found a sound foundation in `whoami`, group membership, command-scoped
+   `sudo`, and least privilege. The learner identified the owner and owning
+   group in an `ls -l` entry but could not decode its type marker or permission
+   triplets. They treated a group member as having the owner's access, expected
+   an owner to fall back to group permissions, thought regular-file `x` meant
+   deletion, and assumed directory `rwx` had the same meanings as file `rwx`.
+   They initially recognized `chmod`, `chown`, and `chgrp` but could not
+   distinguish them. During the lesson, class selection needed two focused
+   repairs and least privilege needed one. The learner then correctly decoded
+   fresh triplets, demonstrated symbolic mode and ownership changes, repaired
+   group access with `g+r`, and deleted a read-only root-owned file using
+   permissions on the parent directory. Move the basic model to spaced review;
+   numeric modes and account administration remain new material. The follow-up
+   probe found no binary-to-decimal foundation and a misconception that one of
+   `adduser` or `useradd` automatically grants `sudo`. Build numeric modes from
+   three on/off permission positions rather than assuming prior binary fluency,
+   and explicitly separate account creation from privilege assignment. The
+   `4`, `2`, `1` weights were introduced at session end, but the first
+   conversion check was not attempted.
 6. Program versus process versus daemon/service; the roles of `systemd` and
    `systemctl`.
 7. System inspection: OS, memory, disk, processes, addresses, sockets, and logs.
@@ -145,6 +164,6 @@ These were identified during the initial probe:
 
 Phase 1 has passed. During Phase 2, use short operational retrieval of item 9
 and the `~/` distinction from item 1. Re-test items 10 and 11 later in an
-unfamiliar troubleshooting scenario. At the next session, use one short
-retrieval question, then resume the unanswered Phase 2 `ls -l` permission
-scenario before planning or teaching the new topic.
+unfamiliar troubleshooting scenario. The first Phase 2 permissions lesson is
+complete. Next probe numeric modes and account/group administration before
+planning a restricted-service-account lab.

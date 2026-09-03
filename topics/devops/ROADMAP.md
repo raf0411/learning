@@ -2,7 +2,7 @@
 
 Updated: 2026-09-03
 Target window: 14–16 weeks
-Current phase: Phase 2 probe
+Current phase: Phase 2 numeric modes and service accounts — lesson started
 
 Current checkpoint: the guided file-management work and the unprompted transfer
 check are complete. From `/home/raf_0411`, without using `cd`, the learner
@@ -57,8 +57,18 @@ scenario. They then constructed, repaired, ran, verified, and explained a
 diagnostics separately. A repeated run produced a stable two-line match report
 and a diagnostic report that grew from one line to two. Pipeline routing and
 the `~/` boundary needed focused repair, so both remain queued for spaced
-review rather than blocking progression. Phase 2 now begins with a probe of
-identity, ownership, permissions, `sudo`, and least privilege.
+review rather than blocking progression. The opening Phase 2 probe is now
+complete. The learner understands login identity, the broad purpose and risk of
+`sudo`, and least privilege, but does not yet understand permission-triplet
+selection, file-versus-directory `rwx`, or the distinct roles of `chmod`,
+`chown`, and `chgrp`. The learner then completed the planned lesson and live
+access lab: exclusive class selection, file-versus-directory `rwx`, symbolic
+mode changes, ownership changes, command-scoped `sudo`, and least-privilege
+repair were all demonstrated. The next probe found numeric/binary permission
+encoding and account-management commands to be new, while the learner already
+has the right least-privilege intuition for service identities. The plan was
+approved and numeric modes were introduced as weighted `rwx` positions; the
+first calculation check remains unanswered at session end.
 
 The dates are pacing estimates, not permission to advance. Each phase has an
 exit check; demonstrated skill matters more than merely completing a week.
@@ -124,11 +134,69 @@ scenario, without command-by-command instructions, and explain every command.
 
 ## Phase 2 — Core Ubuntu administration (Weeks 2–3)
 
-Current work: probe the learner's boundary across identities, ownership,
-permission bits, file-versus-directory semantics, `sudo`, and least privilege.
-The opening `ls -l` permission-string scenario was assigned but not attempted
-before the session ended. Resume it after a short retrieval check, then build
-the dependency map and lesson plan from the completed probe before teaching.
+Current work: the first users-and-permissions lesson and practical access lab
+are complete. The learner now decodes the type and three permission triplets,
+selects exactly one of owner/group/other, distinguishes regular-file and
+directory `rwx`, and uses symbolic `chmod`, `chgrp`, `chown`, and command-scoped
+`sudo`. A live group-access failure was repaired with `g+r`, and a read-only,
+root-owned file was deleted by its directory owner, confirming that deletion
+changes the parent directory entry. Next, probe numeric modes and account/group
+administration before planning the restricted-service-account lab.
+
+Completed first users-and-permissions lesson dependency map:
+
+```mermaid
+flowchart TD
+    A[Command runs with user and group IDs] --> C[Select one permission class]
+    B[Object records type, owner, group and mode] --> C
+    C --> D[Interpret the selected rwx triplet]
+    B --> D
+    D --> E[Regular-file access]
+    F[Directory maps names to objects] --> G[Directory access and deletion]
+    D --> G
+    D --> H[chmod, chown and chgrp]
+    A --> I[sudo changes one command's identity]
+    E --> J[Least-privilege access lab]
+    G --> J
+    H --> J
+    I --> J
+```
+
+Teaching order: inspect identity and metadata; decode one `ls -l` entry; derive
+exclusive owner/group/other selection; compare regular-file and directory
+`rwx`; derive deletion from the parent directory; change access symbolically;
+then repair a deliberately broken access scenario using least privilege.
+
+Status: completed on 2026-09-03. Exclusive class selection and least privilege
+required focused repair, then transferred successfully to live file-access and
+deletion experiments.
+
+Next numeric-modes and service-account dependency map:
+
+```mermaid
+flowchart TD
+    A[rwx are three on-off positions] --> B[Give r, w, x weights 4, 2, 1]
+    B --> C[One digit encodes one triplet]
+    C --> D[Three digits set owner, group, other]
+    E[Processes use user and group IDs] --> F[Account and group records]
+    F --> G[Primary and supplementary groups]
+    H[Software needs identity, not human login] --> I[Restricted service account]
+    F --> I
+    G --> I
+    D --> J[Config-read and log-write lab]
+    I --> J
+```
+
+Planned teaching order: derive numeric notation from familiar permission
+triplets without assuming binary knowledge; distinguish account identity from
+home, password, shell, and privilege; compare Ubuntu's `adduser` with
+`useradd`; create a no-login mock service account and dedicated access group;
+then verify permitted and denied configuration/log operations. Inspect all
+names and paths for collisions before creating anything, and keep cleanup
+explicit and narrowly scoped.
+
+Status: started on 2026-09-03. Resume at the first weighted-triplet calculation
+without repeating the completed probe or plan checkpoint.
 
 Learn:
 
