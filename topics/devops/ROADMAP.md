@@ -1,8 +1,8 @@
 # ROADMAP
 
-Updated: 2026-09-03
+Updated: 2026-09-04
 Target window: 14–16 weeks
-Current phase: Phase 2 numeric modes and service accounts — lesson started
+Current phase: Phase 2 service-account lab complete — execution check pending
 
 Current checkpoint: the guided file-management work and the unprompted transfer
 check are complete. From `/home/raf_0411`, without using `cd`, the learner
@@ -70,6 +70,18 @@ has the right least-privilege intuition for service identities. The plan was
 approved and numeric modes were introduced as weighted `rwx` positions; the
 first calculation check remains unanswered at session end.
 
+On 2026-09-04, the learner derived one- and three-digit numeric modes, applied
+`640`, separated account creation from privilege assignment, and distinguished
+primary from supplementary groups. On Ubuntu 24.04.4 they collision-checked and
+created a restricted `reportsvc` account, then built mode-`750` config/log
+directories with a read-only-for-service `640` configuration and writable
+existing `660` log. Live tests proved allowed configuration reads and log
+writes plus denied configuration writes, log creation, and log deletion. A
+disposable mode-`770` directory also proved that a read-only file can be deleted
+through parent-directory `w+x`. Directory deletion still needs retrieval after
+repeated prediction errors, and a pasted `tee` command was again split by a
+real newline. The final `sudo -u` versus `sudo -iu` check remains unfinished.
+
 The dates are pacing estimates, not permission to advance. Each phase has an
 exit check; demonstrated skill matters more than merely completing a week.
 
@@ -134,14 +146,11 @@ scenario, without command-by-command instructions, and explain every command.
 
 ## Phase 2 — Core Ubuntu administration (Weeks 2–3)
 
-Current work: the first users-and-permissions lesson and practical access lab
-are complete. The learner now decodes the type and three permission triplets,
-selects exactly one of owner/group/other, distinguishes regular-file and
-directory `rwx`, and uses symbolic `chmod`, `chgrp`, `chown`, and command-scoped
-`sudo`. A live group-access failure was repaired with `g+r`, and a read-only,
-root-owned file was deleted by its directory owner, confirming that deletion
-changes the parent directory entry. Next, probe numeric modes and account/group
-administration before planning the restricted-service-account lab.
+Current work: numeric modes and the collision-checked restricted service-account
+lab are complete. Before advancing, retrieve parent-directory deletion and run
+the prepared direct-command-versus-login-shell comparison for `reportsvc`.
+Then probe the formal program/process/service/`systemd` strand and plan from the
+learner's demonstrated boundary.
 
 Completed first users-and-permissions lesson dependency map:
 
@@ -195,8 +204,11 @@ then verify permitted and denied configuration/log operations. Inspect all
 names and paths for collisions before creating anything, and keep cleanup
 explicit and narrowly scoped.
 
-Status: started on 2026-09-03. Resume at the first weighted-triplet calculation
-without repeating the completed probe or plan checkpoint.
+Status: completed on 2026-09-04 except for the final `sudo -u` versus
+login-style `sudo -iu` execution check and explanation. Numeric notation,
+account creation, group concepts, no-login service identity, collision checks,
+and configuration/log access were demonstrated live. Keep parent-directory
+deletion and command-boundary handling in active review.
 
 Learn:
 

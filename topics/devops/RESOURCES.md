@@ -41,8 +41,13 @@ this file remains a short, useful reference rather than a link dump.
 
 - [Ubuntu Server: user management](https://ubuntu.com/server/docs/how-to/security/user-management/)
 - [Ubuntu 24.04 `adduser(8)`](https://manpages.ubuntu.com/manpages/noble/man8/adduser.8.html)
+- [Ubuntu 24.04 `addgroup(8)`](https://manpages.ubuntu.com/manpages/noble/man8/addgroup.8.html)
 - [Ubuntu 24.04 `useradd(8)`](https://manpages.ubuntu.com/manpages/noble/man8/useradd.8.html)
 - [Ubuntu 24.04 `usermod(8)`](https://manpages.ubuntu.com/manpages/noble/man8/usermod.8.html)
 - [Ubuntu 24.04 `passwd(1)`](https://manpages.ubuntu.com/manpages/noble/man1/passwd.1.html)
+- [Ubuntu 24.04 `sudo(8)`](https://manpages.ubuntu.com/manpages/noble/man8/sudo.8.html)
 - [Ubuntu 24.04 `nologin(8)`](https://manpages.ubuntu.com/manpages/noble/man8/nologin.8.html)
+- [Ubuntu 24.04 `getent(1)`](https://manpages.ubuntu.com/manpages/noble/man1/getent.1.html)
+- [Ubuntu 24.04 `systemd.exec(5)`](https://manpages.ubuntu.com/manpages/noble/man5/systemd.exec.5.html)
+- [Ubuntu 24.04 `systemd.service(5)`](https://manpages.ubuntu.com/manpages/noble/man5/systemd.service.5.html)
 - [Debian Policy: system users and groups](https://www.debian.org/doc/debian-policy/ch-opersys.html#users-and-groups)

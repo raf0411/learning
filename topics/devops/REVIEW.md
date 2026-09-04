@@ -1,6 +1,6 @@
 # REVIEW
 
-Updated: 2026-09-03
+Updated: 2026-09-04
 
 ## Active review queue
 
@@ -69,9 +69,22 @@ These were identified during the initial probe:
    three on/off permission positions rather than assuming prior binary fluency,
    and explicitly separate account creation from privilege assignment. The
    `4`, `2`, `1` weights were introduced at session end, but the first
-   conversion check was not attempted.
+   conversion check was not attempted. On 2026-09-04, numeric modes were
+   derived and applied successfully. The learner repeatedly omitted parent
+   directory `w` when predicting deletion, sometimes treating `x` alone or the
+   file's own permissions as decisive. A live mode-`770` directory/mode-`440`
+   file experiment demonstrated failed append but successful deletion. In the
+   final mode-`750` log directory, write/create/delete behavior matched the
+   intended least-privilege design, but deletion needs immediate retrieval next
+   session before moving it back to spaced review.
 6. Program versus process versus daemon/service; the roles of `systemd` and
-   `systemctl`.
+   `systemctl`. On 2026-09-04, a brief repair separated `systemctl` as the
+   requester, `systemd` as manager, a `.service` unit as management
+   configuration, and the named program as the process started under a service
+   identity. The learner correctly concluded that both Bash-shell and
+   `nologin` accounts can run managed services. The `sudo -u` versus `sudo -iu`
+   syntax check was introduced but not completed; finish it before the formal
+   process/service probe.
 7. System inspection: OS, memory, disk, processes, addresses, sockets, and logs.
 8. Localhost, private addresses, ports, gateways, and layered connectivity
    troubleshooting.
@@ -118,7 +131,11 @@ These were identified during the initial probe:
    stable match lines and two accumulated diagnostics. The learner initially
    forgot that a normal pipe connects the left command's stdout to the right
    command's stdin, but after a stream diagram correctly distinguished matches
-   entering `head` from stderr diagnostics bypassing it. Move to spaced review.
+   entering `head` from stderr diagnostics bypassing it. On 2026-09-04, a
+   pasted `tee` command ended after `/var/log/reportsvc/`; `tee` targeted a
+   directory and Bash treated `events.log` as a new command. The immediate
+   one-line retry succeeded. Keep real-newline versus visual-wrap handling in
+   active review.
 10. Command-specific option semantics: on 2026-08-28, transferred the syntax of
     `head -n 5` to `grep` by running `grep -n 5 bin/bash /etc/passwd`. Correctly
     repaired it to `grep -n bin/bash /etc/passwd` after learning that `grep -n`
@@ -162,8 +179,8 @@ These were identified during the initial probe:
     immediately. Move these concepts to spaced operational review after the
     Phase 1 exit gate.
 
-Phase 1 has passed. During Phase 2, use short operational retrieval of item 9
-and the `~/` distinction from item 1. Re-test items 10 and 11 later in an
-unfamiliar troubleshooting scenario. The first Phase 2 permissions lesson is
-complete. Next probe numeric modes and account/group administration before
-planning a restricted-service-account lab.
+Phase 1 has passed. Begin the next session with parent-directory deletion and
+real-newline retrieval, then finish the `sudo -u`/`sudo -iu` service-account
+check. Re-test items 10 and 11 later in an unfamiliar troubleshooting scenario.
+After the service-account explanation is complete, probe the formal
+program/process/service/`systemd` strand.

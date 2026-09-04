@@ -1,6 +1,6 @@
 # STATE
 
-Updated: 2026-09-03
+Updated: 2026-09-04
 
 ## Current stage
 
@@ -11,11 +11,13 @@ explained a `grep`/`head` pipeline with stdout overwritten to one report and
 stderr appended to another. The opening Phase 2 users-and-permissions lesson is
 now complete, including a live least-privilege access repair and a deletion
 experiment separating file permissions from parent-directory permissions.
-The numeric-modes and service-account probe and plan checkpoint are complete.
-Numeric modes were introduced as weighted `rwx` positions; the first
-calculation check was not attempted before session end.
+Numeric modes and the restricted service-account lab are now complete. The
+learner created a no-login Ubuntu system account and verified separate
+configuration-read and log-write permissions plus denied create/delete paths.
+A final direct-command-versus-login-shell check remains before moving into the
+formal program/process/service/`systemd` strand.
 
-Last completed session: `sessions/2026-09-03.md`
+Last completed session: `sessions/2026-09-04.md`
 
 ## Environment and capacity
 
@@ -23,8 +25,11 @@ Last completed session: `sessions/2026-09-03.md`
 - Can study about 5 hours daily.
 - Prefers practical, job-oriented learning.
 - Ubuntu currently retains `~/permissions-lab/mode-practice.txt` as
-  `raf_0411:raf_0411` mode `664` and `service-access-lab.conf` as `root:sudo`
-  mode `640`; the disposable deletion-test file was removed.
+  `raf_0411:raf_0411` mode `664`, `service-access-lab.conf` as `root:sudo`
+  mode `640`, and the `reportsvc` account plus its `/etc/reportsvc` and
+  `/var/log/reportsvc` lab resources described in the latest session file.
+- macOS retains `~/permissions-lab/mode-practice.txt` as `raffi:staff` mode
+  `640`, created while the Ubuntu server was temporarily unavailable.
 
 ## Demonstrated knowledge
 
@@ -151,28 +156,36 @@ Last completed session: `sessions/2026-09-03.md`
   permission mode and ownership are independent metadata.
 - Repaired group read access with `g+r` and explained why a narrowly authorized
   ordinary service identity is preferable to unrestricted `sudo`.
+- Can derive numeric modes by summing `r=4`, `w=2`, and `x=1` within each
+  owner/group/other triplet, decode a three-digit mode, and apply `chmod 640`.
+- Distinguishes account creation from `sudo` authorization and primary groups
+  from supplementary memberships; understands the safe append role of
+  `usermod -aG`.
+- Created and inspected a collision-checked `reportsvc` system account with no
+  created home and `/usr/sbin/nologin`, then ran specific commands under that
+  identity with `sudo -u reportsvc -- COMMAND`.
+- Built a `root:reportsvc` mode-`640` configuration file and mode-`660` log
+  file under mode-`750` directories. Verified configuration read, configuration
+  write denial, existing-log write, new-log denial, and log-delete denial.
+- Demonstrated in a disposable lab that file content write and directory-entry
+  deletion are independent, and cleaned up the disposable directory.
 
 ## Partial or missing foundations
 
 - Exact nested paths have now been demonstrated in an unprompted transfer check,
   but should still receive later spaced review after earlier mistakes involving
   `~`, a nested backup directory, and a trailing slash on a filename.
-- Numeric permission modes, `umask`, special bits, and ACLs have not yet been
-  taught. The basic symbolic model should receive delayed transfer checks after
-  needing focused repair for exclusive class selection and least privilege.
-- User and group creation/modification commands and restricted service-account
-  design have not yet been demonstrated.
-- The follow-up probe found no binary-to-decimal foundation and no ability to
-  decode `640` or `755`. The learner knows that numeric modes represent access
-  but has not yet demonstrated how the digits derive from `rwx`. Weights
-  `r=4`, `w=2`, and `x=1` have now been introduced.
-- Recognizes `adduser`, `useradd`, `groupadd`, and `passwd` at a broad level but
-  does not know how to add an existing user to an existing group and currently
-  suspects one account-creation command automatically grants `sudo`.
-- Correctly reasons that a software identity need not have human-oriented home
-  or interactive-login features, and would give it narrow group-based file
-  access. Configuration-read and log-write needs still need to be separated.
-- Process, service, `systemd`, and `systemctl` concepts are conflated.
+- Numeric modes are demonstrated; `umask`, special bits, and ACLs remain new.
+  Deletion via parent-directory `w+x` needs active review after repeated misses.
+- Account creation, primary/supplementary groups, safe `usermod -aG` syntax,
+  and restricted service-account design are understood; `usermod -aG` has not
+  yet been executed in a live membership-change lab.
+- Configuration-read and log-write needs were separated and verified live.
+  Direct execution under a no-login account worked, but the comparison between
+  `sudo -u USER -- COMMAND` and `sudo -iu USER` remains unfinished.
+- `systemctl`, `systemd`, a service unit, and the managed process were briefly
+  separated after initial conflation, but the formal process/service strand has
+  not yet been probed or completed.
 - Does not yet know the core commands for resource, OS, network, and log
   inspection.
 - Networking knowledge is early: localhost, private addressing, gateways,
@@ -191,6 +204,10 @@ Last completed session: `sessions/2026-09-03.md`
   the stdout-to-stdin pipe route retaught, and omitted the slash in `~/` once
   when running the repaired command. The final execution and explanation were
   correct after focused repair.
+- A long `tee` command on 2026-09-04 was split by a real newline after a
+  directory path, causing `tee` to target the directory and Bash to treat the
+  filename as a second command. The immediate one-line retry succeeded; keep
+  command-boundary handling in active spaced review.
 - Nano's buffer-versus-disk state and `tar` snapshot/restore are demonstrated.
   The initial description that Nano creates and edits a file "directly" was
   refined to opening a buffer and creating/updating the disk file only on save.
@@ -205,6 +222,6 @@ without hints. Revisit weak concepts through short retrieval questions.
 
 ## Next action
 
-Resume the unanswered calculation of `r-x`, `-wx`, and `---` using weights
-`r=4`, `w=2`, and `x=1`. Then build from one digit to three-digit modes and
-continue the approved, collision-checked restricted-service-account lesson.
+Retrieve file-content versus parent-directory deletion, then finish and explain
+the direct-command-versus-login-shell experiment with `reportsvc`. After that,
+probe and plan the formal program/process/service/`systemd` lesson.
