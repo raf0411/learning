@@ -12,10 +12,11 @@ stderr appended to another. The opening Phase 2 users-and-permissions lesson is
 now complete, including a live least-privilege access repair and a deletion
 experiment separating file permissions from parent-directory permissions.
 Numeric modes and the restricted service-account lab are now complete. The
-learner created a no-login Ubuntu system account and verified separate
-configuration-read and log-write permissions plus denied create/delete paths.
-A final direct-command-versus-login-shell check remains before moving into the
-formal program/process/service/`systemd` strand.
+learner created a no-login Ubuntu system account, verified separate
+configuration-read and log-write permissions plus denied create/delete paths,
+and completed the direct-command-versus-login-shell experiment. A short
+home-versus-shell retrieval remains before the formal
+program/process/service/`systemd` probe.
 
 Last completed session: `sessions/2026-09-04.md`
 
@@ -169,6 +170,15 @@ Last completed session: `sessions/2026-09-04.md`
   write denial, existing-log write, new-log denial, and log-delete denial.
 - Demonstrated in a disposable lab that file content write and directory-entry
   deletion are independent, and cleaned up the disposable directory.
+- Retrieved that file `w` governs append while parent-directory `w+x` governs
+  deletion, correctly allowing deletion of a read-only file in a writable and
+  searchable directory.
+- Ran `/usr/bin/id` directly as `reportsvc` and observed UID `113`, GID `115`,
+  and only the same-named primary group. A login-style `sudo -iu reportsvc`
+  instead warned that it could not enter `/nonexistent` and was refused by the
+  configured `/usr/sbin/nologin` shell.
+- Correctly distinguished harmless terminal visual wrapping from a real
+  newline on a fresh one-command pathname example after one correction.
 
 ## Partial or missing foundations
 
@@ -181,8 +191,9 @@ Last completed session: `sessions/2026-09-04.md`
   and restricted service-account design are understood; `usermod -aG` has not
   yet been executed in a live membership-change lab.
 - Configuration-read and log-write needs were separated and verified live.
-  Direct execution under a no-login account worked, but the comparison between
-  `sudo -u USER -- COMMAND` and `sudo -iu USER` remains unfinished.
+  Direct execution versus login-style execution under the no-login account was
+  also verified. The learner initially did not know the role of the nonexistent
+  home; retrieve its warning role separately from `nologin` refusal next time.
 - `systemctl`, `systemd`, a service unit, and the managed process were briefly
   separated after initial conflation, but the formal process/service strand has
   not yet been probed or completed.
@@ -222,6 +233,6 @@ without hints. Revisit weak concepts through short retrieval questions.
 
 ## Next action
 
-Retrieve file-content versus parent-directory deletion, then finish and explain
-the direct-command-versus-login-shell experiment with `reportsvc`. After that,
-probe and plan the formal program/process/service/`systemd` lesson.
+Retrieve the missing-home warning versus `nologin` refusal with one
+counterfactual, then probe and plan the formal
+program/process/service/`systemd` lesson.

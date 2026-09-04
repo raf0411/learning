@@ -75,15 +75,19 @@ These were identified during the initial probe:
    file's own permissions as decisive. A live mode-`770` directory/mode-`440`
    file experiment demonstrated failed append but successful deletion. In the
    final mode-`750` log directory, write/create/delete behavior matched the
-   intended least-privilege design, but deletion needs immediate retrieval next
-   session before moving it back to spaced review.
+   intended least-privilege design. Later on 2026-09-04, the learner correctly
+   retrieved that file `w` governs append while parent-directory `w+x` governs
+   deletion. Move deletion back to spaced operational review.
 6. Program versus process versus daemon/service; the roles of `systemd` and
    `systemctl`. On 2026-09-04, a brief repair separated `systemctl` as the
    requester, `systemd` as manager, a `.service` unit as management
    configuration, and the named program as the process started under a service
    identity. The learner correctly concluded that both Bash-shell and
-   `nologin` accounts can run managed services. The `sudo -u` versus `sudo -iu`
-   syntax check was introduced but not completed; finish it before the formal
+   `nologin` accounts can run managed services. Later on 2026-09-04, direct
+   `/usr/bin/id` execution as `reportsvc` succeeded, while `sudo -iu reportsvc`
+   warned about `/nonexistent` and was then refused by `/usr/sbin/nologin`. The
+   learner predicted the success/refusal but initially did not know the missing
+   home's role. Retrieve the separate causes once, then begin the formal
    process/service probe.
 7. System inspection: OS, memory, disk, processes, addresses, sockets, and logs.
 8. Localhost, private addresses, ports, gateways, and layered connectivity
@@ -134,8 +138,10 @@ These were identified during the initial probe:
    entering `head` from stderr diagnostics bypassing it. On 2026-09-04, a
    pasted `tee` command ended after `/var/log/reportsvc/`; `tee` targeted a
    directory and Bash treated `events.log` as a new command. The immediate
-   one-line retry succeeded. Keep real-newline versus visual-wrap handling in
-   active review.
+   one-line retry succeeded. Later that day, the learner initially thought a
+   visual wrap made two commands, then correctly identified one intact command
+   and pathname on a fresh example after focused correction. Keep this in
+   spaced review rather than blocking progression.
 10. Command-specific option semantics: on 2026-08-28, transferred the syntax of
     `head -n 5` to `grep` by running `grep -n 5 bin/bash /etc/passwd`. Correctly
     repaired it to `grep -n bin/bash /etc/passwd` after learning that `grep -n`
@@ -179,8 +185,7 @@ These were identified during the initial probe:
     immediately. Move these concepts to spaced operational review after the
     Phase 1 exit gate.
 
-Phase 1 has passed. Begin the next session with parent-directory deletion and
-real-newline retrieval, then finish the `sudo -u`/`sudo -iu` service-account
-check. Re-test items 10 and 11 later in an unfamiliar troubleshooting scenario.
-After the service-account explanation is complete, probe the formal
-program/process/service/`systemd` strand.
+Phase 1 has passed. Begin the next session with one counterfactual separating
+the missing-home warning from `nologin` refusal, then probe the formal
+program/process/service/`systemd` strand. Re-test items 10 and 11 later in an
+unfamiliar troubleshooting scenario.

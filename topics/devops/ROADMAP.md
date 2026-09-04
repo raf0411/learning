@@ -2,7 +2,7 @@
 
 Updated: 2026-09-04
 Target window: 14–16 weeks
-Current phase: Phase 2 service-account lab complete — execution check pending
+Current phase: Phase 2 service-account execution check complete — process probe next
 
 Current checkpoint: the guided file-management work and the unprompted transfer
 check are complete. From `/home/raf_0411`, without using `cd`, the learner
@@ -78,9 +78,12 @@ directories with a read-only-for-service `640` configuration and writable
 existing `660` log. Live tests proved allowed configuration reads and log
 writes plus denied configuration writes, log creation, and log deletion. A
 disposable mode-`770` directory also proved that a read-only file can be deleted
-through parent-directory `w+x`. Directory deletion still needs retrieval after
-repeated prediction errors, and a pasted `tee` command was again split by a
-real newline. The final `sudo -u` versus `sudo -iu` check remains unfinished.
+through parent-directory `w+x`. A later retrieval correctly separated file
+append from parent-directory deletion. After one correction, the learner also
+distinguished visual wrapping from a real newline on a fresh example. Finally,
+direct `id` execution as `reportsvc` succeeded, while login-style execution
+produced a missing-home warning followed by `nologin` refusal. Retrieve those
+two failure causes once, then begin the formal process/service probe.
 
 The dates are pacing estimates, not permission to advance. Each phase has an
 exit check; demonstrated skill matters more than merely completing a week.
@@ -146,11 +149,12 @@ scenario, without command-by-command instructions, and explain every command.
 
 ## Phase 2 — Core Ubuntu administration (Weeks 2–3)
 
-Current work: numeric modes and the collision-checked restricted service-account
-lab are complete. Before advancing, retrieve parent-directory deletion and run
-the prepared direct-command-versus-login-shell comparison for `reportsvc`.
-Then probe the formal program/process/service/`systemd` strand and plan from the
-learner's demonstrated boundary.
+Current work: numeric modes, the collision-checked restricted service-account
+lab, parent-directory deletion retrieval, and the direct-command-versus-login-
+shell comparison are complete. Retrieve the distinct home-warning and
+`nologin`-refusal causes once, then probe the formal
+program/process/service/`systemd` strand and plan from the learner's
+demonstrated boundary.
 
 Completed first users-and-permissions lesson dependency map:
 
@@ -204,11 +208,11 @@ then verify permitted and denied configuration/log operations. Inspect all
 names and paths for collisions before creating anything, and keep cleanup
 explicit and narrowly scoped.
 
-Status: completed on 2026-09-04 except for the final `sudo -u` versus
-login-style `sudo -iu` execution check and explanation. Numeric notation,
-account creation, group concepts, no-login service identity, collision checks,
-and configuration/log access were demonstrated live. Keep parent-directory
-deletion and command-boundary handling in active review.
+Status: completed on 2026-09-04, including the final `sudo -u` versus
+login-style `sudo -iu` execution check. Numeric notation, account creation,
+group concepts, no-login service identity, collision checks, configuration/log
+access, and distinct direct/login behavior were demonstrated live. Keep the
+home-versus-shell explanation and command-boundary handling in spaced review.
 
 Learn:
 
