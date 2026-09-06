@@ -15,10 +15,12 @@ Numeric modes and the restricted service-account lab are now complete. The
 learner created a no-login Ubuntu system account, verified separate
 configuration-read and log-write permissions plus denied create/delete paths,
 and completed the direct-command-versus-login-shell experiment. On 2026-09-06,
-the formal program/process/service/`systemd` probe began. The learner reliably
-separated a stored program from a running process and identified a `.service`
-file as configuration, but the persistent manager role of `systemd` remains a
-substantial misconception. The probe is still in progress.
+the formal program/process/service/`systemd` probe and planned conceptual lesson
+were completed. After focused repair, the learner separated passive program and
+unit files, live processes, daemon processes, the managed service unit,
+temporary control clients, and the persistent `systemd` manager. A live SSH
+inspection and the start/inspect portion of a disposable transient-service lab
+confirmed the model. Explicit stop and post-stop cleanup verification remain.
 
 Last completed session: `sessions/2026-09-06.md`
 
@@ -31,6 +33,10 @@ Last completed session: `sessions/2026-09-06.md`
   `raf_0411:raf_0411` mode `664`, `service-access-lab.conf` as `root:sudo`
   mode `640`, and the `reportsvc` account plus its `/etc/reportsvc` and
   `/var/log/reportsvc` lab resources described in the latest session file.
+- Ubuntu may temporarily retain `tutor-lifecycle-20260906.service` with
+  `/usr/bin/sleep 1800` as `raf_0411` and observed MainPID `236595`. It was
+  created with `--collect`, so it should end and unload automatically; verify
+  absence before reusing the name or explicitly stopping anything.
 - macOS retains `~/permissions-lab/mode-practice.txt` as `raffi:staff` mode
   `640`, created while the Ubuntu server was temporarily unavailable.
 
@@ -185,6 +191,25 @@ Last completed session: `sessions/2026-09-06.md`
   existing when it is not running.
 - Distinguished a `.service` unit file as configuration from the executable
   program named by its `ExecStart` setting.
+- Retrieved that the home field controls the missing-home warning while the
+  configured `/usr/sbin/nologin` shell independently refuses login.
+- Explains static files as passive and processes as live runtime actors, and
+  classifies a daemon as a background service process rather than a file.
+- Derives the need for a persistent manager that outlives an administrator's
+  temporary command. Distinguishes `systemd` as that manager from `systemctl`
+  and `systemd-run` as temporary clients.
+- Distinguishes a passive unit file, systemd's managed service unit, and its
+  associated daemon process. Understands that a service may have one, several,
+  or no continuing processes, including `Type=oneshot` with
+  `RemainAfterExit=yes`.
+- Verified on Ubuntu that PID 1 is `systemd`; `ssh.service` was
+  `active/running` with MainPID `7939`; and that PID was a root-owned `sshd`
+  daemon with PPID 1.
+- Inspected `/usr/lib/systemd/system/ssh.service` and identified `ExecStart=` as
+  the launch instruction and `Restart=on-failure` as a manager-applied policy.
+- Collision-checked, created, and inspected a transient service running
+  `/usr/bin/sleep 1800`. Correctly predicted an active/running unit, nonzero
+  MainPID, ordinary-account process identity, and temporary-client exit.
 
 ## Partial or missing foundations
 
@@ -198,17 +223,15 @@ Last completed session: `sessions/2026-09-06.md`
   yet been executed in a live membership-change lab.
 - Configuration-read and log-write needs were separated and verified live.
   Direct execution versus login-style execution under the no-login account was
-  also verified. On 2026-09-06, the learner still expected the missing-home
-  warning when the account instead had a real home but retained `nologin`.
-  Re-test that the home field controls the warning while the shell field causes
-  the refusal.
-- The formal process/service probe is in progress. The learner described
-  `systemctl` as directly launching the service and `systemd` as an event
-  recorder/logger. After correctly identifying a `.service` file as static
-  configuration, they later selected that file as the persistent component
-  capable of acting after boot. Resume from this contradiction; the roles of
-  `systemd`, `systemctl`, the unit, the program, and the process are not yet
-  secure.
+  also verified. The home-field-versus-`nologin` distinction was retrieved
+  correctly on 2026-09-06; move it to spaced review.
+- The process/service lesson repaired repeated confusion among `systemd`,
+  `systemctl`, unit files, service units, programs, and daemon processes. The
+  learner ultimately defined and demonstrated each role correctly, including a
+  live transient-unit inspection. Unit file versus service unit should receive
+  spaced retrieval because they were merged once after initial repair. PID
+  versus PPID also needs a later operational check after one mix-up. The
+  transient service's explicit stop and cleanup verification remain unfinished.
 - Does not yet know the core commands for resource, OS, network, and log
   inspection.
 - Networking knowledge is early: localhost, private addressing, gateways,
@@ -241,11 +264,16 @@ Last completed session: `sessions/2026-09-06.md`
 ## Teaching approach
 
 Move one concept at a time. Require predictions and terminal work, then test
-without hints. Revisit weak concepts through short retrieval questions.
+without hints. Revisit weak concepts through short retrieval questions. For
+multiple-choice checks, vary the correct option's position and avoid repeated
+answer-letter patterns that could reveal the answer independently of the
+concept being tested.
 
 ## Next action
 
-Start with a brief home-field-versus-shell-field retrieval, then resume the
-unfinished probe by resolving how static unit configuration differs from the
-running `systemd` manager. Complete the program/process/service/`systemd`
-probe before researching, planning, or teaching the lesson.
+Start with a short unhinted mapping of unit file, service unit, daemon,
+`systemd`, and `systemctl`. Then verify that
+`tutor-lifecycle-20260906.service` and observed PID `236595` are absent. If the
+unit remains, stop only that previously collision-checked lab unit and confirm
+collection. Finish the lifecycle check, then continue to process signals, jobs,
+and resource inspection.

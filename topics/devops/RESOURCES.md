@@ -51,3 +51,14 @@ this file remains a short, useful reference rather than a link dump.
 - [Ubuntu 24.04 `systemd.exec(5)`](https://manpages.ubuntu.com/manpages/noble/man5/systemd.exec.5.html)
 - [Ubuntu 24.04 `systemd.service(5)`](https://manpages.ubuntu.com/manpages/noble/man5/systemd.service.5.html)
 - [Debian Policy: system users and groups](https://www.debian.org/doc/debian-policy/ch-opersys.html#users-and-groups)
+
+## Programs, processes, and systemd
+
+- [Linux `execve(2)`](https://man7.org/linux/man-pages/man2/execve.2.html)
+- [Linux `/proc/PID` (`proc_pid(5)`)](https://man7.org/linux/man-pages/man5/proc_pid.5.html)
+- [Ubuntu 24.04 `daemon(7)`](https://manpages.ubuntu.com/manpages/noble/man7/daemon.7.html)
+- [Ubuntu 24.04 `systemd(1)`](https://manpages.ubuntu.com/manpages/noble/man1/systemd.1.html)
+- [Ubuntu 24.04 `systemctl(1)`](https://manpages.ubuntu.com/manpages/noble/man1/systemctl.1.html)
+- [Ubuntu 24.04 `systemd.unit(5)`](https://manpages.ubuntu.com/manpages/noble/man5/systemd.unit.5.html)
+- [Ubuntu 24.04 `systemd.service(5)`](https://manpages.ubuntu.com/manpages/noble/man5/systemd.service.5.html)
+- [Upstream systemd architecture](https://github.com/systemd/systemd/blob/main/docs/ARCHITECTURE.md)

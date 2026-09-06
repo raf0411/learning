@@ -2,7 +2,7 @@
 
 Updated: 2026-09-06
 Target window: 14–16 weeks
-Current phase: Phase 2 process/service/`systemd` probe in progress
+Current phase: Phase 2 process/service/`systemd` lesson in progress
 
 Current checkpoint: the guided file-management work and the unprompted transfer
 check are complete. From `/home/raf_0411`, without using `cd`, the learner
@@ -87,11 +87,14 @@ two failure causes once, then begin the formal process/service probe.
 
 On 2026-09-06, the learner correctly separated a stored program from a running
 process and distinguished a `.service` unit file from the executable named by
-`ExecStart`. The broader control model is not yet secure: they described
-`systemctl` as the direct launcher, mistook `systemd` for an event logger, and
-then treated a static `.service` file as the persistent actor after boot. The
-probe stopped while this contradiction was being surfaced. Resume and finish
-the probe before constructing the lesson dependency map.
+`ExecStart`. A later retrieval correctly separated the account home field from
+the login-shell field. The process/service probe is now complete: the learner
+recognized that a daemon is some kind of process, but repeatedly assigned the
+persistent management role to `systemctl`, then said `systemd` becomes the
+server process, and finally swapped the program, daemon, service, unit-file,
+and control-client categories in a concrete SSH example. Teach the persistent
+manager relationship and daemon/service boundary from the established
+file-versus-process foundation.
 
 The dates are pacing estimates, not permission to advance. Each phase has an
 exit check; demonstrated skill matters more than merely completing a week.
@@ -160,10 +163,49 @@ scenario, without command-by-command instructions, and explain every command.
 Current work: numeric modes, the collision-checked restricted service-account
 lab, parent-directory deletion retrieval, and the direct-command-versus-login-
 shell comparison are complete. The formal program/process/service/`systemd`
-probe is in progress. Begin next time with a brief home-versus-shell retrieval,
-then resolve the static-unit-versus-running-manager distinction and map the
-remaining daemon/service boundary. Plan only after the relevant strands are
-bracketed.
+probe is also complete. The learner's floor is the program/process distinction,
+recognition that a unit file is configuration, and a rough association of a
+daemon with a process. The ceiling is the relationship among a persistent
+manager, its short-lived control client, a managed service unit, and its
+processes. The lesson repaired that model conceptually and through live
+inspection. The start/inspect portion of a disposable transient-service lab is
+complete; explicit stop and post-stop collection verification remain.
+
+Planned process/service/`systemd` dependency map:
+
+```mermaid
+flowchart TD
+    A[Static files are passive] --> C[Program differs from process]
+    B[A process is a live execution context] --> C
+    C --> D[Daemon: background service process]
+    C --> E[Need persistent lifecycle management]
+    E --> F[systemd: persistent manager]
+    A --> G[Unit file: passive instructions]
+    F --> H[Service unit: managed object]
+    G --> H
+    F --> I[systemctl: control client]
+    H --> J[Distinguish service from daemon]
+    I --> K[Trace and operate service lifecycle]
+    J --> K
+```
+
+Teaching order: briefly re-anchor passive files and live processes; derive the
+need for a manager that outlives an administrator's command; separate
+`systemd` from `systemctl`; connect passive unit configuration to systemd's
+managed service unit; distinguish a daemon process from the broader service
+abstraction; then trace and inspect an actual unit through start, status, stop,
+and relevant process state. Do not equate every service with a continuously
+running daemon: include a later `Type=oneshot` counterexample after the basic
+model is secure.
+
+Status: the passive-file/process foundation, daemon definition, persistent
+manager need, `systemd`/`systemctl` separation, unit-file/service-unit
+distinction, and `Type=oneshot` counterexample were demonstrated. Live Ubuntu
+inspection connected PID 1, `ssh.service`, its unit file, and its `sshd`
+MainPID. A collision-checked transient `sleep` service was created and inspected
+successfully. At the next session, verify that its 30-minute process and
+`--collect` behavior removed it; if not, stop only that exact lab unit. Then
+complete the lifecycle transfer check and continue to signals and jobs.
 
 Completed first users-and-permissions lesson dependency map:
 
