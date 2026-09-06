@@ -1,8 +1,8 @@
 # ROADMAP
 
-Updated: 2026-09-04
+Updated: 2026-09-06
 Target window: 14–16 weeks
-Current phase: Phase 2 service-account execution check complete — process probe next
+Current phase: Phase 2 process/service/`systemd` probe in progress
 
 Current checkpoint: the guided file-management work and the unprompted transfer
 check are complete. From `/home/raf_0411`, without using `cd`, the learner
@@ -85,6 +85,14 @@ direct `id` execution as `reportsvc` succeeded, while login-style execution
 produced a missing-home warning followed by `nologin` refusal. Retrieve those
 two failure causes once, then begin the formal process/service probe.
 
+On 2026-09-06, the learner correctly separated a stored program from a running
+process and distinguished a `.service` unit file from the executable named by
+`ExecStart`. The broader control model is not yet secure: they described
+`systemctl` as the direct launcher, mistook `systemd` for an event logger, and
+then treated a static `.service` file as the persistent actor after boot. The
+probe stopped while this contradiction was being surfaced. Resume and finish
+the probe before constructing the lesson dependency map.
+
 The dates are pacing estimates, not permission to advance. Each phase has an
 exit check; demonstrated skill matters more than merely completing a week.
 
@@ -151,10 +159,11 @@ scenario, without command-by-command instructions, and explain every command.
 
 Current work: numeric modes, the collision-checked restricted service-account
 lab, parent-directory deletion retrieval, and the direct-command-versus-login-
-shell comparison are complete. Retrieve the distinct home-warning and
-`nologin`-refusal causes once, then probe the formal
-program/process/service/`systemd` strand and plan from the learner's
-demonstrated boundary.
+shell comparison are complete. The formal program/process/service/`systemd`
+probe is in progress. Begin next time with a brief home-versus-shell retrieval,
+then resolve the static-unit-versus-running-manager distinction and map the
+remaining daemon/service boundary. Plan only after the relevant strands are
+bracketed.
 
 Completed first users-and-permissions lesson dependency map:
 

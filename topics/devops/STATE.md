@@ -1,6 +1,6 @@
 # STATE
 
-Updated: 2026-09-04
+Updated: 2026-09-06
 
 ## Current stage
 
@@ -14,11 +14,13 @@ experiment separating file permissions from parent-directory permissions.
 Numeric modes and the restricted service-account lab are now complete. The
 learner created a no-login Ubuntu system account, verified separate
 configuration-read and log-write permissions plus denied create/delete paths,
-and completed the direct-command-versus-login-shell experiment. A short
-home-versus-shell retrieval remains before the formal
-program/process/service/`systemd` probe.
+and completed the direct-command-versus-login-shell experiment. On 2026-09-06,
+the formal program/process/service/`systemd` probe began. The learner reliably
+separated a stored program from a running process and identified a `.service`
+file as configuration, but the persistent manager role of `systemd` remains a
+substantial misconception. The probe is still in progress.
 
-Last completed session: `sessions/2026-09-04.md`
+Last completed session: `sessions/2026-09-06.md`
 
 ## Environment and capacity
 
@@ -179,6 +181,10 @@ Last completed session: `sessions/2026-09-04.md`
   configured `/usr/sbin/nologin` shell.
 - Correctly distinguished harmless terminal visual wrapping from a real
   newline on a fresh one-command pathname example after one correction.
+- Explained that `/usr/bin/python3` can exist as a program without any process
+  existing when it is not running.
+- Distinguished a `.service` unit file as configuration from the executable
+  program named by its `ExecStart` setting.
 
 ## Partial or missing foundations
 
@@ -192,11 +198,17 @@ Last completed session: `sessions/2026-09-04.md`
   yet been executed in a live membership-change lab.
 - Configuration-read and log-write needs were separated and verified live.
   Direct execution versus login-style execution under the no-login account was
-  also verified. The learner initially did not know the role of the nonexistent
-  home; retrieve its warning role separately from `nologin` refusal next time.
-- `systemctl`, `systemd`, a service unit, and the managed process were briefly
-  separated after initial conflation, but the formal process/service strand has
-  not yet been probed or completed.
+  also verified. On 2026-09-06, the learner still expected the missing-home
+  warning when the account instead had a real home but retained `nologin`.
+  Re-test that the home field controls the warning while the shell field causes
+  the refusal.
+- The formal process/service probe is in progress. The learner described
+  `systemctl` as directly launching the service and `systemd` as an event
+  recorder/logger. After correctly identifying a `.service` file as static
+  configuration, they later selected that file as the persistent component
+  capable of acting after boot. Resume from this contradiction; the roles of
+  `systemd`, `systemctl`, the unit, the program, and the process are not yet
+  secure.
 - Does not yet know the core commands for resource, OS, network, and log
   inspection.
 - Networking knowledge is early: localhost, private addressing, gateways,
@@ -233,6 +245,7 @@ without hints. Revisit weak concepts through short retrieval questions.
 
 ## Next action
 
-Retrieve the missing-home warning versus `nologin` refusal with one
-counterfactual, then probe and plan the formal
-program/process/service/`systemd` lesson.
+Start with a brief home-field-versus-shell-field retrieval, then resume the
+unfinished probe by resolving how static unit configuration differs from the
+running `systemd` manager. Complete the program/process/service/`systemd`
+probe before researching, planning, or teaching the lesson.

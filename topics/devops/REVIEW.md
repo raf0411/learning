@@ -1,6 +1,6 @@
 # REVIEW
 
-Updated: 2026-09-04
+Updated: 2026-09-06
 
 ## Active review queue
 
@@ -87,8 +87,15 @@ These were identified during the initial probe:
    `/usr/bin/id` execution as `reportsvc` succeeded, while `sudo -iu reportsvc`
    warned about `/nonexistent` and was then refused by `/usr/sbin/nologin`. The
    learner predicted the success/refusal but initially did not know the missing
-   home's role. Retrieve the separate causes once, then begin the formal
-   process/service probe.
+   home's role. On 2026-09-06, they still selected the missing-home warning in
+   a counterfactual where the account had a real home but retained `nologin`;
+   re-test the two independent account fields. The formal process/service probe
+   then found a stable program-versus-process distinction and recognition that
+   a `.service` unit is configuration. However, the learner described
+   `systemctl` as the direct launcher and `systemd` as an event logger, then
+   selected the static `.service` file as the component that remains running
+   after boot. Resume from the contradiction between "unit file is
+   configuration" and "unit file can act," then probe daemon/service scope.
 7. System inspection: OS, memory, disk, processes, addresses, sockets, and logs.
 8. Localhost, private addresses, ports, gateways, and layered connectivity
    troubleshooting.
@@ -185,7 +192,8 @@ These were identified during the initial probe:
     immediately. Move these concepts to spaced operational review after the
     Phase 1 exit gate.
 
-Phase 1 has passed. Begin the next session with one counterfactual separating
-the missing-home warning from `nologin` refusal, then probe the formal
-program/process/service/`systemd` strand. Re-test items 10 and 11 later in an
-unfamiliar troubleshooting scenario.
+Phase 1 has passed. Begin the next session with a short retrieval separating
+the home-field warning from the shell-field refusal. Then resume the unfinished
+program/process/service/`systemd` probe at the static-unit-versus-running-
+manager contradiction. Re-test items 10 and 11 later in an unfamiliar
+troubleshooting scenario.
