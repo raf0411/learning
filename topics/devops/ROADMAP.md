@@ -251,7 +251,8 @@ stopping. The learner also interpreted a returning handler as appending stopped
 processes rather than temporary control flow inside the current process. Resume
 with the focused handler-return check, then repeat the default-action/handler/
 ignore comparison. Do not build on this node until delivery and outcome are
-reliably separated.
+reliably separated. A later retrieval check was presented but not attempted;
+the checkpoint therefore remains unchanged.
 
 Completed first users-and-permissions lesson dependency map:
 

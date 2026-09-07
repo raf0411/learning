@@ -117,7 +117,9 @@ These were identified during the initial probe:
    handled, and ignored delivery to incorrect process outcomes and interpreted
    a returning handler as appending stopped processes. Repair signal delivery
    versus disposition, handler control flow, and stopped versus terminated
-   before introducing additional signal names.
+   before introducing additional signal names. A later three-question
+   retrieval check was presented but not attempted, so this item remains at
+   the same priority.
 8. Localhost, private addresses, ports, gateways, and layered connectivity
    troubleshooting.
 9. Standard streams, pipelines, and output/error redirection: on 2026-08-28,
@@ -214,7 +216,8 @@ These were identified during the initial probe:
     Phase 1 exit gate.
 
 Phase 1 has passed. The transient-unit cleanup check and explanation are
-complete. Resume the focused handler-return transfer check, then repeat the
-three-disposition comparison before continuing the approved signals/jobs/
-resource plan. Re-test items 10 and 11 later in an unfamiliar troubleshooting
-scenario.
+complete. Begin the next session with the pending retrieval check: the focused
+handler-return transfer, the three-disposition comparison, and spaced retrieval
+of `active (exited)`. Continue the approved signals/jobs/resource plan only
+after the signal foundation lands. Re-test items 10 and 11 later in an
+unfamiliar troubleshooting scenario.

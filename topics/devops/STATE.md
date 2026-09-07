@@ -24,7 +24,9 @@ model. On 2026-09-07, read-only checks confirmed that the transient unit had
 been collected and its former process no longer existed. A same-day signal
 lesson continuation showed that signal delivery, handler execution, termination,
 and the stopped state are still conflated; a simpler handler-return transfer
-check remains unanswered.
+check remains unanswered. A later three-question retrieval check was presented
+but not attempted before the session ended, so the learning estimate is
+unchanged.
 
 Last completed session: `sessions/2026-09-07.md`
 
@@ -291,6 +293,7 @@ concept being tested.
 
 ## Next action
 
-Resume the focused number-printing handler-return check. Then re-test default,
-handled, and ignored delivery together before proceeding to the planned Bash
-job-control lab.
+Complete the pending three-question retrieval check. Begin with the focused
+number-printing handler-return scenario, then check default, handled, and
+ignored delivery together and retrieve `active (exited)`. Proceed to the
+planned Bash job-control lab only after the signal foundation is established.
