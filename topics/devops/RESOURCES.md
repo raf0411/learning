@@ -66,6 +66,7 @@ this file remains a short, useful reference rather than a link dump.
 ## Signals, Bash job control, and process inspection
 
 - [Linux `signal(7)`](https://man7.org/linux/man-pages/man7/signal.7.html)
+- [POSIX.1-2024: Signal Concepts and Signal Actions](https://pubs.opengroup.org/onlinepubs/9799919799/functions/V2_chap02.html)
 - [Linux `termios(3)`](https://man7.org/linux/man-pages/man3/termios.3.html)
 - [Linux `kill(1)`](https://man7.org/linux/man-pages/man1/kill.1.html)
 - [GNU Bash: job-control basics](https://www.gnu.org/software/bash/manual/html_node/Job-Control-Basics.html)

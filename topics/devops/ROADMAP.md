@@ -246,10 +246,12 @@ step, and explicitly contrast a shell-local job with a systemd-managed service
 unit.
 
 Status: the learner approved this plan on 2026-09-07. The first foundation was
-introduced, but the learner still chose immediate kernel destruction in a
-scenario that explicitly supplied a registered cleanup handler. Resume with
-the pending default-action/handler/ignore comparison and do not build on this
-node until signal delivery and outcome are reliably separated.
+introduced, but repeated checks still conflated delivery with termination or
+stopping. The learner also interpreted a returning handler as appending stopped
+processes rather than temporary control flow inside the current process. Resume
+with the focused handler-return check, then repeat the default-action/handler/
+ignore comparison. Do not build on this node until delivery and outcome are
+reliably separated.
 
 Completed first users-and-permissions lesson dependency map:
 

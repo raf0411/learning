@@ -113,8 +113,11 @@ These were identified during the initial probe:
    `kill PID` always destroy a process forcibly and do not yet know `&`,
    `jobs`, `fg`, or `bg`. The first lesson check on 2026-09-07 showed that the
    learner still predicted immediate destruction even when a registered signal
-   handler was specified. Repair signal delivery versus disposition before
-   introducing additional signal names.
+   handler was specified. A same-day continuation then mapped default,
+   handled, and ignored delivery to incorrect process outcomes and interpreted
+   a returning handler as appending stopped processes. Repair signal delivery
+   versus disposition, handler control flow, and stopped versus terminated
+   before introducing additional signal names.
 8. Localhost, private addresses, ports, gateways, and layered connectivity
    troubleshooting.
 9. Standard streams, pipelines, and output/error redirection: on 2026-08-28,
@@ -211,6 +214,7 @@ These were identified during the initial probe:
     Phase 1 exit gate.
 
 Phase 1 has passed. The transient-unit cleanup check and explanation are
-complete. Resume the pending signal-disposition repair, then continue the
-approved signals/jobs/resource plan. Re-test items 10 and 11 later in an
-unfamiliar troubleshooting scenario.
+complete. Resume the focused handler-return transfer check, then repeat the
+three-disposition comparison before continuing the approved signals/jobs/
+resource plan. Re-test items 10 and 11 later in an unfamiliar troubleshooting
+scenario.

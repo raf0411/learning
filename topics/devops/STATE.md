@@ -21,7 +21,10 @@ unit files, live processes, daemon processes, the managed service unit,
 temporary control clients, and the persistent `systemd` manager. A live SSH
 inspection and a disposable transient-service lifecycle lab confirmed the
 model. On 2026-09-07, read-only checks confirmed that the transient unit had
-been collected and its former process no longer existed.
+been collected and its former process no longer existed. A same-day signal
+lesson continuation showed that signal delivery, handler execution, termination,
+and the stopped state are still conflated; a simpler handler-return transfer
+check remains unanswered.
 
 Last completed session: `sessions/2026-09-07.md`
 
@@ -245,9 +248,10 @@ Last completed session: `sessions/2026-09-07.md`
   destruction, does not know `&`, `jobs`, `fg`, or `bg`, and interprets one
   process near 100% CPU as necessarily exhausting a four-core machine.
 - The signals/jobs/resource plan was approved and the first signal-foundation
-  node began. The learner still selected immediate destruction for a process
-  with a registered cleanup handler, so signal delivery versus signal outcome
-  is not yet established.
+  node began. The learner still selected the wrong outcomes for default,
+  handled, and ignored delivery, then interpreted a handler that returns as
+  appending stopped processes. Signal delivery versus disposition, handler
+  control flow, and stopped versus terminated are not yet established.
 - Does not yet know the core commands for resource, OS, network, and log
   inspection.
 - Networking knowledge is early: localhost, private addressing, gateways,
@@ -287,5 +291,6 @@ concept being tested.
 
 ## Next action
 
-Resume the unanswered X/Y/Z signal-disposition check and repair signal delivery
-versus outcome before proceeding to the planned Bash job-control lab.
+Resume the focused number-printing handler-return check. Then re-test default,
+handled, and ignored delivery together before proceeding to the planned Bash
+job-control lab.
