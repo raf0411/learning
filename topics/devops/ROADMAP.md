@@ -1,8 +1,8 @@
 # ROADMAP
 
-Updated: 2026-09-06
+Updated: 2026-09-07
 Target window: 14–16 weeks
-Current phase: Phase 2 process/service/`systemd` lesson in progress
+Current phase: Phase 2 signals, jobs, and resource inspection lesson in progress
 
 Current checkpoint: the guided file-management work and the unprompted transfer
 check are complete. From `/home/raf_0411`, without using `cd`, the learner
@@ -168,8 +168,9 @@ recognition that a unit file is configuration, and a rough association of a
 daemon with a process. The ceiling is the relationship among a persistent
 manager, its short-lived control client, a managed service unit, and its
 processes. The lesson repaired that model conceptually and through live
-inspection. The start/inspect portion of a disposable transient-service lab is
-complete; explicit stop and post-stop collection verification remain.
+inspection. The disposable transient-service lifecycle check is complete:
+after its `sleep 1800` ended, read-only checks showed the unit as `not-found`
+and inactive with `MainPID=0`, and its former PID was absent.
 
 Planned process/service/`systemd` dependency map:
 
@@ -203,9 +204,52 @@ manager need, `systemd`/`systemctl` separation, unit-file/service-unit
 distinction, and `Type=oneshot` counterexample were demonstrated. Live Ubuntu
 inspection connected PID 1, `ssh.service`, its unit file, and its `sshd`
 MainPID. A collision-checked transient `sleep` service was created and inspected
-successfully. At the next session, verify that its 30-minute process and
-`--collect` behavior removed it; if not, stop only that exact lab unit. Then
-complete the lifecycle transfer check and continue to signals and jobs.
+successfully. On 2026-09-07, the learner verified that its 30-minute process
+was absent and the `--collect` unit had unloaded. After correction, they
+correctly transferred the natural-exit-to-inactive-to-collection chain to a
+fresh example. Continue to signals and jobs.
+
+Planned signals, jobs, and process-inspection dependency map:
+
+```mermaid
+flowchart TD
+    A[Known: a process is a live execution] --> D[Running, stopped, terminated]
+    B[A signal is a delivered notification] --> C[Disposition determines outcome]
+    E[Terminal targets its foreground job] --> F[Ctrl-C and Ctrl-Z]
+    C --> F
+    D --> G[State differs from foreground/background]
+    E --> G
+    F --> H[Resume with fg or bg]
+    G --> I[&, jobs, jobspecs]
+    C --> J[TERM first; KILL only if needed]
+    K[Percent needs interval and capacity] --> L[ps snapshot versus top updates]
+    L --> M[Interpret CPU and memory evidence]
+    H --> N[Safe process-control lab]
+    I --> N
+    J --> N
+    M --> N
+```
+
+Probe result: the learner knows that `Ctrl+C` commonly returns the prompt,
+`Ctrl+Z` pauses a process, `ps` is a short-lived view, and `top`/`htop` show
+CPU and memory use. The current ceiling is signal delivery versus outcome,
+plain `kill` versus forced termination, foreground/background versus
+running/stopped, Bash job-control commands, and multicore CPU percentages.
+
+Teaching order: derive terminal signal behavior from delivered notification
+plus signal disposition; separate stopped/terminated state from foreground/
+background placement; demonstrate `&`, `jobs -l`, `fg`, and `bg` using a
+disposable `sleep`; derive the safe `SIGTERM`-then-`SIGKILL` escalation; then
+compare `ps` snapshots with `top` intervals and interpret per-process CPU and
+memory before controlling anything. Use prediction and live inspection at each
+step, and explicitly contrast a shell-local job with a systemd-managed service
+unit.
+
+Status: the learner approved this plan on 2026-09-07. The first foundation was
+introduced, but the learner still chose immediate kernel destruction in a
+scenario that explicitly supplied a registered cleanup handler. Resume with
+the pending default-action/handler/ignore comparison and do not build on this
+node until signal delivery and outcome are reliably separated.
 
 Completed first users-and-permissions lesson dependency map:
 

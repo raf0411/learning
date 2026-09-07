@@ -1,6 +1,6 @@
 # REVIEW
 
-Updated: 2026-09-06
+Updated: 2026-09-07
 
 ## Active review queue
 
@@ -98,9 +98,23 @@ These were identified during the initial probe:
    connected PID 1, `ssh.service`, its passive unit file, and its `sshd`
    MainPID. The learner merged the service unit and unit file once after the
    initial repair and confused PID with PPID once; retrieve both distinctions
-   later. A disposable transient `sleep` service was started and inspected, but
-   explicit stop/collection verification was interrupted by session end.
+   later. A disposable transient `sleep` service was started and inspected. On
+   2026-09-07, `systemctl show` reported it as `not-found` and inactive with
+   `MainPID=0`, while `ps` showed its former PID was absent. The learner first
+   predicted that both would still exist, then correctly transferred the
+   natural-exit-to-inactive-to-collection chain after correction. Move this to
+   spaced review.
 7. System inspection: OS, memory, disk, processes, addresses, sockets, and logs.
+   The 2026-09-07 probe found basic familiarity with `top`/`htop` and the CPU
+   and memory columns. The learner correctly inferred that `ps` is a snapshot
+   while `top` refreshes, but thought one process at roughly 100% CPU must
+   exhaust a four-core machine. Signals and job control are also at the edge:
+   they know `Ctrl+Z` pauses a foreground process, but think `Ctrl+C` and plain
+   `kill PID` always destroy a process forcibly and do not yet know `&`,
+   `jobs`, `fg`, or `bg`. The first lesson check on 2026-09-07 showed that the
+   learner still predicted immediate destruction even when a registered signal
+   handler was specified. Repair signal delivery versus disposition before
+   introducing additional signal names.
 8. Localhost, private addresses, ports, gateways, and layered connectivity
    troubleshooting.
 9. Standard streams, pipelines, and output/error redirection: on 2026-08-28,
@@ -196,8 +210,7 @@ These were identified during the initial probe:
     immediately. Move these concepts to spaced operational review after the
     Phase 1 exit gate.
 
-Phase 1 has passed. Begin the next session with a short, unhinted mapping of
-unit file, service unit, daemon, `systemd`, and `systemctl`. Then verify the
-disposable transient unit and its former MainPID are absent; if the unit still
-exists, stop only that collision-checked lab unit and confirm collection.
-Re-test items 10 and 11 later in an unfamiliar troubleshooting scenario.
+Phase 1 has passed. The transient-unit cleanup check and explanation are
+complete. Resume the pending signal-disposition repair, then continue the
+approved signals/jobs/resource plan. Re-test items 10 and 11 later in an
+unfamiliar troubleshooting scenario.

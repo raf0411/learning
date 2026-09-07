@@ -62,3 +62,14 @@ this file remains a short, useful reference rather than a link dump.
 - [Ubuntu 24.04 `systemd.unit(5)`](https://manpages.ubuntu.com/manpages/noble/man5/systemd.unit.5.html)
 - [Ubuntu 24.04 `systemd.service(5)`](https://manpages.ubuntu.com/manpages/noble/man5/systemd.service.5.html)
 - [Upstream systemd architecture](https://github.com/systemd/systemd/blob/main/docs/ARCHITECTURE.md)
+
+## Signals, Bash job control, and process inspection
+
+- [Linux `signal(7)`](https://man7.org/linux/man-pages/man7/signal.7.html)
+- [Linux `termios(3)`](https://man7.org/linux/man-pages/man3/termios.3.html)
+- [Linux `kill(1)`](https://man7.org/linux/man-pages/man1/kill.1.html)
+- [GNU Bash: job-control basics](https://www.gnu.org/software/bash/manual/html_node/Job-Control-Basics.html)
+- [GNU Bash: job-control builtins](https://www.gnu.org/software/bash/manual/html_node/Job-Control-Builtins.html)
+- [GNU Bash: asynchronous lists and `&`](https://www.gnu.org/software/bash/manual/html_node/Lists.html)
+- [Linux `ps(1)`](https://man7.org/linux/man-pages/man1/ps.1.html)
+- [Linux `top(1)`](https://man7.org/linux/man-pages/man1/top.1.html)

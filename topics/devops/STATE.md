@@ -1,6 +1,6 @@
 # STATE
 
-Updated: 2026-09-06
+Updated: 2026-09-07
 
 ## Current stage
 
@@ -19,10 +19,11 @@ the formal program/process/service/`systemd` probe and planned conceptual lesson
 were completed. After focused repair, the learner separated passive program and
 unit files, live processes, daemon processes, the managed service unit,
 temporary control clients, and the persistent `systemd` manager. A live SSH
-inspection and the start/inspect portion of a disposable transient-service lab
-confirmed the model. Explicit stop and post-stop cleanup verification remain.
+inspection and a disposable transient-service lifecycle lab confirmed the
+model. On 2026-09-07, read-only checks confirmed that the transient unit had
+been collected and its former process no longer existed.
 
-Last completed session: `sessions/2026-09-06.md`
+Last completed session: `sessions/2026-09-07.md`
 
 ## Environment and capacity
 
@@ -33,10 +34,10 @@ Last completed session: `sessions/2026-09-06.md`
   `raf_0411:raf_0411` mode `664`, `service-access-lab.conf` as `root:sudo`
   mode `640`, and the `reportsvc` account plus its `/etc/reportsvc` and
   `/var/log/reportsvc` lab resources described in the latest session file.
-- Ubuntu may temporarily retain `tutor-lifecycle-20260906.service` with
-  `/usr/bin/sleep 1800` as `raf_0411` and observed MainPID `236595`. It was
-  created with `--collect`, so it should end and unload automatically; verify
-  absence before reusing the name or explicitly stopping anything.
+- Ubuntu no longer retains `tutor-lifecycle-20260906.service` or its former
+  MainPID `236595`: on 2026-09-07, `systemctl show` reported
+  `LoadState=not-found`, `ActiveState=inactive`, `SubState=dead`, and
+  `MainPID=0`, while `ps -p 236595` returned only its header.
 - macOS retains `~/permissions-lab/mode-practice.txt` as `raffi:staff` mode
   `640`, created while the Ubuntu server was temporarily unavailable.
 
@@ -210,6 +211,9 @@ Last completed session: `sessions/2026-09-06.md`
 - Collision-checked, created, and inspected a transient service running
   `/usr/bin/sleep 1800`. Correctly predicted an active/running unit, nonzero
   MainPID, ordinary-account process identity, and temporary-client exit.
+- On 2026-09-07, distinguished an `active (exited)` service unit from a daemon
+  process after one correction, then verified that the transient unit had been
+  collected and its former PID was absent.
 
 ## Partial or missing foundations
 
@@ -231,7 +235,19 @@ Last completed session: `sessions/2026-09-06.md`
   live transient-unit inspection. Unit file versus service unit should receive
   spaced retrieval because they were merged once after initial repair. PID
   versus PPID also needs a later operational check after one mix-up. The
-  transient service's explicit stop and cleanup verification remain unfinished.
+  transient service cleanup was verified. After correction, the learner
+  correctly transferred the chain: the `sleep` process exits naturally, the
+  unit becomes inactive, and `--collect` unloads it to `not-found`.
+- The 2026-09-07 signals/jobs/resource probe found a floor in recognizing that
+  `Ctrl+C` returns the prompt, `Ctrl+Z` pauses rather than exits, `ps` is a
+  short-lived snapshot, and `top`/`htop` expose process CPU and memory use. The
+  learner currently treats `Ctrl+C` and `kill PID` as unavoidable forced
+  destruction, does not know `&`, `jobs`, `fg`, or `bg`, and interprets one
+  process near 100% CPU as necessarily exhausting a four-core machine.
+- The signals/jobs/resource plan was approved and the first signal-foundation
+  node began. The learner still selected immediate destruction for a process
+  with a registered cleanup handler, so signal delivery versus signal outcome
+  is not yet established.
 - Does not yet know the core commands for resource, OS, network, and log
   inspection.
 - Networking knowledge is early: localhost, private addressing, gateways,
@@ -271,9 +287,5 @@ concept being tested.
 
 ## Next action
 
-Start with a short unhinted mapping of unit file, service unit, daemon,
-`systemd`, and `systemctl`. Then verify that
-`tutor-lifecycle-20260906.service` and observed PID `236595` are absent. If the
-unit remains, stop only that previously collision-checked lab unit and confirm
-collection. Finish the lifecycle check, then continue to process signals, jobs,
-and resource inspection.
+Resume the unanswered X/Y/Z signal-disposition check and repair signal delivery
+versus outcome before proceeding to the planned Bash job-control lab.
