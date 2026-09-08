@@ -1,6 +1,6 @@
 # ROADMAP
 
-Updated: 2026-09-07
+Updated: 2026-09-08
 Target window: 14–16 weeks
 Current phase: Phase 2 signals, jobs, and resource inspection lesson in progress
 
@@ -246,13 +246,20 @@ step, and explicitly contrast a shell-local job with a systemd-managed service
 unit.
 
 Status: the learner approved this plan on 2026-09-07. The first foundation was
-introduced, but repeated checks still conflated delivery with termination or
-stopping. The learner also interpreted a returning handler as appending stopped
-processes rather than temporary control flow inside the current process. Resume
-with the focused handler-return check, then repeat the default-action/handler/
-ignore comparison. Do not build on this node until delivery and outcome are
-reliably separated. A later retrieval check was presented but not attempted;
-the checkpoint therefore remains unchanged.
+initially unstable: repeated checks conflated delivery with termination or
+stopping, and a returning handler was confused with stopped processes. In the
+final same-day continuation, the learner answered a clean three-part retrieval
+correctly, separating a returning handler, default termination,
+cleanup-and-exit, ignored delivery, and an `active (exited)` service unit. The
+signal-disposition foundation is now demonstrated conceptually. Process state
+versus foreground/background placement and the disposable job-control lab were
+completed on 2026-09-08 using macOS Zsh, whose observed behavior matched the
+planned shell-job model. The learner used `Ctrl+Z`, `bg`, `fg`, trailing `&`,
+`jobs -l`, `%+`, `%1`, and a PID with `ps`, then terminated and verified removal
+of the disposable job. Foreground and background were repeatedly swapped before
+a correct final transfer check, so retain that distinction in spaced review.
+Proceed to safe `SIGTERM`-then-`SIGKILL` escalation, followed by `ps`/`top` and
+resource interpretation.
 
 Completed first users-and-permissions lesson dependency map:
 

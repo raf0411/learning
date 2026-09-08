@@ -1,6 +1,6 @@
 # REVIEW
 
-Updated: 2026-09-07
+Updated: 2026-09-08
 
 ## Active review queue
 
@@ -117,9 +117,18 @@ These were identified during the initial probe:
    handled, and ignored delivery to incorrect process outcomes and interpreted
    a returning handler as appending stopped processes. Repair signal delivery
    versus disposition, handler control flow, and stopped versus terminated
-   before introducing additional signal names. A later three-question
-   retrieval check was presented but not attempted, so this item remains at
-   the same priority.
+   before introducing additional signal names. In the final same-day
+   continuation, the learner answered the pending three-question retrieval
+   correctly: a returning handler continued, default/cleanup-exit/ignore cases
+   produced distinct expected outcomes, and `active (exited)` with `MainPID=0`
+   meant an active unit without a main process. Move signal disposition to
+   spaced confirmation. On 2026-09-08, the learner completed a live macOS Zsh
+   job-control lab using `Ctrl+Z`, `bg`, `fg`, trailing `&`, `jobs -l`, jobspecs,
+   PID inspection, and cleanup. They correctly distinguished stopped from
+   terminated, but repeatedly predicted or explained that `fg` moves a job into
+   the background. The final repair check correctly mapped `fg` to running in
+   the foreground with the shell waiting. Keep `fg` versus `bg` in active
+   spaced review while proceeding to specific termination signals.
 8. Localhost, private addresses, ports, gateways, and layered connectivity
    troubleshooting.
 9. Standard streams, pipelines, and output/error redirection: on 2026-08-28,
@@ -215,9 +224,8 @@ These were identified during the initial probe:
     immediately. Move these concepts to spaced operational review after the
     Phase 1 exit gate.
 
-Phase 1 has passed. The transient-unit cleanup check and explanation are
-complete. Begin the next session with the pending retrieval check: the focused
-handler-return transfer, the three-disposition comparison, and spaced retrieval
-of `active (exited)`. Continue the approved signals/jobs/resource plan only
-after the signal foundation lands. Re-test items 10 and 11 later in an
-unfamiliar troubleshooting scenario.
+Phase 1 has passed. The transient-unit cleanup check, signal-disposition
+retrieval, process-state-versus-placement node, and disposable shell job-control
+lab are complete. Proceed to safe `SIGTERM`-then-`SIGKILL` escalation. Re-test
+`fg` versus `bg`, signal disposition, and items 10 and 11 later through spaced
+retrieval in unfamiliar troubleshooting scenarios.

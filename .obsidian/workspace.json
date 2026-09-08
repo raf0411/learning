@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/devops/GOAL.md",
+                "file": "topics/devops/diagrams/standard-streams.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GOAL"
+              "title": "standard-streams"
             }
           }
         ]
@@ -187,17 +187,18 @@
   },
   "active": "ed9624219eebe3c6",
   "lastOpenFiles": [
-    "topics/devops/REVIEW.md",
-    "topics/devops/RESOURCES.md",
-    "topics/devops/GOAL.md",
-    "topics/devops/ROADMAP.md",
+    "topics/devops/sessions/2026-09-08.md",
+    "AGENTS.md",
     "topics/devops/STATE.md",
+    "topics/devops/RESOURCES.md",
+    "topics/devops/REVIEW.md",
+    "topics/devops/ROADMAP.md",
+    "topics/devops/GOAL.md",
     "topics/devops/sessions/2026-09-07.md",
     "topics/devops/sessions/2026-09-06.md",
     "topics/devops/diagrams/standard-streams.md",
     "README.md",
     "PROFILE.md",
-    "AGENTS.md",
     "topics/devops/sessions/2026-09-04.md",
     "topics/godot/STATE.md",
     "topics/godot/ROADMAP.md",
@@ -216,7 +217,6 @@
     "topics/spanish/sessions/2026-08-28.md",
     "topics/spanish/RESOURCES.md",
     "topics/spanish/STATE.md",
-    "topics/spanish/ROADMAP.md",
     "topics/spanish/sessions",
     "topics/spanish/labs",
     "topics/spanish/diagrams",

@@ -1,6 +1,6 @@
 # STATE
 
-Updated: 2026-09-07
+Updated: 2026-09-08
 
 ## Current stage
 
@@ -23,12 +23,22 @@ inspection and a disposable transient-service lifecycle lab confirmed the
 model. On 2026-09-07, read-only checks confirmed that the transient unit had
 been collected and its former process no longer existed. A same-day signal
 lesson continuation showed that signal delivery, handler execution, termination,
-and the stopped state are still conflated; a simpler handler-return transfer
-check remains unanswered. A later three-question retrieval check was presented
-but not attempted before the session ended, so the learning estimate is
-unchanged.
+and the stopped state were still conflated. In the final same-day continuation,
+the learner answered the pending three-question retrieval check correctly:
+a returning handler continued the process, default/handled/ignored dispositions
+produced the expected distinct outcomes, and `active (exited)` with `MainPID=0`
+was assigned to the active service unit with no remaining main process. The
+signal-delivery-versus-disposition foundation is now demonstrated conceptually.
+The next node—process state versus foreground/background placement—was
+introduced, but its first prediction was not attempted before session end.
+On 2026-09-08, a live macOS Zsh job-control lab established process state
+versus terminal placement. The learner demonstrated `Ctrl+Z`, `bg`, `fg`,
+trailing `&`, `jobs -l`, jobspecs, PID inspection, and cleanup. Foreground and
+background were repeatedly reversed in predictions and explanation, but the
+final repair check correctly classified `fg` as resuming a stopped job in the
+foreground while the shell waits.
 
-Last completed session: `sessions/2026-09-07.md`
+Last completed session: `sessions/2026-09-08.md`
 
 ## Environment and capacity
 
@@ -219,6 +229,18 @@ Last completed session: `sessions/2026-09-07.md`
 - On 2026-09-07, distinguished an `active (exited)` service unit from a daemon
   process after one correction, then verified that the transient unit had been
   collected and its former PID was absent.
+- On the final 2026-09-07 retrieval, correctly distinguished signal delivery
+  from the selected disposition across returning-handler, default-termination,
+  cleanup-and-exit, and ignored-signal cases. Also correctly retrieved that an
+  `active (exited)` service with `MainPID=0` has an active unit but no remaining
+  main process.
+- Demonstrated live that `Ctrl+Z` leaves a job stopped but existing, `bg`
+  resumes it in the background with the prompt available, and `fg` resumes or
+  moves it to the foreground while the shell waits. Used trailing `&` to start
+  a running background job directly.
+- Distinguished shell job number `[1]`, jobspecs `%1` and `%+`, and process ID;
+  used `ps -p 55978` to verify the final disposable process before terminating
+  it and confirming an empty `jobs -l` result.
 
 ## Partial or missing foundations
 
@@ -245,15 +267,17 @@ Last completed session: `sessions/2026-09-07.md`
   unit becomes inactive, and `--collect` unloads it to `not-found`.
 - The 2026-09-07 signals/jobs/resource probe found a floor in recognizing that
   `Ctrl+C` returns the prompt, `Ctrl+Z` pauses rather than exits, `ps` is a
-  short-lived snapshot, and `top`/`htop` expose process CPU and memory use. The
-  learner currently treats `Ctrl+C` and `kill PID` as unavoidable forced
-  destruction, does not know `&`, `jobs`, `fg`, or `bg`, and interprets one
+  short-lived snapshot, and `top`/`htop` expose process CPU and memory use. At
+  the probe, the learner treated `Ctrl+C` and `kill PID` as unavoidable forced
+  destruction, did not know `&`, `jobs`, `fg`, or `bg`, and interpreted one
   process near 100% CPU as necessarily exhausting a four-core machine.
-- The signals/jobs/resource plan was approved and the first signal-foundation
-  node began. The learner still selected the wrong outcomes for default,
-  handled, and ignored delivery, then interpreted a handler that returns as
-  appending stopped processes. Signal delivery versus disposition, handler
-  control flow, and stopped versus terminated are not yet established.
+- The signal-delivery-versus-disposition foundation is now demonstrated by one
+  clean three-part retrieval after earlier repeated confusion. It should receive
+  later spaced confirmation. Process state versus foreground/background
+  placement and basic shell job control are now demonstrated live. Because
+  `fg` was repeatedly misclassified as moving a job into the background, keep
+  `fg` versus `bg` in active spaced review. Specific termination signals remain
+  new.
 - Does not yet know the core commands for resource, OS, network, and log
   inspection.
 - Networking knowledge is early: localhost, private addressing, gateways,
@@ -293,7 +317,7 @@ concept being tested.
 
 ## Next action
 
-Complete the pending three-question retrieval check. Begin with the focused
-number-printing handler-return scenario, then check default, handled, and
-ignored delivery together and retrieve `active (exited)`. Proceed to the
-planned Bash job-control lab only after the signal foundation is established.
+Proceed to safe process termination: derive default `SIGTERM` behavior and why
+`SIGKILL` is reserved for escalation, then verify the distinction in a
+disposable lab. Keep `fg` versus `bg` and signal disposition queued for spaced
+checks.
