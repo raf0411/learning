@@ -36,7 +36,13 @@ versus terminal placement. The learner demonstrated `Ctrl+Z`, `bg`, `fg`,
 trailing `&`, `jobs -l`, jobspecs, PID inspection, and cleanup. Foreground and
 background were repeatedly reversed in predictions and explanation, but the
 final repair check correctly classified `fg` as resuming a stopped job in the
-foreground while the shell waits.
+foreground while the shell waits. In a same-day continuation, the learner
+retrieved that distinction correctly and explained that the shell waits for a
+foreground job. The safe-termination lesson then began. The learner established
+that application cleanup requires the process to execute further instructions.
+`SIGTERM`, `SIGKILL`, and plain `kill PID` were introduced from the installed
+macOS manual pages, but the safe-sequence check and disposable lab were not
+attempted before session end.
 
 Last completed session: `sessions/2026-09-08.md`
 
@@ -241,6 +247,11 @@ Last completed session: `sessions/2026-09-08.md`
 - Distinguished shell job number `[1]`, jobspecs `%1` and `%+`, and process ID;
   used `ps -p 55978` to verify the final disposable process before terminating
   it and confirming an empty `jobs -l` result.
+- Retrieved that `fg` places a job in the foreground and makes the shell wait
+  until it stops or terminates.
+- Established that application cleanup requires the process to execute further
+  instructions, motivating a cooperative termination opportunity before forced
+  termination.
 
 ## Partial or missing foundations
 
@@ -276,8 +287,11 @@ Last completed session: `sessions/2026-09-08.md`
   later spaced confirmation. Process state versus foreground/background
   placement and basic shell job control are now demonstrated live. Because
   `fg` was repeatedly misclassified as moving a job into the background, keep
-  `fg` versus `bg` in active spaced review. Specific termination signals remain
-  new.
+  `fg` versus `bg` in spaced review despite one clean retrieval. `SIGTERM` as a
+  cooperative termination request, uncatchable/unignorable `SIGKILL`, and plain
+  `kill PID` defaulting to `SIGTERM` have been introduced from local manual
+  pages. The escalation sequence is not yet checked and no termination lab has
+  been performed.
 - Does not yet know the core commands for resource, OS, network, and log
   inspection.
 - Networking knowledge is early: localhost, private addressing, gateways,
@@ -317,7 +331,6 @@ concept being tested.
 
 ## Next action
 
-Proceed to safe process termination: derive default `SIGTERM` behavior and why
-`SIGKILL` is reserved for escalation, then verify the distinction in a
+Resume the pending safe-sequence check, then verify `SIGTERM` and `SIGKILL` in a
 disposable lab. Keep `fg` versus `bg` and signal disposition queued for spaced
 checks.

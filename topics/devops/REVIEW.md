@@ -127,8 +127,12 @@ These were identified during the initial probe:
    PID inspection, and cleanup. They correctly distinguished stopped from
    terminated, but repeatedly predicted or explained that `fg` moves a job into
    the background. The final repair check correctly mapped `fg` to running in
-   the foreground with the shell waiting. Keep `fg` versus `bg` in active
-   spaced review while proceeding to specific termination signals.
+   the foreground with the shell waiting. A same-day continuation retrieved
+   this correctly and explained why the shell waits; keep it in later spaced
+   review. The learner then established that cleanup requires further process
+   instructions. `SIGTERM`, `SIGKILL`, and the default signal sent by plain
+   `kill PID` were introduced from installed manual pages, but the safe-sequence
+   check and live termination lab remain unfinished.
 8. Localhost, private addresses, ports, gateways, and layered connectivity
    troubleshooting.
 9. Standard streams, pipelines, and output/error redirection: on 2026-08-28,
@@ -226,6 +230,7 @@ These were identified during the initial probe:
 
 Phase 1 has passed. The transient-unit cleanup check, signal-disposition
 retrieval, process-state-versus-placement node, and disposable shell job-control
-lab are complete. Proceed to safe `SIGTERM`-then-`SIGKILL` escalation. Re-test
-`fg` versus `bg`, signal disposition, and items 10 and 11 later through spaced
-retrieval in unfamiliar troubleshooting scenarios.
+lab are complete. Resume the pending safe `SIGTERM`-then-`SIGKILL` sequence
+check, then perform its disposable lab. Re-test `fg` versus `bg`, signal
+disposition, and items 10 and 11 later through spaced retrieval in unfamiliar
+troubleshooting scenarios.

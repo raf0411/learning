@@ -258,8 +258,13 @@ planned shell-job model. The learner used `Ctrl+Z`, `bg`, `fg`, trailing `&`,
 `jobs -l`, `%+`, `%1`, and a PID with `ps`, then terminated and verified removal
 of the disposable job. Foreground and background were repeatedly swapped before
 a correct final transfer check, so retain that distinction in spaced review.
-Proceed to safe `SIGTERM`-then-`SIGKILL` escalation, followed by `ps`/`top` and
-resource interpretation.
+In a same-day continuation, the learner correctly retrieved that `fg` puts the
+job in the foreground and makes the shell wait. They then established that
+application cleanup requires further process instructions. Installed macOS
+manual pages were used to introduce plain `kill PID` as `SIGTERM`, catchable
+`SIGTERM`, and uncatchable/unignorable `SIGKILL`. The safe escalation sequence
+check and live lab remain unfinished. Resume them before proceeding to
+`ps`/`top` and resource interpretation.
 
 Completed first users-and-permissions lesson dependency map:
 
