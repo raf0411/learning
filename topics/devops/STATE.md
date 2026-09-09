@@ -49,8 +49,13 @@ return and continuation, and handler cleanup followed by explicit exit. They
 also identified that successful `kill` establishes signal-request acceptance,
 not process exit. The safe escalation branches were answered correctly after
 the sequence was shown, but a later prediction incorrectly kept an ordinary
-`sleep` alive after `SIGTERM`. The send-versus-outcome model and disposition
-must therefore be integrated in a live lab before advancing.
+`sleep` alive after `SIGTERM`. In a continuation, the learner repaired the
+wait-before-inspection order and completed a live Ubuntu comparison. Ordinary
+`sleep` PID `361508` disappeared after `SIGTERM`, whereas a Bash process with a
+returning handler printed its handler message and PID `375142` remained after a
+wait. The learner explained both outcomes correctly but could not yet construct
+the exact `SIGKILL` and verification commands independently. PID `375142` was
+last observed running, so its current identity must be checked before cleanup.
 
 Last completed session: `sessions/2026-09-09.md`
 
@@ -67,6 +72,9 @@ Last completed session: `sessions/2026-09-09.md`
   MainPID `236595`: on 2026-09-07, `systemctl show` reported
   `LoadState=not-found`, `ActiveState=inactive`, `SubState=dead`, and
   `MainPID=0`, while `ps -p 236595` returned only its header.
+- Ubuntu PID `375142` was last observed on 2026-09-09 as the disposable Bash
+  signal-handler loop. It survived `SIGTERM`; no later cleanup or absence check
+  was observed. Verify its current command before sending another signal.
 - macOS retains `~/permissions-lab/mode-practice.txt` as `raffi:staff` mode
   `640`, created while the Ubuntu server was temporarily unavailable.
 
@@ -263,6 +271,12 @@ Last completed session: `sessions/2026-09-09.md`
 - Correctly classified `SIGTERM` with no custom handler, a returning handler,
   and a handler that explicitly exits. Identified that successful `kill`
   establishes accepted signal sending rather than handler completion or exit.
+- On Ubuntu, predicted and verified disposition-dependent outcomes using two
+  live processes: ordinary `sleep` disappeared after `SIGTERM`, while a Bash
+  loop whose handler printed and returned remained present after a wait.
+- Explained that `kill` requests kernel-mediated signal delivery and `ps`
+  independently checks whether the PID is present. Correctly placed the grace
+  period before the snapshot used for the escalation decision.
 
 ## Partial or missing foundations
 
@@ -293,20 +307,20 @@ Last completed session: `sessions/2026-09-09.md`
   the probe, the learner treated `Ctrl+C` and `kill PID` as unavoidable forced
   destruction, did not know `&`, `jobs`, `fg`, or `bg`, and interpreted one
   process near 100% CPU as necessarily exhausting a four-core machine.
-- The signal-delivery-versus-disposition foundation has been demonstrated in
-  isolated classifications, but is not yet integrated reliably. On 2026-09-09,
-  the learner repaired handler-return behavior and `kill` success semantics,
-  then incorrectly predicted that an ordinary `sleep` would remain after
-  `SIGTERM` despite its default terminating disposition. Process state versus
+- The signal-delivery-versus-disposition foundation is now demonstrated both
+  conceptually and in a live default-versus-returning-handler comparison. Exact
+  command construction remains incomplete: the learner could not independently
+  produce the `SIGKILL`, wait, and final `ps` commands after correctly deciding
+  that escalation was warranted. Process state versus
   foreground/background placement and basic shell job control are now
   demonstrated live. Because
   `fg` was repeatedly misclassified as moving a job into the background, keep
   `fg` versus `bg` in spaced review despite one clean retrieval. `SIGTERM` as a
   cooperative termination request, uncatchable/unignorable `SIGKILL`, and plain
   `kill PID` defaulting to `SIGTERM` have been introduced from local manual
-  pages. The escalation branches were correct after direct teaching, but the
-  complete sequence still needs an unprompted re-test and no termination lab
-  has been performed.
+  pages. The escalation branches and live `SIGTERM` comparison are correct, but
+  the complete sequence still needs completion and an unprompted command-level
+  re-test.
 - Does not yet know the core commands for resource, OS, network, and log
   inspection.
 - Networking knowledge is early: localhost, private addressing, gateways,
@@ -346,7 +360,8 @@ concept being tested.
 
 ## Next action
 
-Re-anchor the distinct questions answered by `kill` and `ps`, then use an
-ordinary process and a signal-resistant process to verify disposition-dependent
-outcomes. Re-test the complete `SIGTERM`-wait-check-conditional-`SIGKILL`-check
-sequence without hints before proceeding to resource interpretation.
+Verify the identity of last-observed Ubuntu PID `375142`; if it is still the
+disposable handler loop, finish `SIGKILL` cleanup and verify absence. Then
+rehearse the complete `SIGTERM`-wait-check-conditional-`SIGKILL`-check sequence
+at the command level with decreasing hints. Proceed to resource interpretation
+after one unprompted successful transfer.

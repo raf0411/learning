@@ -138,8 +138,13 @@ These were identified during the initial probe:
    escalation order shown after putting `SIGKILL` first and later checking
    before waiting. They then overgeneralized send-versus-outcome and predicted
    that ordinary `sleep` would remain after `SIGTERM`, overlooking its default
-   terminating disposition. Re-test by comparing ordinary and signal-resistant
-   processes in the pending live lab.
+   terminating disposition. In a continuation, an Ubuntu lab verified that
+   ordinary `sleep` terminated while a Bash loop with a returning handler
+   survived the same signal. The learner explained the results and repaired the
+   wait-before-fresh-inspection order, but could not construct the final
+   `SIGKILL`, wait, and `ps` commands independently. PID `375142` was last
+   observed as the surviving disposable process; verify identity before
+   cleanup, then re-test the full sequence at command level.
 8. Localhost, private addresses, ports, gateways, and layered connectivity
    troubleshooting.
 9. Standard streams, pipelines, and output/error redirection: on 2026-08-28,
@@ -237,8 +242,8 @@ These were identified during the initial probe:
 
 Phase 1 has passed. The transient-unit cleanup check, signal-disposition
 retrieval, process-state-versus-placement node, and disposable shell job-control
-lab are complete. Re-anchor the difference between successful signal sending
-and a disposition-dependent process outcome, then perform the pending
-disposable termination lab. Re-test the escalation sequence without hints.
+lab are complete. The default-versus-returning-handler termination comparison
+is also verified live. Finish and verify cleanup of the last-observed handler
+process, then re-test exact escalation commands without hints.
 Keep `fg` versus `bg`, signal disposition, and items 10 and 11 queued for later
 spaced retrieval in unfamiliar troubleshooting scenarios.

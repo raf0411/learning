@@ -262,14 +262,16 @@ In a same-day continuation, the learner correctly retrieved that `fg` puts the
 job in the foreground and makes the shell wait. They then established that
 application cleanup requires further process instructions. Installed macOS
 manual pages were used to introduce plain `kill PID` as `SIGTERM`, catchable
-`SIGTERM`, and uncatchable/unignorable `SIGKILL`. The safe escalation sequence
-check and live lab remain unfinished. On 2026-09-09, the learner correctly
-retrieved `fg`, repaired returning-handler behavior, and identified successful
-`kill` as signal-request acceptance rather than proof of exit. They followed
-the safe escalation branches after direct teaching, but then predicted that an
-ordinary `sleep` would survive `SIGTERM`, showing that send semantics and the
-receiver's disposition are not yet integrated. Re-anchor that relationship and
-complete the disposable lab before proceeding to `ps`/`top` and resource
+`SIGTERM`, and uncatchable/unignorable `SIGKILL`. On 2026-09-09, the learner
+repaired handler-return behavior, signal-request acceptance versus proof of
+exit, and the wait-before-fresh-inspection order. A live Ubuntu comparison then
+showed ordinary `sleep` terminate under the default disposition while a Bash
+process with a returning handler remained after the same signal and a wait.
+The conceptual model is now demonstrated live. Command construction remains at
+the edge: the learner could not independently form the final `SIGKILL`, wait,
+and verification commands. PID `375142` was last observed as the surviving
+disposable process; verify its identity and clean it up before completing one
+unprompted escalation transfer. Then proceed to `ps`/`top` and resource
 interpretation.
 
 Completed first users-and-permissions lesson dependency map:
