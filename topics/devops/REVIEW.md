@@ -1,6 +1,6 @@
 # REVIEW
 
-Updated: 2026-09-08
+Updated: 2026-09-09
 
 ## Active review queue
 
@@ -132,7 +132,14 @@ These were identified during the initial probe:
    review. The learner then established that cleanup requires further process
    instructions. `SIGTERM`, `SIGKILL`, and the default signal sent by plain
    `kill PID` were introduced from installed manual pages, but the safe-sequence
-   check and live termination lab remain unfinished.
+   check and live termination lab remain unfinished. On 2026-09-09, the learner
+   repaired returning-handler behavior and correctly identified successful
+   `kill` as accepted signal sending rather than confirmed exit. They needed the
+   escalation order shown after putting `SIGKILL` first and later checking
+   before waiting. They then overgeneralized send-versus-outcome and predicted
+   that ordinary `sleep` would remain after `SIGTERM`, overlooking its default
+   terminating disposition. Re-test by comparing ordinary and signal-resistant
+   processes in the pending live lab.
 8. Localhost, private addresses, ports, gateways, and layered connectivity
    troubleshooting.
 9. Standard streams, pipelines, and output/error redirection: on 2026-08-28,
@@ -230,7 +237,8 @@ These were identified during the initial probe:
 
 Phase 1 has passed. The transient-unit cleanup check, signal-disposition
 retrieval, process-state-versus-placement node, and disposable shell job-control
-lab are complete. Resume the pending safe `SIGTERM`-then-`SIGKILL` sequence
-check, then perform its disposable lab. Re-test `fg` versus `bg`, signal
-disposition, and items 10 and 11 later through spaced retrieval in unfamiliar
-troubleshooting scenarios.
+lab are complete. Re-anchor the difference between successful signal sending
+and a disposition-dependent process outcome, then perform the pending
+disposable termination lab. Re-test the escalation sequence without hints.
+Keep `fg` versus `bg`, signal disposition, and items 10 and 11 queued for later
+spaced retrieval in unfamiliar troubleshooting scenarios.

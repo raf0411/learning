@@ -1,6 +1,6 @@
 # ROADMAP
 
-Updated: 2026-09-08
+Updated: 2026-09-09
 Target window: 14–16 weeks
 Current phase: Phase 2 signals, jobs, and resource inspection lesson in progress
 
@@ -263,8 +263,14 @@ job in the foreground and makes the shell wait. They then established that
 application cleanup requires further process instructions. Installed macOS
 manual pages were used to introduce plain `kill PID` as `SIGTERM`, catchable
 `SIGTERM`, and uncatchable/unignorable `SIGKILL`. The safe escalation sequence
-check and live lab remain unfinished. Resume them before proceeding to
-`ps`/`top` and resource interpretation.
+check and live lab remain unfinished. On 2026-09-09, the learner correctly
+retrieved `fg`, repaired returning-handler behavior, and identified successful
+`kill` as signal-request acceptance rather than proof of exit. They followed
+the safe escalation branches after direct teaching, but then predicted that an
+ordinary `sleep` would survive `SIGTERM`, showing that send semantics and the
+receiver's disposition are not yet integrated. Re-anchor that relationship and
+complete the disposable lab before proceeding to `ps`/`top` and resource
+interpretation.
 
 Completed first users-and-permissions lesson dependency map:
 

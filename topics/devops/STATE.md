@@ -1,6 +1,6 @@
 # STATE
 
-Updated: 2026-09-08
+Updated: 2026-09-09
 
 ## Current stage
 
@@ -42,9 +42,17 @@ foreground job. The safe-termination lesson then began. The learner established
 that application cleanup requires the process to execute further instructions.
 `SIGTERM`, `SIGKILL`, and plain `kill PID` were introduced from the installed
 macOS manual pages, but the safe-sequence check and disposable lab were not
-attempted before session end.
+attempted before session end. On 2026-09-09, retrieval confirmed `fg` but
+re-exposed confusion between signal delivery, handler return, and termination.
+After repair, the learner correctly classified default termination, handler
+return and continuation, and handler cleanup followed by explicit exit. They
+also identified that successful `kill` establishes signal-request acceptance,
+not process exit. The safe escalation branches were answered correctly after
+the sequence was shown, but a later prediction incorrectly kept an ordinary
+`sleep` alive after `SIGTERM`. The send-versus-outcome model and disposition
+must therefore be integrated in a live lab before advancing.
 
-Last completed session: `sessions/2026-09-08.md`
+Last completed session: `sessions/2026-09-09.md`
 
 ## Environment and capacity
 
@@ -252,6 +260,9 @@ Last completed session: `sessions/2026-09-08.md`
 - Established that application cleanup requires the process to execute further
   instructions, motivating a cooperative termination opportunity before forced
   termination.
+- Correctly classified `SIGTERM` with no custom handler, a returning handler,
+  and a handler that explicitly exits. Identified that successful `kill`
+  establishes accepted signal sending rather than handler completion or exit.
 
 ## Partial or missing foundations
 
@@ -282,16 +293,20 @@ Last completed session: `sessions/2026-09-08.md`
   the probe, the learner treated `Ctrl+C` and `kill PID` as unavoidable forced
   destruction, did not know `&`, `jobs`, `fg`, or `bg`, and interpreted one
   process near 100% CPU as necessarily exhausting a four-core machine.
-- The signal-delivery-versus-disposition foundation is now demonstrated by one
-  clean three-part retrieval after earlier repeated confusion. It should receive
-  later spaced confirmation. Process state versus foreground/background
-  placement and basic shell job control are now demonstrated live. Because
+- The signal-delivery-versus-disposition foundation has been demonstrated in
+  isolated classifications, but is not yet integrated reliably. On 2026-09-09,
+  the learner repaired handler-return behavior and `kill` success semantics,
+  then incorrectly predicted that an ordinary `sleep` would remain after
+  `SIGTERM` despite its default terminating disposition. Process state versus
+  foreground/background placement and basic shell job control are now
+  demonstrated live. Because
   `fg` was repeatedly misclassified as moving a job into the background, keep
   `fg` versus `bg` in spaced review despite one clean retrieval. `SIGTERM` as a
   cooperative termination request, uncatchable/unignorable `SIGKILL`, and plain
   `kill PID` defaulting to `SIGTERM` have been introduced from local manual
-  pages. The escalation sequence is not yet checked and no termination lab has
-  been performed.
+  pages. The escalation branches were correct after direct teaching, but the
+  complete sequence still needs an unprompted re-test and no termination lab
+  has been performed.
 - Does not yet know the core commands for resource, OS, network, and log
   inspection.
 - Networking knowledge is early: localhost, private addressing, gateways,
@@ -331,6 +346,7 @@ concept being tested.
 
 ## Next action
 
-Resume the pending safe-sequence check, then verify `SIGTERM` and `SIGKILL` in a
-disposable lab. Keep `fg` versus `bg` and signal disposition queued for spaced
-checks.
+Re-anchor the distinct questions answered by `kill` and `ps`, then use an
+ordinary process and a signal-resistant process to verify disposition-dependent
+outcomes. Re-test the complete `SIGTERM`-wait-check-conditional-`SIGKILL`-check
+sequence without hints before proceeding to resource interpretation.
