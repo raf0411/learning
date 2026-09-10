@@ -151,7 +151,16 @@ These were identified during the initial probe:
    absence. Move the safe sequence to spaced operational review. The subsequent
    resource probe confirmed snapshot-versus-refresh intuition and one-of-four
    capacity reasoning, while multicore `%CPU`, `VIRT`, `RES`/RSS, and `SHR`
-   remain new. The first discrete-sampling check is pending.
+   remain new. In a continuation, the learner initially treated a displayed
+   frame as if its process list could change before the next refresh, then
+   repaired the model and correctly identified that zero refreshes occurred
+   during the example process's lifetime. They then overgeneralized that the
+   first refresh always precedes a process's start; confirm that already-running
+   processes can appear in the first frame. They used installed `ps(1)`
+   documentation to identify CPU time divided by elapsed lifetime and, after
+   confusing a ratio's units and converting `1/5` to `2%`, independently
+   converted `15/60` to `25%`. Re-test percentage conversion within an
+   unfamiliar resource scenario; next establish `top`'s interval semantics.
 8. Localhost, private addresses, ports, gateways, and layered connectivity
    troubleshooting.
 9. Standard streams, pipelines, and output/error redirection: on 2026-08-28,
@@ -251,7 +260,7 @@ Phase 1 has passed. The transient-unit cleanup check, signal-disposition
 retrieval, process-state-versus-placement node, and disposable shell job-control
 lab are complete. The default-versus-returning-handler termination comparison
 and full conditional escalation sequence are also verified live. Proceed to
-`ps`/`top` and resource interpretation, beginning with the pending question
-about a process that lives entirely between two `top` refresh frames.
+`ps`/`top` and resource interpretation, beginning with the installed `top(1)`
+description of its since-last-screen-update measurement interval.
 Keep `fg` versus `bg`, signal disposition, and items 10 and 11 queued for later
 spaced retrieval in unfamiliar troubleshooting scenarios.

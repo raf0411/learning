@@ -309,9 +309,17 @@ and `SHR` from virtual mappings and resident pages. Verify the VM's installed
 procps-ng version and manual pages before the lab. Finish with controlled CPU
 and memory observations, emphasizing evidence over conclusions from one frame.
 The learner approved this plan on 2026-09-10. The first node established that
-`top` displays discrete refresh frames rather than observing continuously. Its
-pending check asks whether a process that exists entirely between two refreshes
-can be absent from both frames; resume there next session.
+`top` displays discrete refresh frames rather than observing continuously. In
+a continuation, the learner correctly identified that no refresh occurred
+while a short-lived example process existed, so it could be absent from both
+frames. They then overgeneralized that a first refresh always precedes a
+process's start; confirm that existing processes can appear in the first frame.
+Ubuntu output verified procps-ng 4.0.4 for both tools. The installed `ps(1)`
+manual established its CPU-time-over-elapsed-lifetime percentage, and the
+learner independently calculated a fresh `15/60 = 25%` example after
+corrections to unit cancellation and percentage conversion. Next establish
+`top`'s since-last-update interval from its installed manual, then contrast the
+two windows.
 
 Completed first users-and-permissions lesson dependency map:
 

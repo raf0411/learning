@@ -64,10 +64,15 @@ they conditionally sent `SIGKILL`, waited, and verified an empty final `ps`
 snapshot. The safe escalation sequence is now demonstrated at command level.
 A focused process-resource probe then confirmed a floor in `ps` snapshots,
 `top` refreshes, one-of-four capacity reasoning, and partial file residency.
-Multicore `%CPU` plus `VIRT`, `RES`/RSS, and `SHR` remain beyond the learner's
-current edge. The dependency plan was verified, recorded, and approved. The
-first sampling node was introduced, but its short-lived-process check was not
-attempted before session end.
+With guidance, the learner concluded that a process can start and exit between
+two `top` refreshes without appearing in either displayed frame, but then
+overgeneralized that a first refresh always precedes a process's start. Ubuntu
+output verified procps-ng 4.0.4 for both `ps` and `top`. Using the installed
+`ps(1)` manual, the learner identified `%CPU` as CPU time divided by elapsed
+process lifetime and demonstrated percentage conversion after two focused
+corrections. Confirm the remaining refresh generalization, then continue to
+the `top` measurement window, multicore normalization, `VIRT`, `RES`/RSS, and
+`SHR`.
 
 Last completed session: `sessions/2026-09-10.md`
 
@@ -294,6 +299,11 @@ Last completed session: `sessions/2026-09-10.md`
   `SIGKILL`, grace period, and final empty `ps`. Correctly explained that a
   returning handler lets execution continue, while `SIGKILL` gives the process
   no handler or cleanup opportunity.
+- Explained after focused repair that `top` shows discrete refresh frames and
+  can miss a process whose entire lifetime falls between two refreshes.
+- Verified procps-ng 4.0.4 for `ps` and `top`, used the installed `ps(1)`
+  manual to identify CPU time divided by elapsed lifetime, and independently
+  calculated a fresh lifetime-average example as `15/60 = 25%`.
 
 ## Partial or missing foundations
 
@@ -378,8 +388,9 @@ concept being tested.
 
 ## Next action
 
-Resume the pending discrete-sampling check, then verify the VM's installed
-`ps`/`top` versions and manuals before deriving snapshot, lifetime-average, and
-interval-rate semantics. Continue through multicore CPU normalization and
-virtual-versus-resident memory. Keep safe termination, consistent variable
+First confirm that a first `top` frame can show processes that were already
+running when `top` started. Then use the installed `top(1)` manual to identify
+its `%CPU` interval and contrast that recent-interval rate with `ps`'s
+now-demonstrated lifetime average. Continue through multicore CPU normalization
+and virtual-versus-resident memory. Keep safe termination, consistent variable
 naming, and conditional escalation in spaced operational review.
