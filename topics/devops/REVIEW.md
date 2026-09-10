@@ -1,6 +1,6 @@
 # REVIEW
 
-Updated: 2026-09-09
+Updated: 2026-09-10
 
 ## Active review queue
 
@@ -144,7 +144,14 @@ These were identified during the initial probe:
    wait-before-fresh-inspection order, but could not construct the final
    `SIGKILL`, wait, and `ps` commands independently. PID `375142` was last
    observed as the surviving disposable process; verify identity before
-   cleanup, then re-test the full sequence at command level.
+   cleanup, then re-test the full sequence at command level. On 2026-09-10,
+   PID `375142` was confirmed absent. A fresh disposable handler process then
+   survived `SIGTERM`; after a corrected variable-name mismatch, the learner
+   waited, inspected, conditionally sent `SIGKILL`, waited again, and verified
+   absence. Move the safe sequence to spaced operational review. The subsequent
+   resource probe confirmed snapshot-versus-refresh intuition and one-of-four
+   capacity reasoning, while multicore `%CPU`, `VIRT`, `RES`/RSS, and `SHR`
+   remain new. The first discrete-sampling check is pending.
 8. Localhost, private addresses, ports, gateways, and layered connectivity
    troubleshooting.
 9. Standard streams, pipelines, and output/error redirection: on 2026-08-28,
@@ -243,7 +250,8 @@ These were identified during the initial probe:
 Phase 1 has passed. The transient-unit cleanup check, signal-disposition
 retrieval, process-state-versus-placement node, and disposable shell job-control
 lab are complete. The default-versus-returning-handler termination comparison
-is also verified live. Finish and verify cleanup of the last-observed handler
-process, then re-test exact escalation commands without hints.
+and full conditional escalation sequence are also verified live. Proceed to
+`ps`/`top` and resource interpretation, beginning with the pending question
+about a process that lives entirely between two `top` refresh frames.
 Keep `fg` versus `bg`, signal disposition, and items 10 and 11 queued for later
 spaced retrieval in unfamiliar troubleshooting scenarios.

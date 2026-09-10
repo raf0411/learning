@@ -1,6 +1,6 @@
 # STATE
 
-Updated: 2026-09-09
+Updated: 2026-09-10
 
 ## Current stage
 
@@ -55,13 +55,25 @@ wait-before-inspection order and completed a live Ubuntu comparison. Ordinary
 returning handler printed its handler message and PID `375142` remained after a
 wait. The learner explained both outcomes correctly but could not yet construct
 the exact `SIGKILL` and verification commands independently. PID `375142` was
-last observed running, so its current identity must be checked before cleanup.
+last observed running, so its current identity had to be checked before cleanup.
+On 2026-09-10, an empty `ps` snapshot verified that PID `375142` was no longer
+present. The learner then created and identity-checked a fresh disposable Bash
+handler process, sent `SIGTERM`, waited, and verified that its returning handler
+left it running. After one variable-name correction in the written rehearsal,
+they conditionally sent `SIGKILL`, waited, and verified an empty final `ps`
+snapshot. The safe escalation sequence is now demonstrated at command level.
+A focused process-resource probe then confirmed a floor in `ps` snapshots,
+`top` refreshes, one-of-four capacity reasoning, and partial file residency.
+Multicore `%CPU` plus `VIRT`, `RES`/RSS, and `SHR` remain beyond the learner's
+current edge. The dependency plan was verified, recorded, and approved. The
+first sampling node was introduced, but its short-lived-process check was not
+attempted before session end.
 
-Last completed session: `sessions/2026-09-09.md`
+Last completed session: `sessions/2026-09-10.md`
 
 ## Environment and capacity
 
-- Uses macOS Terminal and has an Ubuntu homelab server.
+- Uses macOS Terminal and an Ubuntu homelab VM in VirtualBox.
 - Can study about 5 hours daily.
 - Prefers practical, job-oriented learning.
 - Ubuntu currently retains `~/permissions-lab/mode-practice.txt` as
@@ -72,9 +84,9 @@ Last completed session: `sessions/2026-09-09.md`
   MainPID `236595`: on 2026-09-07, `systemctl show` reported
   `LoadState=not-found`, `ActiveState=inactive`, `SubState=dead`, and
   `MainPID=0`, while `ps -p 236595` returned only its header.
-- Ubuntu PID `375142` was last observed on 2026-09-09 as the disposable Bash
-  signal-handler loop. It survived `SIGTERM`; no later cleanup or absence check
-  was observed. Verify its current command before sending another signal.
+- Ubuntu PID `375142` was confirmed absent on 2026-09-10. Fresh disposable Bash
+  handler PID `5767` was then terminated with `SIGKILL` after it survived
+  `SIGTERM`; a final `ps` snapshot confirmed its absence.
 - macOS retains `~/permissions-lab/mode-practice.txt` as `raffi:staff` mode
   `640`, created while the Ubuntu server was temporarily unavailable.
 
@@ -277,6 +289,11 @@ Last completed session: `sessions/2026-09-09.md`
 - Explained that `kill` requests kernel-mediated signal delivery and `ps`
   independently checks whether the PID is present. Correctly placed the grace
   period before the snapshot used for the escalation decision.
+- On Ubuntu, executed the full safe sequence against verified
+  disposable PID `5767`: `SIGTERM`, grace period, fresh `ps`, conditional
+  `SIGKILL`, grace period, and final empty `ps`. Correctly explained that a
+  returning handler lets execution continue, while `SIGKILL` gives the process
+  no handler or cleanup opportunity.
 
 ## Partial or missing foundations
 
@@ -308,19 +325,20 @@ Last completed session: `sessions/2026-09-09.md`
   destruction, did not know `&`, `jobs`, `fg`, or `bg`, and interpreted one
   process near 100% CPU as necessarily exhausting a four-core machine.
 - The signal-delivery-versus-disposition foundation is now demonstrated both
-  conceptually and in a live default-versus-returning-handler comparison. Exact
-  command construction remains incomplete: the learner could not independently
-  produce the `SIGKILL`, wait, and final `ps` commands after correctly deciding
-  that escalation was warranted. Process state versus
+  conceptually and in live default-versus-returning-handler comparisons. The
+  complete conditional escalation sequence is also demonstrated at command
+  level. The learner initially repeated `SIGTERM` where escalation required
+  `SIGKILL`, and later used `resistant_pid` instead of the assigned
+  `resistant_lab_pid` in a written rehearsal; both were repaired before the
+  live sequence. Process state versus
   foreground/background placement and basic shell job control are now
   demonstrated live. Because
   `fg` was repeatedly misclassified as moving a job into the background, keep
   `fg` versus `bg` in spaced review despite one clean retrieval. `SIGTERM` as a
   cooperative termination request, uncatchable/unignorable `SIGKILL`, and plain
   `kill PID` defaulting to `SIGTERM` have been introduced from local manual
-  pages. The escalation branches and live `SIGTERM` comparison are correct, but
-  the complete sequence still needs completion and an unprompted command-level
-  re-test.
+  pages. Keep the sequence in later operational review rather than blocking
+  progression.
 - Does not yet know the core commands for resource, OS, network, and log
   inspection.
 - Networking knowledge is early: localhost, private addressing, gateways,
@@ -360,8 +378,8 @@ concept being tested.
 
 ## Next action
 
-Verify the identity of last-observed Ubuntu PID `375142`; if it is still the
-disposable handler loop, finish `SIGKILL` cleanup and verify absence. Then
-rehearse the complete `SIGTERM`-wait-check-conditional-`SIGKILL`-check sequence
-at the command level with decreasing hints. Proceed to resource interpretation
-after one unprompted successful transfer.
+Resume the pending discrete-sampling check, then verify the VM's installed
+`ps`/`top` versions and manuals before deriving snapshot, lifetime-average, and
+interval-rate semantics. Continue through multicore CPU normalization and
+virtual-versus-resident memory. Keep safe termination, consistent variable
+naming, and conditional escalation in spaced operational review.

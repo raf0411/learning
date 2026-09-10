@@ -1,6 +1,6 @@
 # ROADMAP
 
-Updated: 2026-09-09
+Updated: 2026-09-10
 Target window: 14–16 weeks
 Current phase: Phase 2 signals, jobs, and resource inspection lesson in progress
 
@@ -267,12 +267,51 @@ repaired handler-return behavior, signal-request acceptance versus proof of
 exit, and the wait-before-fresh-inspection order. A live Ubuntu comparison then
 showed ordinary `sleep` terminate under the default disposition while a Bash
 process with a returning handler remained after the same signal and a wait.
-The conceptual model is now demonstrated live. Command construction remains at
-the edge: the learner could not independently form the final `SIGKILL`, wait,
-and verification commands. PID `375142` was last observed as the surviving
-disposable process; verify its identity and clean it up before completing one
-unprompted escalation transfer. Then proceed to `ps`/`top` and resource
-interpretation.
+The conceptual model is now demonstrated live. Command construction was still
+at the edge after 2026-09-09. On 2026-09-10, the learner first repeated
+`SIGTERM` instead of escalating and used an inconsistent variable name in a
+written rehearsal. They then verified that old PID `375142` was absent, created
+and identity-checked a fresh disposable Bash handler as PID `5767`, and
+completed the full live flow: `SIGTERM`, wait, fresh `ps`, conditional
+`SIGKILL`, wait, and final empty `ps`. The command-level safe-termination node
+is complete. Proceed to `ps`/`top` and resource interpretation while retaining
+this sequence for spaced review.
+
+Focused process-resource probe on 2026-09-10: the learner correctly described
+`ps` as a short-lived observation and `top` as a foreground program that keeps
+refreshing. They also derived that one fully busy worker on a four-worker
+machine consumes one quarter of total capacity, but could not yet interpret a
+process row near `100%` CPU. They correctly expected only needed file data to
+be resident in RAM, but `VIRT`, `RES`/RSS, and shared resident pages are new.
+
+Focused process-resource dependency map:
+
+```mermaid
+flowchart TD
+    A[System state changes over time] --> D[Snapshot versus repeated samples]
+    B[Percent needs an interval and reference whole] --> E[CPU time versus wall time]
+    C[N CPUs supply N CPU-seconds per second] --> E
+    D --> F[ps lifetime average versus top interval rate]
+    E --> F
+    F --> G[Per-CPU and normalized percent scales]
+    H[Virtual addresses differ from resident RAM pages] --> I[VIRT versus RES]
+    J[Resident pages can be shared] --> K[SHR and RSS limits]
+    I --> L[Interpret process memory evidence]
+    K --> L
+    G --> M[Safe observation and diagnosis lab]
+    L --> M
+```
+
+Teaching order: confirm the time, percentage, and CPU-capacity foundations;
+derive the different measurement windows used by `ps` and `top`; connect one
+busy CPU to the installed `top` normalization mode; then build `VIRT`, `RES`,
+and `SHR` from virtual mappings and resident pages. Verify the VM's installed
+procps-ng version and manual pages before the lab. Finish with controlled CPU
+and memory observations, emphasizing evidence over conclusions from one frame.
+The learner approved this plan on 2026-09-10. The first node established that
+`top` displays discrete refresh frames rather than observing continuously. Its
+pending check asks whether a process that exists entirely between two refreshes
+can be absent from both frames; resume there next session.
 
 Completed first users-and-permissions lesson dependency map:
 

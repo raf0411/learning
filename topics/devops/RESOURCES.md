@@ -74,3 +74,6 @@ this file remains a short, useful reference rather than a link dump.
 - [GNU Bash: asynchronous lists and `&`](https://www.gnu.org/software/bash/manual/html_node/Lists.html)
 - [Linux `ps(1)`](https://man7.org/linux/man-pages/man1/ps.1.html)
 - [Linux `top(1)`](https://man7.org/linux/man-pages/man1/top.1.html)
+- [procps-ng upstream `ps(1)` manual](https://gitlab.com/procps-ng/procps/-/blob/master/man/ps.1)
+- [procps-ng upstream `top(1)` manual](https://gitlab.com/procps-ng/procps/-/blob/master/man/top.1)
+- [Linux kernel documentation: `/proc`](https://docs.kernel.org/filesystems/proc.html)
