@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/devops/ROADMAP.md",
+                "file": "topics/devops/GOAL.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ROADMAP"
+              "title": "GOAL"
             }
           }
         ]
@@ -187,10 +187,10 @@
   },
   "active": "ed9624219eebe3c6",
   "lastOpenFiles": [
+    "topics/devops/ROADMAP.md",
     "topics/devops/STATE.md",
     "AGENTS.md",
     "topics/devops/sessions/2026-09-10.md",
-    "topics/devops/ROADMAP.md",
     "topics/devops/GOAL.md",
     "topics/devops/sessions/2026-09-09.md",
     "topics/devops/diagrams/standard-streams.md",
