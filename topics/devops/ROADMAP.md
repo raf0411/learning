@@ -1,8 +1,14 @@
 # ROADMAP
 
-Updated: 2026-09-10
+Updated: 2026-09-11
 Target window: 14–16 weeks
 Current phase: Phase 2 signals, jobs, and resource inspection lesson in progress
+
+Primary career direction: entry-level DevOps, Junior Cloud Infrastructure,
+InfraOps, and Cloud Operations/Support roles. Linux/SysAdmin roles remain
+valuable secondary entry routes. AWS is the primary cloud; Docker, CI/CD,
+Terraform, Git, scripting, and observability are required outcomes. Deep
+Kubernetes and multi-cloud operation are outside the initial exit gate.
 
 Current checkpoint: the guided file-management work and the unprompted transfer
 check are complete. From `/home/raf_0411`, without using `cd`, the learner
@@ -103,24 +109,20 @@ exit check; demonstrated skill matters more than merely completing a week.
 
 ```mermaid
 flowchart TD
-    A[1. Shell and filesystem] --> B[2. Users and permissions]
-    A --> C[2. Processes, packages and systemd]
-    B --> D[3. Networking and SSH]
-    C --> D
-    B --> E[4. Storage, logs and scheduled work]
-    C --> E
-    D --> F[5. Run and troubleshoot services]
+    A[1. Shell and filesystem] --> B[2. Core Ubuntu administration]
+    A --> C[Git and Bash used throughout]
+    B --> D[3. Networking, HTTP and SSH]
+    C --> E[4. Operations and automation]
+    B --> E
+    D --> F[5. Service delivery and Docker]
     E --> F
-    A --> G[6. Bash automation and Git]
-    E --> G
-    D --> H[5. Host security, backup and monitoring]
+    F --> G[6. CI/CD pipeline]
+    D --> H[7. AWS operated manually]
     E --> H
-    F --> I[7. Cloud support fundamentals]
-    H --> I
-    F --> J[8. Capstone and job readiness]
-    G --> J
-    H --> J
+    H --> I[Terraform-managed AWS]
+    G --> J[Observability and reliable delivery]
     I --> J
+    J --> K[8. Integrated capstone and job readiness]
 ```
 
 ## Phase 1 — Linux command line and filesystem (Week 1)
@@ -393,100 +395,155 @@ manage a service; diagnose a deliberately stopped or misconfigured unit.
 Exit check: administer users and a service, locate relevant logs, and explain
 the difference between a program, process, daemon, service, and service manager.
 
-## Phase 3 — Networking and remote administration (Weeks 4–5)
+## Phase 3 — Networking, HTTP, and remote administration (Weeks 4–5)
 
 Learn:
 
-- IPv4, subnet basics, private/public addresses, loopback, gateways, routing;
-- TCP versus UDP, ports, sockets, DNS, DHCP, and the web request path;
+- IPv4, subnet basics, private/public addresses, loopback, gateways, and routes;
+- TCP versus UDP, ports, listening sockets, DNS, and DHCP;
+- the HTTP/HTTPS request path, status codes, headers, TLS, and reverse proxies;
 - inspect and test with `ip`, `ss`, `ping`, `traceroute`, `dig`, and `curl`;
-- SSH passwords versus keys, host keys, configuration, copying files, and
-  secure remote access;
-- host firewall fundamentals with Ubuntu's supported tooling.
+- SSH keys, host keys, client/server configuration, copying files, and secure
+  remote access;
+- host-firewall fundamentals with Ubuntu's supported tooling.
 
-Labs: map the homelab network; set up key-based SSH; expose only an intended
-service; diagnose DNS, route, port, firewall, and application failures.
+Labs: map the homelab network; set up key-based SSH; trace a request from DNS
+through a listening service; expose only an intended port; diagnose DNS, route,
+socket, firewall, TLS, and application failures.
 
-Exit check: troubleshoot several unknown connectivity failures using a layered
-method and justify each test.
+Exit check: recover from several unknown connectivity failures using a layered
+method and justify what each test proves or rules out.
 
-## Phase 4 — Storage and routine operations (Weeks 6–7)
+## Phase 4 — Operational automation and delivery foundations (Weeks 5–7)
 
-Learn:
-
-- partitions, filesystems, mounts, capacity versus inode exhaustion;
-- log locations, journal queries, rotation, and retention;
-- archives, checksums, backup strategies, and verified restores;
-- recurring work with cron and systemd timers;
-- routine patching, inventory, operational notes, and change verification.
-
-Labs: attach or simulate extra storage; recover from a full-filesystem
-scenario; schedule and verify a backup; restore deleted test data.
-
-Exit check: find a storage/logging problem, fix it safely, and restore data from
-a backup rather than merely creating one.
-
-## Phase 5 — Operate a real service securely (Weeks 8–9)
+Git and Bash begin as soon as Phase 2 is complete and remain part of every later
+project rather than being isolated at the end of the roadmap.
 
 Learn:
 
-- install and configure Nginx or Apache;
-- configuration syntax testing, ports, logs, processes, and dependencies;
-- HTTP and TLS fundamentals;
-- permissions, firewall policy, updates, backup, and simple monitoring;
-- a repeatable troubleshooting workflow and incident notes.
+- Git repositories, commits, branches, diffs, merge basics, `.gitignore`, and
+  clear README/runbook documentation;
+- Bash variables, quoting, exit status, tests, loops, functions, pipelines, and
+  safe failure handling;
+- basic Python only where it is more appropriate than Bash for a small task;
+- the delivery lifecycle: source, build, test, artifact, environment,
+  deployment, observation, rollback, and incident feedback;
+- package management, patch verification, inventory, and repeatable changes;
+- filesystems, mounts, capacity versus inode exhaustion, journals, log rotation,
+  checksums, backup/restore, cron, and systemd timers.
 
-Project 1: publish and document a small homelab web service, then diagnose
-injected failures such as a stopped unit, occupied port, invalid configuration,
-permissions error, firewall rule, and low disk space.
+Labs: place operational work in Git; write safe health-check and backup scripts;
+schedule one job; inject a disk or logging failure; restore deleted test data;
+review the resulting diff and operational evidence.
 
-Exit check: recover the service from unknown failures and provide concise
-evidence of the root cause. Begin applying selectively to support and junior
-infrastructure roles after this gate.
+Project 1: create a small administration toolkit with documentation and scripts
+that are safe to rerun, preserve useful diagnostics, and report failures clearly.
 
-## Phase 6 — Useful automation (Week 10)
+Exit check: independently diagnose a storage/logging problem, restore data from
+a verified backup, and automate one previously manual operation while explaining
+the script's failure modes.
+
+## Phase 5 — Service delivery and Docker (Weeks 7–9)
 
 Learn:
 
-- Bash variables, quoting, tests, loops, functions, exit status, and strict
-  error handling;
-- automate health checks, backups, account/inventory tasks, and log summaries;
-- Git commits, branches, diffs, and README/runbook documentation;
-- optional Ansible introduction only after the manual tasks are understood.
+- install, configure, secure, and troubleshoot Nginx plus a small application;
+- configuration validation, environment variables, ports, logs, processes,
+  dependencies, health checks, and graceful restart/rollback;
+- Docker images versus containers, Dockerfiles, layers, build context, tags,
+  container configuration, networking, bind mounts, volumes, and registries;
+- Docker Compose for a small multi-container development or test environment;
+- image and dependency hygiene, non-root execution, and secret boundaries.
 
-Project 2: create a small, tested administration toolkit in Git. Scripts must
-be safe to rerun and must report failures clearly.
+Project 2: first publish the service conventionally on the Ubuntu homelab, then
+containerize it and run the containerized form from a documented Git repository.
+Diagnose injected failures such as a stopped unit/container, occupied port,
+invalid configuration, permissions error, missing environment value, firewall
+rule, and low disk space.
 
-Exit check: automate a task already performed manually and explain its failure
-modes.
+Exit check: deploy and recover both the host-managed and containerized service
+from unfamiliar failures, explaining which evidence identifies the failing
+layer. Begin selective applications for relevant support, infrastructure, and
+trainee roles after this gate.
 
-## Phase 7 — Cloud support fundamentals (Weeks 11–12)
+## Phase 6 — CI/CD and controlled releases (Weeks 9–10)
 
-Choose one provider based on local job demand, then learn:
+Use GitHub Actions as the primary learning system while keeping the concepts
+transferable to GitLab CI, Jenkins, and other pipeline tools.
 
-- regions/zones, virtual machines, images, disks, object storage, and snapshots;
-- virtual networks, subnets, routes, security groups/firewalls, DNS, and public
-  versus private access;
-- identities, roles, policies, least privilege, secrets, and shared
-  responsibility;
-- metrics, logs, alerts, quotas, basic cost awareness, and provider support
-  documentation.
+Learn:
 
-Project 3: deploy the Phase 5 service to a small cloud VM, restrict access,
-monitor it, back it up, and write a teardown procedure to prevent unwanted cost.
+- pipeline triggers, jobs, steps, runners, environments, artifacts, caches, and
+  exit-status-driven failure;
+- build and test the service, build/tag its Docker image, and publish it to a
+  container registry;
+- credentials, repository/environment secrets, least privilege, and safe log
+  handling;
+- controlled deployment, health verification, failed-release diagnosis, and
+  rollback to a known-good artifact.
 
-Exit check: diagnose access and service failures without randomly changing
-rules, and explain cost/security implications.
+Project 3: create a pipeline that validates the repository, builds the image,
+publishes an immutable tag, and deploys to a disposable or homelab target with
+an explicit verification and rollback step.
 
-## Phase 8 — Capstone and employment preparation (Weeks 13–16)
+Exit check: diagnose at least two deliberately broken pipeline stages from logs,
+repair them without bypassing the failed checks, and restore a previous release.
 
-- Combine Linux, networking, service management, security, backup, monitoring,
-  and automation into one reproducible project.
-- Publish sanitized diagrams, runbooks, incident reports, and scripts.
-- Practice Linux and networking troubleshooting interviews at the terminal.
-- Translate lab evidence into resume bullets and apply consistently.
-- Use job-posting feedback to adjust weak areas; study an entry certification
-  only if it reinforces, rather than replaces, the practical work.
+## Phase 7 — AWS, Terraform, and observability (Weeks 10–13)
+
+Operate AWS resources manually first so Terraform represents understood
+infrastructure rather than hiding unfamiliar cloud behavior.
+
+Learn:
+
+- AWS accounts, regions, availability zones, CLI profiles, budgets, and cost
+  teardown discipline;
+- IAM users/roles/policies, temporary credentials, least privilege, secrets, and
+  shared responsibility;
+- EC2, AMIs, EBS, S3, VPCs, public/private subnets, route tables, internet
+  gateways, security groups, DNS, and load-balancing fundamentals;
+- CloudWatch metrics, logs, alarms, dashboards, and basic CloudTrail evidence;
+- Terraform providers, resources, data sources, variables, outputs, state,
+  dependency behavior, formatting, validation, plan, apply, import awareness,
+  and destroy;
+- basic reusable Terraform structure without premature module complexity;
+- high-level mappings to equivalent GCP concepts, without attempting to operate
+  two clouds deeply.
+
+Project 4: manually deploy and observe the Phase 5 service on AWS, record the
+architecture and decisions, tear it down, then reproduce the understood
+environment with Terraform and connect it to the Phase 6 delivery pipeline.
+
+Exit check: recreate the environment from the repository, deploy the service,
+verify access controls and monitoring, diagnose injected IAM/network/service
+failures, recover safely, and destroy resources without leaving unintended cost.
+
+## Phase 8 — Integrated reliability capstone and employment (Weeks 13–16)
+
+- Combine Linux, networking, service management, Docker, Git, CI/CD, AWS,
+  Terraform, security, backup, monitoring, and automation into one coherent
+  delivery-and-operations project.
+- Add meaningful service health indicators, logs, metrics, alerts, backup and
+  restore tests, rollback, and a small capacity or availability investigation.
+- Run unfamiliar incident scenarios and produce concise timelines, evidence,
+  root-cause statements, recovery verification, and prevention actions.
+- Publish sanitized architecture diagrams, Terraform, pipeline configuration,
+  scripts, README material, runbooks, and incident reports.
+- Practice Linux, networking, cloud, Terraform, Docker, and CI/CD troubleshooting
+  interviews through terminal-based scenarios.
+- Translate demonstrated outcomes into resume bullets and apply consistently to
+  DevOps, Junior Cloud Infrastructure, InfraOps, Cloud Operations/Support, and
+  appropriate adjacent Linux/infrastructure roles.
+- Use job-posting feedback to adjust weak areas. Treat certifications only as
+  reinforcement, not substitutes for practical evidence.
+- After the core exit gate, add Kubernetes concepts and one small deployment lab
+  only if time and demonstrated foundations allow; deep Kubernetes is not an
+  entry-level completion requirement.
+
+Capstone exit check: from the repository and runbooks, reproduce the system,
+deliver a change through CI/CD, observe it, recover from unknown injected
+failures, restore protected data, explain security/cost tradeoffs, and tear down
+cloud resources safely.
 
 ## Typical five-hour study day
 
