@@ -1,6 +1,6 @@
 # STATE
 
-Updated: 2026-09-10
+Updated: 2026-09-11
 
 ## Current stage
 
@@ -64,23 +64,35 @@ they conditionally sent `SIGKILL`, waited, and verified an empty final `ps`
 snapshot. The safe escalation sequence is now demonstrated at command level.
 A focused process-resource probe then confirmed a floor in `ps` snapshots,
 `top` refreshes, one-of-four capacity reasoning, and partial file residency.
-With guidance, the learner concluded that a process can start and exit between
-two `top` refreshes without appearing in either displayed frame, but then
-overgeneralized that a first refresh always precedes a process's start. Ubuntu
-output verified procps-ng 4.0.4 for both `ps` and `top`. Using the installed
-`ps(1)` manual, the learner identified `%CPU` as CPU time divided by elapsed
-process lifetime and demonstrated percentage conversion after two focused
-corrections. Confirm the remaining refresh generalization, then continue to
-the `top` measurement window, multicore normalization, `VIRT`, `RES`/RSS, and
-`SHR`.
+On 2026-09-11, the learner first treated the interval between two `top`
+refreshes as one continuously observed frame. After “frame” was clarified as
+one sampled instant, they correctly placed already-running and later-starting
+processes in fresh frames. Installed `top(1)` documentation established its
+since-last-screen-update window, and a fresh calculation correctly separated
+`ps = 20/200 = 10%` from `top = 2/4 = 50%`. The physical home server reported
+one socket, eight cores, two threads per core, and sixteen logical CPUs.
+Irix/Solaris normalization remains GUIDED: the learner correctly produced some
+normalized examples but repeatedly changed the Irix per-logical-CPU scale and
+later used the wrong Solaris denominator. A bounded `yes` process expired before
+both modes were observed; the learner correctly diagnosed the resulting empty
+filtered `top` and `ps` output, though they still ran an unnecessary `kill`
+after the empty identity check. Repeat the live mode comparison, then continue
+to `VIRT`, `RES`/RSS, and `SHR`.
 
-Last completed session: `sessions/2026-09-10.md`
+The career direction was also refined on 2026-09-11: DevOps, Junior Cloud
+Infrastructure, InfraOps, and Cloud Operations/Support are now the primary
+targets. AWS, Docker, CI/CD, Terraform, Git, scripting, and observability are
+core roadmap outcomes, while the completed Linux work remains foundational.
+
+Last completed session: `sessions/2026-09-11.md`
 
 ## Environment and capacity
 
-- Uses macOS Terminal and an Ubuntu homelab VM in VirtualBox.
+- Uses macOS Terminal and a physical Ubuntu home server for current labs.
 - Can study about 5 hours daily.
 - Prefers practical, job-oriented learning.
+- The Ubuntu home server exposes 16 logical CPUs: one socket, eight physical
+  cores per socket, and two hardware threads per core.
 - Ubuntu currently retains `~/permissions-lab/mode-practice.txt` as
   `raf_0411:raf_0411` mode `664`, `service-access-lab.conf` as `root:sudo`
   mode `640`, and the `reportsvc` account plus its `/etc/reportsvc` and
@@ -304,6 +316,19 @@ Last completed session: `sessions/2026-09-10.md`
 - Verified procps-ng 4.0.4 for `ps` and `top`, used the installed `ps(1)`
   manual to identify CPU time divided by elapsed lifetime, and independently
   calculated a fresh lifetime-average example as `15/60 = 25%`.
+- Correctly explained on a fresh scenario that an already-running process can
+  appear in the first `top` refresh while a later process appears only in
+  refreshes taken after it starts; a process wholly between samples can be
+  missed.
+- Used installed `top(1)` documentation to identify its recent interval since
+  the last screen update, then independently calculated `ps = 20/200 = 10%`
+  and `top = 2/4 = 50%` for the same conceptual process.
+- Used `nproc` and `lscpu` on the physical Ubuntu server to inspect 16 logical
+  CPUs derived from one socket, eight cores, and two threads per core.
+- Created and identity-checked bounded disposable `yes` PID `57467`, then
+  correctly diagnosed that its CPU-time limit explained the later zero-task
+  PID-filtered `top`, empty `ps`, and unnecessary `kill`. Final inspection
+  confirmed the PID absent.
 
 ## Partial or missing foundations
 
@@ -349,6 +374,13 @@ Last completed session: `sessions/2026-09-10.md`
   `kill PID` defaulting to `SIGTERM` have been introduced from local manual
   pages. Keep the sequence in later operational review rather than blocking
   progression.
+- `ps` lifetime versus `top` recent-interval CPU measurement is GUIDED after one
+  clean fresh calculation. Irix/Solaris normalization remains unstable: one
+  busy logical CPU was variously treated as `200%`, three as `600%`, and a
+  single busy CPU on the 16-CPU server used an incorrect Solaris denominator.
+  The live `I`-toggle comparison was not completed because the bounded process
+  expired. Repeat it with a longer bound and faster refresh, then require an
+  independent explanation. `VIRT`, `RES`/RSS, and `SHR` remain new.
 - Does not yet know the core commands for resource, OS, network, and log
   inspection.
 - Networking knowledge is early: localhost, private addressing, gateways,
@@ -388,9 +420,10 @@ concept being tested.
 
 ## Next action
 
-First confirm that a first `top` frame can show processes that were already
-running when `top` started. Then use the installed `top(1)` manual to identify
-its `%CPU` interval and contrast that recent-interval rate with `ps`'s
-now-demonstrated lifetime average. Continue through multicore CPU normalization
-and virtual-versus-resident memory. Keep safe termination, consistent variable
-naming, and conditional escalation in spaced operational review.
+Repeat the bounded `yes` observation using the assigned 60-CPU-second limit and
+`top -d 1`. Record the process value once with Irix mode on and once with it off,
+restore the original mode, and terminate only if a fresh identity check still
+shows the same process. Require an independent explanation of approximately
+`100%` versus `6.25%` on this 16-logical-CPU server, then continue to `VIRT`,
+`RES`/RSS, and `SHR`. Keep safe termination, consistent variable naming, and
+conditional escalation in spaced operational review.

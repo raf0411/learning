@@ -10,6 +10,15 @@ The learner performs the thinking.
 
 ---
 
+## Terminal Formatting
+
+This learning system is used primarily in a terminal.
+
+- Use LaTeX (`$$`, `\frac`, `\text`, etc.) in a file, create a file explaining the current session in the diagrams folder to make it easier to view.
+- Write mathematical expressions using terminal-friendly plain text.
+- Use ASCII/simple Unicode diagrams when visual explanations are useful.
+
+---
 # 1. Core Learning Loop
 
 Use this as the primary learning loop:

@@ -307,7 +307,7 @@ flowchart TD
 Teaching order: confirm the time, percentage, and CPU-capacity foundations;
 derive the different measurement windows used by `ps` and `top`; connect one
 busy CPU to the installed `top` normalization mode; then build `VIRT`, `RES`,
-and `SHR` from virtual mappings and resident pages. Verify the VM's installed
+and `SHR` from virtual mappings and resident pages. Verify the server's installed
 procps-ng version and manual pages before the lab. Finish with controlled CPU
 and memory observations, emphasizing evidence over conclusions from one frame.
 The learner approved this plan on 2026-09-10. The first node established that
@@ -319,9 +319,19 @@ process's start; confirm that existing processes can appear in the first frame.
 Ubuntu output verified procps-ng 4.0.4 for both tools. The installed `ps(1)`
 manual established its CPU-time-over-elapsed-lifetime percentage, and the
 learner independently calculated a fresh `15/60 = 25%` example after
-corrections to unit cancellation and percentage conversion. Next establish
-`top`'s since-last-update interval from its installed manual, then contrast the
-two windows.
+corrections to unit cancellation and percentage conversion. On 2026-09-11, the
+remaining first-frame generalization was repaired after “frame” was clarified
+as one refresh instant. Installed `top(1)` documentation established its recent
+since-last-update window, and the learner independently calculated a fresh
+`ps = 10%` lifetime average versus `top = 50%` recent rate. The physical Ubuntu
+server reported one socket, eight cores, two threads per core, and sixteen
+logical CPUs. Irix/Solaris normalization remains guided and unstable: the
+learner repeatedly changed the Irix value assigned to one or several busy
+logical CPUs and later used the wrong Solaris denominator. A bounded `yes`
+process expired before the `I`-toggle comparison; its final PID absence was
+verified and explained correctly, although an unnecessary `kill` was still sent
+after an empty identity check. Next complete the bounded live mode comparison
+and conditional cleanup, then continue to virtual-versus-resident memory.
 
 Completed first users-and-permissions lesson dependency map:
 

@@ -50,3 +50,10 @@ flowchart LR
   and leaves `head` as stdout. `>` writes that final stdout to `matches.txt`.
 - A missing-file diagnostic travels as `grep` stderr. `2>>` sends it directly
   to `diagnostics.txt`, so it never enters the pipe or reaches `head`.
+
+  $$
+  \frac{1\text{ busy logical CPU}}{16\text{ available logical
+  CPUs}}\times100
+  =6.25%
+  $$
+  

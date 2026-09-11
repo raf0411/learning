@@ -9,6 +9,14 @@
 External official documentation will be added when each topic is introduced so
 this file remains a short, useful reference rather than a link dump.
 
+## Career target calibration
+
+Checked on 2026-09-11 and retained as concrete examples of current entry-level
+expectations; re-check availability and the wider market before employment work:
+
+- [Kredivo Group: Junior Cloud Infrastructure Engineer (SDE 1)](https://kredivo-group.breezy.hr/p/c8ffb1eb1bc8-junior-cloud-infrastructure-engineer-sde-1)
+- [Kredivo Group: InfraOps Engineer (SDE 1)](https://kredivo-group.breezy.hr/p/9752bdb058e1-infraops-engineer-sde-1)
+
 ## Command discovery and shell data flow
 
 - [GNU Bash: `type` and `help` builtins](https://www.gnu.org/software/bash/manual/html_node/Bash-Builtins.html)

@@ -1,6 +1,6 @@
 # REVIEW
 
-Updated: 2026-09-10
+Updated: 2026-09-11
 
 ## Active review queue
 
@@ -159,8 +159,21 @@ These were identified during the initial probe:
    processes can appear in the first frame. They used installed `ps(1)`
    documentation to identify CPU time divided by elapsed lifetime and, after
    confusing a ratio's units and converting `1/5` to `2%`, independently
-   converted `15/60` to `25%`. Re-test percentage conversion within an
-   unfamiliar resource scenario; next establish `top`'s interval semantics.
+   converted `15/60` to `25%`. On 2026-09-11, the learner initially treated the
+   interval between refreshes as a continuously observed frame. After the term
+   was clarified, they correctly placed processes across a fresh three-frame
+   scenario. Installed `top(1)` documentation established its since-last-update
+   window, and a new calculation correctly separated a `10%` `ps` lifetime
+   average from a `50%` recent `top` value. The physical server reported one
+   socket, eight cores, two threads per core, and sixteen logical CPUs.
+   Irix/Solaris normalization remains GUIDED: the learner correctly calculated
+   some whole-machine fractions but repeatedly changed the Irix value per busy
+   logical CPU and later used the wrong Solaris denominator. A bounded `yes`
+   process expired before both modes could be compared. They correctly diagnosed
+   the empty filtered `top` and final `ps`, but still sent an unnecessary
+   `SIGTERM` after the empty identity check. Next test: complete the live `I`
+   toggle with a bounded process, explain approximately `100%` versus `6.25%`
+   independently, and make cleanup conditional on a fresh identity match.
 8. Localhost, private addresses, ports, gateways, and layered connectivity
    troubleshooting.
 9. Standard streams, pipelines, and output/error redirection: on 2026-08-28,
