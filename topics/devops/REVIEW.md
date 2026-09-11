@@ -173,7 +173,22 @@ These were identified during the initial probe:
    the empty filtered `top` and final `ps`, but still sent an unnecessary
    `SIGTERM` after the empty identity check. Next test: complete the live `I`
    toggle with a bounded process, explain approximately `100%` versus `6.25%`
-   independently, and make cleanup conditional on a fresh identity match.
+   independently, and make cleanup conditional on a fresh identity match. In a
+   later continuation, separate bounded runs displayed approximately `6.2%`
+   and `99%`, but command splitting and an incomplete quote prevented a clean
+   same-run toggle record. After moving to a two-logical-CPU Ubuntu VM, the
+   learner calculated `50%` only after the denominator was re-explained and
+   initially said one busy logical CPU exhausted the whole server. Keep CPU
+   normalization at GUIDED and re-test through a later unfamiliar capacity
+   scenario. On the VM, disposable `yes` PID `4736` was freshly identified,
+   terminated with `SIGTERM`, followed by a wait, and verified absent; no
+   unnecessary escalation occurred. `VIRT`, `RES`/RSS, and `SHR` are now
+   introduced. The learner repeatedly treated residency as movement out of
+   `VIRT` and reversed page-eviction directions before correctly solving a
+   four-page mapping/residency example. They then repaired the `SHR`-inside-
+   `RES` model and solved one shared-page double-counting calculation. Next
+   test: a controlled live mapping/touching experiment followed later by a
+   fresh eviction or memory-pressure scenario.
 8. Localhost, private addresses, ports, gateways, and layered connectivity
    troubleshooting.
 9. Standard streams, pipelines, and output/error redirection: on 2026-08-28,
@@ -225,7 +240,14 @@ These were identified during the initial probe:
    one-line retry succeeded. Later that day, the learner initially thought a
    visual wrap made two commands, then correctly identified one intact command
    and pathname on a fresh example after focused correction. Keep this in
-   spaced review rather than blocking progression.
+   spaced review rather than blocking progression. On 2026-09-11, a long CPU
+   lab submission was split after `sleep` and `ps -o`, producing three separate
+   command/format errors. A later `top` command omitted its closing quote on the
+   first line; Bash's `>` continuation prompt accepted the next physical line
+   and embedded a newline in the quoted PID argument. Also used `$cpu` once
+   where the literal `ps` field `%cpu` was intended, then corrected it on the
+   next command. Use short separate submissions for the next lab and continue
+   delayed command-boundary retrieval.
 10. Command-specific option semantics: on 2026-08-28, transferred the syntax of
     `head -n 5` to `grep` by running `grep -n 5 bin/bash /etc/passwd`. Correctly
     repaired it to `grep -n bin/bash /etc/passwd` after learning that `grep -n`

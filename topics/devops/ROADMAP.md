@@ -2,7 +2,7 @@
 
 Updated: 2026-09-11
 Target window: 14–16 weeks
-Current phase: Phase 2 signals, jobs, and resource inspection lesson in progress
+Current phase: Phase 2 process-memory and resource-inspection lesson in progress
 
 Primary career direction: entry-level DevOps, Junior Cloud Infrastructure,
 InfraOps, and Cloud Operations/Support roles. Linux/SysAdmin roles remain
@@ -325,13 +325,18 @@ as one refresh instant. Installed `top(1)` documentation established its recent
 since-last-update window, and the learner independently calculated a fresh
 `ps = 10%` lifetime average versus `top = 50%` recent rate. The physical Ubuntu
 server reported one socket, eight cores, two threads per core, and sixteen
-logical CPUs. Irix/Solaris normalization remains guided and unstable: the
-learner repeatedly changed the Irix value assigned to one or several busy
-logical CPUs and later used the wrong Solaris denominator. A bounded `yes`
-process expired before the `I`-toggle comparison; its final PID absence was
-verified and explained correctly, although an unnecessary `kill` was still sent
-after an empty identity check. Next complete the bounded live mode comparison
-and conditional cleanup, then continue to virtual-versus-resident memory.
+logical CPUs. Irix/Solaris normalization remains GUIDED: the learner repeatedly
+changed the Irix scale and Solaris denominator, then observed the expected
+values near `6.2%` and `99%` in separate bounded runs. Command-boundary errors
+prevented a clean same-run toggle record. On a later two-logical-CPU Ubuntu VM,
+the learner calculated a Solaris-normalized `50%` after explanation and safely
+terminated a freshly identified disposable `yes` process with `SIGTERM`, a
+wait, and final absence verification. The lesson has now advanced to memory.
+`VIRT` as all mappings, `RES`/RSS as the resident subset, and `SHR` as the
+potentially shareable resident subset were established through written models,
+but only after repeated reversals of mapping and residency changes. Next run
+the read-only VM preflight and a bounded controlled mapping/touching lab, then
+require independent interpretation of the observed columns.
 
 Completed first users-and-permissions lesson dependency map:
 

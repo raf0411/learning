@@ -76,8 +76,16 @@ normalized examples but repeatedly changed the Irix per-logical-CPU scale and
 later used the wrong Solaris denominator. A bounded `yes` process expired before
 both modes were observed; the learner correctly diagnosed the resulting empty
 filtered `top` and `ps` output, though they still ran an unnecessary `kill`
-after the empty identity check. Repeat the live mode comparison, then continue
-to `VIRT`, `RES`/RSS, and `SHR`.
+after the empty identity check. In a later continuation, separate bounded
+observations captured the expected `top` scales near `6.2%` and `99%`, although
+real-newline and incomplete-quote mistakes prevented a clean same-run toggle
+record. After switching to a two-logical-CPU Ubuntu VM, the learner calculated
+the Solaris value as `50%` after focused explanation and completed a correct
+identity-check/`SIGTERM`/wait/absence-verification sequence on a disposable
+`yes` process. `VIRT`, `RES`/RSS, and `SHR` are now introduced. The learner
+ultimately treated residency and sharing as nested classifications after
+repeatedly moving bytes incorrectly out of `VIRT`; a controlled live memory
+experiment remains next.
 
 The career direction was also refined on 2026-09-11: DevOps, Junior Cloud
 Infrastructure, InfraOps, and Cloud Operations/Support are now the primary
@@ -93,6 +101,8 @@ Last completed session: `sessions/2026-09-11.md`
 - Prefers practical, job-oriented learning.
 - The Ubuntu home server exposes 16 logical CPUs: one socket, eight physical
   cores per socket, and two hardware threads per core.
+- A later Ubuntu desktop VM reports two logical CPUs through `nproc`; do not use
+  the physical server's 16-CPU denominator for observations made on this VM.
 - Ubuntu currently retains `~/permissions-lab/mode-practice.txt` as
   `raf_0411:raf_0411` mode `664`, `service-access-lab.conf` as `root:sudo`
   mode `640`, and the `reportsvc` account plus its `/etc/reportsvc` and
@@ -329,6 +339,22 @@ Last completed session: `sessions/2026-09-11.md`
   correctly diagnosed that its CPU-time limit explained the later zero-task
   PID-filtered `top`, empty `ps`, and unnecessary `kill`. Final inspection
   confirmed the PID absent.
+- Observed separate bounded `yes` processes near `6.2%` and `99%` in `top`,
+  matching the Solaris-normalized and Irix-style scales on the 16-logical-CPU
+  physical server, though the interactive before/after toggle was not recorded
+  cleanly in one run.
+- On a two-logical-CPU Ubuntu VM, calculated that one fully occupied logical CPU
+  is `50%` of whole-VM capacity after the normalization rule was explained.
+- On the VM, freshly matched disposable `yes` PID `4736` to the intended user
+  and command, sent `SIGTERM`, waited, and verified an empty final `ps` result
+  without unnecessary escalation.
+- Understands after focused repair that `VIRT` contains all mapped virtual
+  pages, while `RES`/RSS counts the currently resident subset. Correctly kept
+  four mappings while reducing residency to one page after an eviction.
+- Understands that `SHR` is a potentially shareable subset of `RES`, not memory
+  added on top. Calculated `116 KiB` as the non-`SHR` portion of a displayed
+  `1980 KiB RES`/`1864 KiB SHR` row and `12 MiB` of distinct physical memory
+  when two processes share the same `8 MiB` plus `2 MiB` private each.
 
 ## Partial or missing foundations
 
@@ -375,12 +401,18 @@ Last completed session: `sessions/2026-09-11.md`
   pages. Keep the sequence in later operational review rather than blocking
   progression.
 - `ps` lifetime versus `top` recent-interval CPU measurement is GUIDED after one
-  clean fresh calculation. Irix/Solaris normalization remains unstable: one
-  busy logical CPU was variously treated as `200%`, three as `600%`, and a
-  single busy CPU on the 16-CPU server used an incorrect Solaris denominator.
-  The live `I`-toggle comparison was not completed because the bounded process
-  expired. Repeat it with a longer bound and faster refresh, then require an
-  independent explanation. `VIRT`, `RES`/RSS, and `SHR` remain new.
+  clean fresh calculation. Irix/Solaris normalization remains GUIDED: expected
+  values were observed separately, and `100% / 2 = 50%` was calculated for the
+  VM after explanation, but the learner could not independently explain the
+  reference-whole change and a clean same-run `I`-toggle comparison remains
+  absent. Re-test later in a fresh transfer scenario rather than repeating the
+  same calculation immediately.
+- `VIRT`, `RES`/RSS, and `SHR` are conceptually GUIDED. The learner initially
+  treated `VIRT` as a nonresident pool depleted by page-in, then reversed both
+  `VIRT` and `RES` directions during eviction. A simpler page-count scenario
+  repaired the model. `SHR` was first described as possibly not in RAM, but the
+  learner then correctly solved the shared-page double-counting example. Begin
+  next session with a controlled live mapping/residency experiment.
 - Does not yet know the core commands for resource, OS, network, and log
   inspection.
 - Networking knowledge is early: localhost, private addressing, gateways,
@@ -420,10 +452,9 @@ concept being tested.
 
 ## Next action
 
-Repeat the bounded `yes` observation using the assigned 60-CPU-second limit and
-`top -d 1`. Record the process value once with Irix mode on and once with it off,
-restore the original mode, and terminate only if a fresh identity check still
-shows the same process. Require an independent explanation of approximately
-`100%` versus `6.25%` on this 16-logical-CPU server, then continue to `VIRT`,
-`RES`/RSS, and `SHR`. Keep safe termination, consistent variable naming, and
-conditional escalation in spaced operational review.
+On the Ubuntu VM, run `free -h`, `getconf PAGESIZE`, and `python3 --version`,
+then perform a bounded controlled mapping/residency experiment. Predict and
+inspect how mapping, touching, and eviction affect `VIRT` and `RES`/RSS, and
+interpret `SHR` without adding it to `RES` or treating it as proof of exact
+system-wide sharing. Keep CPU normalization, safe termination, consistent
+variable naming, and physical command boundaries in spaced operational review.
