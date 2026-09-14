@@ -1,8 +1,9 @@
 # ROADMAP
 
-Updated: 2026-09-11
+Updated: 2026-09-14
 Target window: 14–16 weeks
-Current phase: Phase 2 process-memory and resource-inspection lesson in progress
+Current phase: Phase 2 process memory; guided map/write/unmap lab complete,
+shared-resident-memory understanding is the next prerequisite
 
 Primary career direction: entry-level DevOps, Junior Cloud Infrastructure,
 InfraOps, and Cloud Operations/Support roles. Linux/SysAdmin roles remain
@@ -334,9 +335,11 @@ terminated a freshly identified disposable `yes` process with `SIGTERM`, a
 wait, and final absence verification. The lesson has now advanced to memory.
 `VIRT` as all mappings, `RES`/RSS as the resident subset, and `SHR` as the
 potentially shareable resident subset were established through written models,
-but only after repeated reversals of mapping and residency changes. Next run
-the read-only VM preflight and a bounded controlled mapping/touching lab, then
-require independent interpretation of the observed columns.
+but only after repeated reversals of mapping and residency changes. The guided
+mapping/touching/unmapping lab was completed on the physical Ubuntu home server
+on 2026-09-14. Next establish shared-page/RSS overlap after unsuccessful delayed
+retrieval, then continue SHR interpretation. Independent resource interpretation
+and the broader Phase 2 exit gate remain ahead.
 
 Completed first users-and-permissions lesson dependency map:
 

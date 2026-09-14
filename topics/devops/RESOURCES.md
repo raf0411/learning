@@ -85,3 +85,10 @@ expectations; re-check availability and the wider market before employment work:
 - [procps-ng upstream `ps(1)` manual](https://gitlab.com/procps-ng/procps/-/blob/master/man/ps.1)
 - [procps-ng upstream `top(1)` manual](https://gitlab.com/procps-ng/procps/-/blob/master/man/top.1)
 - [Linux kernel documentation: `/proc`](https://docs.kernel.org/filesystems/proc.html)
+
+## Controlled process-memory experiments
+
+- [Python 3.12 `mmap`](https://docs.python.org/3.12/library/mmap.html) — reference
+  for the disposable mapping, writing, and closing apparatus used in the lab.
+- [Linux `mmap(2)`](https://man7.org/linux/man-pages/man2/mmap.2.html) — private
+  and anonymous mappings, flags, and unmapping behavior.

@@ -1,102 +1,31 @@
 # STATE
 
-Updated: 2026-09-11
+Updated: 2026-09-14
 
 ## Current stage
 
-Initial probe and roadmap complete. Phase 1 (Linux command line and filesystem)
-passed its exit gate on 2026-09-03. The learner completed the written
-file-management scenario, then constructed, repaired, ran, verified, and
-explained a `grep`/`head` pipeline with stdout overwritten to one report and
-stderr appended to another. The opening Phase 2 users-and-permissions lesson is
-now complete, including a live least-privilege access repair and a deletion
-experiment separating file permissions from parent-directory permissions.
-Numeric modes and the restricted service-account lab are now complete. The
-learner created a no-login Ubuntu system account, verified separate
-configuration-read and log-write permissions plus denied create/delete paths,
-and completed the direct-command-versus-login-shell experiment. On 2026-09-06,
-the formal program/process/service/`systemd` probe and planned conceptual lesson
-were completed. After focused repair, the learner separated passive program and
-unit files, live processes, daemon processes, the managed service unit,
-temporary control clients, and the persistent `systemd` manager. A live SSH
-inspection and a disposable transient-service lifecycle lab confirmed the
-model. On 2026-09-07, read-only checks confirmed that the transient unit had
-been collected and its former process no longer existed. A same-day signal
-lesson continuation showed that signal delivery, handler execution, termination,
-and the stopped state were still conflated. In the final same-day continuation,
-the learner answered the pending three-question retrieval check correctly:
-a returning handler continued the process, default/handled/ignored dispositions
-produced the expected distinct outcomes, and `active (exited)` with `MainPID=0`
-was assigned to the active service unit with no remaining main process. The
-signal-delivery-versus-disposition foundation is now demonstrated conceptually.
-The next node—process state versus foreground/background placement—was
-introduced, but its first prediction was not attempted before session end.
-On 2026-09-08, a live macOS Zsh job-control lab established process state
-versus terminal placement. The learner demonstrated `Ctrl+Z`, `bg`, `fg`,
-trailing `&`, `jobs -l`, jobspecs, PID inspection, and cleanup. Foreground and
-background were repeatedly reversed in predictions and explanation, but the
-final repair check correctly classified `fg` as resuming a stopped job in the
-foreground while the shell waits. In a same-day continuation, the learner
-retrieved that distinction correctly and explained that the shell waits for a
-foreground job. The safe-termination lesson then began. The learner established
-that application cleanup requires the process to execute further instructions.
-`SIGTERM`, `SIGKILL`, and plain `kill PID` were introduced from the installed
-macOS manual pages, but the safe-sequence check and disposable lab were not
-attempted before session end. On 2026-09-09, retrieval confirmed `fg` but
-re-exposed confusion between signal delivery, handler return, and termination.
-After repair, the learner correctly classified default termination, handler
-return and continuation, and handler cleanup followed by explicit exit. They
-also identified that successful `kill` establishes signal-request acceptance,
-not process exit. The safe escalation branches were answered correctly after
-the sequence was shown, but a later prediction incorrectly kept an ordinary
-`sleep` alive after `SIGTERM`. In a continuation, the learner repaired the
-wait-before-inspection order and completed a live Ubuntu comparison. Ordinary
-`sleep` PID `361508` disappeared after `SIGTERM`, whereas a Bash process with a
-returning handler printed its handler message and PID `375142` remained after a
-wait. The learner explained both outcomes correctly but could not yet construct
-the exact `SIGKILL` and verification commands independently. PID `375142` was
-last observed running, so its current identity had to be checked before cleanup.
-On 2026-09-10, an empty `ps` snapshot verified that PID `375142` was no longer
-present. The learner then created and identity-checked a fresh disposable Bash
-handler process, sent `SIGTERM`, waited, and verified that its returning handler
-left it running. After one variable-name correction in the written rehearsal,
-they conditionally sent `SIGKILL`, waited, and verified an empty final `ps`
-snapshot. The safe escalation sequence is now demonstrated at command level.
-A focused process-resource probe then confirmed a floor in `ps` snapshots,
-`top` refreshes, one-of-four capacity reasoning, and partial file residency.
-On 2026-09-11, the learner first treated the interval between two `top`
-refreshes as one continuously observed frame. After “frame” was clarified as
-one sampled instant, they correctly placed already-running and later-starting
-processes in fresh frames. Installed `top(1)` documentation established its
-since-last-screen-update window, and a fresh calculation correctly separated
-`ps = 20/200 = 10%` from `top = 2/4 = 50%`. The physical home server reported
-one socket, eight cores, two threads per core, and sixteen logical CPUs.
-Irix/Solaris normalization remains GUIDED: the learner correctly produced some
-normalized examples but repeatedly changed the Irix per-logical-CPU scale and
-later used the wrong Solaris denominator. A bounded `yes` process expired before
-both modes were observed; the learner correctly diagnosed the resulting empty
-filtered `top` and `ps` output, though they still ran an unnecessary `kill`
-after the empty identity check. In a later continuation, separate bounded
-observations captured the expected `top` scales near `6.2%` and `99%`, although
-real-newline and incomplete-quote mistakes prevented a clean same-run toggle
-record. After switching to a two-logical-CPU Ubuntu VM, the learner calculated
-the Solaris value as `50%` after focused explanation and completed a correct
-identity-check/`SIGTERM`/wait/absence-verification sequence on a disposable
-`yes` process. `VIRT`, `RES`/RSS, and `SHR` are now introduced. The learner
-ultimately treated residency and sharing as nested classifications after
-repeatedly moving bytes incorrectly out of `VIRT`; a controlled live memory
-experiment remains next.
+Phase 1 passed its exit gate on 2026-09-03. Phase 2 permissions, restricted
+service-account work, process/service distinctions, job control, and safe
+termination labs are complete; important skills remain in spaced review.
 
-The career direction was also refined on 2026-09-11: DevOps, Junior Cloud
-Infrastructure, InfraOps, and Cloud Operations/Support are now the primary
-targets. AWS, Docker, CI/CD, Terraform, Git, scripting, and observability are
-core roadmap outcomes, while the completed Linux work remains foundational.
+Current position: process-memory interpretation on the physical Ubuntu home
+server. The guided map/write/unmap lab is complete. Mapping versus residency
+remains GUIDED after a refresher and correct live predictions. CPU measurement
+windows and normalization also remain GUIDED.
 
-Last completed session: `sessions/2026-09-11.md`
+Current learning edge: shared resident pages and RSS double-counting. Delayed
+retrieval did not establish understanding: the learner described separate RSS
+"channels" rather than shared physical pages. The concept was re-explained, but
+the follow-up about one process exiting was not attempted before session end.
+Repair this prerequisite before continuing SHR interpretation.
+
+Last completed session: `sessions/2026-09-14.md`
 
 ## Environment and capacity
 
 - Uses macOS Terminal and a physical Ubuntu home server for current labs.
+- Physical-server use was reconfirmed on 2026-09-14; its Python version is
+  3.12.3 and its reported base page size is 4096 bytes.
 - Can study about 5 hours daily.
 - Prefers practical, job-oriented learning.
 - The Ubuntu home server exposes 16 logical CPUs: one socket, eight physical
@@ -351,10 +280,14 @@ Last completed session: `sessions/2026-09-11.md`
 - Understands after focused repair that `VIRT` contains all mapped virtual
   pages, while `RES`/RSS counts the currently resident subset. Correctly kept
   four mappings while reducing residency to one page after an eviction.
-- Understands that `SHR` is a potentially shareable subset of `RES`, not memory
-  added on top. Calculated `116 KiB` as the non-`SHR` portion of a displayed
-  `1980 KiB RES`/`1864 KiB SHR` row and `12 MiB` of distinct physical memory
-  when two processes share the same `8 MiB` plus `2 MiB` private each.
+- SHR field interpretation — previously GUIDED. Its resident-subset meaning
+  was applied with help on 2026-09-11; the shared-page prerequisite was not
+  retrieved correctly on 2026-09-14 and needs repair before renewed assessment.
+- Mapping versus residency — GUIDED. After a refresher, correctly predicted
+  and observed that mapping 16 MiB raised VSZ alone, while writing into half
+  raised RSS by 8 MiB without changing VSZ. Correctly predicted the different
+  VSZ/RSS reductions when removing the mapping. The learner confirmed repeating
+  the lab in a restarted interpreter, then showed the final close and exit.
 
 ## Partial or missing foundations
 
@@ -407,12 +340,15 @@ Last completed session: `sessions/2026-09-11.md`
   reference-whole change and a clean same-run `I`-toggle comparison remains
   absent. Re-test later in a fresh transfer scenario rather than repeating the
   same calculation immediately.
-- `VIRT`, `RES`/RSS, and `SHR` are conceptually GUIDED. The learner initially
-  treated `VIRT` as a nonresident pool depleted by page-in, then reversed both
-  `VIRT` and `RES` directions during eviction. A simpler page-count scenario
-  repaired the model. `SHR` was first described as possibly not in RAM, but the
-  learner then correctly solved the shared-page double-counting example. Begin
-  next session with a controlled live mapping/residency experiment.
+- VIRT versus RES/RSS — GUIDED. A live map/write comparison and correct
+  unmapping prediction followed a refresher. Test an unfamiliar scenario
+  without immediate re-teaching; earlier confusion treated residency as
+  movement out of VIRT. Mapping-preserving eviction has not been tested live.
+- Shared resident pages and RSS double-counting — UNKNOWN on 2026-09-14
+  delayed retrieval, superseding the earlier guided success. The learner
+  could not explain overlapping physical pages and instead proposed separate
+  RSS channels. A shared-block example was explained, but no post-explanation
+  response demonstrated repair. The process-exit/shared-block check is pending.
 - Does not yet know the core commands for resource, OS, network, and log
   inspection.
 - Networking knowledge is early: localhost, private addressing, gateways,
@@ -452,9 +388,10 @@ concept being tested.
 
 ## Next action
 
-On the Ubuntu VM, run `free -h`, `getconf PAGESIZE`, and `python3 --version`,
-then perform a bounded controlled mapping/residency experiment. Predict and
-inspect how mapping, touching, and eviction affect `VIRT` and `RES`/RSS, and
-interpret `SHR` without adding it to `RES` or treating it as proof of exact
-system-wide sharing. Keep CPU normalization, safe termination, consistent
-variable naming, and physical command boundaries in spaced operational review.
+Begin with the pending shared-memory scenario: A and B each have 2 MiB private
+and both use the same 4 MiB block; A exits while B continues. Ask which blocks
+can be released and which must remain, without giving the result first.
+Once the overlap model is demonstrated, continue to SHR within RES and the
+limits of inferring sharing from one row. Re-test mapping/residency later.
+Keep CPU normalization, safe termination, and physical command boundaries in
+spaced operational review; no new live eviction/discard lab was completed.

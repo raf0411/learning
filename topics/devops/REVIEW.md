@@ -1,6 +1,6 @@
 # REVIEW
 
-Updated: 2026-09-11
+Updated: 2026-09-14
 
 ## Active review queue
 
@@ -186,9 +186,18 @@ These were identified during the initial probe:
    introduced. The learner repeatedly treated residency as movement out of
    `VIRT` and reversed page-eviction directions before correctly solving a
    four-page mapping/residency example. They then repaired the `SHR`-inside-
-   `RES` model and solved one shared-page double-counting calculation. Next
-   test: a controlled live mapping/touching experiment followed later by a
-   fresh eviction or memory-pressure scenario.
+   `RES` model and solved one shared-page double-counting calculation.
+   Mapping/residency — GUIDED; last meaningful evidence: 2026-09-14, correct
+   predictions after a refresher and a live map/write comparison. Next test:
+   independently interpret a fresh unmapping or memory-pressure scenario after
+   spacing. Require an explanation of which mappings remain and which pages
+   are resident.
+   Shared resident pages/RSS double-counting — UNKNOWN on delayed retrieval
+   2026-09-14; earlier guided success did not persist. The learner guessed the
+   correct conclusion but described separate RSS channels. Re-teaching was
+   provided; repair is untested. Next session: use the pending two-process
+   shared-block/one-process-exits scenario, require a physical-page explanation,
+   then revisit SHR's inclusion in RES. SHR itself was not reassessed today.
 8. Localhost, private addresses, ports, gateways, and layered connectivity
    troubleshooting.
 9. Standard streams, pipelines, and output/error redirection: on 2026-08-28,
