@@ -1,6 +1,6 @@
 # REVIEW
 
-Updated: 2026-09-14
+Updated: 2026-09-15
 
 ## Active review queue
 
@@ -187,17 +187,36 @@ These were identified during the initial probe:
    `VIRT` and reversed page-eviction directions before correctly solving a
    four-page mapping/residency example. They then repaired the `SHR`-inside-
    `RES` model and solved one shared-page double-counting calculation.
-   Mapping/residency — GUIDED; last meaningful evidence: 2026-09-14, correct
-   predictions after a refresher and a live map/write comparison. Next test:
-   independently interpret a fresh unmapping or memory-pressure scenario after
-   spacing. Require an explanation of which mappings remain and which pages
-   are resident.
-   Shared resident pages/RSS double-counting — UNKNOWN on delayed retrieval
-   2026-09-14; earlier guided success did not persist. The learner guessed the
-   correct conclusion but described separate RSS channels. Re-teaching was
-   provided; repair is untested. Next session: use the pending two-process
-   shared-block/one-process-exits scenario, require a physical-page explanation,
-   then revisit SHR's inclusion in RES. SHR itself was not reassessed today.
+   Mapping/residency — GUIDED; last meaningful evidence: 2026-09-15, correct
+   A B C D mappings / A B C resident reconstruction after repair. Opening
+   retrieval excluded resident memory from VIRT and treated RES as possibly
+   free/waiting memory. A later swap-out check kept VIRT unchanged but increased
+   RES; correction was acknowledged without a fresh answer. Next test: one
+   clearly staged departure from or return to RAM, requiring mapping and
+   residency reasoning. Distinguish following the wrong sequence stage from
+   misunderstanding residency before extending the diagnosis.
+   Shared resident pages/RSS double-counting — GUIDED after repair on
+   2026-09-15. Last evidence: explained that another user does not enlarge the
+   same physical block, after dividing and double-counting shared memory in
+   earlier attempts. Next test: after spacing, count private and shared blocks
+   once and explain the difference from summed RSS without procedural hints.
+   SHR within RES — GUIDED. Last evidence: 2026-09-15, correctly rejected
+   adding RES 5716 and SHR 3940 in a live Ubuntu row after a subset prompt.
+   Next test: interpret an unfamiliar row without that prompt, and distinguish
+   potentially shareable memory from proven current sharing. No independent
+   physical-total calculation or retained mastery was established today.
+   System free/available memory — GUIDED, 2026-09-15. Correctly rejected low
+   free alone as proof of a shortage, but reasoned in terms of adding RAM from
+   available. Next test after spacing: explain how existing RAM can be reused
+   and why available includes the free portion. Also retain the distinction
+   between RAM capacity and the saved disk source of file contents, and between
+   reclaiming RAM and reloading data. Do not assume all RAM has a disk copy.
+   Swap observation — GUIDED command execution for swapon --show; vmstat si/so
+   interpretation is untested. Next session: retrieve swap direction briefly,
+   run the pending vmstat -y 1 3, and interpret actual rates over its intervals.
+   Last evidence: a 4 GiB file with 0 B used, followed by an incorrect swap-out
+   RES prediction. No vmstat output was supplied; occupancy does not establish
+   transfer rates in a later observation window.
 8. Localhost, private addresses, ports, gateways, and layered connectivity
    troubleshooting.
 9. Standard streams, pipelines, and output/error redirection: on 2026-08-28,

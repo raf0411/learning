@@ -1,6 +1,6 @@
 # STATE
 
-Updated: 2026-09-14
+Updated: 2026-09-15
 
 ## Current stage
 
@@ -8,24 +8,28 @@ Phase 1 passed its exit gate on 2026-09-03. Phase 2 permissions, restricted
 service-account work, process/service distinctions, job control, and safe
 termination labs are complete; important skills remain in spaced review.
 
-Current position: process-memory interpretation on the physical Ubuntu home
-server. The guided map/write/unmap lab is complete. Mapping versus residency
-remains GUIDED after a refresher and correct live predictions. CPU measurement
-windows and normalization also remain GUIDED.
+Current position: process and whole-system memory interpretation on Ubuntu.
+The guided map/write/unmap lab is complete. Mapping/residency, shared physical
+blocks, SHR within RES, and CPU measurement/normalization remain GUIDED.
 
-Current learning edge: shared resident pages and RSS double-counting. Delayed
-retrieval did not establish understanding: the learner described separate RSS
-"channels" rather than shared physical pages. The concept was re-explained, but
-the follow-up about one process exiting was not attempted before session end.
-Repair this prerequisite before continuing SHR interpretation.
+Current learning edge: swap direction and residency, then swap occupancy versus
+activity. A page leaving RAM for swap was predicted to increase RES, while
+unchanged VIRT was correctly identified. The direction was re-explained, but
+repair has not been demonstrated. The vmstat observation is assigned with no
+output supplied. Free/available reasoning remains GUIDED after a correct
+low-free conclusion with imprecise additional-pool reasoning. Independent
+physical-block totals remain unproven; revisit them after spacing.
 
-Last completed session: `sessions/2026-09-14.md`
+Last completed session: `sessions/2026-09-15.md`
 
 ## Environment and capacity
 
 - Uses macOS Terminal and a physical Ubuntu home server for current labs.
 - Physical-server use was reconfirmed on 2026-09-14; its Python version is
   3.12.3 and its reported base page size is 4096 bytes.
+- On 2026-09-15, Ubuntu swapon --show identified /swap.img as a 4 GiB active
+  swap file with 0 B used in that snapshot. No swap configuration was changed;
+  obtain fresh observations before diagnosing later activity.
 - Can study about 5 hours daily.
 - Prefers practical, job-oriented learning.
 - The Ubuntu home server exposes 16 logical CPUs: one socket, eight physical
@@ -280,9 +284,9 @@ Last completed session: `sessions/2026-09-14.md`
 - Understands after focused repair that `VIRT` contains all mapped virtual
   pages, while `RES`/RSS counts the currently resident subset. Correctly kept
   four mappings while reducing residency to one page after an eviction.
-- SHR field interpretation — previously GUIDED. Its resident-subset meaning
-  was applied with help on 2026-09-11; the shared-page prerequisite was not
-  retrieved correctly on 2026-09-14 and needs repair before renewed assessment.
+- SHR within RES — GUIDED, confirmed on 2026-09-15. Ran a supplied read-only
+  top command and correctly explained why SHR must not be added to RES in the
+  resulting row. Inferring actual sharing or reclaimable memory remains untested.
 - Mapping versus residency — GUIDED. After a refresher, correctly predicted
   and observed that mapping 16 MiB raised VSZ alone, while writing into half
   raised RSS by 8 MiB without changing VSZ. Correctly predicted the different
@@ -341,14 +345,30 @@ Last completed session: `sessions/2026-09-14.md`
   absent. Re-test later in a fresh transfer scenario rather than repeating the
   same calculation immediately.
 - VIRT versus RES/RSS — GUIDED. A live map/write comparison and correct
-  unmapping prediction followed a refresher. Test an unfamiliar scenario
-  without immediate re-teaching; earlier confusion treated residency as
-  movement out of VIRT. Mapping-preserving eviction has not been tested live.
-- Shared resident pages and RSS double-counting — UNKNOWN on 2026-09-14
-  delayed retrieval, superseding the earlier guided success. The learner
-  could not explain overlapping physical pages and instead proposed separate
-  RSS channels. A shared-block example was explained, but no post-explanation
-  response demonstrated repair. The process-exit/shared-block check is pending.
+  unmapping prediction followed a refresher. Retrieval on 2026-09-15 again
+  excluded resident memory from VIRT and confused RES with free/waiting memory.
+  After repair, correctly kept mappings A B C D while changing residency from
+  A C to A B C. Later correctly kept VIRT unchanged but increased RES for a
+  page leaving RAM for swap. The tutor separated departure from return; no
+  fresh answer followed. Re-test with an unambiguous stage. Mapping-preserving
+  eviction has not been tested live.
+- Shared resident pages/RSS double-counting — GUIDED after repair on
+  2026-09-15; independent physical-block accounting remains unproven. Initially
+  divided the shared block between users, then counted one shared block twice
+  and omitted private blocks. After a named-block table, correctly explained
+  that adding another user leaves the same block's size unchanged. Re-test the
+  physical total later without procedural hints.
+- System free/available memory — GUIDED introduction on 2026-09-15. Executed
+  free -h and received an explanation of unused RAM, buffers/cache, and the
+  available estimate. Corrected data-source versus RAM-capacity confusion with
+  a disk-original/RAM-copy example. Rejected low free alone as proof of a
+  shortage, but described adding RAM from available. Reuse of existing RAM was
+  clarified; independent explanation remains pending. Do not assume all RAM
+  data already has a saved disk copy.
+- Swap-area inspection — GUIDED. Executed the supplied swapon --show command.
+  Swap occupancy versus transfer rates was introduced; vmstat -y 1 3 was
+  assigned but no output or interpretation was supplied. Swap direction needs
+  renewed assessment before interpreting si/so independently.
 - Does not yet know the core commands for resource, OS, network, and log
   inspection.
 - Networking knowledge is early: localhost, private addressing, gateways,
@@ -388,10 +408,11 @@ concept being tested.
 
 ## Next action
 
-Begin with the pending shared-memory scenario: A and B each have 2 MiB private
-and both use the same 4 MiB block; A exits while B continues. Ask which blocks
-can be released and which must remain, without giving the result first.
-Once the overlap model is demonstrated, continue to SHR within RES and the
-limits of inferring sharing from one row. Re-test mapping/residency later.
+Start with one clearly staged swap-direction retrieval: a still-mapped page
+has left RAM or returned to it; ask for VIRT/RES changes without giving the rule
+first. Then complete the pending read-only vmstat -y 1 3 observation on Ubuntu,
+interpreting actual si/so values and their time window. Revisit free/available
+capacity and combined physical-block accounting after spacing. Active sharing
+and exact process-exit reclamation remain untested.
 Keep CPU normalization, safe termination, and physical command boundaries in
 spaced operational review; no new live eviction/discard lab was completed.

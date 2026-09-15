@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/devops/diagrams/2026-09-14-process-memory.md",
+                "file": "topics/devops/ROADMAP.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-09-14-process-memory"
+              "title": "ROADMAP"
             }
           }
         ],
@@ -98,7 +98,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 319.36806869506836
   },
   "right": {
     "id": "f4dfa73b80c2066b",
@@ -202,16 +202,18 @@
   },
   "active": "0071bc407fd6cee2",
   "lastOpenFiles": [
-    "topics/devops/ROADMAP.md",
-    "topics/devops/STATE.md",
-    "topics/devops/GOAL.md",
+    "topics/devops/sessions/2026-09-15.md",
+    "topics/devops/REVIEW.md",
     "topics/devops/RESOURCES.md",
+    "topics/devops/GOAL.md",
+    "topics/devops/ROADMAP.md",
+    "topics/devops/diagrams/2026-09-15-shared-memory.md",
     "topics/devops/diagrams/2026-09-14-process-memory.md",
+    "topics/devops/STATE.md",
     "topics/devops/sessions/2026-09-14.md",
     "AGENTS.md",
     "UNIX MISSIONS.md",
     "topics/devops/diagrams/standard-streams.md",
-    "topics/devops/REVIEW.md",
     "topics/devops/sessions/2026-09-11.md",
     "topics/devops/sessions/2026-09-10.md",
     "topics/devops/sessions/2026-09-09.md",
@@ -230,8 +232,6 @@
     "topics/godot/labs",
     "topics/godot/diagrams",
     "topics/godot",
-    "topics/devops/sessions/2026-09-03.md",
-    "topics/devops/sessions/2026-09-01.md",
     "topics/spanish/sessions",
     "topics/spanish/labs",
     "topics/spanish/diagrams",
