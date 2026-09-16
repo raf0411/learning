@@ -1,6 +1,6 @@
 # REVIEW
 
-Updated: 2026-09-15
+Updated: 2026-09-16
 
 ## Active review queue
 
@@ -187,36 +187,32 @@ These were identified during the initial probe:
    `VIRT` and reversed page-eviction directions before correctly solving a
    four-page mapping/residency example. They then repaired the `SHR`-inside-
    `RES` model and solved one shared-page double-counting calculation.
-   Mapping/residency — GUIDED; last meaningful evidence: 2026-09-15, correct
-   A B C D mappings / A B C resident reconstruction after repair. Opening
-   retrieval excluded resident memory from VIRT and treated RES as possibly
-   free/waiting memory. A later swap-out check kept VIRT unchanged but increased
-   RES; correction was acknowledged without a fresh answer. Next test: one
-   clearly staged departure from or return to RAM, requiring mapping and
-   residency reasoning. Distinguish following the wrong sequence stage from
-   misunderstanding residency before extending the diagnosis.
-   Shared resident pages/RSS double-counting — GUIDED after repair on
-   2026-09-15. Last evidence: explained that another user does not enlarge the
-   same physical block, after dividing and double-counting shared memory in
-   earlier attempts. Next test: after spacing, count private and shared blocks
-   once and explain the difference from summed RSS without procedural hints.
-   SHR within RES — GUIDED. Last evidence: 2026-09-15, correctly rejected
-   adding RES 5716 and SHR 3940 in a live Ubuntu row after a subset prompt.
-   Next test: interpret an unfamiliar row without that prompt, and distinguish
-   potentially shareable memory from proven current sharing. No independent
-   physical-total calculation or retained mastery was established today.
-   System free/available memory — GUIDED, 2026-09-15. Correctly rejected low
-   free alone as proof of a shortage, but reasoned in terms of adding RAM from
-   available. Next test after spacing: explain how existing RAM can be reused
-   and why available includes the free portion. Also retain the distinction
-   between RAM capacity and the saved disk source of file contents, and between
-   reclaiming RAM and reloading data. Do not assume all RAM has a disk copy.
-   Swap observation — GUIDED command execution for swapon --show; vmstat si/so
-   interpretation is untested. Next session: retrieve swap direction briefly,
-   run the pending vmstat -y 1 3, and interpret actual rates over its intervals.
-   Last evidence: a 4 GiB file with 0 B used, followed by an incorrect swap-out
-   RES prediction. No vmstat output was supplied; occupancy does not establish
-   transfer rates in a later observation window.
+   Mapping/residency — GUIDED. On 2026-09-16, a swap-out retrieval produced the
+   correct mapped/resident sets but again claimed RES increased. After repair,
+   the reverse swap-in direction was correct, and a later continued-row update
+   correctly held VIRT/SHR fixed while lowering RES. Next test after spacing:
+   interpret a fresh mapping-preserving transition without a direction hint.
+   Shared resident pages/RSS double-counting — GUIDED. The first 2026-09-16
+   attempt omitted the shared block from RSS but got the distinct physical
+   total. A fresh post-teaching example was entirely correct. Next test after
+   spacing: calculate both views without a formula or named-block scaffold.
+   SHR within RES — GUIDED. On an unfamiliar written row, correctly stated
+   that SHR is within RES and indicates potential rather than proven current
+   sharing. Next test: interpret this distinction in live diagnostic output.
+   System free/available memory — GUIDED. Correctly judged a fresh snapshot as
+   not short of reusable RAM, but needed repeated repair to stop treating
+   `available` as a separate source. Final scaffolded wording correctly used
+   unused RAM plus reclaimed reusable cache. Next test after spacing: explain
+   the source and subset relationship independently.
+   Swap occupancy/activity — GUIDED. Completed `vmstat -y 1 3`; `swpd`, `si`,
+   and `so` were zero in all rows. After teaching the field meanings, correctly
+   interpreted nonzero `si` as swap to RAM and rejected it alone as proof of
+   current shortage. Next test: distinguish occupied idle swap from sustained
+   transfer activity in an unfamiliar snapshot.
+   Load average — UNKNOWN/GUIDED introduction on 2026-09-16. The learner
+   initially interpreted the three values as process start times. Resume with
+   the unanswered load 8.00 comparison on four versus sixteen logical CPUs,
+   then test the 1/5/15-minute trend and the uninterruptible-wait caveat.
 8. Localhost, private addresses, ports, gateways, and layered connectivity
    troubleshooting.
 9. Standard streams, pipelines, and output/error redirection: on 2026-08-28,

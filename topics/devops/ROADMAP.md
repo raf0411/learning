@@ -1,9 +1,9 @@
 # ROADMAP
 
-Updated: 2026-09-15
+Updated: 2026-09-16
 Target window: 14–16 weeks
-Current phase: Phase 2 process and system memory; guided top/free/swap-file
-inspection complete, swap-direction retrieval and vmstat observation next
+Current phase: Phase 2 resource inspection; guided memory and swap observation
+complete, load-average interpretation now at the learning edge
 
 Primary career direction: entry-level DevOps, Junior Cloud Infrastructure,
 InfraOps, and Cloud Operations/Support roles. Linux/SysAdmin roles remain
@@ -338,10 +338,12 @@ potentially shareable resident subset were established through written models,
 but only after repeated reversals of mapping and residency changes. The guided
 mapping/touching/unmapping lab was completed on the physical Ubuntu home server
 on 2026-09-14. On 2026-09-15, guided top, free, and swap-file inspections were
-completed. Shared-block accounting, mapping/residency, and free/available remain
-in review. Next retrieve swap direction and complete the pending vmstat swap-
-activity observation. Independent resource interpretation and the broader
-Phase 2 exit gate remain ahead.
+completed. On 2026-09-16, swap direction was repaired, `vmstat` verified zero
+swap occupancy and activity during three observed intervals, and guided work
+revisited free/available RAM, shared RSS accounting, and SHR within RES. Load
+average was then introduced; its first capacity comparison remains unanswered.
+Memory skills stay in spaced review, while load and broader independent
+resource interpretation remain ahead of the Phase 2 exit gate.
 
 Completed first users-and-permissions lesson dependency map:
 

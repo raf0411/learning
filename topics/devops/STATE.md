@@ -1,6 +1,6 @@
 # STATE
 
-Updated: 2026-09-15
+Updated: 2026-09-16
 
 ## Current stage
 
@@ -8,19 +8,18 @@ Phase 1 passed its exit gate on 2026-09-03. Phase 2 permissions, restricted
 service-account work, process/service distinctions, job control, and safe
 termination labs are complete; important skills remain in spaced review.
 
-Current position: process and whole-system memory interpretation on Ubuntu.
-The guided map/write/unmap lab is complete. Mapping/residency, shared physical
-blocks, SHR within RES, and CPU measurement/normalization remain GUIDED.
+Current position: process and whole-system resource interpretation on Ubuntu.
+The guided memory sequence now includes mapping/residency, shared RSS, SHR,
+free/available RAM, swap direction, and observed swap occupancy/activity. These
+skills remain GUIDED because the successful answers followed focused repair.
 
-Current learning edge: swap direction and residency, then swap occupancy versus
-activity. A page leaving RAM for swap was predicted to increase RES, while
-unchanged VIRT was correctly identified. The direction was re-explained, but
-repair has not been demonstrated. The vmstat observation is assigned with no
-output supplied. Free/available reasoning remains GUIDED after a correct
-low-free conclusion with imprecise additional-pool reasoning. Independent
-physical-block totals remain unproven; revisit them after spacing.
+Current learning edge: load average. The learner initially interpreted the
+three values as process start times; the runnable/uninterruptible-task model and
+1/5/15-minute windows were introduced, but the first capacity comparison was
+not attempted before session end. CPU normalization and memory interpretation
+remain queued for spaced transfer checks.
 
-Last completed session: `sessions/2026-09-15.md`
+Last completed session: `sessions/2026-09-16.md`
 
 ## Environment and capacity
 
@@ -30,6 +29,10 @@ Last completed session: `sessions/2026-09-15.md`
 - On 2026-09-15, Ubuntu swapon --show identified /swap.img as a 4 GiB active
   swap file with 0 B used in that snapshot. No swap configuration was changed;
   obtain fresh observations before diagnosing later activity.
+- On 2026-09-16, a fresh `vmstat -y 1 3` observation reported `swpd=0` and
+  `si=0`, `so=0` in all three one-second rows. A fresh `free -h` snapshot
+  reported 7.2 GiB total, 4.7 GiB free, 1.6 GiB buff/cache, 6.0 GiB available,
+  and 0 B of the 4.0 GiB swap area used. Treat these as time-bound snapshots.
 - Can study about 5 hours daily.
 - Prefers practical, job-oriented learning.
 - The Ubuntu home server exposes 16 logical CPUs: one socket, eight physical
@@ -284,9 +287,9 @@ Last completed session: `sessions/2026-09-15.md`
 - Understands after focused repair that `VIRT` contains all mapped virtual
   pages, while `RES`/RSS counts the currently resident subset. Correctly kept
   four mappings while reducing residency to one page after an eviction.
-- SHR within RES — GUIDED, confirmed on 2026-09-15. Ran a supplied read-only
-  top command and correctly explained why SHR must not be added to RES in the
-  resulting row. Inferring actual sharing or reclaimable memory remains untested.
+- SHR within RES — GUIDED. On 2026-09-16, correctly interpreted an unfamiliar
+  written row: SHR is inside RES and only indicates potentially shareable
+  resident memory, not proof that another process currently shares all of it.
 - Mapping versus residency — GUIDED. After a refresher, correctly predicted
   and observed that mapping 16 MiB raised VSZ alone, while writing into half
   raised RSS by 8 MiB without changing VSZ. Correctly predicted the different
@@ -347,28 +350,32 @@ Last completed session: `sessions/2026-09-15.md`
 - VIRT versus RES/RSS — GUIDED. A live map/write comparison and correct
   unmapping prediction followed a refresher. Retrieval on 2026-09-15 again
   excluded resident memory from VIRT and confused RES with free/waiting memory.
-  After repair, correctly kept mappings A B C D while changing residency from
-  A C to A B C. Later correctly kept VIRT unchanged but increased RES for a
-  page leaving RAM for swap. The tutor separated departure from return; no
-  fresh answer followed. Re-test with an unambiguous stage. Mapping-preserving
-  eviction has not been tested live.
-- Shared resident pages/RSS double-counting — GUIDED after repair on
-  2026-09-15; independent physical-block accounting remains unproven. Initially
-  divided the shared block between users, then counted one shared block twice
-  and omitted private blocks. After a named-block table, correctly explained
-  that adding another user leaves the same block's size unchanged. Re-test the
-  physical total later without procedural hints.
-- System free/available memory — GUIDED introduction on 2026-09-15. Executed
-  free -h and received an explanation of unused RAM, buffers/cache, and the
-  available estimate. Corrected data-source versus RAM-capacity confusion with
-  a disk-original/RAM-copy example. Rejected low free alone as proof of a
-  shortage, but described adding RAM from available. Reuse of existing RAM was
-  clarified; independent explanation remains pending. Do not assume all RAM
-  data already has a saved disk copy.
-- Swap-area inspection — GUIDED. Executed the supplied swapon --show command.
-  Swap occupancy versus transfer rates was introduced; vmstat -y 1 3 was
-  assigned but no output or interpretation was supplied. Swap direction needs
-  renewed assessment before interpreting si/so independently.
+  On 2026-09-16, first drew the correct reduced resident set for a page leaving
+  RAM but again said RES increases. After correction, correctly predicted that
+  swap-to-RAM raises RES while VIRT stays fixed. Later correctly changed a
+  continued row from VIRT/RES/SHR 100/35/12 to 100/32/12; the immediately prior
+  incorrect row came from treating the question as a fresh scenario rather
+  than continuing the stated values. Mapping-preserving eviction has not been
+  tested live.
+- Shared resident pages/RSS double-counting — GUIDED. On 2026-09-16, initially
+  omitted the shared block from both RSS values but independently counted the
+  distinct physical blocks correctly. Immediately after repair, correctly
+  calculated both RSS values, their double-counted sum, and the smaller
+  distinct physical total in a fresh example. Re-test after spacing.
+- System free/available memory — GUIDED. A fresh observation was interpreted as
+  not currently short of reusable RAM, but `available` was repeatedly treated
+  as a source or pool until the subset relation was retaught. With a sentence
+  scaffold, correctly stated that a 5.5 GiB request could use unused RAM and
+  reclaim occupied reusable cache. Re-test independently after spacing.
+- Swap occupancy and activity — GUIDED. Ran `vmstat -y 1 3`; all three rows had
+  `swpd=0`, `si=0`, and `so=0`. The learner did not know the fields before
+  teaching, then correctly interpreted a hypothetical nonzero `si` as swap to
+  RAM and rejected it alone as proof of current RAM shortage. Re-test with an
+  unfamiliar mixed occupancy/activity snapshot.
+- Load average — UNKNOWN/GUIDED introduction. Initially interpreted the three
+  values as process start times. The Linux runnable plus uninterruptible-task
+  model, approximate 1/5/15-minute windows, and dependence on CPU capacity were
+  taught. The first 4-CPU versus 16-CPU comparison remains unanswered.
 - Does not yet know the core commands for resource, OS, network, and log
   inspection.
 - Networking knowledge is early: localhost, private addressing, gateways,
@@ -408,11 +415,9 @@ concept being tested.
 
 ## Next action
 
-Start with one clearly staged swap-direction retrieval: a still-mapped page
-has left RAM or returned to it; ask for VIRT/RES changes without giving the rule
-first. Then complete the pending read-only vmstat -y 1 3 observation on Ubuntu,
-interpreting actual si/so values and their time window. Revisit free/available
-capacity and combined physical-block accounting after spacing. Active sharing
-and exact process-exit reclamation remain untested.
-Keep CPU normalization, safe termination, and physical command boundaries in
-spaced operational review; no new live eviction/discard lab was completed.
+Resume with the unanswered load-average comparison: load 8.00 on four logical
+CPUs versus sixteen. Then use a fresh live snapshot to connect 1/5/15-minute
+trend and CPU capacity without equating load directly with CPU utilization.
+Re-test swap activity, free/available capacity, and shared-block accounting only
+after spacing. Keep CPU normalization, safe termination, and physical command
+boundaries in operational review; no live eviction/discard lab was completed.
