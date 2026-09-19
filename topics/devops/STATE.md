@@ -1,6 +1,6 @@
 # STATE
 
-Updated: 2026-09-16
+Updated: 2026-09-20
 
 ## Current stage
 
@@ -8,18 +8,17 @@ Phase 1 passed its exit gate on 2026-09-03. Phase 2 permissions, restricted
 service-account work, process/service distinctions, job control, and safe
 termination labs are complete; important skills remain in spaced review.
 
-Current position: process and whole-system resource interpretation on Ubuntu.
-The guided memory sequence now includes mapping/residency, shared RSS, SHR,
-free/available RAM, swap direction, and observed swap occupancy/activity. These
-skills remain GUIDED because the successful answers followed focused repair.
+Current position: Phase 2 whole-system resource interpretation on Ubuntu. A
+complete guided load-average lab now connects CPU capacity, 1/5/15-minute
+trend, exponential smoothing, runnable demand, and uninterruptible I/O wait.
+Memory interpretation remains GUIDED after spaced repair.
 
-Current learning edge: load average. The learner initially interpreted the
-three values as process start times; the runnable/uninterruptible-task model and
-1/5/15-minute windows were introduced, but the first capacity comparison was
-not attempted before session end. CPU normalization and memory interpretation
-remain queued for spaced transfer checks.
+Current learning edge: disk-space diagnosis. The learner can distinguish live
+`df` filesystem capacity from `du` path accounting, identify block versus inode
+capacity, target the filesystem containing a failing path, and adapt a shallow
+`du` search. Open-but-deleted file accounting was introduced but not tested.
 
-Last completed session: `sessions/2026-09-16.md`
+Last completed session: `sessions/2026-09-20.md`
 
 ## Environment and capacity
 
@@ -39,6 +38,11 @@ Last completed session: `sessions/2026-09-16.md`
   cores per socket, and two hardware threads per core.
 - A later Ubuntu desktop VM reports two logical CPUs through `nproc`; do not use
   the physical server's 16-CPU denominator for observations made on this VM.
+- On 2026-09-20, the Ubuntu desktop VM's `top` snapshot reported no configured
+  swap. Its ext4 root filesystem was `/dev/sda2`, 29 GiB total, 6.3 GiB used,
+  21 GiB available, and 24% full. Inodes were 10% used. Its home tree occupied
+  17 MiB, of which `.cache` accounted for 16 MiB. These are time-bound
+  observations and do not describe the physical home server.
 - Ubuntu currently retains `~/permissions-lab/mode-practice.txt` as
   `raf_0411:raf_0411` mode `664`, `service-access-lab.conf` as `root:sudo`
   mode `640`, and the `reportsvc` account plus its `/etc/reportsvc` and
@@ -356,28 +360,32 @@ Last completed session: `sessions/2026-09-16.md`
   continued row from VIRT/RES/SHR 100/35/12 to 100/32/12; the immediately prior
   incorrect row came from treating the question as a fresh scenario rather
   than continuing the stated values. Mapping-preserving eviction has not been
-  tested live.
+  tested live. On 2026-09-20, after a direct refresher, correctly inferred that
+  a mapped page moving from RAM to swap leaves VIRT fixed and lowers RSS.
 - Shared resident pages/RSS double-counting — GUIDED. On 2026-09-16, initially
   omitted the shared block from both RSS values but independently counted the
   distinct physical blocks correctly. Immediately after repair, correctly
   calculated both RSS values, their double-counted sum, and the smaller
   distinct physical total in a fresh example. Re-test after spacing.
-- System free/available memory — GUIDED. A fresh observation was interpreted as
-  not currently short of reusable RAM, but `available` was repeatedly treated
-  as a source or pool until the subset relation was retaught. With a sentence
-  scaffold, correctly stated that a 5.5 GiB request could use unused RAM and
-  reclaim occupied reusable cache. Re-test independently after spacing.
-- Swap occupancy and activity — GUIDED. Ran `vmstat -y 1 3`; all three rows had
-  `swpd=0`, `si=0`, and `so=0`. The learner did not know the fields before
-  teaching, then correctly interpreted a hypothetical nonzero `si` as swap to
-  RAM and rejected it alone as proof of current RAM shortage. Re-test with an
-  unfamiliar mixed occupancy/activity snapshot.
-- Load average — UNKNOWN/GUIDED introduction. Initially interpreted the three
-  values as process start times. The Linux runnable plus uninterruptible-task
-  model, approximate 1/5/15-minute windows, and dependence on CPU capacity were
-  taught. The first 4-CPU versus 16-CPU comparison remains unanswered.
-- Does not yet know the core commands for resource, OS, network, and log
-  inspection.
+- System free/available memory — GUIDED. On 2026-09-20, again treated
+  `available` as a separate pool before reconstructing it as an overlapping
+  estimate based on unused RAM plus reclaimable occupied memory. Correctly
+  rejected adding free, buff/cache, and available after a diagram and sentence
+  scaffold. Re-test independently after spacing.
+- Swap occupancy and activity — GUIDED. On 2026-09-20, correctly recognized
+  zero `si`/`so` activity, then correctly diagnosed occupied but idle swap with
+  ample available RAM after field repair. Re-test without field reminders.
+- Load average — GUIDED. On 2026-09-20, completed a bounded live lab on a
+  two-CPU VM, observed rise (`0.29, 0.08, 0.04`) and decay
+  (`0.00, 0.07, 0.06`), repaired 1/5/15 ordering, and correctly used high idle
+  CPU plus `D`/`b` evidence to favor I/O over CPU saturation. `vmstat` `r`, `b`,
+  `id`, and `wa` counterexamples were correct after direct field teaching.
+- Disk-space inspection — GUIDED with early independent evidence. Correctly
+  interpreted live `df -hT`, distinguished `du` directory-tree usage, selected
+  the largest immediate child after sorting, diagnosed a 100%-inode failure,
+  targeted the parent of a failed path, and adapted a `du` command. The
+  `df`/`du` open-deleted-file discrepancy remains untested.
+- Broader OS, network, and log inspection still needs structured practice.
 - Networking knowledge is early: localhost, private addressing, gateways,
   ports, and troubleshooting need development.
 - Little demonstrated experience configuring services or diagnosing homelab
@@ -415,9 +423,9 @@ concept being tested.
 
 ## Next action
 
-Resume with the unanswered load-average comparison: load 8.00 on four logical
-CPUs versus sixteen. Then use a fresh live snapshot to connect 1/5/15-minute
-trend and CPU capacity without equating load directly with CPU utilization.
-Re-test swap activity, free/available capacity, and shared-block accounting only
-after spacing. Keep CPU normalization, safe termination, and physical command
+Resume with the unanswered open-but-deleted log scenario, then complete a
+written disk incident that chooses the affected filesystem, distinguishes
+block from inode exhaustion, and narrows path usage with same-filesystem `du`.
+Re-test load trend, swap activity, and available-memory overlap only after
+spacing. Keep CPU normalization, safe termination, and physical command
 boundaries in operational review; no live eviction/discard lab was completed.

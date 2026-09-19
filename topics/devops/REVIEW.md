@@ -1,6 +1,6 @@
 # REVIEW
 
-Updated: 2026-09-16
+Updated: 2026-09-20
 
 ## Active review queue
 
@@ -192,6 +192,8 @@ These were identified during the initial probe:
    the reverse swap-in direction was correct, and a later continued-row update
    correctly held VIRT/SHR fixed while lowering RES. Next test after spacing:
    interpret a fresh mapping-preserving transition without a direction hint.
+   On 2026-09-20, after a direct refresher, correctly inferred swap-out, fixed
+   VIRT, and reduced RSS from a fresh before/after page set; keep it GUIDED.
    Shared resident pages/RSS double-counting — GUIDED. The first 2026-09-16
    attempt omitted the shared block from RSS but got the distinct physical
    total. A fresh post-teaching example was entirely correct. Next test after
@@ -199,20 +201,27 @@ These were identified during the initial probe:
    SHR within RES — GUIDED. On an unfamiliar written row, correctly stated
    that SHR is within RES and indicates potential rather than proven current
    sharing. Next test: interpret this distinction in live diagnostic output.
-   System free/available memory — GUIDED. Correctly judged a fresh snapshot as
-   not short of reusable RAM, but needed repeated repair to stop treating
-   `available` as a separate source. Final scaffolded wording correctly used
-   unused RAM plus reclaimed reusable cache. Next test after spacing: explain
-   the source and subset relationship independently.
-   Swap occupancy/activity — GUIDED. Completed `vmstat -y 1 3`; `swpd`, `si`,
-   and `so` were zero in all rows. After teaching the field meanings, correctly
-   interpreted nonzero `si` as swap to RAM and rejected it alone as proof of
-   current shortage. Next test: distinguish occupied idle swap from sustained
-   transfer activity in an unfamiliar snapshot.
-   Load average — UNKNOWN/GUIDED introduction on 2026-09-16. The learner
-   initially interpreted the three values as process start times. Resume with
-   the unanswered load 8.00 comparison on four versus sixteen logical CPUs,
-   then test the 1/5/15-minute trend and the uninterruptible-wait caveat.
+   System free/available memory — GUIDED. On 2026-09-20, the learner again
+   treated `available` as a separate pool before correctly reconstructing it as
+   an overlapping estimate from free plus reclaimable memory and rejecting a
+   double-counted sum. Next test after spacing: explain this independently
+   without a sentence scaffold or pool diagram.
+   Swap occupancy/activity — GUIDED. On 2026-09-20, correctly recognized zero
+   transfer activity but initially omitted occupancy and described whole tasks
+   as swapping. After repair, correctly distinguished 512 MiB occupied idle
+   swap from current pressure. Next test: diagnose mixed nonzero `swpd`, `si`,
+   and `so` without field reminders.
+   Load average — GUIDED. On 2026-09-20, completed a two-CPU bounded lab with
+   observed rise and decay, repaired the reversed 1/5/15 trend twice, and then
+   correctly used CPU idle plus `D`/`b` evidence to distinguish I/O pressure
+   from CPU contention. Next test after spacing: interpret a fresh load and
+   `vmstat` scenario without ordering or field scaffolds.
+   Disk capacity — GUIDED with early independent evidence. Correctly
+   distinguished live `df` filesystem capacity from `du` path accounting,
+   identified 24% block use versus 10% inode use after repair, diagnosed an
+   inode-exhaustion scenario, targeted the parent of a failed path, and adapted
+   a shallow `du` command. Next test: explain an open-but-deleted log mismatch,
+   then diagnose block versus inode exhaustion without named commands.
 8. Localhost, private addresses, ports, gateways, and layered connectivity
    troubleshooting.
 9. Standard streams, pipelines, and output/error redirection: on 2026-08-28,

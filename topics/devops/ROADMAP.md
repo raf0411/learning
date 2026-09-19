@@ -1,9 +1,9 @@
 # ROADMAP
 
-Updated: 2026-09-16
+Updated: 2026-09-20
 Target window: 14–16 weeks
-Current phase: Phase 2 resource inspection; guided memory and swap observation
-complete, load-average interpretation now at the learning edge
+Current phase: Phase 2 resource inspection; guided load-average diagnosis is
+complete, and disk-space diagnosis is now at the learning edge
 
 Primary career direction: entry-level DevOps, Junior Cloud Infrastructure,
 InfraOps, and Cloud Operations/Support roles. Linux/SysAdmin roles remain
@@ -340,10 +340,15 @@ mapping/touching/unmapping lab was completed on the physical Ubuntu home server
 on 2026-09-14. On 2026-09-15, guided top, free, and swap-file inspections were
 completed. On 2026-09-16, swap direction was repaired, `vmstat` verified zero
 swap occupancy and activity during three observed intervals, and guided work
-revisited free/available RAM, shared RSS accounting, and SHR within RES. Load
-average was then introduced; its first capacity comparison remains unanswered.
-Memory skills stay in spaced review, while load and broader independent
-resource interpretation remain ahead of the Phase 2 exit gate.
+revisited free/available RAM, shared RSS accounting, and SHR within RES. On
+2026-09-20, the learner completed a bounded load-average rise/decay lab on a
+two-CPU VM and used `vmstat` evidence to distinguish runnable CPU contention
+from uninterruptible I/O wait after field repair. A spaced memory review
+repaired swap occupancy/activity and available-memory overlap, which remain
+GUIDED. Disk-space diagnosis has begun: live `df`, `du`, and inode observations
+were interpreted, and a path-narrowing command was adapted independently.
+Open-but-deleted file accounting is the current edge. Broader independent
+resource interpretation remains ahead of the Phase 2 exit gate.
 
 Completed first users-and-permissions lesson dependency map:
 

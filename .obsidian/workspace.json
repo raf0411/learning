@@ -4,25 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "af70f6c75128ca20",
+        "id": "92891c16ed600e87",
         "type": "tabs",
         "children": [
           {
-            "id": "ed9624219eebe3c6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "topics/devops/GOAL.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "GOAL"
-            }
-          },
-          {
-            "id": "0071bc407fd6cee2",
+            "id": "97910a89cd916f2c",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -34,37 +20,8 @@
               "icon": "lucide-file",
               "title": "ROADMAP"
             }
-          },
-          {
-            "id": "93a9ceeca1315425",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "HAHAHA.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "HAHAHA"
-            }
-          },
-          {
-            "id": "426257ec43efb928",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "UNIX MISSIONS.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "UNIX MISSIONS"
-            }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -228,23 +185,27 @@
       "bases:Create new base": false
     }
   },
-  "active": "93a9ceeca1315425",
+  "active": "97910a89cd916f2c",
   "lastOpenFiles": [
-    "topics/devops/ROADMAP.md",
+    "PROFILE.md",
+    "topics/devops/sessions/2026-09-20.md",
+    "AGENTS.md",
+    "README.md",
+    "topics/devops/GOAL.md",
+    "topics/devops/RESOURCES.md",
+    "topics/devops/REVIEW.md",
+    "topics/devops/STATE.md",
     "HAHAHA.md",
+    "topics/devops/diagrams/2026-09-20-disk-space.md",
+    "topics/devops/ROADMAP.md",
+    "topics/devops/diagrams/2026-09-19-load-average.md",
     "UNIX MISSIONS.md",
     "topics/devops/diagrams/2026-09-16-memory-load.md",
     "topics/devops/sessions/2026-09-16.md",
-    "README.md",
-    "topics/devops/STATE.md",
-    "topics/devops/RESOURCES.md",
     "topics/devops/sessions/2026-09-15.md",
-    "topics/devops/REVIEW.md",
-    "topics/devops/GOAL.md",
     "topics/devops/diagrams/2026-09-15-shared-memory.md",
     "topics/devops/diagrams/2026-09-14-process-memory.md",
     "topics/devops/sessions/2026-09-14.md",
-    "AGENTS.md",
     "topics/devops/diagrams/standard-streams.md",
     "topics/devops/sessions/2026-09-11.md",
     "topics/devops/sessions/2026-09-10.md",
@@ -252,10 +213,6 @@
     "topics/devops/sessions/2026-09-08.md",
     "topics/devops/sessions/2026-09-07.md",
     "topics/devops/sessions/2026-09-06.md",
-    "PROFILE.md",
-    "topics/devops/sessions/2026-09-04.md",
-    "topics/godot/STATE.md",
-    "topics/godot/ROADMAP.md",
     "topics/godot/sessions",
     "topics/godot/labs",
     "topics/godot/diagrams",
