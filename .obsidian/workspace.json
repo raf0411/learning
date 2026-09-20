@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/devops/ROADMAP.md",
+                "file": "topics/ios-dev/ROADMAP.md",
                 "mode": "source",
                 "source": false
               },
@@ -187,6 +187,21 @@
   },
   "active": "97910a89cd916f2c",
   "lastOpenFiles": [
+    "topics/ios-dev/diagrams/2026-09-21-learning-path.md",
+    "topics/ios-dev/GOAL.md",
+    "topics/ios-dev/RESOURCES.md",
+    "topics/ios-dev/REVIEW.md",
+    "topics/ios-dev/ROADMAP.md",
+    "topics/ios-dev/practice/01-functions/main.swift",
+    "topics/ios-dev/practice/01-functions",
+    "topics/ios-dev/practice",
+    "topics/ios-dev/STATE.md",
+    "topics/devops/ROADMAP.md",
+    "topics/ios-dev/sessions/2026-09-21.md",
+    "topics/ios-dev/sessions",
+    "topics/ios-dev/labs",
+    "topics/ios-dev/diagrams",
+    "topics/ios-dev",
     "PROFILE.md",
     "topics/devops/sessions/2026-09-20.md",
     "AGENTS.md",
@@ -197,7 +212,6 @@
     "topics/devops/STATE.md",
     "HAHAHA.md",
     "topics/devops/diagrams/2026-09-20-disk-space.md",
-    "topics/devops/ROADMAP.md",
     "topics/devops/diagrams/2026-09-19-load-average.md",
     "UNIX MISSIONS.md",
     "topics/devops/diagrams/2026-09-16-memory-load.md",
@@ -205,21 +219,8 @@
     "topics/devops/sessions/2026-09-15.md",
     "topics/devops/diagrams/2026-09-15-shared-memory.md",
     "topics/devops/diagrams/2026-09-14-process-memory.md",
-    "topics/devops/sessions/2026-09-14.md",
-    "topics/devops/diagrams/standard-streams.md",
-    "topics/devops/sessions/2026-09-11.md",
-    "topics/devops/sessions/2026-09-10.md",
-    "topics/devops/sessions/2026-09-09.md",
-    "topics/devops/sessions/2026-09-08.md",
-    "topics/devops/sessions/2026-09-07.md",
-    "topics/devops/sessions/2026-09-06.md",
     "topics/godot/sessions",
     "topics/godot/labs",
-    "topics/godot/diagrams",
-    "topics/godot",
-    "topics/spanish/sessions",
-    "topics/spanish/labs",
-    "topics/spanish/diagrams",
-    "topics/spanish"
+    "topics/godot/diagrams"
   ]
 }
