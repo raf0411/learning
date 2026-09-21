@@ -1,68 +1,101 @@
 # ROADMAP
 
-Initialized: 2026-09-21. Current position: initial probe complete; begin Phase 1.
+## Target and current position
 
-Plan around 16 weeks, with a readiness checkpoint at week 12. Use the learner's five-hour daily availability; a provisional rhythm is six study days and one rest/light-review day per week. Adjust pace to demonstrated capability. Week ranges are estimates, not automatic promotions.
+Baseline: 16 weeks at 25 hours/week, approximately 400 planned hours. Assess
+application readiness from week 12 (approximately 300 hours). These are planning
+estimates, not automatic mastery or hiring deadlines. See GOAL.md for constraints.
 
-## Dependency structure
+Current position: initial assessment complete; begin Phase 1 with requirements
+decomposition and a small executed Swift task. No curriculum milestone is complete.
+Use STATE.md for demonstrated abilities; probe unassessed prerequisites as needed.
+
+## Dependencies
 
 ```mermaid
 flowchart TD
-    A[Executable Swift and problem decomposition] --> B[Types, collections, functions, models]
-    B --> C[SwiftUI state, navigation, local storage]
-    B --> D[Errors, HTTP, JSON, asynchronous work]
-    C --> E[Independent networked iOS app]
+    A[Break requirements into testable behaviors] --> B[Swift logic and data models]
+    B --> C[SwiftUI state and multiple screens]
+    B --> D[Errors, JSON, HTTP, and async work]
+    C --> E[Complete apps with storage and clear responsibilities]
     D --> E
-    B --> F[Classes, protocols, memory and UIKit]
-    E --> G[Portfolio evidence and junior interviews]
-    F --> G
-    H[Git, documentation, debugging and tests] -. practiced throughout .-> A
-    H -.-> E
-    H -.-> G
+    E --> F[Independent app and unfamiliar codebase tasks]
+    F --> G[Portfolio explanations and junior job assessments]
 ```
 
-## Phases and exit evidence
+Git, documentation, debugging, testing, and spaced retrieval accompany every
+phase. A dependency is cleared by useful performance evidence, not elapsed weeks.
 
-| Phase / estimated weeks | Focus and practical work                                                                                                                                                                                                                                                          | Evidence required to advance                                                                                                                    |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1 / 1–2                 | Write and run Swift: let/var, types, operators, branches, loops, functions, arrays/dictionaries/sets, optionals, and small structs. Build a tiny habit/task core without a UI. Start Git, compiler diagnostics, documentation lookups, and debugger inspection.                   | Independently implement a small requirement, run boundary/empty-input checks, explain the code, and fix a bug using observed evidence.          |
-| 2 / 3–5                 | Build the first small SwiftUI app: layout, state ownership, bindings, lists, identity, forms, navigation, input validation, and local persistence. Introduce enums/closures when motivated. Start unit tests around meaningful model behavior.                                    | Build an add/edit/delete flow, keep data across launches, diagnose a state bug, and add a new feature without a walkthrough.                    |
-| 3 / 6–8                 | Begin the second app around a personally useful API-backed need. Learn HTTP, JSON/Codable, URLSession, error handling, async/await, cancellation, and main-actor UI updates. Separate presentation from data access; introduce protocols/test substitutes through concrete needs. | Explain request-to-screen data flow and demonstrate loading, success, empty, and failure/retry behavior using controlled inputs.                |
-| 4 / 9–10                | Learn to maintain existing iOS code: classes, value/reference semantics, ARC and closure captures, UIKit views/controllers, lifecycle, Auto Layout, lists, delegation, and navigation. Compare MVC/MVVM through the apps already built.                                           | Build or modify one UIKit list/detail feature, set breakpoints, inspect values, and explain responsibilities and object ownership.              |
-| 5 / 11–13               | Finish the second app with a tightly scoped user need. Add appropriate local saved data, tests, accessibility, performance checks, and feedback-driven refinements. Revisit the first app for independent changes.                                                                | Demonstrate the app end to end, handle a surprise change request, explain design tradeoffs, and reproduce/fix a defect independently.           |
-| 6 / 14–16               | Polish portfolio evidence, READMEs, setup instructions, demos, and CV. Practice small coding tasks, project explanations, code review, Git collaboration, and feature/debugging interviews. Learn release/signing/TestFlight workflow when relevant.                              | Complete a mock junior assignment with documentation allowed, present the projects clearly, and explain contributions and limitations honestly. |
+## Phases and practical milestones
 
-Start assessing actual Indonesian junior/intern openings around weeks 8–10 and apply when there is demonstrable work. Continue improving during applications. International remote/relocation roles are additional targets; eligibility and language requirements will be checked per role.
+| Approximate weeks | Work and prerequisites | Milestone evidence |
+| --- | --- | --- |
+| 1–2 (50 h) | Turn small requirements into inputs, changes, outputs, and checks. Consolidate types, conditions, functions, arrays/dictionaries/sets; introduce optionals, safe conversion, structs, enums, value semantics, and basic closures as tasks require. Run Swift in Xcode, inspect values with the debugger, make and inspect Git commits. | Implement a small in-memory shopping-list model from a short brief; handle blank/empty inputs and a new change request; explain and debug the code. |
+| 3–5 (75 h) | Guided practice app: SwiftUI layouts, lists, text fields, forms, reusable views, identity, navigation, state ownership, bindings, and shared observable models. Probe classes/reference semantics before shared models; add practical protocols/extensions as needed. Introduce local storage, simple tests, and accessibility through features. | Working multi-screen shopping-list practice app. Explain who owns each piece of state, edit it across screens, verify relaunch behavior, and implement an unscaffolded change. This is a learning app, not automatically a portfolio project. |
+| 6–9 (100 h) | Partially guided portfolio app 1: an API-backed app with a specific user purpose. Learn request/response and HTTP status basics, REST, JSON, Codable, error handling, URLSession, async/await, main-actor UI updates, and basic cancellation. Add local favorites/notes, explicit loading/error/empty states, and simple separation of concerns/MVVM when useful. Practice protocol-based test doubles, relevant generics, and reference ownership/capture issues. | A usable networked app with predictable failure/retry behavior, persistence, tests for meaningful logic and failures, a readable Git history, and a learner-led technical explanation. Learner proposes task breakdowns and implementation decisions. |
+| 10–13 (100 h) | Independent portfolio app 2, selected around a different real problem. Emphasize richer local data, editing, relationships, validation, filtering, and polished interactions. Learner writes the brief, chooses the structure/storage, and implements from an empty project. Tutor reviews attempts and supplies targeted hints only when needed. | A second complete app plus independent requirement decomposition, debugging, documentation lookup, and an explanation of tradeoffs. It must show different strengths from app 1. Begin readiness-based application preparation. |
+| 14 (25 h) | Existing-codebase practice after Swift models, protocols, and UI/data flow are secure: a small UIKit screen, view-controller lifecycle, controls, Auto Layout, table/collection basics, and delegate/data-source patterns. Read common older SwiftUI state patterns. Investigate one practical memory or responsiveness issue with Xcode tools. | Read an unfamiliar UIKit feature, trace its data, fix a bug, and make a small change. Depth is introductory; expand only if target roles justify it. |
+| 15–16 (50 h) | Requirements-only take-home simulation; strengthen identified gaps; polish both projects. Cover application/scene lifecycle, signing/build basics, release/TestFlight/App Store workflow, portfolio walkthroughs, interviews, and tailored application materials. | Finish a small unfamiliar task without implementation scaffolding; explain and defend both apps; demonstrate meaningful tests and accessibility checks; prepare application-ready repositories and CV. |
 
-## Project scope
+## Project and independence policy
 
-- Project 1: a small local habit/task tracker is the provisional learning vehicle. Another similarly small personal need can replace it. Its core begins in Phase 1 and gains a UI in Phase 2.
-- Project 2: one personally useful networked app, chosen before Phase 3 after discussing real needs. Keep its first release to a few complete user flows. The existing Unix-command app is a possible domain, not evidence of independent implementation.
-- UIKit work is a bounded maintenance exercise, not a third full portfolio app.
-- Two explainable, functioning projects are the target. Portfolio evidence includes meaningful commits, tests where appropriate, a demo, setup instructions, and design decisions. Store publication is optional, not a gate for beginning applications.
+- Stage 1: one guided practice app. Tutor may help identify tasks; learner writes
+  the implementation. Do not count a tutorial-like result as portfolio-ready.
+- Stage 2: portfolio app 1 with partial guidance. Learner proposes the plan and
+  architecture before review. Select its domain/API when entering the phase.
+- Stage 3: portfolio app 2 independently designed and built. Possible problem
+  families include household supplies, equipment lending, or personal scheduling;
+  choose with the learner rather than imposing an implementation now.
+- Stage 4: a smaller requirements-only hiring simulation in a different domain.
+- Target two strong portfolio projects. A third is optional only after both meet
+  the quality bar and independent skills are secure; a fourth is not scheduled.
+- Give a problem, requirements, constraints, expected behavior, optional stretch
+  goals, and assessed skills when assigning each project. Do not pre-supply the
+  architecture for the independent stages.
 
-## Transferable foundations throughout
+## Quality and job-readiness bar
 
-- Decompose requirements into inputs, outputs, rules, examples, and edge cases.
-- Choose suitable data structures; practice search, filtering, counting, sorting, and basic complexity reasoning with app data.
-- Understand state, scope, mutation, types, errors, abstraction, and separation of responsibilities.
-- Use Git diffs/commits early, then branches and a small conflict-resolution exercise.
-- Practice reproduction, hypotheses, evidence, debugger inspection, and regression checks.
-- Read a small relevant documentation section, apply it, then explain the result in the learner's own words.
-- Build technical communication through short English project explanations and written decisions.
+For each portfolio app, verify coherent navigation and components, appropriate
+state ownership and storage, validation and failure handling, useful tests,
+accessibility (including VoiceOver and larger text), clean Git history, and a
+reproducible README/demo. Network states belong in the networked app; do not force
+an API into the local-data app merely to tick a box.
 
-## Study and assistance rhythm
+The learner must explain structure, data flow, state, architecture choices,
+storage, applicable networking, errors, bugs, tradeoffs, and future improvements.
+Also assess an unfamiliar-code bug fix and a fresh feature without procedural
+hints. A polished app whose important code cannot be explained is not ready.
 
-Use the learning loop: PROBE → PLAN → TEACH → PRACTICE → TEST → UPDATE. Probe new prerequisite branches briefly when they arise.
+From week 6, mix short code-reading, collection/problem-solving, and interview
+questions into projects. Use arrays, dictionaries, sets, search/sort, and basic
+complexity reasoning at a practical junior level. From weeks 8–10, periodically
+recheck Indonesian job requirements; prepare actual applications when performance
+supports them. Include Git branches, merges/conflicts, pull-request review, and
+brief English explanations for the international remote option.
 
-An example five-hour study window: 15 minutes retrieval, 35 minutes explanation/docs, 100 minutes building, 50 minutes debugging/testing, 40 minutes independent variation, 10 minutes recap, and 50 minutes breaks spread through the window. Adapt this rather than filling time with more quizzes.
+## Study rhythm and scope control
 
-The learner writes practice implementations. First attempt → evidence of the problem → progressively stronger hints → explanation or solution when requested/needed. AI can help with tutoring and review. Documentation and ordinary symbol completion are allowed in practice; generated implementations are excluded from independence checks. Rebuild or modify learned work later with the example closed.
+Typical 25-hour week: 15 h building/debugging, 4 h targeted lessons/documentation,
+4 h independent exercises/retrieval/tests, and 2 h planning/Git/communication.
+Adapt the split to the current obstacle and take breaks between work blocks.
+Most days start with a short relevant retrieval task; one weekly task reduces
+scaffolding and checks a previously learned skill in practice.
 
-## Planning basis and scope control
+Use SwiftData for suitable structured local data and UserDefaults for small
+preferences after data-model prerequisites. Learn when they fit before adopting
+them. Core Data/older tooling reading is conditional on relevant job evidence.
+Learn enough Swift Package Manager to use an existing dependency, without making
+third-party frameworks a substitute for networking or state fundamentals.
 
-A sampled [Indocyber junior posting](https://id.linkedin.com/jobs/view/junior-ios-developer-at-indocyber-global-teknologi-pt-4465484866) includes Swift/Xcode, UIKit/SwiftUI, APIs/JSON, Git, layout, debugging, and tests. This supports the chosen core; it is an illustrative posting, not a survey or confirmation the vacancy remains open. See RESOURCES.md for primary learning references.
+Defer advanced Combine/RxSwift, complex architectures, custom rendering, Metal,
+advanced animation/concurrency, and niche frameworks. If a prerequisite takes
+longer, reduce optional features and extra projects first; reassess the timetable
+rather than declaring mastery to meet a date.
 
-Defer advanced architecture catalogs, deep Objective-C, reactive-framework specialization, complex backends, and multiple additional languages unless a project or target role creates a concrete need. Reassess at weeks 4, 8, and 12 using independent performance.
+## Market calibration
 
-Completed: initial diagnostic probe and personalized plan. No programming or app-building milestone has yet been passed.
+The sampled Indonesian employer postings support Swift, APIs, debugging, testing,
+Git, and basic architecture, with UIKit exposure useful alongside SwiftUI. This is
+a small sample, not a market-wide estimate. The sampled AVOWS junior–middle post
+is closed and serves only as requirements evidence. See RESOURCES.md for sources;
+recheck vacancies when preparing applications.

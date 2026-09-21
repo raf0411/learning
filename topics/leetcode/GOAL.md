@@ -36,3 +36,4 @@ Target preparation window: roughly 1–2 months. Scope and pacing must be calibr
 - Start mostly with Easy problems. Introduce selected Medium problems after their prerequisites are demonstrated.
 - Evaluate reasoning alongside code. Use progressively stronger hints and learner-led bottleneck diagnosis; explain full solutions only after a serious attempt or an explicit request.
 - Prioritize reconstructing ideas and applying them to unfamiliar problems over memorized solutions, mechanical pattern recognition, or problem counts.
+- Learner is a visual learner, prioritize teaching concepts with visual using diagrams when needed.

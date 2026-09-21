@@ -1,12 +1,30 @@
 # REVIEW
 
-Last updated: 2026-09-21.
+## Combine iteration, a predicate, and conditional output
 
-| Skill | Current stage | Next demonstration | Why / last evidence | Next review |
-| --- | --- | --- | --- | --- |
-| Typed Swift functions, calls, and boundary checks | GUIDED | Write a different function with a typed input/result and choose useful test cases without a supplied implementation. | Corrected braces and reversed fees with feedback; ran 49/50/51 checks successfully on 2026-09-21. | Start next session with the pending checkoutTotal exercise; composition has not yet been attempted. |
-| Function outputs and record-to-field transformation | GUIDED | From a fresh requirement, independently choose whether to return records, names, or a count; include an empty-input case. | Appended whole habits instead of names, then corrected after a prompt on 2026-09-21. | After initial Swift syntax practice, within 1–2 sessions. |
-| Accumulation and return placement | INDEPENDENT in reasoning | Write and run a different aggregation task, explaining termination and results for empty and multiple-element inputs. | Correct counting algorithm and premature-return diagnosis on 2026-09-21; no execution yet. | After 2–3 sessions, without immediate re-teaching. |
-| Assignment and reassignment | INDEPENDENT in tracing | Trace changing values in a small app-state scenario and justify the displayed result. | Correct snapshot-style reasoning on 2026-09-21. | During the first SwiftUI state lessons. |
+- Stage: GUIDED.
+- Last evidence: 2026-09-21; completed affordable-price filtering after prompts
+  about argument labels and printing Bool rather than the requested price.
+- Next test: a brief retrieval task at the next session, if useful; supply a
+  different filtering requirement without naming the required control-flow
+  structure or supplying procedural hints. Keep it short enough to resume the
+  pending planning exercise.
+- Goal: demonstrate independent implementation and check all requested outputs.
 
-Record executable Swift competence separately from algorithm reasoning. Only advance to RETAINED after meaningful spacing and independent retrieval.
+## Small Swift functions and array boundaries
+
+- Stage: INDEPENDENT within narrow in-chat tasks; not yet retained.
+- Last evidence: 2026-09-21; wrote/called a Bool-returning function and diagnosed
+  array indexing plus the empty-array case.
+- Next test: after meaningful spacing, ask for a small implemented and executed
+  task combining a function with safe collection access; include an empty input.
+- Goal: confirm retrieval and implementation rather than explanation alone.
+
+## Git snapshots and branches
+
+- Stage: RECOGNIZED.
+- Last evidence: 2026-09-21; distinguished a commit from merely creating a branch
+  once uncommitted changes were made explicit.
+- Next test: during the first disposable Git lab, predict and inspect what a
+  commit records and whether another commit requires another branch.
+- Goal: establish a usable workflow and resolve the remaining branching ambiguity.
