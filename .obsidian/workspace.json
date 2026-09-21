@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/ios-dev/ROADMAP.md",
+                "file": "topics/ios-dev/sessions/2026-09-21.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ROADMAP"
+              "title": "2026-09-21"
             }
           }
         ]
@@ -188,20 +188,20 @@
   "active": "97910a89cd916f2c",
   "lastOpenFiles": [
     "topics/ios-dev/GOAL.md",
-    "topics/ios-dev/ROADMAP.md",
+    "topics/ios-dev/RESOURCES.md",
     "topics/ios-dev/REVIEW.md",
+    "topics/ios-dev/STATE.md",
+    "topics/ios-dev/ROADMAP.md",
+    "topics/leetcode/STATE.md",
+    "topics/leetcode/ROADMAP.md",
     "topics/ios-dev/diagrams/2026-09-21-requirements-to-tasks.md",
     "topics/ios-dev/sessions/2026-09-21.md",
     "topics/leetcode/GOAL.md",
-    "topics/leetcode/ROADMAP.md",
-    "topics/ios-dev/RESOURCES.md",
     "topics/ios-dev/sessions",
     "topics/ios-dev/labs",
     "topics/ios-dev/diagrams",
-    "topics/ios-dev/STATE.md",
     "topics/ios-dev",
     "topics/leetcode/diagrams/2026-09-21.md",
-    "topics/leetcode/STATE.md",
     "topics/leetcode/practice/count_above.py",
     "topics/leetcode/sessions/2026-09-21.md",
     "topics/leetcode/practice/largest_number.py",

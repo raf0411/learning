@@ -6,9 +6,11 @@ Baseline: 16 weeks at 25 hours/week, approximately 400 planned hours. Assess
 application readiness from week 12 (approximately 300 hours). These are planning
 estimates, not automatic mastery or hiring deadlines. See GOAL.md for constraints.
 
-Current position: initial assessment complete; begin Phase 1 with requirements
-decomposition and a small executed Swift task. No curriculum milestone is complete.
-Use STATE.md for demonstrated abilities; probe unassessed prerequisites as needed.
+Current position: Phase 1 in progress. Completed learner-reported Xcode runs for a
+small Add-item behavior, whitespace cleaning, empty/duplicate validation, a
+`ShoppingItem` struct, purchase-state mutation, and value-semantics experiments.
+Next, extract duplicate detection into a function and continue organizing these
+pieces into the in-memory model. No curriculum milestone is complete.
 
 ## Dependencies
 

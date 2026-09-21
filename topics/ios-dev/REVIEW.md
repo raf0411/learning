@@ -3,13 +3,33 @@
 ## Combine iteration, a predicate, and conditional output
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-21; completed affordable-price filtering after prompts
-  about argument labels and printing Bool rather than the requested price.
-- Next test: a brief retrieval task at the next session, if useful; supply a
-  different filtering requirement without naming the required control-flow
-  structure or supplying procedural hints. Keep it short enough to resume the
-  pending planning exercise.
+- Last evidence: 2026-09-21; independently selected the correct loop, predicate,
+  conditional, printed values, and output for a restock filter, but needed a
+  reminder to supply the function's argument label and then corrected a name typo.
+- Next test: resume the pending `containsItem(named:items:) -> Bool` task without
+  supplying its loop or return structure. Execute both matching and missing cases.
 - Goal: demonstrate independent implementation and check all requested outputs.
+
+## Requirement trace and exact observable results
+
+- Stage: GUIDED.
+- Last evidence: 2026-09-21; decomposed Add, blank-input, and duplicate behaviors,
+  then implemented all three. Needed repeated prompts for omitted messages, exact
+  capitalization/marker formatting, Foundation import, assigned initial state,
+  and separating Add from Mark Purchased.
+- Next test: during the next small change, require a before/action/check/result
+  breakdown and predictions for each branch before execution, with fewer prompts.
+- Goal: make the code, test input, exact predicted output, and requirement agree.
+
+## Struct value semantics
+
+- Stage: INDEPENDENT in an immediate narrow experiment; not yet retained.
+- Last evidence: 2026-09-21; predicted and learner-reported that mutating a copied
+  `ShoppingItem` leaves the original false while the copy becomes true, then
+  transferred the explanation to a struct retrieved from an array.
+- Next test: after meaningful spacing, present an unfamiliar model-copy or update
+  scenario without naming value semantics.
+- Goal: verify retained reasoning and correct mutation of the intended stored value.
 
 ## Small Swift functions and array boundaries
 
