@@ -15,13 +15,24 @@
 
 - Stage: GUIDED.
 - Last evidence: 2026-09-22; implemented a quantity-aware Add change and eventually
-  supplied the complete cleaning/check/mutation/display trace. Initially omitted
-  the empty check and display from the written plan, omitted quantity from predicted
-  output, twice printed literal placeholder brackets, forgot to call `list.add`,
-  and predicted a generic duplicate message where code interpolated `Eggs`.
+  supplied the complete cleaning/check/mutation/display trace. Later wrote an
+  enum-switch exercise whose prediction matched the submitted code, but swapped
+  the first two supplied test inputs and therefore changed the assigned scenario.
 - Next test: for the enum-backed Add refactor, require ordered cases and exact
   predicted messages before execution, with no reminder to include every branch.
 - Goal: make the code, test input, exact predicted output, and requirement agree.
+
+## Enums and exhaustive switching
+
+- Stage: GUIDED.
+- Last evidence: 2026-09-22; wrote and ran a complete four-case `AddResult` switch
+  with correct messages. After instruction, predicted and observed that adding an
+  unhandled enum case makes the switch fail exhaustiveness checking; the first
+  experiment instead created an empty switch case and required correction.
+- Next test: after further application and spacing, require an unfamiliar enum and
+  exhaustive switch without syntax scaffolding, then add a case and explain the
+  compiler consequence.
+- Goal: independently use a finite result type and rely on exhaustive handling.
 
 ## Optional conversion and safe extraction
 

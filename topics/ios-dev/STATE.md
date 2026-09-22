@@ -1,6 +1,6 @@
 # STATE
 
-Updated: 2026-09-22 — session end.
+Updated: 2026-09-22 — second learning block ended.
 
 ## Evidence limits
 
@@ -46,6 +46,10 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   ran a `ShoppingList.add(_:)` method on a `var` instance and reported count `1`.
   Correctly implemented a read-only `containsItem` method, but initially created
   Milk without calling `add`, producing `false` for both searches before correction.
+- Enums and exhaustive `switch` — GUIDED. Wrote the four-case `AddResult` enum and
+  a complete switch with correct messages, then observed the compiler reject a
+  switch after a fifth enum case was added. Needed teaching to explain why no
+  `default` was required and correction after first adding an empty switch case.
 - SwiftUI local state — RECOGNIZED with correct simple behavior predictions,
   including a fresh launch resetting the example counter. View implementation
   has not been assessed.
@@ -57,15 +61,13 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Current gaps and uncertainties
 
-- Enums and exhaustive `switch` — introduced through an `AddResult` example, but
-  the assigned switch exercise was not attempted before session end; no learner
-  performance evidence yet.
 - State shared between SwiftUI views — UNKNOWN.
 - Networking request-to-display flow — UNKNOWN.
 - Translating every detail of a requirement into code and test setup remains
-  inconsistent. The learner repeatedly omitted requested output details, used an
+  inconsistent. The learner has omitted requested output details, used an
   input/initial state different from the assigned scenario, or mismatched exact
-  capitalization/formatting between prediction and code.
+  formatting. In the enum exercise, the first two supplied test inputs were
+  reordered even though the resulting prediction matched the changed code.
 - Debugging tools beyond inspecting the error and stopped line — unassessed.
 - Git branching purpose needs clarification: learner may believe further changes
   require a new branch. Do not treat that interpretation as established.
@@ -74,9 +76,10 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Instructional implications
 
-Resume with the assigned `AddResult` switch exercise, then use the enum to move
-validated Add behavior into `ShoppingList` while keeping the learner responsible
-for the implementation. Continue checking that predictions, input state, exact
-messages, and actual output describe the same scenario; omissions and stale output
-predictions remain more persistent than the underlying small-code logic. Recheck
-optionals and `mutating` after spacing before promoting either skill.
+Resume with the ordered trace for the supplied enum-backed Add scenarios, then
+use `AddResult` to move validated Add behavior into `ShoppingList` while keeping
+the learner responsible for the implementation. Continue checking that
+predictions, input order, exact messages, and actual output describe the same
+scenario; requirement/test mismatches remain more persistent than the underlying
+small-code logic. Recheck optionals and `mutating` after spacing before promoting
+either skill.
