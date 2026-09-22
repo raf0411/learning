@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/ios-dev/sessions/2026-09-21.md",
+                "file": "topics/ios-dev/ROADMAP.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-09-21"
+              "title": "ROADMAP"
             }
           }
         ]
@@ -187,6 +187,8 @@
   },
   "active": "97910a89cd916f2c",
   "lastOpenFiles": [
+    "topics/ios-dev/sessions/2026-09-22.md",
+    "topics/ios-dev/sessions/2026-09-21.md",
     "topics/ios-dev/GOAL.md",
     "topics/ios-dev/RESOURCES.md",
     "topics/ios-dev/REVIEW.md",
@@ -195,7 +197,6 @@
     "topics/leetcode/STATE.md",
     "topics/leetcode/ROADMAP.md",
     "topics/ios-dev/diagrams/2026-09-21-requirements-to-tasks.md",
-    "topics/ios-dev/sessions/2026-09-21.md",
     "topics/leetcode/GOAL.md",
     "topics/ios-dev/sessions",
     "topics/ios-dev/labs",
@@ -221,7 +222,6 @@
     "topics/devops/RESOURCES.md",
     "topics/devops/REVIEW.md",
     "topics/devops/STATE.md",
-    "HAHAHA.md",
-    "topics/devops/diagrams/2026-09-20-disk-space.md"
+    "HAHAHA.md"
   ]
 }

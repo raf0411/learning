@@ -2,24 +2,48 @@
 
 ## Combine iteration, a predicate, and conditional output
 
-- Stage: GUIDED.
-- Last evidence: 2026-09-21; independently selected the correct loop, predicate,
-  conditional, printed values, and output for a restock filter, but needed a
-  reminder to supply the function's argument label and then corrected a name typo.
-- Next test: resume the pending `containsItem(named:items:) -> Bool` task without
-  supplying its loop or return structure. Execute both matching and missing cases.
-- Goal: demonstrate independent implementation and check all requested outputs.
+- Stage: INDEPENDENT in a narrow exact-name search; not yet retained.
+- Last evidence: 2026-09-22; implemented `containsItem(named:items:) -> Bool`
+  without loop/return scaffolding, executed missing and matching calls, reused it
+  in Add validation, and later moved the search into `ShoppingList`.
+- Next test: after several sessions, require an unfamiliar collection predicate
+  and both matching and missing cases without naming the loop strategy.
+- Goal: verify retained selection and implementation, not repetition of the
+  shopping-item search.
 
 ## Requirement trace and exact observable results
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-21; decomposed Add, blank-input, and duplicate behaviors,
-  then implemented all three. Needed repeated prompts for omitted messages, exact
-  capitalization/marker formatting, Foundation import, assigned initial state,
-  and separating Add from Mark Purchased.
-- Next test: during the next small change, require a before/action/check/result
-  breakdown and predictions for each branch before execution, with fewer prompts.
+- Last evidence: 2026-09-22; implemented a quantity-aware Add change and eventually
+  supplied the complete cleaning/check/mutation/display trace. Initially omitted
+  the empty check and display from the written plan, omitted quantity from predicted
+  output, twice printed literal placeholder brackets, forgot to call `list.add`,
+  and predicted a generic duplicate message where code interpolated `Eggs`.
+- Next test: for the enum-backed Add refactor, require ordered cases and exact
+  predicted messages before execution, with no reminder to include every branch.
 - Goal: make the code, test input, exact predicted output, and requirement agree.
+
+## Optional conversion and safe extraction
+
+- Stage: GUIDED.
+- Last evidence: 2026-09-22; after correcting a crash misconception, observed
+  successful and failed `Int` conversion, used `if let`, implemented a function
+  returning `Int?`, and stored only a validated non-optional quantity. Needed
+  repeated prompts to print the returned integer rather than the source string.
+- Next test: after spacing, present an unfamiliar text-to-value boundary and require
+  independent conversion, failure handling, and use of the unwrapped value.
+- Goal: establish independent optional handling and distinguish original input,
+  optional result, and unwrapped value.
+
+## Struct methods and mutation
+
+- Stage: GUIDED.
+- Last evidence: 2026-09-22; after instruction, wrote a `mutating` Add method,
+  called it on a `var ShoppingList`, and implemented a read-only search method.
+- Next test: after spacing, ask the learner to diagnose or implement a struct method
+  that changes stored state, including the effect of declaring the instance `let`.
+- Goal: independently identify when both `mutating` and a mutable instance are
+  required.
 
 ## Struct value semantics
 

@@ -1,6 +1,6 @@
 # STATE
 
-Updated: 2026-09-21 — second session end.
+Updated: 2026-09-22 — session end.
 
 ## Evidence limits
 
@@ -17,22 +17,35 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 - Conditions — INDEPENDENT in a small purchase exercise using `>=` and `if/else`.
 - Functions — INDEPENDENT for a two-parameter integer function returning Bool,
   including a labeled call, stored result, and output prediction.
-- Arrays and iteration — GUIDED when combining a loop, Boolean-returning function,
-  and conditional output. Correctly solved a restock-filter retrieval task apart
-  from needing a reminder about the argument label and a function-name typo.
+- Arrays and iteration — INDEPENDENT for an exact-name search in a small array.
+  Implemented `containsItem(named:items:) -> Bool` without its loop or return
+  structure being supplied, then moved the same search into `ShoppingList` as a
+  read-only method. Broader collection work has not been independently assessed.
 - Array bounds — INDEPENDENT conceptual diagnosis of an invalid index; reasons
   about zero-based indexing, last index, and the empty-array case. No executed fix.
-- Requirements decomposition — GUIDED for a single Add-item behavior. Identified
-  initial data, action, change, and resulting list; needed prompts to include every
-  observable message and to validate a duplicate before mutating the list.
+- Requirements decomposition — GUIDED for Add-item changes. Eventually produced
+  an ordered trace covering cleaning, empty/duplicate/quantity validation,
+  conditional mutation, and final display, but initially omitted checks and output
+  details even when the implementation contained them.
 - Input cleaning and validation — GUIDED. Used Foundation trimming, empty checks,
-  duplicate detection, and conditional append across learner-reported Xcode runs.
-  Implemented and checked valid, duplicate, and whitespace-only paths with help.
-- Struct data models — GUIDED. Created `ShoppingItem` values containing `name` and
-  `isPurchased`, mutated an array element via a valid index, and displayed status.
+  reusable exact-duplicate detection, positive-integer conversion, and conditional
+  append. Learner-reported runs covered valid, duplicate, whitespace-only, zero
+  quantity, and competing duplicate/invalid-quantity paths.
+- Struct data models — GUIDED. Extended `ShoppingItem` to store a validated,
+  non-optional quantity and explained why conversion may be optional while the
+  stored property need not be. Created a `ShoppingList` owning its item array.
 - Struct value semantics — INDEPENDENT in an immediate narrow experiment. Predicted
   and learner-reported `false` then `true` after mutating a copied struct, and
   correctly explained why an array's stored original remains unchanged.
+- Optionals and failed conversion — GUIDED. Corrected an initial belief that
+  `Int("hello")` crashes after observing `Optional<Int>`, `Optional(20)`, and
+  `nil`; used `if let`, wrote `validQuantity(from:) -> Int?`, and distinguished
+  original text `"004"` from the unwrapped integer `4`. Needed repeated prompts
+  to use the returned value rather than merely check it for `nil`.
+- Struct methods and mutation — GUIDED. After instruction on `mutating`, wrote and
+  ran a `ShoppingList.add(_:)` method on a `var` instance and reported count `1`.
+  Correctly implemented a read-only `containsItem` method, but initially created
+  Milk without calling `add`, producing `false` for both searches before correction.
 - SwiftUI local state — RECOGNIZED with correct simple behavior predictions,
   including a fresh launch resetting the example counter. View implementation
   has not been assessed.
@@ -44,16 +57,15 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Current gaps and uncertainties
 
-- Optional types and failed conversion — UNKNOWN beyond recognizing conversion
-  intent; exact result/type and failure handling are uncertain.
+- Enums and exhaustive `switch` — introduced through an `AddResult` example, but
+  the assigned switch exercise was not attempted before session end; no learner
+  performance evidence yet.
 - State shared between SwiftUI views — UNKNOWN.
 - Networking request-to-display flow — UNKNOWN.
 - Translating every detail of a requirement into code and test setup remains
   inconsistent. The learner repeatedly omitted requested output details, used an
   input/initial state different from the assigned scenario, or mismatched exact
   capitalization/formatting between prediction and code.
-- Extracting the `ShoppingItem` duplicate search into a reusable Bool-returning
-  function is pending; the task was assigned but not attempted before session end.
 - Debugging tools beyond inspecting the error and stopped line — unassessed.
 - Git branching purpose needs clarification: learner may believe further changes
   require a new branch. Do not treat that interpretation as established.
@@ -62,9 +74,9 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Instructional implications
 
-Resume with the pending `containsItem(named:items:) -> Bool` function. Let the
-learner implement and execute it, then use it to refactor the working shopping-list
-addition program. Continue checking that predictions, input state, exact messages,
-and actual output all describe the same scenario. Build toward a reusable in-memory
-shopping-list model while reducing decomposition hints. Introduce missing Swift
-prerequisites before multi-view SwiftUI and networking.
+Resume with the assigned `AddResult` switch exercise, then use the enum to move
+validated Add behavior into `ShoppingList` while keeping the learner responsible
+for the implementation. Continue checking that predictions, input state, exact
+messages, and actual output describe the same scenario; omissions and stale output
+predictions remain more persistent than the underlying small-code logic. Recheck
+optionals and `mutating` after spacing before promoting either skill.
