@@ -1,6 +1,6 @@
 # STATE
 
-Last consolidated: 2026-09-21. Preferred language: Python. Prior coursework is self-reported; current ability is assessed from performance below.
+Last consolidated: 2026-09-23. Preferred language: Python. Prior coursework is self-reported; current ability is assessed from performance below.
 
 ## Demonstrated capabilities
 
@@ -9,19 +9,25 @@ Last consolidated: 2026-09-21. Preferred language: Python. Prior coursework is s
 - Count accumulator reasoning — INDEPENDENT. Chose zero, strict comparison, and increment, and explained the initial count. Full function needed list API assistance; execution and learner-selected tests remain unobserved.
 - Empty-loop reasoning — INDEPENDENT response to a targeted trace question: no iterations, unchanged count, return zero.
 - Basic index/value mapping — INDEPENDENT. Correctly paired all positions with values in a four-element list. Later wording was imprecise, but actual comparisons used element values; no confirmed confusion between positions and stored values.
-- Detecting a flaw through tracing — GUIDED. On a supplied input and trace prompt, recognized that adjacent comparisons miss separated duplicates and proposed a broader comparison approach. The revised algorithm is not yet specified or validated.
+- Exhaustive duplicate-detection reasoning — GUIDED. Described comparing every position with every other position while skipping self-comparisons, identified `True` for a match and `False` after no matches, and manually derived 12 comparisons for four items, 56 for eight, and `n * (n - 1)` generally. Needed scaffolding to make the return rules precise.
+- Basic comparison-count reasoning — INDEPENDENT for the demonstrated all-pairs procedure. Correctly generalized the exact count to `n * (n - 1)` without being given the expression. Big O notation is currently unavailable.
+- Basic string/list indexing — INDEPENDENT for retrieving values. Correctly predicted `numbers[1] == 1` and `word[1] == "a"`, and knew a list element could be reassigned. String element reassignment remains UNKNOWN.
+- Binary-search intuition — GUIDED. Given a middle comparison and concrete halves, initially chose the wrong side, then correctly discarded the smaller left half for a larger target, selected the next middle value, and recalled the name binary search.
+- Matching two nested-loop values — GUIDED. When given a two-loop scaffold with self-index skipping, independently supplied the match condition `current_value == other_value`.
 
 ## Current gaps and uncertainties
 
 - Choosing a running-best initial value without hints remains untested.
-- List versus string distinction — UNKNOWN by learner self-report; not yet taught or directly tested.
+- Translating a verbal all-pairs procedure into code is the clearest current learning edge. The learner's single-loop attempt compared index 0 with itself and changed the tracked position/value after nonmatches; they independently identified the self-comparison after tracing. Nested-loop construction from a blank function has not been demonstrated.
+- Nested-loop execution is not yet secure: after correctly advancing the outer state to index 1/value 1, the learner could not yet predict that the inner loop restarts at index 0 or name the next comparison.
+- List versus string distinction is partial: indexing both is understood, but mutability and other behavioral differences are not.
 - Python list length API required correction (`.size`); no evidence of a recurring mistake.
-- Turning the revised duplicate-detection idea into exact comparisons and return behavior is the current reasoning edge.
-- Complexity, sets/dictionaries, stacks/queues, linked lists, recursion, sorting/searching, trees, and graphs remain unassessed. No RETAINED or TRANSFERABLE claims.
+- Sets are forgotten. Dictionaries are RECOGNIZED as key-value storage, but constructing or updating a frequency dictionary is UNKNOWN.
+- Big O notation is forgotten. Sorting, stacks/queues, linked lists, recursion, trees, and graphs remain unassessed; deeper probing is deferred until foundations improve. No RETAINED or TRANSFERABLE claims.
 
-## Resume point
+## Current learning edge
 
-- Broader diagnostic probe is incomplete. Continue probing without teaching or supplying solutions, then finalize the roadmap using the established goal and schedule.
-- Pending prompt: write the revised duplicate-detection approach as Python or detailed pseudocode, including returns; trace the exact comparisons reached on `[4, 1, 2]` and report its result.
-- After sufficient evidence on that approach, probe basic cost reasoning and other necessary foundations progressively; avoid repeating already demonstrated basics.
-- Learner-selected `count_above` tests are deferred until after the diagnostic, not completed.
+- The broader diagnostic is complete enough to begin instruction; the dependency-based roadmap has been finalized.
+- Resume the visual row trace for current index 1/value 1: the inner positions are 0, 1, and 2, producing `1 == 4`, skip self, and `1 == 2`. Then have the learner trace another row before reconstructing the nested-loop function.
+- Then connect the learner's independently derived `n * (n - 1)` comparison count to growth and Big O notation.
+- Learner-selected `count_above` tests remain deferred and should be recovered during the Python/problem-solving foundation milestone.
