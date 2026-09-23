@@ -10,10 +10,13 @@ Current position: Phase 1 in progress. Completed learner-reported Xcode Playgrou
 runs for reusable duplicate detection, optional integer conversion, positive
 quantity validation, and valid/error branches of a quantity-aware Add behavior.
 `ShoppingItem` now has a non-optional quantity, and a first `ShoppingList` struct
-owns its array with a `mutating` Add method and read-only search method. Completed
-the introductory `AddResult` enum/switch exercise and a guided compiler
-exhaustiveness experiment. Next, trace and implement enum-backed validation inside
-the model. No curriculum milestone is complete.
+owns its array with a `mutating` Add method. The method now performs ordered
+guard-based validation, returns an `AddResult`, and carries normalized success and
+duplicate data through enum associated values; caller code handles messages with an
+exhaustive switch. Replaced manual duplicate iteration with a guided `contains`
+closure and tested a unique zero-quantity boundary. Next, consolidate closures and
+model invariants while continuing exact requirement/test alignment. No curriculum
+milestone is complete.
 
 ## Dependencies
 

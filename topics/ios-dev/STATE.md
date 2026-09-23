@@ -1,6 +1,6 @@
 # STATE
 
-Updated: 2026-09-22 — second learning block ended.
+Updated: 2026-09-23 — session ended after enum-backed Add lab.
 
 ## Evidence limits
 
@@ -48,8 +48,20 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   Milk without calling `add`, producing `false` for both searches before correction.
 - Enums and exhaustive `switch` — GUIDED. Wrote the four-case `AddResult` enum and
   a complete switch with correct messages, then observed the compiler reject a
-  switch after a fifth enum case was added. Needed teaching to explain why no
-  `default` was required and correction after first adding an empty switch case.
+  switch after a fifth enum case was added. Now returns enum results from the model,
+  handles them exhaustively in the caller, and uses associated values for normalized
+  success data. After an example, independently applied the associated-value pattern
+  to the duplicate case. Exact output punctuation still required correction.
+- Guard statements and optional binding — GUIDED. Refactored empty-name and
+  quantity validation into early-exit guards after syntax instruction and correctly
+  explained that the successfully bound quantity is a non-optional positive `Int`
+  within the remaining function scope.
+- Basic closures with `contains` — GUIDED. After instruction, replaced a manual
+  duplicate loop with `contains`, then wrote a quantity-at-least-10 predicate and
+  correctly explained its Milk-false/Eggs-true short-circuit behavior.
+- Model versus presentation responsibility — GUIDED. After explanation, correctly
+  identified that a language-only message change belongs in caller-side result
+  formatting rather than `ShoppingList` validation.
 - SwiftUI local state — RECOGNIZED with correct simple behavior predictions,
   including a fresh launch resetting the example counter. View implementation
   has not been assessed.
@@ -66,8 +78,9 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 - Translating every detail of a requirement into code and test setup remains
   inconsistent. The learner has omitted requested output details, used an
   input/initial state different from the assigned scenario, or mismatched exact
-  formatting. In the enum exercise, the first two supplied test inputs were
-  reordered even though the resulting prediction matched the changed code.
+  formatting. During the enum-backed Add lab, the learner repeatedly omitted
+  requested calls or predictions, missed required punctuation, and initially left
+  a temporary experiment that produced an unpredicted output line.
 - Debugging tools beyond inspecting the error and stopped line — unassessed.
 - Git branching purpose needs clarification: learner may believe further changes
   require a new branch. Do not treat that interpretation as established.
@@ -76,10 +89,8 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Instructional implications
 
-Resume with the ordered trace for the supplied enum-backed Add scenarios, then
-use `AddResult` to move validated Add behavior into `ShoppingList` while keeping
-the learner responsible for the implementation. Continue checking that
-predictions, input order, exact messages, and actual output describe the same
-scenario; requirement/test mismatches remain more persistent than the underlying
-small-code logic. Recheck optionals and `mutating` after spacing before promoting
-either skill.
+Continue from the working enum-backed `ShoppingList` model. Consolidate basic
+closure use and model invariants, while requiring complete test setups and exact
+predictions before execution. Requirement/test mismatches remain more persistent
+than the underlying small-code logic. Recheck optionals, guards, associated values,
+and `mutating` after spacing before promoting them.

@@ -14,22 +14,21 @@
 ## Requirement trace and exact observable results
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-22; implemented a quantity-aware Add change and eventually
-  supplied the complete cleaning/check/mutation/display trace. Later wrote an
-  enum-switch exercise whose prediction matched the submitted code, but swapped
-  the first two supplied test inputs and therefore changed the assigned scenario.
-- Next test: for the enum-backed Add refactor, require ordered cases and exact
-  predicted messages before execution, with no reminder to include every branch.
+- Last evidence: 2026-09-23; completed an enum-backed Add trace and implementation,
+  but needed reminders for before/after count transitions, all requested calls,
+  complete predictions, exact punctuation, and a leftover experimental output line.
+- Next test: use a different small feature and require a complete input/branch/state/
+  exact-output prediction before execution, without reminders about omitted parts.
 - Goal: make the code, test input, exact predicted output, and requirement agree.
 
 ## Enums and exhaustive switching
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-22; wrote and ran a complete four-case `AddResult` switch
-  with correct messages. After instruction, predicted and observed that adding an
-  unhandled enum case makes the switch fail exhaustiveness checking; the first
-  experiment instead created an empty switch case and required correction.
-- Next test: after further application and spacing, require an unfamiliar enum and
+- Last evidence: 2026-09-23; returned `AddResult` from model validation, handled it
+  exhaustively in the caller, and used associated values for normalized success
+  data. After one example, independently transferred the associated-value pattern
+  to the duplicate case.
+- Next test: after spacing, require an unfamiliar enum with associated data and an
   exhaustive switch without syntax scaffolding, then add a case and explain the
   compiler consequence.
 - Goal: independently use a finite result type and rely on exhaustive handling.
@@ -49,12 +48,24 @@
 ## Struct methods and mutation
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-22; after instruction, wrote a `mutating` Add method,
-  called it on a `var ShoppingList`, and implemented a read-only search method.
+- Last evidence: 2026-09-23; used the `mutating` Add method and reported the compiler
+  error after changing the instance to `let`. Needed clarification that constants
+  prohibit mutating methods, not all methods.
 - Next test: after spacing, ask the learner to diagnose or implement a struct method
   that changes stored state, including the effect of declaring the instance `let`.
 - Goal: independently identify when both `mutating` and a mutable instance are
   required.
+
+## Basic closures and collection predicates
+
+- Stage: GUIDED.
+- Last evidence: 2026-09-23; after closure instruction, replaced duplicate search
+  with `contains`, then independently wrote a quantity-at-least-10 predicate and
+  correctly traced short-circuit evaluation across Milk and Eggs.
+- Next test: after spacing, require a different `contains`, `first(where:)`, or
+  filtering predicate without supplying the closure structure.
+- Goal: independently express and explain a collection predicate, including the
+  element parameter, returned Bool, and short-circuit behavior where applicable.
 
 ## Struct value semantics
 
