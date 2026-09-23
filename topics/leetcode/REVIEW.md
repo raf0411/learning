@@ -1,33 +1,49 @@
 # REVIEW
 
-## Choosing an initial value for a running best
+## Input-derived running best
 
-- Stage: GUIDED.
-- Demonstrate: reconstruct a loop solution from a blank function, choose a valid starting candidate, and explain behavior for negative values and a single-element input without hints.
-- Reason: initial zero excluded all-negative answers; correction followed a counterexample and an input-value hint.
-- Last meaningful evidence: 2026-09-21, corrected initialization with guidance and later predicted and supplied matching outputs for four test cases.
-- Next review: next session or the following session, using a fresh problem statement. First seek independent reconstruction; retention requires later spaced independent evidence.
+- Stage: RETAINED.
+- Demonstrate next: choose a valid starting candidate in a less-direct running-best problem and justify it without being told which scan pattern applies.
+- Reason: zero initialization previously excluded valid answers; later retrieval succeeded for the reversed `find_smallest` task.
+- Last meaningful evidence: 2026-09-23, independently initialized from `numbers[0]`, handled positive/negative/singleton cases, and execution-validated the implementation.
+- Next review: after several sessions, through an unfamiliar selection problem rather than another immediate min/max repetition.
 
 ## Count accumulator reasoning
 
-- Stage: INDEPENDENT for initialization and update reasoning; full implementation has not been execution-validated.
-- Demonstrate: reconstruct a counting function, justify its initial value, and test empty input and the strict comparison boundary.
-- Reason: preserve independently demonstrated reasoning and verify it in a complete implementation.
-- Last meaningful evidence: 2026-09-21, independently wrote the counter logic and explained zero initialization; correctly reasoned about empty input after a targeted prompt.
-- Next review: resume the deferred practical test task after the diagnostic; schedule later retrieval after complete independent performance.
+- Stage: RETAINED.
+- Demonstrate next: identify and implement counting as part of an unfamiliar problem, including an empty input and a meaningful boundary.
+- Reason: confirm transfer rather than repeat the same threshold-counting prompt.
+- Last meaningful evidence: 2026-09-23, independently reconstructed and tested `count_above`, including strict equality and empty input.
+- Next review: after several sessions or when a new problem naturally requires counting.
 
-## Checking whether a comparison strategy covers the problem
+## Nested-loop execution and candidate coverage
+
+- Stage: INDEPENDENT.
+- Demonstrate: select nested iteration on an unlabeled fresh problem, trace inner-loop resets, cover all required distinct-index pairs, and place the fallback return correctly.
+- Reason: current-session construction succeeded, but earlier reset confusion and same-session scaffolding mean retention is not established.
+- Last meaningful evidence: 2026-09-23, reconstructed exhaustive duplicate detection and independently recognized/implemented exhaustive pair-sum; execution-validated edge cases.
+- Next review: next session or the following session, without showing the previous grid or loop scaffold first.
+
+## Linear versus quadratic growth
+
+- Stage: INDEPENDENT for direct current-session examples.
+- Demonstrate: classify unfamiliar code containing separate and nested loops, distinguish exact operation counts from growth class, and predict scaling when input changes.
+- Reason: initial answers confused absolute work with multiplication factors and counted two separate loops as quadratic; the corrected model was later applied successfully.
+- Last meaningful evidence: 2026-09-23, correctly explained `n * n`, classified fresh functions, and explained why division by two does not change `O(n^2)`.
+- Next review: after spacing, using code whose technique is not labeled.
+
+## Extra space and growing collections
 
 - Stage: GUIDED.
-- Demonstrate: independently trace a proposed comparison strategy, explain whether every required pair is covered, and choose an input that can expose missed candidates.
-- Reason: initial duplicate detection compared only neighbors; the learner identified the failure after a requested concrete trace on a supplied input.
-- Last meaningful evidence: 2026-09-22/23, described comparing every position with every other non-self position, supplied both Boolean return cases, and correctly counted `n * (n - 1)` comparisons. Translation to executable code remains incomplete.
-- Next review: after nested-loop instruction, use a fresh list and ask for an independent trace plus a counterexample for a deliberately incomplete strategy.
+- Demonstrate: distinguish a fixed number of variables from one collection containing up to `n` elements and classify auxiliary space on a fresh function.
+- Reason: initially classified a growing set as `O(1)` because it had one variable name.
+- Last meaningful evidence: 2026-09-23, corrected the set-based duplicate and pair-sum analyses to `O(n)` extra space and described the time-space trade-off.
+- Next review: next session during dictionary construction and again later on unfamiliar code.
 
-## Nested-loop execution model
+## Set seen-state invariant
 
 - Stage: GUIDED.
-- Demonstrate: trace outer and inner indices without hints, explain when the inner loop restarts, and reconstruct a two-loop function from a blank editor.
-- Reason: independently filled the value-comparison condition in a scaffold, but could not yet predict the inner-loop reset after the outer loop advanced.
-- Last meaningful evidence: 2026-09-22/23, correctly identified the next outer state as index 1/value 1; inner restart and next comparison required explanation and a visual grid.
-- Next review: resume immediately next session with the row for current index 1, then implement and execute learner-chosen duplicate and no-duplicate tests.
+- Demonstrate: reconstruct `set()` syntax, check-before-add ordering, and the invariant that stored values came from earlier indices; implement a membership solution without procedural hints.
+- Reason: `{}` was used for an empty set, and the first optimized pair-sum attempt stored the desired partner rather than the current observed value.
+- Last meaningful evidence: 2026-09-23, corrected both issues and execution-validated duplicate and pair-sum set solutions.
+- Next review: at the start of the next session before extending the state from a set to a dictionary.

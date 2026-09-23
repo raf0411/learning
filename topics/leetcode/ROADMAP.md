@@ -23,8 +23,10 @@ Python; mostly Easy problems, adding selected Medium problems only after their p
 
 ## Current position
 
-- Milestone 1: Python problem-solving foundation.
-- Immediate lesson: finish tracing the comparison grid in `diagrams/2026-09-22.md`, then turn the learner's verbal exhaustive duplicate procedure into two-loop structure with a fixed current position and a moving comparison position.
-- Immediate follow-up: connect the already-derived `n * (n - 1)` comparisons to Big O, then compare against a memory-based approach after sets are introduced.
-- Deferred practical task: learner-selected tests for `count_above`.
-- Spaced review continues from REVIEW.md; no milestone is complete yet.
+- Primary position: late Milestone 1, with Milestones 2 and 3 now introduced through concrete problems.
+- Milestone 1 evidence: independently reconstructed and tested `count_above` and `find_smallest`; reconstructed exhaustive duplicate detection; independently selected and implemented nested iteration for a fresh pair-sum problem. A spaced nested-loop retrieval and the remaining list/string behavior distinction are still needed before closing the milestone.
+- Milestone 2 evidence: connected exact comparison grids to `O(n)` and `O(n^2)`, distinguished separate from nested loops, analyzed fixed extra space, and compared full-grid with upper-triangle traversal. Later unlabeled retrieval is required.
+- Milestone 3 evidence: implemented guided set-based duplicate and pair-sum scans and explained the time-space trade-off. Set syntax, stored-state invariants, and collection-space reasoning are not yet secure.
+- Immediate lesson: extend remembered state from a set to a dictionary so pair-sum can return indices. Begin with a `value -> earlier index` trace for `[2, 7, 11]`, target 9.
+- Immediate review: reconstruct `set()`, check-before-add, and add-current-not-partner before relying on them in the dictionary version.
+- Spaced review continues from REVIEW.md; no roadmap milestone is yet marked complete.

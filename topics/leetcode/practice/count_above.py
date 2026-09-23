@@ -1,11 +1,12 @@
 def count_above(numbers, threshold):
-    count = 0
+  counter = 0
 
-    for number in numbers:
-        if number > threshold:
-            count += 1
+  for number in numbers:
+    if number > threshold:
+      counter += 1
 
-    return count
+  return counter
 
-
-# Add your test calls below. Predict each result before running the file.
+print(count_above([2, 5, 5, 8], 5))
+print(count_above([], 5))
+print(count_above([5, 5, 5], 5))
