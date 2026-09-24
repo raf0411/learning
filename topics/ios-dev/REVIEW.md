@@ -14,24 +14,24 @@
 ## Requirement trace and exact observable results
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-23; completed an enum-backed Add trace and implementation,
-  but needed reminders for before/after count transitions, all requested calls,
-  complete predictions, exact punctuation, and a leftover experimental output line.
+- Last evidence: 2026-09-24; correctly traced all Remove count transitions and
+  branches, but initially used array contents where the returned enum result was
+  requested, changed the assigned input, and wrote `1 item remain` instead of the
+  exact required `1 items remain`.
 - Next test: use a different small feature and require a complete input/branch/state/
   exact-output prediction before execution, without reminders about omitted parts.
 - Goal: make the code, test input, exact predicted output, and requirement agree.
 
 ## Enums and exhaustive switching
 
-- Stage: GUIDED.
-- Last evidence: 2026-09-23; returned `AddResult` from model validation, handled it
-  exhaustively in the caller, and used associated values for normalized success
-  data. After one example, independently transferred the associated-value pattern
-  to the duplicate case.
-- Next test: after spacing, require an unfamiliar enum with associated data and an
-  exhaustive switch without syntax scaffolding, then add a case and explain the
-  compiler consequence.
-- Goal: independently use a finite result type and rely on exhaustive handling.
+- Stage: INDEPENDENT in a small task; not yet retained.
+- Last evidence: 2026-09-24; designed a new `RemoveResult` with associated removed
+  name/count and not-found name, then wrote an exhaustive switch without syntax
+  scaffolding. The exact success message was wrong, but case modeling and extraction
+  were correct.
+- Next test: after meaningful spacing, require another unfamiliar finite result and
+  exhaustive handling without naming enums or associated values in the prompt.
+- Goal: verify retained selection and use of a finite result type.
 
 ## Optional conversion and safe extraction
 
@@ -59,13 +59,28 @@
 ## Basic closures and collection predicates
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-23; after closure instruction, replaced duplicate search
-  with `contains`, then independently wrote a quantity-at-least-10 predicate and
-  correctly traced short-circuit evaluation across Milk and Eggs.
-- Next test: after spacing, require a different `contains`, `first(where:)`, or
-  filtering predicate without supplying the closure structure.
+- Last evidence: 2026-09-24; reused `contains` for Remove but inverted the meaning
+  through an `isNotFound` name/guard mismatch and discovered that a Bool is
+  insufficient when removal requires the matching position. Correctly traced the
+  faulty branch after prompting; the proposed `firstIndex(where:)` repair was not
+  implemented before session end.
+- Next test: resume by independently writing the `firstIndex(where:)` predicate,
+  unwrapping its optional index, and removing the match; later use a different
+  predicate without naming the collection strategy.
 - Goal: independently express and explain a collection predicate, including the
   element parameter, returned Bool, and short-circuit behavior where applicable.
+
+## Model invariants and `private(set)`
+
+- Stage: GUIDED.
+- Last evidence: 2026-09-24; identified that direct array append bypasses validation,
+  added `private(set)`, observed that external `append` is rejected, and verified
+  that reading and model-owned mutation still work. Initial predictions confused
+  caller restrictions with code executing inside the model and expected partial
+  execution from a program containing a compile error.
+- Next test: during a later model change, ask the learner to choose an access level
+  and identify every mutation path that can preserve or violate the invariant.
+- Goal: independently protect state while preserving necessary read access.
 
 ## Struct value semantics
 

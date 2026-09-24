@@ -6,17 +6,16 @@ Baseline: 16 weeks at 25 hours/week, approximately 400 planned hours. Assess
 application readiness from week 12 (approximately 300 hours). These are planning
 estimates, not automatic mastery or hiring deadlines. See GOAL.md for constraints.
 
-Current position: Phase 1 in progress. Completed learner-reported Xcode Playground
-runs for reusable duplicate detection, optional integer conversion, positive
-quantity validation, and valid/error branches of a quantity-aware Add behavior.
-`ShoppingItem` now has a non-optional quantity, and a first `ShoppingList` struct
-owns its array with a `mutating` Add method. The method now performs ordered
-guard-based validation, returns an `AddResult`, and carries normalized success and
-duplicate data through enum associated values; caller code handles messages with an
-exhaustive switch. Replaced manual duplicate iteration with a guided `contains`
-closure and tested a unique zero-quantity boundary. Next, consolidate closures and
-model invariants while continuing exact requirement/test alignment. No curriculum
-milestone is complete.
+Current position: Phase 1 in progress. The quantity-aware Add behavior performs
+ordered guard-based validation, returns associated-value enum results, and is the
+only intended insertion path. The owned array now uses `private(set)`; learner-
+reported compilation and output verified that callers can read it, cannot append
+directly, and can still mutate it through the model's validated method. A new
+associated-value `RemoveResult` and exhaustive caller switch were independently
+written, but Remove is unfinished: the first attempt inverted `contains` semantics
+and lacked an index for mutation. Next, finish and run the repair with
+`firstIndex(where:)`, optional binding, and `remove(at:)`, then verify the exact
+assigned inputs, state transitions, and output. No curriculum milestone is complete.
 
 ## Dependencies
 
