@@ -10,12 +10,14 @@ Current position: Phase 1 in progress. The quantity-aware Add behavior performs
 ordered guard-based validation, returns associated-value enum results, and is the
 only intended insertion path. The owned array now uses `private(set)`; learner-
 reported compilation and output verified that callers can read it, cannot append
-directly, and can still mutate it through the model's validated method. A new
-associated-value `RemoveResult` and exhaustive caller switch were independently
-written, but Remove is unfinished: the first attempt inverted `contains` semantics
-and lacked an index for mutation. Next, finish and run the repair with
-`firstIndex(where:)`, optional binding, and `remove(at:)`, then verify the exact
-assigned inputs, state transitions, and output. No curriculum milestone is complete.
+directly, and can still mutate it through the model's validated method. Remove now
+uses `firstIndex(where:)`, optional binding, and `remove(at:)`; learner-reported
+runs covered matching, missing, and blank-name paths. A quantity-threshold variant
+also removed two sequential first matches and preserved a nonmatching item, though
+the exact setup and observations required reminders. Next, implement the planned
+`updateQuantity` change using the already-written `UpdateResult`, ensuring the
+stored array element—not a copy—is changed, then exercise every result path. No
+curriculum milestone is complete.
 
 ## Dependencies
 

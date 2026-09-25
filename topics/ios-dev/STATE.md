@@ -1,6 +1,6 @@
 # STATE
 
-Updated: 2026-09-24 — session ended during the unfinished Remove implementation.
+Updated: 2026-09-25 — session ended before implementing `updateQuantity`.
 
 ## Evidence limits
 
@@ -23,10 +23,11 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   read-only method. Broader collection work has not been independently assessed.
 - Array bounds — INDEPENDENT conceptual diagnosis of an invalid index; reasons
   about zero-based indexing, last index, and the empty-array case. No executed fix.
-- Requirements decomposition — GUIDED for Add-item changes. Eventually produced
-  an ordered trace covering cleaning, empty/duplicate/quantity validation,
-  conditional mutation, and final display, but initially omitted checks and output
-  details even when the implementation contained them.
+- Requirements decomposition — GUIDED. Produced the correct ordered plan for a new
+  quantity-update feature, including validation, lookup, mutation, and results.
+  Needed prompting to state that conversion failure or a nonpositive value is
+  invalid, attach the cleaned name to `notFound`, capture the old value before
+  mutation, and keep printing outside the model.
 - Input cleaning and validation — GUIDED. Used Foundation trimming, empty checks,
   reusable exact-duplicate detection, positive-integer conversion, and conditional
   append. Learner-reported runs covered valid, duplicate, whitespace-only, zero
@@ -46,18 +47,21 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   ran a `ShoppingList.add(_:)` method on a `var` instance and reported count `1`.
   Correctly implemented a read-only `containsItem` method, but initially created
   Milk without calling `add`, producing `false` for both searches before correction.
-- Enums and exhaustive `switch` — INDEPENDENT in a small result-modeling task.
-  After one day of spacing, designed a new three-case `RemoveResult` with the
-  required associated values and wrote an exhaustive caller-side switch without
-  syntax scaffolding. Exact message text still differed from the requirement, so
-  this does not establish exact-output reliability or retained mastery.
-- Guard statements and optional binding — GUIDED. Refactored empty-name and
-  quantity validation into early-exit guards after syntax instruction and correctly
-  explained that the successfully bound quantity is a non-optional positive `Int`
-  within the remaining function scope.
-- Basic closures with `contains` — GUIDED. After instruction, replaced a manual
-  duplicate loop with `contains`, then wrote a quantity-at-least-10 predicate and
-  correctly explained its Milk-false/Eggs-true short-circuit behavior.
+- Enums and exhaustive `switch` — INDEPENDENT in small result-modeling tasks.
+  Designed `RemoveResult` and its exhaustive caller-side switch, then on the next
+  day independently wrote a correct four-case `UpdateResult` with associated name,
+  old quantity, and new quantity. Exact-output reliability is tracked separately;
+  the short interval and prompted result requirements do not yet establish RETAINED.
+- Guard statements and optional binding — GUIDED. Initially interpreted a
+  `firstIndex` result as Bool and again wrote an inverted `guard index == nil`,
+  which would continue on absence and return `notFound` on a match. After direct
+  instruction, used `guard let` in Remove and independently reused the pattern in
+  a quantity-based removal method. Explanation was mostly correct but called the
+  post-guard index optional; it is the unwrapped, non-optional array index.
+- Basic closures and collection predicates — GUIDED. Uses `contains` for duplicate
+  detection and now writes `firstIndex(where:)` predicates for exact-name and
+  quantity-threshold searches. Independently implemented `item.quantity <= maximum`
+  and removed the first match after the name-based pattern had been demonstrated.
 - Model invariants and restricted mutation — GUIDED. Correctly predicted that an
   exposed array lets callers bypass empty-name and positive-quantity validation.
   Added `private(set)`, observed the external `append` compiler error, verified that
@@ -65,12 +69,12 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   and then explained getter access versus setter restriction. Initially believed
   the model's own Add call would also be rejected and that earlier prints would run
   despite a later compile error; both misconceptions were corrected before the lab.
-- Finding and removing a matching array element — GUIDED/INCOMPLETE. In a new
-  Remove feature, reused `contains` but named its result `isNotFound`, inverted the
-  guard, and had no index with which to remove the element. Correctly traced after
-  prompting that Eggs makes `contains` true, the current guard returns `notFound`,
-  and no mutation occurs. `firstIndex(where:)`, optional-index handling, and
-  `remove(at:)` were introduced as the next repair but not implemented or run.
+- Finding and removing a matching array element — GUIDED. Completed and learner-
+  reportedly ran Remove using `firstIndex(where:)`, `guard let`, `remove(at:)`, and
+  the post-mutation count. Then implemented a quantity-threshold variant with a
+  different predicate and three sequential found/found/missing branches. Direct
+  instruction was needed to repair the first inverted guard, so retention and an
+  unprompted choice of this strategy remain unassessed.
 - Model versus presentation responsibility — GUIDED. After explanation, correctly
   identified that a language-only message change belongs in caller-side result
   formatting rather than `ShoppingList` validation.
@@ -92,10 +96,11 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   input/initial state different from the assigned scenario, or mismatched exact
   formatting. During the enum-backed Add lab, the learner repeatedly omitted
   requested calls or predictions, missed required punctuation, and initially left
-  a temporary experiment that produced an unpredicted output line. In the Remove
-  exercise, counts and branch outcomes were mostly traced correctly, but the
-  returned enum result was confused with array state, `item remain` replaced the
-  specified `items remain`, and the supplied test input was altered.
+  a temporary experiment that produced an unpredicted output line. Remove required
+  reminders to restore the exact input and empty-name message. The subsequent
+  quantity-removal test initially omitted Bread, changed the requested argument
+  label, and printed only the final state rather than each transition; all were
+  corrected after explicit comparison with the brief.
 - Debugging tools beyond inspecting the error and stopped line — unassessed.
 - Git branching purpose needs clarification: learner may believe further changes
   require a new branch. Do not treat that interpretation as established.
@@ -104,9 +109,11 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Instructional implications
 
-Resume the unfinished Remove repair: independently write a `firstIndex(where:)`
-predicate, unwrap its optional index, remove at that index, calculate the count
-after mutation, restore the exact assigned calls/message, and compare actual output
-with the prediction. Then have the learner explain why an index rather than a Bool
-is required. Continue requiring complete test setups and exact outputs; those
-mismatches remain more persistent than the small enum/model syntax.
+Resume with the already specified `updateQuantity(name:quantityText:)` feature.
+The learner has completed its ordered plan and `UpdateResult` enum but not the
+method. Require mutation of the array's stored element rather than a copied struct,
+capture the old quantity before mutation, and then predict and observe every exit
+path. Continue requiring a literal requirement-to-test checklist before execution;
+test setup and exact-observation omissions remain more persistent than enum/model
+syntax. Reassess `guard let` and `firstIndex(where:)` after spacing rather than
+treating today's supported success as retained.

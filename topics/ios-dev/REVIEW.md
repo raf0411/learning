@@ -14,10 +14,10 @@
 ## Requirement trace and exact observable results
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-24; correctly traced all Remove count transitions and
-  branches, but initially used array contents where the returned enum result was
-  requested, changed the assigned input, and wrote `1 item remain` instead of the
-  exact required `1 items remain`.
+- Last evidence: 2026-09-25; corrected Remove's exact input/message after comparison,
+  but a new quantity-removal test initially omitted a required item, changed the
+  argument label, and showed only final state instead of every requested transition.
+  Corrected all three after explicit prompts.
 - Next test: use a different small feature and require a complete input/branch/state/
   exact-output prediction before execution, without reminders about omitted parts.
 - Goal: make the code, test input, exact predicted output, and requirement agree.
@@ -25,10 +25,9 @@
 ## Enums and exhaustive switching
 
 - Stage: INDEPENDENT in a small task; not yet retained.
-- Last evidence: 2026-09-24; designed a new `RemoveResult` with associated removed
-  name/count and not-found name, then wrote an exhaustive switch without syntax
-  scaffolding. The exact success message was wrong, but case modeling and extraction
-  were correct.
+- Last evidence: 2026-09-25; independently wrote a correct `UpdateResult` with four
+  cases and the required associated name, old quantity, and new quantity after first
+  producing `RemoveResult` and its exhaustive switch on the previous day.
 - Next test: after meaningful spacing, require another unfamiliar finite result and
   exhaustive handling without naming enums or associated values in the prompt.
 - Goal: verify retained selection and use of a finite result type.
@@ -59,14 +58,13 @@
 ## Basic closures and collection predicates
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-24; reused `contains` for Remove but inverted the meaning
-  through an `isNotFound` name/guard mismatch and discovered that a Bool is
-  insufficient when removal requires the matching position. Correctly traced the
-  faulty branch after prompting; the proposed `firstIndex(where:)` repair was not
-  implemented before session end.
-- Next test: resume by independently writing the `firstIndex(where:)` predicate,
-  unwrapping its optional index, and removing the match; later use a different
-  predicate without naming the collection strategy.
+- Last evidence: 2026-09-25; after direct correction of an inverted nil guard, used
+  `firstIndex(where:)`, `guard let`, and `remove(at:)` successfully. Independently
+  wrote a second predicate for `item.quantity <= maximum` and correctly handled
+  sequential found/found/missing calls once the assigned initial array was restored.
+- Next test: after spacing, require selection and implementation of the appropriate
+  collection search for a different mutation without naming `firstIndex` or the
+  optional-binding structure.
 - Goal: independently express and explain a collection predicate, including the
   element parameter, returned Bool, and short-circuit behavior where applicable.
 
