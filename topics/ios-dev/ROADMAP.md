@@ -6,18 +6,18 @@ Baseline: 16 weeks at 25 hours/week, approximately 400 planned hours. Assess
 application readiness from week 12 (approximately 300 hours). These are planning
 estimates, not automatic mastery or hiring deadlines. See GOAL.md for constraints.
 
-Current position: Phase 1 in progress. The quantity-aware Add behavior performs
-ordered guard-based validation, returns associated-value enum results, and is the
-only intended insertion path. The owned array now uses `private(set)`; learner-
-reported compilation and output verified that callers can read it, cannot append
-directly, and can still mutate it through the model's validated method. Remove now
-uses `firstIndex(where:)`, optional binding, and `remove(at:)`; learner-reported
-runs covered matching, missing, and blank-name paths. A quantity-threshold variant
-also removed two sequential first matches and preserved a nonmatching item, though
-the exact setup and observations required reminders. Next, implement the planned
-`updateQuantity` change using the already-written `UpdateResult`, ensuring the
-stored array element—not a copy—is changed, then exercise every result path. No
-curriculum milestone is complete.
+Current position: Phase 1 in progress. The in-memory model now has validated Add,
+exact-name Remove, quantity-threshold Remove, and quantity Update behaviors behind
+a `private(set)` array. The learner independently implemented the planned update
+method from explicit behavioral requirements, directly mutated the stored element,
+and learner-reported runs covered success plus invalid, missing, and blank-name
+paths. Exact test formatting still required several corrections. The model also
+has a guided nonmutating `filter` method returning every item at or above a minimum;
+reported output covered two matches, an empty result, and an unchanged source list
+after correcting a wrong test variable. Next, finish the introduced `assert` lab,
+including one deliberate failure and restoration, then consolidate Phase 1 with an
+unfamiliar requirements/debugging task and Git practice. No curriculum milestone
+is complete yet.
 
 ## Dependencies
 

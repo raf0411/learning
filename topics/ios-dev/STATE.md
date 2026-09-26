@@ -1,6 +1,7 @@
 # STATE
 
-Updated: 2026-09-25 — session ended before implementing `updateQuantity`.
+Updated: 2026-09-26 — `updateQuantity` and guided `filter` verification complete;
+the first `assert` exercise has been introduced but not attempted.
 
 ## Evidence limits
 
@@ -20,7 +21,8 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 - Arrays and iteration — INDEPENDENT for an exact-name search in a small array.
   Implemented `containsItem(named:items:) -> Bool` without its loop or return
   structure being supplied, then moved the same search into `ShoppingList` as a
-  read-only method. Broader collection work has not been independently assessed.
+  read-only method. Has now used `filter` to return every item meeting a quantity
+  threshold, but only after its purpose and general closure shape were supplied.
 - Array bounds — INDEPENDENT conceptual diagnosis of an invalid index; reasons
   about zero-based indexing, last index, and the empty-array case. No executed fix.
 - Requirements decomposition — GUIDED. Produced the correct ordered plan for a new
@@ -35,9 +37,12 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 - Struct data models — GUIDED. Extended `ShoppingItem` to store a validated,
   non-optional quantity and explained why conversion may be optional while the
   stored property need not be. Created a `ShoppingList` owning its item array.
-- Struct value semantics — INDEPENDENT in an immediate narrow experiment. Predicted
-  and learner-reported `false` then `true` after mutating a copied struct, and
-  correctly explained why an array's stored original remains unchanged.
+- Struct value semantics — GUIDED. Previously predicted and learner-reported that
+  mutating a copied struct leaves the original unchanged. During `updateQuantity`,
+  initially attributed stored-element mutation to being inside the model and to
+  `private(set)`, rather than to direct subscript mutation. After clarification,
+  correctly predicted that changing a local copy again after assigning it into an
+  array leaves the array at `5` while the local copy becomes `7`.
 - Optionals and failed conversion — GUIDED. Corrected an initial belief that
   `Int("hello")` crashes after observing `Optional<Int>`, `Optional(20)`, and
   `nil`; used `if let`, wrote `validQuantity(from:) -> Int?`, and distinguished
@@ -52,16 +57,22 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   day independently wrote a correct four-case `UpdateResult` with associated name,
   old quantity, and new quantity. Exact-output reliability is tracked separately;
   the short interval and prompted result requirements do not yet establish RETAINED.
-- Guard statements and optional binding — GUIDED. Initially interpreted a
+- Guard statements and optional binding — GUIDED overall, with one independent
+  reuse. Initially interpreted a
   `firstIndex` result as Bool and again wrote an inverted `guard index == nil`,
   which would continue on absence and return `notFound` on a match. After direct
   instruction, used `guard let` in Remove and independently reused the pattern in
-  a quantity-based removal method. Explanation was mostly correct but called the
-  post-guard index optional; it is the unwrapped, non-optional array index.
+  a quantity-based removal method. On 2026-09-26, independently selected and wrote
+  `firstIndex(where:)` plus `guard let` for the new update method from behavioral
+  requirements, without repeating the earlier inverted guard. The post-guard
+  non-optional nature of the index was not re-explained by the learner.
 - Basic closures and collection predicates — GUIDED. Uses `contains` for duplicate
-  detection and now writes `firstIndex(where:)` predicates for exact-name and
-  quantity-threshold searches. Independently implemented `item.quantity <= maximum`
-  and removed the first match after the name-based pattern had been demonstrated.
+  detection and writes `firstIndex(where:)` predicates for exact-name and
+  quantity-threshold searches. Independently reused exact-name lookup in the update
+  feature. After instruction on `filter`, correctly implemented
+  `item.quantity >= minimum` to return all matches, but initially predicted that
+  quantities `5` and `6` would satisfy a threshold of `7` and later inspected the
+  first filter result twice instead of the second.
 - Model invariants and restricted mutation — GUIDED. Correctly predicted that an
   exposed array lets callers bypass empty-name and positive-quantity validation.
   Added `private(set)`, observed the external `append` compiler error, verified that
@@ -75,9 +86,22 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   different predicate and three sequential found/found/missing branches. Direct
   instruction was needed to repair the first inverted guard, so retention and an
   unprompted choice of this strategy remain unassessed.
+- Updating a stored array element — INDEPENDENT implementation from explicit
+  behavioral requirements; verification remained GUIDED. Correctly validated the
+  two inputs, found and unwrapped an index, captured the old quantity before direct
+  subscript mutation, and returned the associated old/new data. Learner-reported
+  runs covered success, invalid zero, missing name, and blank name while showing
+  that failure paths preserved state.
 - Model versus presentation responsibility — GUIDED. After explanation, correctly
   identified that a language-only message change belongs in caller-side result
-  formatting rather than `ShoppingList` validation.
+  formatting rather than `ShoppingList` validation. Kept update messages in an
+  exhaustive caller-side switch rather than printing from the model.
+- Manual verification and development assertions — GUIDED/RECOGNIZED. Eventually
+  produced exact result and state output for every update path and exact labeled
+  output for two filter thresholds. Needed comparison prompts to correct punctuation,
+  wording, state-line format, count labels, and use of the wrong filtered variable.
+  `assert` and `isEmpty` checks were introduced at session end but not yet predicted
+  or executed.
 - SwiftUI local state — RECOGNIZED with correct simple behavior predictions,
   including a fresh launch resetting the example counter. View implementation
   has not been assessed.
@@ -100,7 +124,10 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   reminders to restore the exact input and empty-name message. The subsequent
   quantity-removal test initially omitted Bread, changed the requested argument
   label, and printed only the final state rather than each transition; all were
-  corrected after explicit comparison with the brief.
+  corrected after explicit comparison with the brief. On 2026-09-26, update tests
+  again required corrections to an argument label, punctuation, wording, and exact
+  state format. A filter test then omitted labels and accidentally printed and
+  iterated over `filteredItems1` instead of inspecting `filteredItems2`.
 - Debugging tools beyond inspecting the error and stopped line — unassessed.
 - Git branching purpose needs clarification: learner may believe further changes
   require a new branch. Do not treat that interpretation as established.
@@ -109,11 +136,11 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Instructional implications
 
-Resume with the already specified `updateQuantity(name:quantityText:)` feature.
-The learner has completed its ordered plan and `UpdateResult` enum but not the
-method. Require mutation of the array's stored element rather than a copied struct,
-capture the old quantity before mutation, and then predict and observe every exit
-path. Continue requiring a literal requirement-to-test checklist before execution;
-test setup and exact-observation omissions remain more persistent than enum/model
-syntax. Reassess `guard let` and `firstIndex(where:)` after spacing rather than
-treating today's supported success as retained.
+Resume with the pending `assert` predictions, then add and run the three supplied
+assertions for the two filter results and unchanged original list. Deliberately
+make one assertion fail, inspect the evidence, and restore it. Continue requiring
+a literal requirement-to-test checklist: exact observation and selection of the
+correct test variable remain more persistent gaps than model syntax. Later reassess
+stored-value versus local-copy behavior and selection of `guard let`,
+`firstIndex(where:)`, and `filter` after meaningful spacing rather than treating
+today's work as retained.

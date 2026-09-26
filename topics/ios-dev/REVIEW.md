@@ -14,10 +14,11 @@
 ## Requirement trace and exact observable results
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-25; corrected Remove's exact input/message after comparison,
-  but a new quantity-removal test initially omitted a required item, changed the
-  argument label, and showed only final state instead of every requested transition.
-  Corrected all three after explicit prompts.
+- Last evidence: 2026-09-26; update verification initially changed an argument
+  label, punctuation, wording, and requested state format. After correction, a
+  filter test omitted count labels and accidentally inspected `filteredItems1`
+  again instead of `filteredItems2`. Both tests eventually matched the briefs after
+  explicit comparison and diagnosis.
 - Next test: use a different small feature and require a complete input/branch/state/
   exact-output prediction before execution, without reminders about omitted parts.
 - Goal: make the code, test input, exact predicted output, and requirement agree.
@@ -25,9 +26,10 @@
 ## Enums and exhaustive switching
 
 - Stage: INDEPENDENT in a small task; not yet retained.
-- Last evidence: 2026-09-25; independently wrote a correct `UpdateResult` with four
-  cases and the required associated name, old quantity, and new quantity after first
-  producing `RemoveResult` and its exhaustive switch on the previous day.
+- Last evidence: 2026-09-26; reused the four-case `UpdateResult` correctly and
+  independently wrote its exhaustive caller-side print switch with associated
+  values. Initially omitted the requested underscore argument label, then corrected
+  it; enum handling itself was correct.
 - Next test: after meaningful spacing, require another unfamiliar finite result and
   exhaustive handling without naming enums or associated values in the prompt.
 - Goal: verify retained selection and use of a finite result type.
@@ -58,15 +60,16 @@
 ## Basic closures and collection predicates
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-25; after direct correction of an inverted nil guard, used
-  `firstIndex(where:)`, `guard let`, and `remove(at:)` successfully. Independently
-  wrote a second predicate for `item.quantity <= maximum` and correctly handled
-  sequential found/found/missing calls once the assigned initial array was restored.
-- Next test: after spacing, require selection and implementation of the appropriate
-  collection search for a different mutation without naming `firstIndex` or the
-  optional-binding structure.
-- Goal: independently express and explain a collection predicate, including the
-  element parameter, returned Bool, and short-circuit behavior where applicable.
+- Last evidence: 2026-09-26; independently reused `firstIndex(where:)` and
+  `guard let` for exact-name update. After the purpose and general shape of `filter`
+  were taught, implemented `item.quantity >= minimum` correctly. Initially expected
+  values `5` and `6` to pass a threshold of `7`, then used the first result variable
+  again while testing the second result; corrected both after feedback.
+- Next test: after spacing, require choosing between a yes/no search, one-position
+  search, and all-match selection for an unfamiliar requirement, including matching
+  and empty cases without naming the collection operation.
+- Goal: independently choose, express, and verify the right predicate operation,
+  including which result variable is being inspected.
 
 ## Model invariants and `private(set)`
 
@@ -82,10 +85,12 @@
 
 ## Struct value semantics
 
-- Stage: INDEPENDENT in an immediate narrow experiment; not yet retained.
-- Last evidence: 2026-09-21; predicted and learner-reported that mutating a copied
-  `ShoppingItem` leaves the original false while the copy becomes true, then
-  transferred the explanation to a struct retrieved from an array.
+- Stage: GUIDED.
+- Last evidence: 2026-09-26; correctly used direct array-subscript mutation in the
+  update method, but initially explained its effect using model scope and
+  `private(set)` rather than stored value versus local copy. After clarification,
+  correctly predicted that changing a local item after assigning it into an array
+  leaves the array's value unchanged.
 - Next test: after meaningful spacing, present an unfamiliar model-copy or update
   scenario without naming value semantics.
 - Goal: verify retained reasoning and correct mutation of the intended stored value.

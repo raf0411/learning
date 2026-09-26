@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/ios-dev/REVIEW.md",
+                "file": "topics/ios-dev/STATE.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "REVIEW"
+              "title": "STATE"
             }
           }
         ]
@@ -187,21 +187,22 @@
   },
   "active": "94aaa9267578594b",
   "lastOpenFiles": [
+    "topics/ios-dev/REVIEW.md",
+    "topics/ios-dev/ROADMAP.md",
+    "topics/ios-dev/RESOURCES.md",
+    "topics/ios-dev/GOAL.md",
+    "topics/leetcode/ROADMAP.md",
+    "topics/leetcode/GOAL.md",
+    "topics/leetcode/REVIEW.md",
+    "topics/ios-dev/STATE.md",
+    "topics/ios-dev/sessions/2026-09-26.md",
     "topics/ios-dev/sessions/2026-09-25.md",
     "topics/leetcode/diagrams/2026-09-23.md",
-    "topics/ios-dev/REVIEW.md",
-    "topics/leetcode/REVIEW.md",
-    "topics/ios-dev/GOAL.md",
     "topics/leetcode/practice/has_pair_with_sum.py",
     "topics/leetcode/practice/find_smallest.py",
     "topics/ios-dev/diagrams/2026-09-21-requirements-to-tasks.md",
-    "topics/ios-dev/ROADMAP.md",
-    "topics/ios-dev/RESOURCES.md",
-    "topics/ios-dev/STATE.md",
     "topics/ios-dev/sessions/2026-09-23.md",
-    "topics/leetcode/ROADMAP.md",
     "topics/leetcode/sessions/2026-09-23.md",
-    "topics/leetcode/GOAL.md",
     "topics/leetcode/diagrams/2026-09-22.md",
     "topics/leetcode/practice/check_duplicate.py",
     "topics/leetcode/RESOURCES.md",
@@ -221,7 +222,6 @@
     "topics/devops/ROADMAP.md",
     "PROFILE.md",
     "topics/devops/sessions/2026-09-20.md",
-    "AGENTS.md",
-    "README.md"
+    "AGENTS.md"
   ]
 }
