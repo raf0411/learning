@@ -14,22 +14,20 @@
 ## Requirement trace and exact observable results
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-27; predicted all 12 rename result/state lines correctly
-  and reported matching output. During construction, still changed the requested
-  method label, omitted a state prefix and success punctuation, capitalized a
-  failure message differently, and printed `renamed` instead of requested
-  `rename`. Each was corrected after comparison.
+- Last evidence: 2026-09-27–28; event-status messages and predictions matched
+  exactly without correction. In the pass-store tests, initially omitted state
+  checks between operations and unknown-ID absence; completed both after guidance.
 - Next test: use a different small feature and require a complete input/branch/state/
   exact-output prediction before execution, without reminders about omitted parts.
 - Goal: make the code, test input, exact predicted output, and requirement agree.
 
 ## Enums and exhaustive switching
 
-- Stage: INDEPENDENT in a small task; not yet retained.
-- Last evidence: 2026-09-26; reused the four-case `UpdateResult` correctly and
-  independently wrote its exhaustive caller-side print switch with associated
-  values. Initially omitted the requested underscore argument label, then corrected
-  it; enum handling itself was correct.
+- Stage: GUIDED for consistently capturing required data; INDEPENDENT for narrow
+  exhaustive caller-side switches. Not yet retained.
+- Last evidence: 2026-09-27; independently chose an enum for event status but
+  omitted the required names/ID. Added associated values after a reminder and
+  independently wrote the correct exhaustive switch and exact output predictions.
 - Next test: after meaningful spacing, require another unfamiliar finite result and
   exhaustive handling without naming enums or associated values in the prompt.
 - Goal: verify retained selection and use of a finite result type.
@@ -41,6 +39,8 @@
   boundary. Initially called `Int(quantities["Milk"])`, treating an `Int?` as text
   needing conversion. After explanation, directly bound present/missing lookups
   with `if let`, used the unwrapped integer, and reported matching output.
+  Later needed a reminder to use `guard let` to retrieve a registered name rather
+  than only checking the lookup against `nil`; then implemented it correctly.
 - Next test: after spacing, present an unfamiliar text-to-value boundary and require
   independent conversion, failure handling, and use of the unwrapped value.
 - Goal: establish independent optional handling and distinguish original input,
@@ -86,11 +86,10 @@
 ## Struct value semantics
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-26; correctly used direct array-subscript mutation in the
-  update method, but initially explained its effect using model scope and
-  `private(set)` rather than stored value versus local copy. After clarification,
-  correctly predicted that changing a local item after assigning it into an array
-  leaves the array's value unchanged.
+- Last evidence: 2026-09-27–28; initially predicted a local `Pass` mutation would
+  change its dictionary entry. After a copy-semantics hint, explained why stored
+  uses remained at two and repaired the method with dictionary-subscript mutation.
+  Guided checks later verified stored uses after successes and failures.
 - Next test: after meaningful spacing, present an unfamiliar model-copy or update
   scenario without naming value semantics.
 - Goal: verify retained reasoning and correct mutation of the intended stored value.
@@ -121,10 +120,10 @@
 ## Development assertions
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-27; ran passing filter assertions, deliberately observed a
-  failing assertion halt the Playground with the supplied message, restored it,
-  then independently wrote final rename assertions for count, ordered names, and
-  quantities. Exact failure/success literals needed two corrections.
+- Last evidence: 2026-09-28; initially placed all four pass-use calls before checks,
+  verifying only return values and final state. After one complete example,
+  interleaved calls with result/state assertions and verified unknown-ID absence.
+  Reported `All checks complete` followed by the explicitly printed final zero.
 - Next test: in an unfamiliar feature after spacing, derive assertions from the
   behavioral requirements without supplied conditions or a visual-output oracle;
   include a failure path that proves state is unchanged.
@@ -132,13 +131,12 @@
 
 ## Dictionaries and sets
 
-- Stage: GUIDED for dictionary basics; RECOGNIZED for Set basics.
-- Last evidence: 2026-09-27; used dictionary lookup, optional binding, update,
-  insertion, removal, count and lookup assertions, plus a dictionary of structs.
-  Predicted and observed simple Set uniqueness and membership behavior. Initial
-  errors conflated `Int?` lookup with text conversion and miscounted update/add/
-  remove effects before tracing them.
-- Next test: complete the pending `canCheckIn` transfer function using dictionary
-  key existence and Set membership without naming the operations; test registered,
-  already-checked-in, and unknown IDs.
+- Stage: GUIDED for direct dictionary lookup; INDEPENDENT for narrow Set membership
+  use in a function. Broader collection fluency remains guided.
+- Last evidence: 2026-09-27; implemented correct nonmutating eligibility with a
+  dictionary key predicate and negated Set membership. Replaced the predicate with
+  direct lookup after a hint. Correctly handled an unknown ID present in the
+  checked-in set by checking registration first.
+- Next test: after spacing, choose collection operations for another keyed-record
+  and membership task without supplied types or lookup hints.
 - Goal: independently select and combine keyed lookup with unique membership.

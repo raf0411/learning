@@ -1,7 +1,7 @@
 # STATE
 
-Updated: 2026-09-27 — completed the `assert` lab, a guided rename change request,
-a disposable Git history/branch lab, and introductory dictionary/set work.
+Updated: 2026-09-28 — completed event eligibility/status work and a guided
+pass-store debugging lab with assertions after each operation.
 
 ## Evidence limits
 
@@ -48,6 +48,9 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   `private(set)`, rather than to direct subscript mutation. After clarification,
   correctly predicted that changing a local copy again after assigning it into an
   array leaves the array at `5` while the local copy becomes `7`.
+  In the pass-store lab, again initially predicted that mutating a local struct
+  updates its dictionary entry. After a copy-semantics hint, explained the bug
+  and chose dictionary-subscript mutation to fix it; subsequent checks passed.
 - Optionals and failed conversion — GUIDED. Corrected an initial belief that
   `Int("hello")` crashes after observing `Optional<Int>`, `Optional(20)`, and
   `nil`; used `if let`, wrote `validQuantity(from:) -> Int?`, and distinguished
@@ -65,6 +68,9 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   empty-input and unchanged cases, then its six-case caller-side switch was
   exhaustive and extracted every associated value correctly. Exact-output
   reliability is tracked separately; none of this yet establishes RETAINED.
+  For event status, independently selected a three-case enum but omitted required
+  associated data. Added names/ID after a reminder, then independently wrote the
+  exhaustive caller-side switch with exact predicted and reported output.
 - Guard statements and optional binding — GUIDED overall, with one independent
   reuse. Initially interpreted a
   `firstIndex` result as Bool and again wrote an inverted `guard index == nil`,
@@ -74,6 +80,8 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   `firstIndex(where:)` plus `guard let` for the new update method from behavioral
   requirements, without repeating the earlier inverted guard. The post-guard
   non-optional nature of the index was not re-explained by the learner.
+  Correctly ordered registration and membership guards in event eligibility;
+  needed a reminder to bind the name with `guard let` for the richer status result.
 - Basic closures and collection predicates — GUIDED. Uses `contains` for duplicate
   detection and writes `firstIndex(where:)` predicates for exact-name and
   quantity-threshold searches. Independently reused exact-name lookup in the update
@@ -117,15 +125,23 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   extracted its source/message evidence. Exactness still needed corrections for a
   failure-message capital, missing `State:` prefix, success punctuation, and
   `rename` versus `renamed` in the final marker.
+  In the pass-store lab, initially checked all return values and only the final
+  state. After an example of placing assertions directly after an operation,
+  completed checks for both successful uses, exhaustion, and an absent unknown ID;
+  learner reported all checks passing. Independent test sequencing remains open.
 - Dictionaries — GUIDED. Can declare and mutate `[String: Int]`, distinguish
   insertion/update/removal, predict count changes after correction, assert lookup
   outcomes, and use `if let` for present/missing keys. Initially treated a present
   lookup as `Int` rather than `Int?` and attempted `Int(Int?)`, confusing optional
   extraction with text conversion. Also used a dictionary of `Account` structs and
   understands that keys, not values, must be unique.
-- Sets — RECOGNIZED with correct simple predictions and learner-reported output for
-  duplicate insertion, new insertion, removal, count, and membership. Independent
-  implementation and use in a function remain unassessed.
+  Independently combined a dictionary key predicate with Set membership for
+  `canCheckIn`; changed to direct key lookup after a hint. Used dictionary-subscript
+  mutation to repair `PassStore` after the local-copy bug was explained.
+- Sets — INDEPENDENT for membership checks in a small eligibility function.
+  Correctly excluded already-checked-in IDs using `!checkedInIDs.contains(id)`
+  without a supplied operation. Set construction/mutation remains assessed only
+  through simple predictions and learner-reported runs.
 - SwiftUI local state — RECOGNIZED with correct simple behavior predictions,
   including a fresh launch resetting the example counter. View implementation
   has not been assessed.
@@ -162,11 +178,12 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Instructional implications
 
-Resume with the unattempted dictionary/set transfer function
-`canCheckIn(id:registeredNames:checkedInIDs:)`. Continue requiring a literal
-requirement-to-test checklist: exact requested labels, prefixes, punctuation,
-variables, and success markers remain less reliable than core model syntax. Use a
-reduced-scaffolding Phase 1 checkpoint before advancing to the SwiftUI practice
-app. Later reassess optional extraction, stored-value versus local-copy behavior,
-collection-operation selection, assertions, and Git snapshots after meaningful
-spacing rather than treating today's guided work as retained.
+The eligibility/status and pass-store debugging labs are complete. Next assess a
+small feature from behavioral requirements: `PassStore.addUses(id:amountText:)`,
+including positive-integer validation before ID lookup, distinct results with
+required data, stored mutation, and learner-designed tests. Supply no code skeleton
+initially. Use this evidence to judge Phase 1 readiness; the guided debugging lab
+alone does not establish independent feature implementation. Reassess optional
+extraction, associated-value design, stored versus local values, collection
+selection, assertion placement, and Git after meaningful spacing. Prioritize
+behavior and state checks; exact event-status output was correct without repair.

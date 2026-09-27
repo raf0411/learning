@@ -9,16 +9,12 @@ estimates, not automatic mastery or hiring deadlines. See GOAL.md for constraint
 Current position: Phase 1 consolidation in progress. The in-memory model has
 validated Add, exact-name Remove, quantity-threshold Remove, quantity Update,
 all-match filtering, and a guided six-result Rename change behind a `private(set)`
-array. Learner-reported rename tests covered success and five nonmutating branches,
-then final-state assertions verified count, ordered names, and quantities. The
-learner also completed a deliberate assertion failure/restoration cycle and a
-disposable Git lab with two commits on `main`, an uncommitted change carried onto a
-new branch, and a third branch-only commit. Dictionary lookup/mutation and basic Set
-membership have been introduced; the combined dictionary/set transfer function was
-assigned but not attempted. Next, complete that function and use a reduced-
-scaffolding requirements/debugging checkpoint to decide whether the Phase 1
-milestone is secure enough to begin the guided SwiftUI practice app. No curriculum
-milestone is complete yet.
+array. Introductory Git, assertions, dictionaries, and sets have been practiced.
+Event eligibility/status and a guided pass-store debugging lab are complete,
+including checks after each mutation. Next is the assigned, unattempted
+`PassStore.addUses(id:amountText:)` feature from behavioral requirements, with
+learner-designed tests. Use that evidence to assess readiness for the guided
+SwiftUI practice app. No curriculum milestone is complete yet.
 
 ## Dependencies
 
