@@ -14,11 +14,11 @@
 ## Requirement trace and exact observable results
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-26; update verification initially changed an argument
-  label, punctuation, wording, and requested state format. After correction, a
-  filter test omitted count labels and accidentally inspected `filteredItems1`
-  again instead of `filteredItems2`. Both tests eventually matched the briefs after
-  explicit comparison and diagnosis.
+- Last evidence: 2026-09-27; predicted all 12 rename result/state lines correctly
+  and reported matching output. During construction, still changed the requested
+  method label, omitted a state prefix and success punctuation, capitalized a
+  failure message differently, and printed `renamed` instead of requested
+  `rename`. Each was corrected after comparison.
 - Next test: use a different small feature and require a complete input/branch/state/
   exact-output prediction before execution, without reminders about omitted parts.
 - Goal: make the code, test input, exact predicted output, and requirement agree.
@@ -37,10 +37,10 @@
 ## Optional conversion and safe extraction
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-22; after correcting a crash misconception, observed
-  successful and failed `Int` conversion, used `if let`, implemented a function
-  returning `Int?`, and stored only a validated non-optional quantity. Needed
-  repeated prompts to print the returned integer rather than the source string.
+- Last evidence: 2026-09-27; dictionary lookup introduced another optional
+  boundary. Initially called `Int(quantities["Milk"])`, treating an `Int?` as text
+  needing conversion. After explanation, directly bound present/missing lookups
+  with `if let`, used the unwrapped integer, and reported matching output.
 - Next test: after spacing, present an unfamiliar text-to-value boundary and require
   independent conversion, failure handling, and use of the unwrapped value.
 - Goal: establish independent optional handling and distinguish original input,
@@ -60,11 +60,11 @@
 ## Basic closures and collection predicates
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-26; independently reused `firstIndex(where:)` and
-  `guard let` for exact-name update. After the purpose and general shape of `filter`
-  were taught, implemented `item.quantity >= minimum` correctly. Initially expected
-  values `5` and `6` to pass a threshold of `7`, then used the first result variable
-  again while testing the second result; corrected both after feedback.
+- Last evidence: 2026-09-27; after the rename branch order was clarified, used
+  `firstIndex(where:)` for the mutable current item and `contains` for a duplicate
+  new name. During a requested readability edit, accidentally replaced the
+  duplicate search with a second equivalent inequality guard; restored the search
+  after tracing why duplicate could never be returned.
 - Next test: after spacing, require choosing between a yes/no search, one-position
   search, and all-match selection for an unfamiliar requirement, including matching
   and empty cases without naming the collection operation.
@@ -106,9 +106,39 @@
 
 ## Git snapshots and branches
 
-- Stage: RECOGNIZED.
-- Last evidence: 2026-09-21; distinguished a commit from merely creating a branch
-  once uncommitted changes were made explicit.
-- Next test: during the first disposable Git lab, predict and inspect what a
-  commit records and whether another commit requires another branch.
-- Goal: establish a usable workflow and resolve the remaining branching ambiguity.
+- Stage: GUIDED.
+- Last evidence: 2026-09-27; completed a disposable workflow covering untracked,
+  staged, modified, and clean states; inspected working/cached diffs; made two
+  commits on `main`; carried an uncommitted version onto a new branch; made a third
+  commit there; and inspected both branch snapshots. Initially thought the new
+  branch pointed to uncommitted version 3, then corrected that both branch names
+  initially pointed at the version 2 commit.
+- Next test: after several sessions, initialize and use another disposable repo
+  from a short outcome brief without command-by-command guidance; explain index,
+  working tree, commit, branch pointer, and `HEAD` from observed status/history.
+- Goal: verify retained independent snapshot and branch workflow.
+
+## Development assertions
+
+- Stage: GUIDED.
+- Last evidence: 2026-09-27; ran passing filter assertions, deliberately observed a
+  failing assertion halt the Playground with the supplied message, restored it,
+  then independently wrote final rename assertions for count, ordered names, and
+  quantities. Exact failure/success literals needed two corrections.
+- Next test: in an unfamiliar feature after spacing, derive assertions from the
+  behavioral requirements without supplied conditions or a visual-output oracle;
+  include a failure path that proves state is unchanged.
+- Goal: independently turn behavior and invariants into useful automated checks.
+
+## Dictionaries and sets
+
+- Stage: GUIDED for dictionary basics; RECOGNIZED for Set basics.
+- Last evidence: 2026-09-27; used dictionary lookup, optional binding, update,
+  insertion, removal, count and lookup assertions, plus a dictionary of structs.
+  Predicted and observed simple Set uniqueness and membership behavior. Initial
+  errors conflated `Int?` lookup with text conversion and miscounted update/add/
+  remove effects before tracing them.
+- Next test: complete the pending `canCheckIn` transfer function using dictionary
+  key existence and Set membership without naming the operations; test registered,
+  already-checked-in, and unknown IDs.
+- Goal: independently select and combine keyed lookup with unique membership.

@@ -6,18 +6,19 @@ Baseline: 16 weeks at 25 hours/week, approximately 400 planned hours. Assess
 application readiness from week 12 (approximately 300 hours). These are planning
 estimates, not automatic mastery or hiring deadlines. See GOAL.md for constraints.
 
-Current position: Phase 1 in progress. The in-memory model now has validated Add,
-exact-name Remove, quantity-threshold Remove, and quantity Update behaviors behind
-a `private(set)` array. The learner independently implemented the planned update
-method from explicit behavioral requirements, directly mutated the stored element,
-and learner-reported runs covered success plus invalid, missing, and blank-name
-paths. Exact test formatting still required several corrections. The model also
-has a guided nonmutating `filter` method returning every item at or above a minimum;
-reported output covered two matches, an empty result, and an unchanged source list
-after correcting a wrong test variable. Next, finish the introduced `assert` lab,
-including one deliberate failure and restoration, then consolidate Phase 1 with an
-unfamiliar requirements/debugging task and Git practice. No curriculum milestone
-is complete yet.
+Current position: Phase 1 consolidation in progress. The in-memory model has
+validated Add, exact-name Remove, quantity-threshold Remove, quantity Update,
+all-match filtering, and a guided six-result Rename change behind a `private(set)`
+array. Learner-reported rename tests covered success and five nonmutating branches,
+then final-state assertions verified count, ordered names, and quantities. The
+learner also completed a deliberate assertion failure/restoration cycle and a
+disposable Git lab with two commits on `main`, an uncommitted change carried onto a
+new branch, and a third branch-only commit. Dictionary lookup/mutation and basic Set
+membership have been introduced; the combined dictionary/set transfer function was
+assigned but not attempted. Next, complete that function and use a reduced-
+scaffolding requirements/debugging checkpoint to decide whether the Phase 1
+milestone is secure enough to begin the guided SwiftUI practice app. No curriculum
+milestone is complete yet.
 
 ## Dependencies
 

@@ -1,7 +1,7 @@
 # STATE
 
-Updated: 2026-09-26 — `updateQuantity` and guided `filter` verification complete;
-the first `assert` exercise has been introduced but not attempted.
+Updated: 2026-09-27 — completed the `assert` lab, a guided rename change request,
+a disposable Git history/branch lab, and introductory dictionary/set work.
 
 ## Evidence limits
 
@@ -23,13 +23,18 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   structure being supplied, then moved the same search into `ShoppingList` as a
   read-only method. Has now used `filter` to return every item meeting a quantity
   threshold, but only after its purpose and general closure shape were supplied.
+  Used `map` plus `joined(separator:)` to format every item on one line after both
+  operations were introduced; initially omitted the required `State: ` prefix.
 - Array bounds — INDEPENDENT conceptual diagnosis of an invalid index; reasons
   about zero-based indexing, last index, and the empty-array case. No executed fix.
 - Requirements decomposition — GUIDED. Produced the correct ordered plan for a new
   quantity-update feature, including validation, lookup, mutation, and results.
   Needed prompting to state that conversion failure or a nonpositive value is
   invalid, attach the cleaned name to `notFound`, capture the old value before
-  mutation, and keep printing outside the model.
+  mutation, and keep printing outside the model. For Rename, initially searched
+  the new name before locating the current item, combined distinct empty-input
+  results, and treated an unchanged name as a duplicate; repaired the branch order
+  after explicit feedback.
 - Input cleaning and validation — GUIDED. Used Foundation trimming, empty checks,
   reusable exact-duplicate detection, positive-integer conversion, and conditional
   append. Learner-reported runs covered valid, duplicate, whitespace-only, zero
@@ -52,11 +57,14 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   ran a `ShoppingList.add(_:)` method on a `var` instance and reported count `1`.
   Correctly implemented a read-only `containsItem` method, but initially created
   Milk without calling `add`, producing `false` for both searches before correction.
-- Enums and exhaustive `switch` — INDEPENDENT in small result-modeling tasks.
+- Enums and exhaustive `switch` — INDEPENDENT in narrow prior result-modeling
+  tasks; GUIDED for the new Rename requirements.
   Designed `RemoveResult` and its exhaustive caller-side switch, then on the next
   day independently wrote a correct four-case `UpdateResult` with associated name,
-  old quantity, and new quantity. Exact-output reliability is tracked separately;
-  the short interval and prompted result requirements do not yet establish RETAINED.
+  old quantity, and new quantity. `RenameResult` required prompts for distinct
+  empty-input and unchanged cases, then its six-case caller-side switch was
+  exhaustive and extracted every associated value correctly. Exact-output
+  reliability is tracked separately; none of this yet establishes RETAINED.
 - Guard statements and optional binding — GUIDED overall, with one independent
   reuse. Initially interpreted a
   `firstIndex` result as Bool and again wrote an inverted `guard index == nil`,
@@ -86,6 +94,12 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   different predicate and three sequential found/found/missing branches. Direct
   instruction was needed to repair the first inverted guard, so retention and an
   unprompted choice of this strategy remain unassessed.
+- Renaming a stored array element — GUIDED. Implemented a six-result rename method
+  using exact-name index lookup, unchanged detection, duplicate detection, direct
+  stored mutation, and cleaned associated values. Planning initially confused the
+  roles/order of current and new names. A correction accidentally removed the
+  duplicate collection check, which was restored after the unreachable duplicate
+  branch was explained. Reported exact success/failure state for all six paths.
 - Updating a stored array element — INDEPENDENT implementation from explicit
   behavioral requirements; verification remained GUIDED. Correctly validated the
   two inputs, found and unwrapped an index, captured the old quantity before direct
@@ -96,20 +110,34 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   identified that a language-only message change belongs in caller-side result
   formatting rather than `ShoppingList` validation. Kept update messages in an
   exhaustive caller-side switch rather than printing from the model.
-- Manual verification and development assertions — GUIDED/RECOGNIZED. Eventually
-  produced exact result and state output for every update path and exact labeled
-  output for two filter thresholds. Needed comparison prompts to correct punctuation,
-  wording, state-line format, count labels, and use of the wrong filtered variable.
-  `assert` and `isEmpty` checks were introduced at session end but not yet predicted
-  or executed.
+- Manual verification and development assertions — GUIDED. Produced exact result
+  and state output for every rename path and independently wrote final-state
+  assertions for count, ordered names, and ordered quantities. Ran passing
+  assertions, deliberately observed a failing assertion stop the Playground, and
+  extracted its source/message evidence. Exactness still needed corrections for a
+  failure-message capital, missing `State:` prefix, success punctuation, and
+  `rename` versus `renamed` in the final marker.
+- Dictionaries — GUIDED. Can declare and mutate `[String: Int]`, distinguish
+  insertion/update/removal, predict count changes after correction, assert lookup
+  outcomes, and use `if let` for present/missing keys. Initially treated a present
+  lookup as `Int` rather than `Int?` and attempted `Int(Int?)`, confusing optional
+  extraction with text conversion. Also used a dictionary of `Account` structs and
+  understands that keys, not values, must be unique.
+- Sets — RECOGNIZED with correct simple predictions and learner-reported output for
+  duplicate insertion, new insertion, removal, count, and membership. Independent
+  implementation and use in a function remain unassessed.
 - SwiftUI local state — RECOGNIZED with correct simple behavior predictions,
   including a fresh launch resetting the example counter. View implementation
   has not been assessed.
 - Xcode — learner reports repeatedly executing the session's Swift snippets and
   supplied outputs matching the code's validation and model branches. Workflow
   and console were not directly observed.
-- Git — RECOGNIZED. Understands a commit is needed to record uncommitted changes
-  after a concrete scenario; no workflow execution assessed.
+- Git snapshots and branches — GUIDED. In a disposable repository, learner-reported
+  terminal output covered initialization, untracked/staged/clean status, two
+  commits on `main`, working versus cached diffs, creation of a branch with an
+  uncommitted change, a branch-only third commit, decorated history, and reading
+  files from each branch. Initially believed the new branch would point to the
+  uncommitted version; corrected that branch names point only to commits.
 
 ## Current gaps and uncertainties
 
@@ -129,18 +157,16 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   state format. A filter test then omitted labels and accidentally printed and
   iterated over `filteredItems1` instead of inspecting `filteredItems2`.
 - Debugging tools beyond inspecting the error and stopped line — unassessed.
-- Git branching purpose needs clarification: learner may believe further changes
-  require a new branch. Do not treat that interpretation as established.
 - Classes/reference semantics, architecture, persistence, concurrency, formal
   tests, documentation use, and remaining advanced fundamentals — unassessed.
 
 ## Instructional implications
 
-Resume with the pending `assert` predictions, then add and run the three supplied
-assertions for the two filter results and unchanged original list. Deliberately
-make one assertion fail, inspect the evidence, and restore it. Continue requiring
-a literal requirement-to-test checklist: exact observation and selection of the
-correct test variable remain more persistent gaps than model syntax. Later reassess
-stored-value versus local-copy behavior and selection of `guard let`,
-`firstIndex(where:)`, and `filter` after meaningful spacing rather than treating
-today's work as retained.
+Resume with the unattempted dictionary/set transfer function
+`canCheckIn(id:registeredNames:checkedInIDs:)`. Continue requiring a literal
+requirement-to-test checklist: exact requested labels, prefixes, punctuation,
+variables, and success markers remain less reliable than core model syntax. Use a
+reduced-scaffolding Phase 1 checkpoint before advancing to the SwiftUI practice
+app. Later reassess optional extraction, stored-value versus local-copy behavior,
+collection-operation selection, assertions, and Git snapshots after meaningful
+spacing rather than treating today's guided work as retained.
