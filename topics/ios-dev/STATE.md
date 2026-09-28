@@ -1,7 +1,7 @@
 # STATE
 
-Updated: 2026-09-28 — completed event eligibility/status work and a guided
-pass-store debugging lab with assertions after each operation.
+Updated: 2026-09-28 — attempted the independent `PassStore.addUses` checkpoint;
+result-data correction and requirement-derived verification remain pending.
 
 ## Evidence limits
 
@@ -34,7 +34,10 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   mutation, and keep printing outside the model. For Rename, initially searched
   the new name before locating the current item, combined distinct empty-input
   results, and treated an unchanged name as a duplicate; repaired the branch order
-  after explicit feedback.
+  after explicit feedback. For `PassStore.addUses`, correctly implemented amount
+  validation before ID lookup and kept printing outside the model, but skipped the
+  requested pre-code requirement trace, returned the amount added instead of the
+  required updated total, and tested only part of the behavioral matrix.
 - Input cleaning and validation — GUIDED. Used Foundation trimming, empty checks,
   reusable exact-duplicate detection, positive-integer conversion, and conditional
   append. Learner-reported runs covered valid, duplicate, whitespace-only, zero
@@ -55,11 +58,16 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   `Int("hello")` crashes after observing `Optional<Int>`, `Optional(20)`, and
   `nil`; used `if let`, wrote `validQuantity(from:) -> Int?`, and distinguished
   original text `"004"` from the unwrapped integer `4`. Needed repeated prompts
-  to use the returned value rather than merely check it for `nil`.
+  to use the returned value rather than merely check it for `nil`. Later wrote
+  `validAmount(amountText:) -> Int?` without a supplied skeleton, rejected failed
+  conversion and nonpositive values, then bound and used the positive amount in
+  `addUses`; this code was predicted but not reported as executed.
 - Struct methods and mutation — GUIDED. After instruction on `mutating`, wrote and
   ran a `ShoppingList.add(_:)` method on a `var` instance and reported count `1`.
   Correctly implemented a read-only `containsItem` method, but initially created
   Milk without calling `add`, producing `false` for both searches before correction.
+  Later independently declared `addUses` mutating and invoked it on a `var` store;
+  the submitted code was not yet reported as run.
 - Enums and exhaustive `switch` — INDEPENDENT in narrow prior result-modeling
   tasks; GUIDED for the new Rename requirements.
   Designed `RemoveResult` and its exhaustive caller-side switch, then on the next
@@ -70,7 +78,10 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   reliability is tracked separately; none of this yet establishes RETAINED.
   For event status, independently selected a three-case enum but omitted required
   associated data. Added names/ID after a reminder, then independently wrote the
-  exhaustive caller-side switch with exact predicted and reported output.
+  exhaustive caller-side switch with exact predicted and reported output. For
+  `addUses`, independently selected a three-case `AddResult` and exhaustively
+  handled it, but the success case carried the increment rather than the explicitly
+  required updated remaining-use total.
 - Guard statements and optional binding — GUIDED overall, with one independent
   reuse. Initially interpreted a
   `firstIndex` result as Bool and again wrote an inverted `guard index == nil`,
@@ -128,7 +139,10 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   In the pass-store lab, initially checked all return values and only the final
   state. After an example of placing assertions directly after an operation,
   completed checks for both successful uses, exhaustion, and an absent unknown ID;
-  learner reported all checks passing. Independent test sequencing remains open.
+  learner reported all checks passing. The later `addUses` attempt again supplied
+  prints and only one final-state observation rather than result/state checks after
+  each operation; zero, negative, validation-precedence, and unknown-key absence
+  tests were missing. Independent test sequencing remains open.
 - Dictionaries — GUIDED. Can declare and mutate `[String: Int]`, distinguish
   insertion/update/removal, predict count changes after correction, assert lookup
   outcomes, and use `if let` for present/missing keys. Initially treated a present
@@ -137,7 +151,10 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   understands that keys, not values, must be unique.
   Independently combined a dictionary key predicate with Set membership for
   `canCheckIn`; changed to direct key lookup after a hint. Used dictionary-subscript
-  mutation to repair `PassStore` after the local-copy bug was explained.
+  mutation to repair `PassStore` after the local-copy bug was explained. Reused
+  dictionary lookup and direct subscript mutation in the later `addUses` attempt
+  without repeating the earlier local-copy mistake, though that code was not yet
+  reported as executed.
 - Sets — INDEPENDENT for membership checks in a small eligibility function.
   Correctly excluded already-checked-in IDs using `!checkedInIDs.contains(id)`
   without a supplied operation. Set construction/mutation remains assessed only
@@ -178,12 +195,11 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Instructional implications
 
-The eligibility/status and pass-store debugging labs are complete. Next assess a
-small feature from behavioral requirements: `PassStore.addUses(id:amountText:)`,
-including positive-integer validation before ID lookup, distinct results with
-required data, stored mutation, and learner-designed tests. Supply no code skeleton
-initially. Use this evidence to judge Phase 1 readiness; the guided debugging lab
-alone does not establish independent feature implementation. Reassess optional
-extraction, associated-value design, stored versus local values, collection
-selection, assertion placement, and Git after meaningful spacing. Prioritize
-behavior and state checks; exact event-status output was correct without repair.
+Resume by having the learner revise the existing `PassStore.addUses` attempt so
+success carries the updated stored total, then derive and run checks immediately
+after every operation. Require invalid text, zero, negative, valid unknown ID, and
+invalid-amount-plus-unknown-ID cases, including unchanged state and absent-key
+evidence. Do not supply the implementation. Use the completed revision to judge
+Phase 1 readiness; the current partial feature does not clear the milestone.
+Reassess associated-value design, requirement tracing, assertion placement, and
+Git after meaningful spacing.

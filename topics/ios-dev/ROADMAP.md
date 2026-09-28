@@ -11,10 +11,12 @@ validated Add, exact-name Remove, quantity-threshold Remove, quantity Update,
 all-match filtering, and a guided six-result Rename change behind a `private(set)`
 array. Introductory Git, assertions, dictionaries, and sets have been practiced.
 Event eligibility/status and a guided pass-store debugging lab are complete,
-including checks after each mutation. Next is the assigned, unattempted
-`PassStore.addUses(id:amountText:)` feature from behavioral requirements, with
-learner-designed tests. Use that evidence to assess readiness for the guided
-SwiftUI practice app. No curriculum milestone is complete yet.
+including checks after each mutation. The learner has attempted
+`PassStore.addUses(id:amountText:)`: validation order and stored dictionary mutation
+were correct, but success returned the increment rather than the updated total and
+the tests did not yet prove every failure preserves state. Next is the unscaffolded
+revision and requirement-derived verification. Use the completed evidence to assess
+readiness for the guided SwiftUI practice app. No curriculum milestone is complete.
 
 ## Dependencies
 

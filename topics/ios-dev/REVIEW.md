@@ -14,20 +14,21 @@
 ## Requirement trace and exact observable results
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-27–28; event-status messages and predictions matched
-  exactly without correction. In the pass-store tests, initially omitted state
-  checks between operations and unknown-ID absence; completed both after guidance.
-- Next test: use a different small feature and require a complete input/branch/state/
-  exact-output prediction before execution, without reminders about omitted parts.
+- Last evidence: 2026-09-28; for `addUses`, skipped the requested pre-code trace and
+  submitted code plus predicted prints. Validation order was correct, but success
+  carried the increment rather than the required updated total. Tests omitted
+  intermediate state, zero, negative, precedence, and unknown-key absence checks.
+- Next test: complete the current feature with a full input/result/state prediction
+  and checks after each operation, without supplied assertion conditions.
 - Goal: make the code, test input, exact predicted output, and requirement agree.
 
 ## Enums and exhaustive switching
 
 - Stage: GUIDED for consistently capturing required data; INDEPENDENT for narrow
   exhaustive caller-side switches. Not yet retained.
-- Last evidence: 2026-09-27; independently chose an enum for event status but
-  omitted the required names/ID. Added associated values after a reminder and
-  independently wrote the correct exhaustive switch and exact output predictions.
+- Last evidence: 2026-09-28; independently chose a three-case `AddResult` and wrote
+  its exhaustive output switch, but modeled success with the amount added rather
+  than the explicitly required updated remaining-use value.
 - Next test: after meaningful spacing, require another unfamiliar finite result and
   exhaustive handling without naming enums or associated values in the prompt.
 - Goal: verify retained selection and use of a finite result type.
@@ -35,12 +36,10 @@
 ## Optional conversion and safe extraction
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-27; dictionary lookup introduced another optional
-  boundary. Initially called `Int(quantities["Milk"])`, treating an `Int?` as text
-  needing conversion. After explanation, directly bound present/missing lookups
-  with `if let`, used the unwrapped integer, and reported matching output.
-  Later needed a reminder to use `guard let` to retrieve a registered name rather
-  than only checking the lookup against `nil`; then implemented it correctly.
+- Last evidence: 2026-09-28; independently wrote a text-to-positive-Int helper,
+  bound its optional result, used the unwrapped amount, and handled failed or
+  nonpositive conversion before dictionary lookup. Submitted code was not yet
+  reported as executed.
 - Next test: after spacing, present an unfamiliar text-to-value boundary and require
   independent conversion, failure handling, and use of the unwrapped value.
 - Goal: establish independent optional handling and distinguish original input,
@@ -49,9 +48,9 @@
 ## Struct methods and mutation
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-23; used the `mutating` Add method and reported the compiler
-  error after changing the instance to `let`. Needed clarification that constants
-  prohibit mutating methods, not all methods.
+- Last evidence: 2026-09-28; independently declared `addUses` as `mutating`, changed
+  dictionary state, and called it on a `var` store. The code was not yet reported
+  as executed; the `let`-instance distinction has not been reassessed.
 - Next test: after spacing, ask the learner to diagnose or implement a struct method
   that changes stored state, including the effect of declaring the instance `let`.
 - Goal: independently identify when both `mutating` and a mutable instance are
@@ -124,19 +123,19 @@
   verifying only return values and final state. After one complete example,
   interleaved calls with result/state assertions and verified unknown-ID absence.
   Reported `All checks complete` followed by the explicitly printed final zero.
-- Next test: in an unfamiliar feature after spacing, derive assertions from the
-  behavioral requirements without supplied conditions or a visual-output oracle;
-  include a failure path that proves state is unchanged.
+  In the later `addUses` attempt, returned to prints plus a single final-state check
+  and omitted several required cases.
+- Next test: complete `addUses` by deriving checks from every behavioral requirement,
+  including failure paths that prove state is unchanged and unknown keys stay absent.
 - Goal: independently turn behavior and invariants into useful automated checks.
 
 ## Dictionaries and sets
 
 - Stage: GUIDED for direct dictionary lookup; INDEPENDENT for narrow Set membership
   use in a function. Broader collection fluency remains guided.
-- Last evidence: 2026-09-27; implemented correct nonmutating eligibility with a
-  dictionary key predicate and negated Set membership. Replaced the predicate with
-  direct lookup after a hint. Correctly handled an unknown ID present in the
-  checked-in set by checking registration first.
+- Last evidence: 2026-09-28; the `addUses` code independently used dictionary lookup
+  for existence and direct subscript mutation for stored state, avoiding the prior
+  local-copy bug. Execution and complete post-operation state checks are pending.
 - Next test: after spacing, choose collection operations for another keyed-record
   and membership task without supplied types or lookup hints.
 - Goal: independently select and combine keyed lookup with unique membership.
