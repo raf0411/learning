@@ -18,11 +18,11 @@
 
 ## Nested-loop execution and candidate coverage
 
-- Stage: INDEPENDENT.
-- Demonstrate: select nested iteration on an unlabeled fresh problem, trace inner-loop resets, cover all required distinct-index pairs, and place the fallback return correctly.
-- Reason: current-session construction succeeded, but earlier reset confusion and same-session scaffolding mean retention is not established.
-- Last meaningful evidence: 2026-09-23, reconstructed exhaustive duplicate detection and independently recognized/implemented exhaustive pair-sum; execution-validated edge cases.
-- Next review: next session or the following session, without showing the previous grid or loop scaffold first.
+- Stage: GUIDED for complete unique-pair coverage; nested-loop selection itself was independently retrieved after spacing.
+- Demonstrate: enumerate all unique pairs, implement each exactly once, explain why skipping self-pairs alone does not remove reverse duplicates, and execute boundary cases.
+- Reason: on the fresh nearby-pair task, independently chose nested loops but used a full grid with only self-index skipping, which would count both `(i, j)` and `(j, i)`.
+- Last meaningful evidence: 2026-09-29, began the unlabeled nearby-pair problem; correct iteration-family selection but incomplete and incorrect candidate coverage.
+- Next review: resume the unfinished nearby-pair lab at the start of the next session.
 
 ## Linear versus quadratic growth
 
@@ -34,16 +34,32 @@
 
 ## Extra space and growing collections
 
-- Stage: GUIDED.
+- Stage: INDEPENDENT in the current session; retention untested.
 - Demonstrate: distinguish a fixed number of variables from one collection containing up to `n` elements and classify auxiliary space on a fresh function.
-- Reason: initially classified a growing set as `O(1)` because it had one variable name.
-- Last meaningful evidence: 2026-09-23, corrected the set-based duplicate and pair-sum analyses to `O(n)` extra space and described the time-space trade-off.
-- Next review: next session during dictionary construction and again later on unfamiliar code.
+- Reason: the original set analysis counted variable names, but the dictionary analysis correctly counted stored entries.
+- Last meaningful evidence: 2026-09-29, independently classified the pair-index dictionary as `O(n)` extra space and explained its possible growth.
+- Next review: after spacing on unfamiliar code containing a growing collection.
 
 ## Set seen-state invariant
 
 - Stage: GUIDED.
 - Demonstrate: reconstruct `set()` syntax, check-before-add ordering, and the invariant that stored values came from earlier indices; implement a membership solution without procedural hints.
-- Reason: `{}` was used for an empty set, and the first optimized pair-sum attempt stored the desired partner rather than the current observed value.
-- Last meaningful evidence: 2026-09-23, corrected both issues and execution-validated duplicate and pair-sum set solutions.
-- Next review: at the start of the next session before extending the state from a set to a dictionary.
+- Reason: the spaced retrieval began with `Set()` rather than `set()`, though membership, mutation, and check-before-add reasoning were then correct.
+- Last meaningful evidence: 2026-09-29, reconstructed the set pattern one line at a time and correctly explained why adding first creates self-matches.
+- Next review: after several sessions through a fresh membership problem without line-by-line scaffolding.
+
+## Dictionary earlier-index invariant
+
+- Stage: GUIDED.
+- Demonstrate: independently choose `observed value -> earlier index`, check before storing the current entry, place the fallback after the loop, and test self-reuse.
+- Reason: the learner's trace was correct, but the first implementation reversed the mapping and returned failure from inside the loop.
+- Last meaningful evidence: 2026-09-29, debugged both issues and execution-validated ordinary, absent-pair, equal-value, and singleton cases.
+- Next review: after spacing on a different index-retrieval problem without a supplied mapping direction.
+
+## Inequality wording and boundary direction
+
+- Stage: GUIDED.
+- Demonstrate: translate “at most,” “at least,” “less than,” and “greater than” into comparisons and validate equality-at-the-boundary cases.
+- Reason: the worksheet translated “difference is at most `max_gap`” in the wrong direction, while the separate practice file used the correct equivalent comparison; the mental model is inconsistent.
+- Last meaningful evidence: 2026-09-29, runnable code used the correct boundary direction but returned `6` instead of `3` because of reverse-pair duplication.
+- Next review: immediately when resuming the nearby-pair lab.

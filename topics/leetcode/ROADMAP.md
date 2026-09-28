@@ -24,9 +24,9 @@ Python; mostly Easy problems, adding selected Medium problems only after their p
 ## Current position
 
 - Primary position: late Milestone 1, with Milestones 2 and 3 now introduced through concrete problems.
-- Milestone 1 evidence: independently reconstructed and tested `count_above` and `find_smallest`; reconstructed exhaustive duplicate detection; independently selected and implemented nested iteration for a fresh pair-sum problem. A spaced nested-loop retrieval and the remaining list/string behavior distinction are still needed before closing the milestone.
+- Milestone 1 evidence: independently reconstructed and tested `count_above` and `find_smallest`; reconstructed exhaustive duplicate detection; independently selected nested iteration again after spacing on an unlabeled pair-count task. That fresh task exposed unresolved unique-pair coverage and inequality-boundary errors, and list/string behavior remains incomplete.
 - Milestone 2 evidence: connected exact comparison grids to `O(n)` and `O(n^2)`, distinguished separate from nested loops, analyzed fixed extra space, and compared full-grid with upper-triangle traversal. Later unlabeled retrieval is required.
-- Milestone 3 evidence: implemented guided set-based duplicate and pair-sum scans and explained the time-space trade-off. Set syntax, stored-state invariants, and collection-space reasoning are not yet secure.
-- Immediate lesson: extend remembered state from a set to a dictionary so pair-sum can return indices. Begin with a `value -> earlier index` trace for `[2, 7, 11]`, target 9.
-- Immediate review: reconstruct `set()`, check-before-add, and add-current-not-partner before relying on them in the dictionary version.
+- Milestone 3 evidence: implemented guided set-based duplicate and pair-sum scans, then traced and execution-validated a guided dictionary-based pair-index solution. Correctly analyzed dictionary growth and the time-space trade-off. Mapping direction, invariant language, fallback placement, and test design required prompts, so the milestone gate is not yet met.
+- Immediate lesson: finish the nearby-pair counting lab by separating self-pair exclusion, reverse-pair avoidance, and the `<=` meaning of “at most”; then execute and analyze it.
+- Immediate review: later reconstruct a `value -> earlier index` dictionary on a different problem without being given the mapping direction.
 - Spaced review continues from REVIEW.md; no roadmap milestone is yet marked complete.
