@@ -1,7 +1,8 @@
 # STATE
 
-Updated: 2026-09-28 — attempted the independent `PassStore.addUses` checkpoint;
-result-data correction and requirement-derived verification remain pending.
+Updated: 2026-09-28 — completed the `PassStore.addUses` checkpoint with guided
+requirement tracing and verification; ready to begin guided SwiftUI practice while
+retesting requirement-derived assertions after spacing.
 
 ## Evidence limits
 
@@ -34,10 +35,11 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   mutation, and keep printing outside the model. For Rename, initially searched
   the new name before locating the current item, combined distinct empty-input
   results, and treated an unchanged name as a duplicate; repaired the branch order
-  after explicit feedback. For `PassStore.addUses`, correctly implemented amount
-  validation before ID lookup and kept printing outside the model, but skipped the
-  requested pre-code requirement trace, returned the amount added instead of the
-  required updated total, and tested only part of the behavioral matrix.
+  after explicit feedback. For `PassStore.addUses`, initially skipped the pre-code
+  trace, returned the increment instead of the updated total, and tested only part
+  of the matrix. After repeated requirement comparisons, completed the full
+  result/state prediction and implementation; deriving automated checks still
+  required a six-block outline and one supplied assertion example.
 - Input cleaning and validation — GUIDED. Used Foundation trimming, empty checks,
   reusable exact-duplicate detection, positive-integer conversion, and conditional
   append. Learner-reported runs covered valid, duplicate, whitespace-only, zero
@@ -61,13 +63,14 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   to use the returned value rather than merely check it for `nil`. Later wrote
   `validAmount(amountText:) -> Int?` without a supplied skeleton, rejected failed
   conversion and nonpositive values, then bound and used the positive amount in
-  `addUses`; this code was predicted but not reported as executed.
+  `addUses`; learner-reported execution later passed invalid-text, zero, negative,
+  success, unknown-ID, and validation-precedence assertions.
 - Struct methods and mutation — GUIDED. After instruction on `mutating`, wrote and
   ran a `ShoppingList.add(_:)` method on a `var` instance and reported count `1`.
   Correctly implemented a read-only `containsItem` method, but initially created
   Milk without calling `add`, producing `false` for both searches before correction.
   Later independently declared `addUses` mutating and invoked it on a `var` store;
-  the submitted code was not yet reported as run.
+  learner-reported execution reached the final completion marker after all checks.
 - Enums and exhaustive `switch` — INDEPENDENT in narrow prior result-modeling
   tasks; GUIDED for the new Rename requirements.
   Designed `RemoveResult` and its exhaustive caller-side switch, then on the next
@@ -80,8 +83,9 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   associated data. Added names/ID after a reminder, then independently wrote the
   exhaustive caller-side switch with exact predicted and reported output. For
   `addUses`, independently selected a three-case `AddResult` and exhaustively
-  handled it, but the success case carried the increment rather than the explicitly
-  required updated remaining-use total.
+  handled it, but initially carried the increment rather than the required updated
+  total. After feedback, revised success to carry the ID and updated total, unknown
+  failure to carry the ID, and used synthesized `Equatable` for result assertions.
 - Guard statements and optional binding — GUIDED overall, with one independent
   reuse. Initially interpreted a
   `firstIndex` result as Bool and again wrote an inverted `guard index == nil`,
@@ -139,10 +143,12 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   In the pass-store lab, initially checked all return values and only the final
   state. After an example of placing assertions directly after an operation,
   completed checks for both successful uses, exhaustion, and an absent unknown ID;
-  learner reported all checks passing. The later `addUses` attempt again supplied
-  prints and only one final-state observation rather than result/state checks after
-  each operation; zero, negative, validation-precedence, and unknown-key absence
-  tests were missing. Independent test sequencing remains open.
+  learner reported all checks passing. In the later `addUses` attempt, initially
+  treated prints as checks, omitted cases, delayed assertions, changed the assigned
+  ID, and omitted absent-key evidence. With a six-block outline and one complete
+  assertion example, then wrote immediate result/state assertions for all six
+  operations, including two `P404 == nil` checks; learner reported
+  `All checks complete.` Independent test derivation remains open.
 - Dictionaries — GUIDED. Can declare and mutate `[String: Int]`, distinguish
   insertion/update/removal, predict count changes after correction, assert lookup
   outcomes, and use `if let` for present/missing keys. Initially treated a present
@@ -152,16 +158,28 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   Independently combined a dictionary key predicate with Set membership for
   `canCheckIn`; changed to direct key lookup after a hint. Used dictionary-subscript
   mutation to repair `PassStore` after the local-copy bug was explained. Reused
-  dictionary lookup and direct subscript mutation in the later `addUses` attempt
-  without repeating the earlier local-copy mistake, though that code was not yet
-  reported as executed.
+  dictionary lookup and direct subscript mutation in `addUses` without repeating
+  the local-copy mistake; learner-reported assertions verified the stored value and
+  absence of an unknown key after both relevant failure paths.
 - Sets — INDEPENDENT for membership checks in a small eligibility function.
   Correctly excluded already-checked-in IDs using `!checkedInIDs.contains(id)`
   without a supplied operation. Set construction/mutation remains assessed only
   through simple predictions and learner-reported runs.
-- SwiftUI local state — RECOGNIZED with correct simple behavior predictions,
-  including a fresh launch resetting the example counter. View implementation
-  has not been assessed.
+- SwiftUI local state — INDEPENDENT for a small single-view counter implementation;
+  GUIDED for the update/lifetime explanation. Independently selected `@State`,
+  built and ran title/count/add/reset UI, made the property private, and reported
+  two increments, reset, and a termination/relaunch reset. Needed explanation that
+  the action closure mutates state, SwiftUI reevaluates `body`, and `@State` is not
+  persistent storage. A wrong two-tap prediction came from reading "twice" as
+  "once," not from believing two increments yield one.
+- SwiftUI binding to a control — INDEPENDENT for narrow implementation and
+  predictions; GUIDED conceptual explanation. Independently supplied `$name` to a
+  `TextField`, ran it, and correctly predicted typing, clearing, and relaunch
+  behavior. Initially described `name` and `$name` as separate wrapper values and
+  hypothesized memory transfer between views. Instruction established that `name`
+  is the `String` value, `$name` is a `Binding<String>` get/set connection to the
+  same owner storage, and no custom child view is present. The follow-up type and
+  data-flow explanation remains unanswered.
 - Xcode — learner reports repeatedly executing the session's Swift snippets and
   supplied outputs matching the code's validation and model branches. Workflow
   and console were not directly observed.
@@ -195,11 +213,9 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Instructional implications
 
-Resume by having the learner revise the existing `PassStore.addUses` attempt so
-success carries the updated stored total, then derive and run checks immediately
-after every operation. Require invalid text, zero, negative, valid unknown ID, and
-invalid-amount-plus-unknown-ID cases, including unchanged state and absent-key
-evidence. Do not supply the implementation. Use the completed revision to judge
-Phase 1 readiness; the current partial feature does not clear the milestone.
-Reassess associated-value design, requirement tracing, assertion placement, and
-Git after meaningful spacing.
+Resume with the three unanswered value-versus-binding questions in
+`labs/2026-09-28-swiftui-binding-probe.md`, then use a bound text field as the first
+input for the guided practice app. Keep requirement tracing and automated
+verification active: after spacing, assign an unfamiliar feature without a
+supplied matrix or assertion structure. Reassess associated-value design,
+assertion placement, value semantics, and Git after meaningful spacing.

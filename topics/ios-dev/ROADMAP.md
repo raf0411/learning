@@ -6,17 +6,24 @@ Baseline: 16 weeks at 25 hours/week, approximately 400 planned hours. Assess
 application readiness from week 12 (approximately 300 hours). These are planning
 estimates, not automatic mastery or hiring deadlines. See GOAL.md for constraints.
 
-Current position: Phase 1 consolidation in progress. The in-memory model has
+Current position: the Phase 1 practical milestone is complete at a mixed
+independent/guided level, and the learner is ready to begin the guided SwiftUI
+practice app. The in-memory model has
 validated Add, exact-name Remove, quantity-threshold Remove, quantity Update,
 all-match filtering, and a guided six-result Rename change behind a `private(set)`
 array. Introductory Git, assertions, dictionaries, and sets have been practiced.
 Event eligibility/status and a guided pass-store debugging lab are complete,
-including checks after each mutation. The learner has attempted
-`PassStore.addUses(id:amountText:)`: validation order and stored dictionary mutation
-were correct, but success returned the increment rather than the updated total and
-the tests did not yet prove every failure preserves state. Next is the unscaffolded
-revision and requirement-derived verification. Use the completed evidence to assess
-readiness for the guided SwiftUI practice app. No curriculum milestone is complete.
+including checks after each mutation. `PassStore.addUses(id:amountText:)` now
+returns the updated total and has learner-reported passing result/state assertions
+for six success and failure paths. That verification required repeated corrections,
+a supplied six-block outline, and one complete assertion example, so independent
+requirement-derived testing remains an active review skill during Phase 2.
+The Phase 2 entry probe is complete: the learner independently implemented a
+single-view `@State` counter, while the body-update and state-lifetime explanation
+needed guidance. The learner also independently connected a `TextField` using
+`$name` and predicted its behavior; the distinction between the owned `String` and
+its projected `Binding<String>` was taught, with the follow-up explanation pending.
+Next is to finish that explanation and use bound input in the practice app.
 
 ## Dependencies
 

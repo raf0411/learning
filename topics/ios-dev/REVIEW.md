@@ -1,5 +1,29 @@
 # REVIEW
 
+## SwiftUI local state and view updates
+
+- Stage: INDEPENDENT for a small single-view implementation; GUIDED explanation.
+- Last evidence: 2026-09-28; independently built and ran an `@State` counter with
+  add/reset behavior and private ownership. Needed instruction to explain that the
+  action closure mutates state, SwiftUI reevaluates `body`, and termination loses
+  nonpersistent state.
+- Next test: after spacing, implement a different view-local interaction and
+  explain mutation, body reevaluation, view identity, and relaunch behavior without
+  being prompted to use `@State`.
+- Goal: retain both implementation and the declarative update mental model.
+
+## SwiftUI value and binding distinction
+
+- Stage: INDEPENDENT for a narrow `TextField` implementation; GUIDED explanation.
+- Last evidence: 2026-09-28; independently used `$name`, ran the view, and correctly
+  predicted typing, clearing, and relaunch behavior. Initially described `name` and
+  `$name` as separate wrappers and guessed that state memory transfers between
+  views; received instruction on `String` versus projected `Binding<String>`.
+- Next test: first complete the pending type/flow explanation in the binding probe;
+  after spacing, connect another writable control without being told to use `$`.
+- Goal: identify the owner, distinguish value from get/set connection, and trace a
+  control write through state change to body reevaluation.
+
 ## Combine iteration, a predicate, and conditional output
 
 - Stage: INDEPENDENT in a narrow exact-name search; not yet retained.
@@ -14,12 +38,11 @@
 ## Requirement trace and exact observable results
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-28; for `addUses`, skipped the requested pre-code trace and
-  submitted code plus predicted prints. Validation order was correct, but success
-  carried the increment rather than the required updated total. Tests omitted
-  intermediate state, zero, negative, precedence, and unknown-key absence checks.
-- Next test: complete the current feature with a full input/result/state prediction
-  and checks after each operation, without supplied assertion conditions.
+- Last evidence: 2026-09-28; completed the `addUses` input/result/state matrix and
+  six-path verification, but only after multiple exactness corrections, a supplied
+  test-block outline, and one complete assertion example.
+- Next test: after spacing, derive the behavioral matrix and checks for an
+  unfamiliar feature without supplied cases, assertion conditions, or sequencing.
 - Goal: make the code, test input, exact predicted output, and requirement agree.
 
 ## Enums and exhaustive switching
@@ -27,8 +50,9 @@
 - Stage: GUIDED for consistently capturing required data; INDEPENDENT for narrow
   exhaustive caller-side switches. Not yet retained.
 - Last evidence: 2026-09-28; independently chose a three-case `AddResult` and wrote
-  its exhaustive output switch, but modeled success with the amount added rather
-  than the explicitly required updated remaining-use value.
+  its exhaustive output switch, initially modeled success with the increment, then
+  revised it after feedback to carry the ID and updated total. Added `Equatable`
+  for direct result assertions.
 - Next test: after meaningful spacing, require another unfamiliar finite result and
   exhaustive handling without naming enums or associated values in the prompt.
 - Goal: verify retained selection and use of a finite result type.
@@ -37,9 +61,8 @@
 
 - Stage: GUIDED.
 - Last evidence: 2026-09-28; independently wrote a text-to-positive-Int helper,
-  bound its optional result, used the unwrapped amount, and handled failed or
-  nonpositive conversion before dictionary lookup. Submitted code was not yet
-  reported as executed.
+  bound and used its result before dictionary lookup, and learner-reported passing
+  checks for invalid text, zero, negative input, and validation precedence.
 - Next test: after spacing, present an unfamiliar text-to-value boundary and require
   independent conversion, failure handling, and use of the unwrapped value.
 - Goal: establish independent optional handling and distinguish original input,
@@ -49,8 +72,8 @@
 
 - Stage: GUIDED.
 - Last evidence: 2026-09-28; independently declared `addUses` as `mutating`, changed
-  dictionary state, and called it on a `var` store. The code was not yet reported
-  as executed; the `let`-instance distinction has not been reassessed.
+  dictionary state, called it on a `var` store, and learner-reported successful
+  execution. The `let`-instance distinction has not been reassessed.
 - Next test: after spacing, ask the learner to diagnose or implement a struct method
   that changes stored state, including the effect of declaring the instance `let`.
 - Goal: independently identify when both `mutating` and a mutable instance are
@@ -119,23 +142,23 @@
 ## Development assertions
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-28; initially placed all four pass-use calls before checks,
-  verifying only return values and final state. After one complete example,
-  interleaved calls with result/state assertions and verified unknown-ID absence.
-  Reported `All checks complete` followed by the explicitly printed final zero.
-  In the later `addUses` attempt, returned to prints plus a single final-state check
-  and omitted several required cases.
-- Next test: complete `addUses` by deriving checks from every behavioral requirement,
-  including failure paths that prove state is unchanged and unknown keys stay absent.
+- Last evidence: 2026-09-28; in `addUses`, initially treated prints as checks,
+  omitted two cases, delayed assertions, and missed absent-key evidence. After a
+  six-block outline and one supplied assertion example, interleaved complete result
+  and state assertions for all six operations, including two absent-key checks;
+  learner reported `All checks complete.`
+- Next test: after spacing, independently derive and sequence checks for a different
+  state-changing feature without an assertion example.
 - Goal: independently turn behavior and invariants into useful automated checks.
 
 ## Dictionaries and sets
 
 - Stage: GUIDED for direct dictionary lookup; INDEPENDENT for narrow Set membership
   use in a function. Broader collection fluency remains guided.
-- Last evidence: 2026-09-28; the `addUses` code independently used dictionary lookup
-  for existence and direct subscript mutation for stored state, avoiding the prior
-  local-copy bug. Execution and complete post-operation state checks are pending.
+- Last evidence: 2026-09-28; `addUses` used dictionary lookup for existence and
+  direct subscript mutation for stored state, avoiding the prior local-copy bug.
+  Learner-reported assertions verified the stored total and that `P404` stayed
+  absent after valid-unknown and invalid-unknown operations.
 - Next test: after spacing, choose collection operations for another keyed-record
   and membership task without supplied types or lookup hints.
 - Goal: independently select and combine keyed lookup with unique membership.
