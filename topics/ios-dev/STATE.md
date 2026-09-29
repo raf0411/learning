@@ -1,9 +1,9 @@
 # STATE
 
-Updated: 2026-09-29 — completed the guided SwiftUI ShoppingList integration:
-view-owned model state, model-derived count, enum-driven feedback, success-only
-draft clearing, and controlled success/failure verification. Collection rows are
-the next learning edge.
+Updated: 2026-09-29 — completed guided ShoppingList integration, identifiable
+collection rows, a read-only child row, and child-to-parent Remove actions. Correctly
+classified cross-view bindings for editable drafts and an action for Add; the child
+entry-form implementation is assigned but not yet demonstrated.
 
 ## Evidence limits
 
@@ -182,7 +182,10 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   same owner storage, and no custom child view is present. On 2026-09-29, correctly
   identified both types and the owner; the write-to-render sequence needed further
   explanation. Then correctly predicted that a button assigning `Guest` updates
-  both the greeting and bound field, explaining their shared value.
+  both the greeting and bound field, explaining their shared value. Later correctly
+  chose bindings for name and quantity in a proposed child entry form and an action
+  closure for Add, explaining that the parent remains the source of truth. The
+  cross-view implementation remains pending.
 - SwiftUI draft versus accepted data — INDEPENDENT for selecting and explaining
   two private state properties and implementing the successful submission path;
   GUIDED for invalid-input behavior and verification. After feedback, placed both
@@ -201,6 +204,21 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   state across two successes and three failures. Initially predicted that the final
   successful Oats submission would retain its drafts, then corrected the observation
   to empty fields; the source confirmed success-only clearing.
+- SwiftUI collection rendering and identity — GUIDED. After an explanation of
+  stable identity, correctly predicted that editing an item's name or quantity
+  preserves its UUID while removal and recreation produces a new identity. Added
+  a stored UUID through `Identifiable`, rendered the model array with `ForEach`,
+  and learner-reported three initial rows, an appended Rice row after success,
+  and unchanged rows after a duplicate failure. The row count and rows both read
+  from the same model array.
+- SwiftUI child views and upward actions — GUIDED. Extracted a read-only
+  `ShoppingItemRow`, observed the compiler reject mutation of its `let` item, and
+  explained that parent state change produces new child descriptions from current
+  values. Then passed an `onRemove: () -> Void` action into each row; the child
+  called it once while the parent invoked the model's Remove method, exhaustively
+  handled the result, and retained ownership. The first pasted source omitted the
+  button trigger despite reported results; after review, supplied source showing
+  the button and single closure call.
 - Xcode — learner reports repeatedly executing the session's Swift snippets and
   supplied outputs matching the code's validation and model branches. Workflow
   and console were not directly observed.
@@ -213,8 +231,9 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Current gaps and uncertainties
 
-- Rendering a model collection as dynamic SwiftUI rows — UNKNOWN.
-- State shared between SwiftUI views — UNKNOWN.
+- Writable state shared from a parent into child controls — correctly classified
+  conceptually; cross-view declaration, construction, and runtime flow remain
+  unassessed in the pending entry-form lab.
 - Networking request-to-display flow — UNKNOWN.
 - Translating every detail of a requirement into code and test setup remains
   inconsistent. The learner has omitted requested output details, used an
@@ -235,10 +254,9 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Instructional implications
 
-Probe prior exposure to SwiftUI collection rendering, then introduce one row per
-`ShoppingItem`. Connect row identity to SwiftUI's need to distinguish elements and
-verify that successful Add updates both the count and visible rows while failures
-leave the collection unchanged.
+Contrast read-only values, bindings, and action closures, then extract the entry
+controls into a child view. Keep the parent as owner of drafts and ShoppingList;
+use bindings only for draft editing and an action closure for Add submission.
 Keep requirement tracing and automated verification active: after spacing,
 assign an unfamiliar feature without a supplied matrix or assertion structure.
 Reassess associated-value design, assertion placement, value semantics, and Git

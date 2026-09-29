@@ -20,11 +20,37 @@
 - Last evidence: 2026-09-29; identified String, Binding<String>, and the owner.
   After further explanation of the update path, correctly predicted a button-driven
   change in both the field and greeting, explaining their shared state. Independently
-  bound a separate draft property in the shopping-entry exercise.
+  bound a separate draft property in the shopping-entry exercise. Later correctly
+  chose bindings for two proposed child fields and an action closure for Add, but
+  has not yet implemented or run that cross-view interface.
 - Next test: after spacing, connect another writable control without being told
   to use `$`, and explain changes initiated by either the control or its owner.
 - Goal: identify the owner, distinguish value from get/set connection, and trace a
   control write through state change to body reevaluation.
+
+## SwiftUI collection rendering and stable identity
+
+- Stage: GUIDED.
+- Last evidence: 2026-09-29; after instruction on `Identifiable`, correctly
+  distinguished stable UUID identity from editable name/quantity, implemented
+  `ForEach` over the model array, and learner-reported correct append and
+  duplicate-no-change row behavior.
+- Next test: after spacing, render an unfamiliar identifiable collection and
+  explain how edit, removal, insertion, and recreation affect row identity.
+- Goal: independently choose stable identity and render model-derived rows without
+  parallel UI state.
+
+## SwiftUI parent-child ownership and actions
+
+- Stage: GUIDED.
+- Last evidence: 2026-09-29; extracted a read-only item row, observed compiler
+  rejection of mutation through a `let` value, and passed a no-argument Remove
+  closure from the parent. Learner-reported correct row/count changes while the
+  parent retained model mutation and result handling.
+- Next test: after spacing, choose between a read-only value, binding, and action
+  closure for an unfamiliar child-view interface without the mechanism being named.
+- Goal: keep source-of-truth ownership clear while allowing child display, editing,
+  and event reporting through appropriately narrow interfaces.
 
 ## Rejected input and unchanged state
 
