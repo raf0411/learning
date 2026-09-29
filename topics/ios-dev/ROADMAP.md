@@ -7,8 +7,8 @@ application readiness from week 12 (approximately 300 hours). These are planning
 estimates, not automatic mastery or hiring deadlines. See GOAL.md for constraints.
 
 Current position: the Phase 1 practical milestone is complete at a mixed
-independent/guided level, and the learner is ready to begin the guided SwiftUI
-practice app. The in-memory model has
+independent/guided level, and the guided SwiftUI practice app is underway.
+The in-memory model has
 validated Add, exact-name Remove, quantity-threshold Remove, quantity Update,
 all-match filtering, and a guided six-result Rename change behind a `private(set)`
 array. Introductory Git, assertions, dictionaries, and sets have been practiced.
@@ -18,12 +18,12 @@ returns the updated total and has learner-reported passing result/state assertio
 for six success and failure paths. That verification required repeated corrections,
 a supplied six-block outline, and one complete assertion example, so independent
 requirement-derived testing remains an active review skill during Phase 2.
-The Phase 2 entry probe is complete: the learner independently implemented a
-single-view `@State` counter, while the body-update and state-lifetime explanation
-needed guidance. The learner also independently connected a `TextField` using
-`$name` and predicted its behavior; the distinction between the owned `String` and
-its projected `Binding<String>` was taught, with the follow-up explanation pending.
-Next is to finish that explanation and use bound input in the practice app.
+Phase 2 entry work is complete: a local-state counter, a bound text field, and
+separate draft/accepted state. Implementation was partly independent; update-flow
+explanation, invalid-input handling, and verification needed guidance. Current
+step: connect name/quantity drafts to the existing ShoppingList model, display
+AddResult feedback and a model-derived count, then introduce collection rows.
+The model is supplied; the integration implementation and predictions are pending.
 
 ## Dependencies
 

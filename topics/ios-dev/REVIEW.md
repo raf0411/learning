@@ -3,10 +3,10 @@
 ## SwiftUI local state and view updates
 
 - Stage: INDEPENDENT for a small single-view implementation; GUIDED explanation.
-- Last evidence: 2026-09-28; independently built and ran an `@State` counter with
-  add/reset behavior and private ownership. Needed instruction to explain that the
-  action closure mutates state, SwiftUI reevaluates `body`, and termination loses
-  nonpersistent state.
+- Last evidence: 2026-09-29; independently chose two private state properties for
+  draft and accepted data and explained their separation. Correctly predicted a
+  button-driven greeting change; the full update path and rejected-input behavior
+  needed guidance. Earlier counter runs covered reset and termination/relaunch.
 - Next test: after spacing, implement a different view-local interaction and
   explain mutation, body reevaluation, view identity, and relaunch behavior without
   being prompted to use `@State`.
@@ -15,14 +15,25 @@
 ## SwiftUI value and binding distinction
 
 - Stage: INDEPENDENT for a narrow `TextField` implementation; GUIDED explanation.
-- Last evidence: 2026-09-28; independently used `$name`, ran the view, and correctly
-  predicted typing, clearing, and relaunch behavior. Initially described `name` and
-  `$name` as separate wrappers and guessed that state memory transfers between
-  views; received instruction on `String` versus projected `Binding<String>`.
-- Next test: first complete the pending type/flow explanation in the binding probe;
-  after spacing, connect another writable control without being told to use `$`.
+- Last evidence: 2026-09-29; identified String, Binding<String>, and the owner.
+  After further explanation of the update path, correctly predicted a button-driven
+  change in both the field and greeting, explaining their shared state. Independently
+  bound a separate draft property in the shopping-entry exercise.
+- Next test: after spacing, connect another writable control without being told
+  to use `$`, and explain changes initiated by either the control or its owner.
 - Goal: identify the owner, distinguish value from get/set connection, and trace a
   control write through state change to body reevaluation.
+
+## Rejected input and unchanged state
+
+- Stage: GUIDED.
+- Last evidence: 2026-09-29; repaired blank-input handling after feedback, then
+  needed a trace distinguishing a trimmed local value from the original draft and
+  skipped assignments. Reported count 3 and preserved Bread after a controlled run
+  with a supplied character-count display.
+- Next test: during a later input feature, independently predict and verify both
+  draft and accepted data after rejected input; establish exact test preconditions.
+- Goal: reason from executed branches and verify invisible input without guessing.
 
 ## Combine iteration, a predicate, and conditional output
 

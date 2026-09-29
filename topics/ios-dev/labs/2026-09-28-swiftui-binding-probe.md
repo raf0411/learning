@@ -135,13 +135,13 @@ Complete without running code:
 
 1. What is the type and job of `name`?
 
-   > TODO
+   > String, to store the name variable as a String and be able to let Swift UI mutate it whenever its needed
 
 2. What is the type and job of `$name`?
 
-   > TODO
+   > Binding<String> , give another ui component a get/set connection to that same value
 
 3. When the user types `A`, which view owns the storage, and what path causes the
    greeting to change?
 
-   > TODO
+> NameEntryView, idk what u meant by path, but im guessing the TextField text: $name is cuasing the greeting to change

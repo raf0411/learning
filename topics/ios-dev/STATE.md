@@ -1,8 +1,8 @@
 # STATE
 
-Updated: 2026-09-28 — completed the `PassStore.addUses` checkpoint with guided
-requirement tracing and verification; ready to begin guided SwiftUI practice while
-retesting requirement-derived assertions after spacing.
+Updated: 2026-09-29 — completed the SwiftUI draft/accepted-name checkpoint with
+guided invalid-input repair and controlled verification. Existing shopping-list
+model and helper supplied; screen integration assigned but not yet demonstrated.
 
 ## Evidence limits
 
@@ -178,8 +178,17 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   behavior. Initially described `name` and `$name` as separate wrapper values and
   hypothesized memory transfer between views. Instruction established that `name`
   is the `String` value, `$name` is a `Binding<String>` get/set connection to the
-  same owner storage, and no custom child view is present. The follow-up type and
-  data-flow explanation remains unanswered.
+  same owner storage, and no custom child view is present. On 2026-09-29, correctly
+  identified both types and the owner; the write-to-render sequence needed further
+  explanation. Then correctly predicted that a button assigning `Guest` updates
+  both the greeting and bound field, explaining their shared value.
+- SwiftUI draft versus accepted data — INDEPENDENT for selecting and explaining
+  two private state properties and implementing the successful submission path;
+  GUIDED for invalid-input behavior and verification. After feedback, placed both
+  assignments inside a nonempty check. Initially still expected blank submission
+  to clear both values; after tracing and adding a supplied character-count label,
+  reported count 3 and `Last added: Bread` after a controlled three-space attempt.
+  Observation accuracy and independent failure-path reasoning need further practice.
 - Xcode — learner reports repeatedly executing the session's Swift snippets and
   supplied outputs matching the code's validation and model branches. Workflow
   and console were not directly observed.
@@ -192,6 +201,8 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Current gaps and uncertainties
 
+- SwiftUI ownership and mutation of a whole ShoppingList struct — introduced;
+  implementation and predictions remain unassessed in the pending integration lab.
 - State shared between SwiftUI views — UNKNOWN.
 - Networking request-to-display flow — UNKNOWN.
 - Translating every detail of a requirement into code and test setup remains
@@ -213,9 +224,11 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Instructional implications
 
-Resume with the three unanswered value-versus-binding questions in
-`labs/2026-09-28-swiftui-binding-probe.md`, then use a bound text field as the first
-input for the guided practice app. Keep requirement tracing and automated
-verification active: after spacing, assign an unfamiliar feature without a
-supplied matrix or assertion structure. Reassess associated-value design,
-assertion placement, value semantics, and Git after meaningful spacing.
+Resume `labs/2026-09-29-shopping-model-connection.md` at the implementation and
+prediction sections. The model and `validNumber(number:)` are now in that file;
+the integration view and tables remain TODO. Connect drafts to the model's Add
+method, derive count from its array, and show result feedback before adding rows.
+Keep requirement tracing and automated verification active: after spacing,
+assign an unfamiliar feature without a supplied matrix or assertion structure.
+Reassess associated-value design, assertion placement, value semantics, and Git
+after meaningful spacing.
