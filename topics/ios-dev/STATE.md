@@ -1,8 +1,9 @@
 # STATE
 
-Updated: 2026-09-29 — completed the SwiftUI draft/accepted-name checkpoint with
-guided invalid-input repair and controlled verification. Existing shopping-list
-model and helper supplied; screen integration assigned but not yet demonstrated.
+Updated: 2026-09-29 — completed the guided SwiftUI ShoppingList integration:
+view-owned model state, model-derived count, enum-driven feedback, success-only
+draft clearing, and controlled success/failure verification. Collection rows are
+the next learning edge.
 
 ## Evidence limits
 
@@ -189,6 +190,17 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   to clear both values; after tracing and adding a supplied character-count label,
   reported count 3 and `Last added: Bread` after a controlled three-space attempt.
   Observation accuracy and independent failure-path reasoning need further practice.
+- SwiftUI model state and result-driven UI — GUIDED. Stored the supplied
+  `ShoppingList` struct in private view-owned `@State`, bound two draft strings,
+  derived the displayed count from `shoppingList.list.count`, called the model's
+  Add method once, and handled all `AddResult` cases in the view. The first attempt
+  replaced the required three-item setup with an empty array and inferred success
+  from status text. After explicit feedback, restored the setup, switched directly
+  on the enum, preserved drafts on all failures, and cleared them only in `.added`.
+  Learner-reported rerun matched counts, messages, validation precedence, and draft
+  state across two successes and three failures. Initially predicted that the final
+  successful Oats submission would retain its drafts, then corrected the observation
+  to empty fields; the source confirmed success-only clearing.
 - Xcode — learner reports repeatedly executing the session's Swift snippets and
   supplied outputs matching the code's validation and model branches. Workflow
   and console were not directly observed.
@@ -201,8 +213,7 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Current gaps and uncertainties
 
-- SwiftUI ownership and mutation of a whole ShoppingList struct — introduced;
-  implementation and predictions remain unassessed in the pending integration lab.
+- Rendering a model collection as dynamic SwiftUI rows — UNKNOWN.
 - State shared between SwiftUI views — UNKNOWN.
 - Networking request-to-display flow — UNKNOWN.
 - Translating every detail of a requirement into code and test setup remains
@@ -224,10 +235,10 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Instructional implications
 
-Resume `labs/2026-09-29-shopping-model-connection.md` at the implementation and
-prediction sections. The model and `validNumber(number:)` are now in that file;
-the integration view and tables remain TODO. Connect drafts to the model's Add
-method, derive count from its array, and show result feedback before adding rows.
+Probe prior exposure to SwiftUI collection rendering, then introduce one row per
+`ShoppingItem`. Connect row identity to SwiftUI's need to distinguish elements and
+verify that successful Add updates both the count and visible rows while failures
+leave the collection unchanged.
 Keep requirement tracing and automated verification active: after spacing,
 assign an unfamiliar feature without a supplied matrix or assertion structure.
 Reassess associated-value design, assertion placement, value semantics, and Git

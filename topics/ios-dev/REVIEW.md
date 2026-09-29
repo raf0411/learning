@@ -2,11 +2,13 @@
 
 ## SwiftUI local state and view updates
 
-- Stage: INDEPENDENT for a small single-view implementation; GUIDED explanation.
-- Last evidence: 2026-09-29; independently chose two private state properties for
-  draft and accepted data and explained their separation. Correctly predicted a
-  button-driven greeting change; the full update path and rejected-input behavior
-  needed guidance. Earlier counter runs covered reset and termination/relaunch.
+- Stage: INDEPENDENT for a small single-view implementation; GUIDED for explanation
+  and whole-model integration.
+- Last evidence: 2026-09-29; connected a supplied ShoppingList struct to private
+  view-owned state, derived its count, and learner-reported correct UI changes for
+  success and failure paths. Required explicit correction after replacing the
+  assigned initial data and using status-message text to infer success. Earlier
+  counter runs covered reset and termination/relaunch.
 - Next test: after spacing, implement a different view-local interaction and
   explain mutation, body reevaluation, view identity, and relaunch behavior without
   being prompted to use `@State`.

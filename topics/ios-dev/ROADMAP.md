@@ -21,9 +21,11 @@ requirement-derived testing remains an active review skill during Phase 2.
 Phase 2 entry work is complete: a local-state counter, a bound text field, and
 separate draft/accepted state. Implementation was partly independent; update-flow
 explanation, invalid-input handling, and verification needed guidance. Current
-step: connect name/quantity drafts to the existing ShoppingList model, display
-AddResult feedback and a model-derived count, then introduce collection rows.
-The model is supplied; the integration implementation and predictions are pending.
+step: the supplied ShoppingList is now connected to view-owned state with
+AddResult feedback, a model-derived count, success-only draft clearing, and a
+learner-reported five-path run. The integration required guidance to preserve the
+assigned initial model and branch on the enum rather than message text. Introduce
+collection rows next.
 
 ## Dependencies
 
