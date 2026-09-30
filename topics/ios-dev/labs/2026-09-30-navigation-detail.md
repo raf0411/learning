@@ -1,55 +1,50 @@
-# Extract a child entry form with bindings
+# Navigate from the shopping list to item details
 
 ## Learning target
 
-Let a child view edit two parent-owned draft strings while the parent retains the
-ShoppingList and performs Add through an action closure.
+Add a read-only detail screen without changing ownership of the shopping list.
 
-## Interface reasoning
-
-Learner choices:
-
-1. Name draft — binding, so child edits update the parent.
-2. Quantity draft — binding, for the same reason.
-3. Add tap — action closure, so the parent still performs model mutation.
-
-These choices are correct. More precisely, a binding is a get/set connection to
-the parent's storage rather than a copied source value.
+`NavigationStack` is more than a container that permits navigation: it manages
+the current navigation history. A `NavigationLink` describes a destination and
+the label the user selects to reach it.
 
 ```text
-Child TextField -- writes through Binding --> parent @State draft
-Child Add button -- calls action closure ---> parent Add logic
-Parent clears draft -- updates @State ------> child TextField displays empty
+NavigationStack
+|
++-- Shopping-list screen
+    |
+    +-- NavigationLink for Eggs ----pushes----> Eggs detail screen
+                                               |
+                                               +-- Back returns to the list
 ```
 
-## New syntax
+The existing ownership should remain:
 
-A child declares a binding property with `@Binding`:
-
-```swift
-@Binding var name: String
+```text
+ContentView owns ShoppingList
+    |
+    +-- ShoppingItemRow receives one read-only ShoppingItem
+            |
+            +-- ShoppingItemDetailView receives one read-only ShoppingItem
 ```
 
-Inside that child, `name` is the current String value and `$name` is the binding
-passed to controls such as `TextField`. When constructing the child, the parent
-passes its projected binding, such as `$name`.
+## Build the navigation
 
-## Build the child form
+Modify the current Xcode code while preserving the existing Add and Remove
+behavior.
 
-Refactor the current screen:
+1. Create `ShoppingItemDetailView: View` with `let item: ShoppingItem`.
+2. Display the heading `Item details`, the item's name, and its quantity.
+3. Wrap the shopping-list interface in a `NavigationStack`.
+4. Give the list screen the navigation title `Shopping List`.
+5. In `ShoppingItemRow`, make the item text the label of a `NavigationLink` whose
+   destination is `ShoppingItemDetailView(item: item)`.
+6. Keep the Remove button beside the link, not inside its label.
+7. Give the detail screen a navigation title derived from the item's name.
+8. Do not add `@State`, `@Binding`, the whole list, or a mutation action to the
+   detail screen.
 
-1. Create `ShoppingEntryForm: View`.
-2. Give it two binding properties named `name` and `quantity`.
-3. Give it an `onAdd: () -> Void` action.
-4. Move both TextFields and the Add button into the child.
-5. Bind the child's TextFields to its two binding properties.
-6. The child Add button calls `onAdd()` exactly once.
-7. In `ContentView`, construct the child with bindings to the existing parent
-   drafts and a closure containing the existing Add/result-switch logic.
-8. Keep `ShoppingList`, `status`, the count, and all rows in `ContentView`.
-9. Do not create new draft, list, count, or status state in the child.
-
-Paste the child and the parent's `ShoppingEntryForm(...)` construction:
+Paste only these three updated pieces:
 
 ```swift
 import SwiftUI
@@ -236,53 +231,56 @@ struct ContentView: View {
     @State private var status: String = "Ready to add an item."
     
     var body: some View {
-        VStack(spacing: 32) {
-            
-            ShoppingEntryForm(
-                name: $name,
-                quantity: $quantity,
-                onAdd: {
-                    let result = shoppingList.add(name: name, quantityText: quantity)
-                    
-                    switch result {
-                    case .added(let name, let quantity):
-                        status = "Added \(name) (quantity: \(quantity))."
-                        self.name = ""
-                        self.quantity = ""
-                    case .emptyName:
-                        status = "Name cannot be empty."
-                    case .duplicateName(let name):
-                        status = "\(name) already exists."
-                    case .invalidQuantity:
-                        status = "Quantity must be a positive whole number."
-                    }
-                })
-            
-            Text("Items: \(shoppingList.list.count)")
-            
-            Text(status)
-            
-            VStack {
-                ForEach(shoppingList.list) { item in
-                    ShoppingItemRow(
-                        item: item,
-                        onRemove: {
-                            let result = shoppingList.remove(name: item.name)
-                            
-                            switch result {
-                            case .removed(let name, let remainingCount):
-                                status = "Removed \(name). \(remainingCount) items remain."
-                            case .emptyName:
-                                status = "Name cannot be empty."
-                            case .notFound(let name):
-                                status = "\(name) was not found."
-                            }
+        NavigationStack {
+            VStack(spacing: 32) {
+                
+                ShoppingEntryForm(
+                    name: $name,
+                    quantity: $quantity,
+                    onAdd: {
+                        let result = shoppingList.add(name: name, quantityText: quantity)
+                        
+                        switch result {
+                        case .added(let name, let quantity):
+                            status = "Added \(name) (quantity: \(quantity))."
+                            self.name = ""
+                            self.quantity = ""
+                        case .emptyName:
+                            status = "Name cannot be empty."
+                        case .duplicateName(let name):
+                            status = "\(name) already exists."
+                        case .invalidQuantity:
+                            status = "Quantity must be a positive whole number."
                         }
-                    )
+                    })
+                
+                Text("Items: \(shoppingList.list.count)")
+                
+                Text(status)
+                
+                VStack {
+                    ForEach(shoppingList.list) { item in
+                        ShoppingItemRow(
+                            item: item,
+                            onRemove: {
+                                let result = shoppingList.remove(name: item.name)
+                                
+                                switch result {
+                                case .removed(let name, let remainingCount):
+                                    status = "Removed \(name). \(remainingCount) items remain."
+                                case .emptyName:
+                                    status = "Name cannot be empty."
+                                case .notFound(let name):
+                                    status = "\(name) was not found."
+                                }
+                            }
+                        )
+                    }
                 }
             }
+            .navigationTitle("Shopping List")
+            .padding()
         }
-        .padding()
     }
 }
 
@@ -293,10 +291,13 @@ struct ShoppingItemRow: View {
     
     var body: some View {
         HStack {
-            Text("\(item.name) — quantity: \(item.quantity)")
+            NavigationLink("\(item.name) — quantity: \(item.quantity)", destination: {ShoppingItemDetailView(item: item)})
+                .buttonStyle(.bordered)
+            
             Button("Remove", action: {
                 onRemove()
             })
+            .buttonStyle(.borderedProminent)
         }
     }
 }
@@ -324,40 +325,51 @@ struct ShoppingEntryForm: View {
     }
 }
 
+struct ShoppingItemDetailView: View {
+    let item: ShoppingItem
+    
+    var body: some View {
+        VStack {
+            Text("Item details")
+                .font(.title)
+                .bold()
+            
+            Spacer()
+            
+            Text("Name: \(item.name) | Quantity: \(item.quantity)")
+            
+            Spacer()
+        }
+        .navigationTitle(item.name)
+    }
+}
+
 #Preview {
     ContentView()
 }
-
 ```
 
 ## Predict before running
 
-Start from a fresh run and perform the attempts in order. Fill the prediction
-table before running.
+Use a fresh launch. Fill this table before running and leave the Actual column as
+`TODO` until the source and predictions are reviewed.
 
-| Moment                                   | Predicted count | Predicted status          | Predicted child fields afterward |
-| ---------------------------------------- | --------------- | ------------------------- | -------------------------------- |
-| Launch                                   | 3               | Ready to add an item.     | "" / ""                          |
-| Enter `"  Rice  "` / `"2"`, then tap Add | 4               | Added Rice (quantity: 2). | "" / ""                          |
-| Enter `"Milk"` / `"99"`, then tap Add    | 4               | Milk already exists.      | "Milk" / "99"                    |
+| Step                                                     | Prediction                                        | Actual                                            |
+| -------------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
+| Launch: visible screen title and item count              | Shopping List / 3                                 | Shopping List / 3                                 |
+| Tap the Eggs item text: visible screen title and content | Eggs / Item details / Name: Eggs \| Quantity: 6   | Eggs / Item details / Name: Eggs \| Quantity: 6   |
+| Use Back: visible screen and item count                  | Shopping List / 3                                 | Shopping List / 3                                 |
+| Tap Eggs Remove: visible screen, count, and status       | Shopping List / 2 / Removed Eggs. 2 items remain. | Shopping List / 2 / Removed Eggs. 2 items remain. |
 
-Leave actual results empty until the tutor reviews the source and predictions.
+## Explain the roles
 
-| Moment                          | Actual count | Actual status             | Actual child fields afterward |
-| ------------------------------- | ------------ | ------------------------- | ----------------------------- |
-| Launch                          | 3            | Ready to add an item.     | "" / ""                       |
-| After adding Rice               | 4            | Added Rice (quantity: 2). | "" / ""                       |
-| After attempting duplicate Milk | 4            | Milk already exists.      | "Milk" / "99"                 |
+Answer briefly in your own words.
 
-## Explain the two directions
+1. What state or history is `NavigationStack` responsible for?
+2. Why is the Remove button kept outside the `NavigationLink` label?
+3. Who still owns the shopping list, and what does the detail screen receive?
 
-After the run, explain both paths:
+> 1. For storing the history of our navigations
+> 2. The controls are separate so tapping Remove triggers removal without also activating navigation
+> 3. The Parent View, the detail screen only receives the constant ShoppingItem value, it don't have a set/get relationship
 
-1. How typing in the child changes the parent's draft.
-2. How the parent clearing its draft makes the child's field become empty.
-
-> 1. TextField edit -> binding setter -> parent @State changes -> UI updates
-> 2. onAdd() -> parent closure -> successful result -> parent clears its @State drafts -> child fields read the empty values through their bindings
->
-
-Build result: Succeeded

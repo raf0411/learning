@@ -26,11 +26,12 @@ AddResult feedback, a model-derived count, success-only draft clearing, and a
 learner-reported five-path run. The integration required guidance to preserve the
 assigned initial model and branch on the enum rather than message text. Collection
 rows are now rendered from the same model array using `ForEach`, with UUID-backed
-`Identifiable` items and learner-reported Add and duplicate behavior. Next, extract
-a read-only child row and establish parent/child state ownership before introducing
-shared mutation. The read-only row and child-to-parent Remove action are now
-complete with guidance. Next, extract draft controls using parent-owned bindings
-while keeping Add behavior in the parent.
+`Identifiable` items and learner-reported Add and duplicate behavior. Child rows,
+Remove actions, bound entry controls, navigation to details, and quantity editing
+with a local draft and parent Save closure are complete with guidance as of
+2026-09-30. Class reference semantics have been introduced. Next: the isolated
+observable shared-counter lab, then shared-model integration after its ownership
+and update flow are demonstrated. The Phase 2 milestone remains in progress.
 
 ## Dependencies
 

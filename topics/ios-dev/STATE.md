@@ -1,9 +1,8 @@
 # STATE
 
-Updated: 2026-09-29 — completed guided ShoppingList integration, identifiable
-collection rows, a read-only child row, and child-to-parent Remove actions. Correctly
-classified cross-view bindings for editable drafts and an action for Add; the child
-entry-form implementation is assigned but not yet demonstrated.
+Updated: 2026-09-30 — completed guided child bindings, navigation, and detail
+quantity editing. Class reference reasoning was introduced and corrected with
+guidance. Observable shared-counter implementation is the next unassessed step.
 
 ## Evidence limits
 
@@ -184,8 +183,10 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   explanation. Then correctly predicted that a button assigning `Guest` updates
   both the greeting and bound field, explaining their shared value. Later correctly
   chose bindings for name and quantity in a proposed child entry form and an action
-  closure for Add, explaining that the parent remains the source of truth. The
-  cross-view implementation remains pending.
+  closure for Add, explaining that the parent remains the source of truth.
+  On 2026-09-30, completed the child form and reported a successful build plus
+  correct success/failure fields. Needed explicit correction that a binding is a
+  connection to parent storage; supplied event traces support GUIDED explanation.
 - SwiftUI draft versus accepted data — INDEPENDENT for selecting and explaining
   two private state properties and implementing the successful submission path;
   GUIDED for invalid-input behavior and verification. After feedback, placed both
@@ -222,6 +223,23 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 - Xcode — learner reports repeatedly executing the session's Swift snippets and
   supplied outputs matching the code's validation and model branches. Workflow
   and console were not directly observed.
+- SwiftUI navigation — GUIDED. Implemented NavigationStack, a row NavigationLink,
+  item-derived destination titles, and a read-only detail value. Reported correct
+  navigation, Back, and separate Remove behavior. Needed reminders for a missing
+  heading and the reason for keeping interactive controls separate.
+- Detail drafts and Save results — GUIDED. Selected local state after a prompt
+  about leaving without saving. Implemented a String-taking, UpdateResult-returning
+  Save closure through the parent, row, and detail after supplied syntax and a
+  trace. Repaired passing-versus-calling confusion and reversed old/new bindings.
+  Predicted and reported unchanged Milk after unsaved edits, Eggs updated 6 to 9,
+  and rejected Bread/0 retaining 1. Independent closure wiring remains unassessed.
+- Closure scope — GUIDED. Initially thought a parent-created Add closure reads a
+  child's separate local draft. After a scope hint, identified the parent values.
+  Needs retrieval without a supplied trace.
+- Class reference semantics — GUIDED conceptual evidence. Initially applied struct
+  copy reasoning to Counter class assignment. After instruction, correctly traced
+  shared mutation and distinguished property mutation through a let reference from
+  reference reassignment. No class execution or independent implementation yet.
 - Git snapshots and branches — GUIDED. In a disposable repository, learner-reported
   terminal output covered initialization, untracked/staged/clean status, two
   commits on `main`, working versus cached diffs, creation of a branch with an
@@ -231,9 +249,9 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Current gaps and uncertainties
 
-- Writable state shared from a parent into child controls — correctly classified
-  conceptually; cross-view declaration, construction, and runtime flow remain
-  unassessed in the pending entry-form lab.
+- Observable shared models — introduced; implementation and explanation remain
+  unassessed in the pending shared-counter worksheet. Distinguishing reference
+  sharing, observation, lifetime ownership, and binding creation is the current edge.
 - Networking request-to-display flow — UNKNOWN.
 - Translating every detail of a requirement into code and test setup remains
   inconsistent. The learner has omitted requested output details, used an
@@ -249,14 +267,16 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   state format. A filter test then omitted labels and accidentally printed and
   iterated over `filteredItems1` instead of inspecting `filteredItems2`.
 - Debugging tools beyond inspecting the error and stopped line — unassessed.
-- Classes/reference semantics, architecture, persistence, concurrency, formal
-  tests, documentation use, and remaining advanced fundamentals — unassessed.
+- Architecture, persistence, concurrency, formal tests, independent documentation
+  use, and remaining advanced fundamentals — unassessed.
 
 ## Instructional implications
 
-Contrast read-only values, bindings, and action closures, then extract the entry
-controls into a child view. Keep the parent as owner of drafts and ShoppingList;
-use bindings only for draft editing and an action closure for Add submission.
+Resume the observable shared-counter worksheet before refactoring ShoppingList.
+Keep reference sharing separate from observation and ownership. Use short traces
+when closure inputs, outputs, or scope are unclear, then reduce the scaffolding.
+Treat harmless naming choices proportionally; preserve earlier predictions and
+observations when correcting or rerunning a lab.
 Keep requirement tracing and automated verification active: after spacing,
 assign an unfamiliar feature without a supplied matrix or assertion structure.
 Reassess associated-value design, assertion placement, value semantics, and Git

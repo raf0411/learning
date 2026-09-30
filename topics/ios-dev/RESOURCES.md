@@ -15,6 +15,10 @@ They are references, not a requirement to read every chapter or copy full apps.
   advanced/AI/spatial chapters are outside the present core path.
 - [SwiftUI documentation](https://developer.apple.com/documentation/swiftui)
   — API signatures, ownership/data-flow APIs, navigation, and availability.
+- [Managing model data in your app](https://developer.apple.com/documentation/swiftui/managing-model-data-in-your-app)
+  — Apple's reference for Observation, model ownership with `@State`, and passing
+  observable models to views. Used for the shared-counter introduction on 2026-09-30;
+  SwiftUI Observation support starts with iOS 17.
 - [Pro Git](https://git-scm.com/book/en/v2)
   — version-control concepts and practical local/GitHub workflows; start with
   recording changes and inspecting history before branching/merging.

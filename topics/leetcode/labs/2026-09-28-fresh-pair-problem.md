@@ -45,6 +45,90 @@ result = 3
 
 The qualifying index pairs are `(0, 1)`, `(1, 2)`, and `(2, 3)`.
 
+## Resume checkpoint — 2026-09-29
+
+Work only through this checkpoint first. Do not repair the code yet.
+
+A pair names two selected positions. Reversing their order does not create a
+new selection: `(0, 1)` and `(1, 0)` refer to the same two positions. A pair
+such as `(0, 0)` is invalid here because the problem requires different
+indices.
+
+### A. Trace the current rule on the smallest useful input
+
+Suppose the only indices are `0` and `1`. The current nested loops visit these
+ordered combinations:
+
+| combination | skipped by `current_index == other_index`? |
+| ----------- | ------------------------------------------ |
+| `(0, 0)`    | Yes                                        |
+| `(0, 1)`    | No                                         |
+| `(1, 0)`    | No                                         |
+| `(1, 1)`    | Yes                                        |
+
+After the self-pairs are skipped:
+
+- Which combinations remain? TODO
+- Do the remaining combinations represent one distinct pair or two distinct
+  pairs? Explain briefly: TODO
+
+### B. Construct the distinct pairs for four indices
+
+The available indices are `0, 1, 2, 3`. For each first index, list only partner
+indices that come **later** in the list. Write complete pairs such as `(0, 1)`.
+
+| first index | pairs with later indices |
+| ----------: | ------------------------ |
+| `0`         | (0,1), (0,2), (0,3)      |
+| `1`         | (1,2), (1,3)             |
+| `2`         | (2,3)                    |
+| `3`         | none                     |
+
+- Total number of distinct pairs: 3
+- Complete the traversal relationship:
+  `other_index` == `current_index`
+- Why would that relationship exclude both self-pairs and reversed duplicates?
+  because we are comparing if the other index is the same as the current index during our nested loop, if it is we will skip it, meaning we are skipping self-pairs or duplicates
+
+Stop here and tell the tutor when this checkpoint is ready for review.
+
+### Review 1 and second attempt
+
+What was correct:
+
+- All four yes/no decisions in section A are correct.
+- You correctly recognized that equality identifies the two self-pairs.
+
+What needs correction:
+
+- Section A's two follow-up questions are still unanswered. Copy the two
+  combinations marked `No`, then decide whether reversing their order gives us
+  a genuinely new selection of indices.
+- “Later” means **any** index to the right, not only the immediately adjacent
+  index. For first index `0`, the later indices are `1`, `2`, and `3`.
+- `other_index == current_index` selects a self-pair—the opposite of the
+  relationship needed for a valid unique pair.
+
+Finish this second attempt:
+
+| first index | every later index | complete pairs      |
+| ----------: | ----------------- | ------------------- |
+|         `0` | `1, 2, 3`         | (0,1), (0,2), (0,3) |
+|         `1` | 2, 3              | (1,2), (1,3)        |
+|         `2` | 3                 | (2,3)               |
+|         `3` | none              | none                |
+
+- The two combinations left after section A's equality check are: TODO
+- They represent TODO distinct pair(s), because: TODO
+- Total number of distinct pairs across the completed table: TODO
+- Look at every pair in the table. Complete the relationship with `<`, `>`, or
+  `==`: `other_index` TODO `current_index`
+- Test your relationship against `(0, 1)`: `1` TODO `0`, so this pair is
+  included.
+- Explain why the relationship rejects both `(0, 0)` and `(1, 0)`: TODO
+
+Stop again after completing this second attempt.
+
 ## Part 1: Reason before coding
 
 1. List every distinct index pair that must be considered for four elements.
@@ -106,16 +190,16 @@ Include at least these behavioral risks:
 
 1. Why does your traversal cover every required pair?
 
-   TODO
+   idk
 
 2. Why does it avoid counting a pair twice?
 
-   TODO
+   idk
 
 3. What is its worst-case time complexity, and why?
 
-   TODO
+   idk
 
 4. What is its extra-space complexity, and why?
 
-   TODO
+   idk

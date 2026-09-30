@@ -17,12 +17,9 @@
 ## SwiftUI value and binding distinction
 
 - Stage: INDEPENDENT for a narrow `TextField` implementation; GUIDED explanation.
-- Last evidence: 2026-09-29; identified String, Binding<String>, and the owner.
-  After further explanation of the update path, correctly predicted a button-driven
-  change in both the field and greeting, explaining their shared state. Independently
-  bound a separate draft property in the shopping-entry exercise. Later correctly
-  chose bindings for two proposed child fields and an action closure for Add, but
-  has not yet implemented or run that cross-view interface.
+- Last evidence: 2026-09-30; completed the child form and reported correct draft
+  clearing/preservation and a successful build. Needed explicit correction that
+  bindings connect to parent storage; the final event traces were supplied.
 - Next test: after spacing, connect another writable control without being told
   to use `$`, and explain changes initiated by either the control or its owner.
 - Goal: identify the owner, distinguish value from get/set connection, and trace a
@@ -43,25 +40,46 @@
 ## SwiftUI parent-child ownership and actions
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-29; extracted a read-only item row, observed compiler
-  rejection of mutation through a `let` value, and passed a no-argument Remove
-  closure from the parent. Learner-reported correct row/count changes while the
-  parent retained model mutation and result handling.
-- Next test: after spacing, choose between a read-only value, binding, and action
-  closure for an unfamiliar child-view interface without the mechanism being named.
+- Last evidence: 2026-09-30; selected a read-only item and Save action, then chose
+  local draft state after a cancel-without-save prompt. Repaired the String-input,
+  UpdateResult-output action chain after a supplied trace; reported correct saved,
+  discarded, and rejected edits. Initially thought a parent-created closure reads
+  child-local drafts; identified parent values after a scope hint.
+- Next test: after spacing, choose read-only values, local state, bindings, or
+  actions for a different interface; wire a parameterized action and identify its
+  captured values, input, and return without a supplied function shape.
 - Goal: keep source-of-truth ownership clear while allowing child display, editing,
   and event reporting through appropriately narrow interfaces.
 
 ## Rejected input and unchanged state
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-29; repaired blank-input handling after feedback, then
-  needed a trace distinguishing a trimmed local value from the original draft and
-  skipped assignments. Reported count 3 and preserved Bread after a controlled run
-  with a supplied character-count display.
+- Last evidence: 2026-09-30; predicted and reported Milk unchanged after leaving
+  an unsaved detail draft and Bread unchanged after a rejected zero quantity.
+  These used an existing validator and a supplied scenario table. Earlier blank
+  input reasoning required a trace and a character-count diagnostic.
 - Next test: during a later input feature, independently predict and verify both
   draft and accepted data after rejected input; establish exact test preconditions.
 - Goal: reason from executed branches and verify invisible input without guessing.
+
+## Navigation and separate actions
+
+- Stage: GUIDED.
+- Last evidence: 2026-09-30; implemented a stack, row link, read-only destination,
+  and separate Remove control; reported correct push, Back, and removal behavior.
+- Next test: after spacing, add a destination from a short feature brief and explain
+  the effect of Back on navigation history and model state.
+- Goal: independently wire navigation while keeping mutation responsibilities clear.
+
+## Class references and let
+
+- Stage: GUIDED conceptual reasoning; execution unassessed.
+- Last evidence: 2026-09-30; initially predicted class assignment creates an
+  independent copy. After explanation, traced shared changes from 7 to 8 and
+  distinguished mutable instance properties from a fixed let reference.
+- Next test: at the next session or shared-model checkpoint, predict and execute a
+  short comparison of shared references, separately created instances, and structs.
+- Goal: choose the intended instance and distinguish sharing from observation.
 
 ## Combine iteration, a predicate, and conditional output
 
@@ -77,9 +95,10 @@
 ## Requirement trace and exact observable results
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-28; completed the `addUses` input/result/state matrix and
-  six-path verification, but only after multiple exactness corrections, a supplied
-  test-block outline, and one complete assertion example.
+- Last evidence: 2026-09-30; repaired a constructor-label mismatch and omitted UI
+  heading after reminders. Quantity-edit predictions matched reported results in
+  the supplied matrix. Independent test derivation still rests on the 2026-09-28
+  addUses exercise, which required a test outline and an assertion example.
 - Next test: after spacing, derive the behavioral matrix and checks for an
   unfamiliar feature without supplied cases, assertion conditions, or sequencing.
 - Goal: make the code, test input, exact predicted output, and requirement agree.
@@ -92,6 +111,8 @@
   its exhaustive output switch, initially modeled success with the increment, then
   revised it after feedback to carry the ID and updated total. Added `Equatable`
   for direct result assertions.
+  On 2026-09-30, reversed old/new variables when matching UpdateResult in the
+  detail screen; repaired their positional order after feedback.
 - Next test: after meaningful spacing, require another unfamiliar finite result and
   exhaustive handling without naming enums or associated values in the prompt.
 - Goal: verify retained selection and use of a finite result type.
