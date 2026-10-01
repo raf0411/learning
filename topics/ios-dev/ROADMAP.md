@@ -29,9 +29,10 @@ rows are now rendered from the same model array using `ForEach`, with UUID-backe
 `Identifiable` items and learner-reported Add and duplicate behavior. Child rows,
 Remove actions, bound entry controls, navigation to details, and quantity editing
 with a local draft and parent Save closure are complete with guidance as of
-2026-09-30. Class reference semantics have been introduced. Next: the isolated
-observable shared-counter lab, then shared-model integration after its ownership
-and update flow are demonstrated. The Phase 2 milestone remains in progress.
+2026-09-30. The observable shared-counter lab is complete with guidance as of
+2026-10-01. Next: integrate an observable ShoppingList with a summary child and
+verify shared updates. The worksheet is assigned and unattempted in the submitted
+record. The Phase 2 milestone remains in progress.
 
 ## Dependencies
 

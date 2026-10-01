@@ -72,25 +72,69 @@ intact.
 Paste the four types:
 
 ```swift
-// TODO: SharedCounter
+import SwiftUI
+import Observation
 
-// TODO: SharedCounterView
+@Observable
+final class SharedCounter {
+    var count = 0
+    
+    func increment() {
+        count += 1
+    }
+}
 
-// TODO: CounterReadout
+struct SharedCounterView: View {
+    @State private var counter = SharedCounter()
+    
+    var body: some View {
+        Text("Parent: \(counter.count)")
+        
+        CounterReadout(counter: counter)
+        
+        CounterControls(counter: counter)
+        
+        Button("Reset", action: {
+            counter.count = 0
+        })
+        .buttonStyle(.borderedProminent)
+    }
+}
 
-// TODO: CounterControls
+struct CounterReadout: View {
+    let counter: SharedCounter
+    
+    var body: some View {
+        Text("Child: \(counter.count)")
+    }
+}
+
+struct CounterControls: View {
+    let counter: SharedCounter
+    
+    var body: some View {
+        Button("Increment", action: {
+            counter.increment()
+        })
+        .buttonStyle(.borderedProminent)
+    }
+}
+
+#Preview {
+    SharedCounterView()
+}
 ```
 
 ## Predict before running
 
 Fill only the Prediction column, then stop for source review.
 
-| Moment | Prediction | Actual |
-|---|---|---|
-| Launch: parent and child text | TODO | TODO |
-| Tap child Increment twice: parent and child text | TODO | TODO |
-| Tap parent Reset: parent and child text | TODO | TODO |
-| Terminate and relaunch: parent and child text | TODO | TODO |
+| Moment                                           | Prediction            | Actual                |
+| ------------------------------------------------ | --------------------- | --------------------- |
+| Launch: parent and child text                    | Parent: 0 \| Child: 0 | Parent: 0 \| Child: 0 |
+| Tap child Increment twice: parent and child text | Parent: 2 \| Child: 2 | Parent: 2 \| Child: 2 |
+| Tap parent Reset: parent and child text          | Parent: 0 \| Child: 0 | Parent: 0 \| Child: 0 |
+| Terminate and relaunch: parent and child text    | Parent: 0 \| Child: 0 | Parent: 0 \| Child: 0 |
 
 ## Explain the mechanisms
 
@@ -99,7 +143,7 @@ Fill only the Prediction column, then stop for source review.
 2. What separate job does `@Observable` perform?
 3. Why is `@Bindable` unnecessary in this experiment?
 
-> 1. TODO
-> 2. TODO
-> 3. TODO
+> 1. Because we are using Class, which means both parent and children are using the same reference or shared property
+> 2. umm, to make sure a Swift UI view can read the class and use its property or method, that's my guess
+> 3. Because we r passing data with class? honest answer is idk, that's just a guess
 

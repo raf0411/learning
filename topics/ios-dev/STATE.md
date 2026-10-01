@@ -1,8 +1,9 @@
 # STATE
 
-Updated: 2026-09-30 — completed guided child bindings, navigation, and detail
-quantity editing. Class reference reasoning was introduced and corrected with
-guidance. Observable shared-counter implementation is the next unassessed step.
+Updated: 2026-10-01, session end — completed the guided observable shared-counter exercise.
+Shared reference reasoning was independently retrieved in a short prediction;
+separating mutation from UI observation required a diagnostic experiment.
+Observable shopping-model integration is the next unassessed step.
 
 ## Evidence limits
 
@@ -239,7 +240,10 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 - Class reference semantics — GUIDED conceptual evidence. Initially applied struct
   copy reasoning to Counter class assignment. After instruction, correctly traced
   shared mutation and distinguished property mutation through a let reference from
-  reference reassignment. No class execution or independent implementation yet.
+  reference reassignment. On 2026-10-01, independently predicted shared versus
+  separately constructed instances, then implemented and learner-reported running
+  a class-based counter from scaffolded requirements. Broader independent use
+  remains unassessed.
 - Git snapshots and branches — GUIDED. In a disposable repository, learner-reported
   terminal output covered initialization, untracked/staged/clean status, two
   commits on `main`, working versus cached diffs, creation of a branch with an
@@ -249,9 +253,12 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Current gaps and uncertainties
 
-- Observable shared models — introduced; implementation and explanation remain
-  unassessed in the pending shared-counter worksheet. Distinguishing reference
-  sharing, observation, lifetime ownership, and binding creation is the current edge.
+- Observable shared models — GUIDED. Correctly implemented the scaffolded shared
+  counter and reported matching UI results. Initially thought removing Observable
+  prevents mutation or compilation; a supplied print diagnostic showed stored
+  count advancing while labels stayed at zero. Then explained sharing and UI
+  tracking, with correction that properties change while references can stay the
+  same. Independent ownership and Bindable selection remain unassessed.
 - Networking request-to-display flow — UNKNOWN.
 - Translating every detail of a requirement into code and test setup remains
   inconsistent. The learner has omitted requested output details, used an
@@ -272,7 +279,8 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Instructional implications
 
-Resume the observable shared-counter worksheet before refactoring ShoppingList.
+Start with a brief retrieval of stored mutation versus UI observation, then
+continue with `labs/2026-10-01-observable-shopping-list.md` (still TODO at close).
 Keep reference sharing separate from observation and ownership. Use short traces
 when closure inputs, outputs, or scope are unclear, then reduce the scaffolding.
 Treat harmless naming choices proportionally; preserve earlier predictions and

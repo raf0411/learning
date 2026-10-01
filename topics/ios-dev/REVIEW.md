@@ -73,13 +73,28 @@
 
 ## Class references and let
 
-- Stage: GUIDED conceptual reasoning; execution unassessed.
-- Last evidence: 2026-09-30; initially predicted class assignment creates an
-  independent copy. After explanation, traced shared changes from 7 to 8 and
-  distinguished mutable instance properties from a fixed let reference.
-- Next test: at the next session or shared-model checkpoint, predict and execute a
-  short comparison of shared references, separately created instances, and structs.
+- Stage: GUIDED overall; INDEPENDENT in a short shared/separate-instance prediction.
+- Last evidence: 2026-10-01; correctly predicted `4 4 9` and explained shared
+  versus separately constructed instances. Implemented and reported running the
+  scaffolded class counter. Property mutation versus reference change still
+  needed wording correction.
+- Next test: during shopping-model integration, diagnose a separately constructed
+  child model; after spacing, compare a class reference with a struct copy and
+  distinguish let-reference reassignment from instance-property mutation.
 - Goal: choose the intended instance and distinguish sharing from observation.
+
+## Observation, state ownership, and bindings
+
+- Stage: GUIDED.
+- Last evidence: 2026-10-01; initially predicted removing Observable prevents
+  mutation or causes an error. A supplied diagnostic produced increasing console
+  counts with unchanged labels. Then explained sharing and change tracking;
+  independent Bindable selection and lifetime explanation remain unassessed.
+- Next test: next session, briefly predict stored data versus displayed text when
+  observation is absent, then apply the model to the pending shopping worksheet.
+  Later choose whether a writable control needs a binding without a supplied wrapper.
+- Goal: distinguish reference sharing, property mutation, UI observation, model
+  lifetime, and a control's binding requirement.
 
 ## Combine iteration, a predicate, and conditional output
 
