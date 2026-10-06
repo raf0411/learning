@@ -30,9 +30,13 @@ rows are now rendered from the same model array using `ForEach`, with UUID-backe
 Remove actions, bound entry controls, navigation to details, and quantity editing
 with a local draft and parent Save closure are complete with guidance as of
 2026-09-30. The observable shared-counter lab is complete with guidance as of
-2026-10-01. Next: integrate an observable ShoppingList with a summary child and
-verify shared updates. The worksheet is assigned and unattempted in the submitted
-record. The Phase 2 milestone remains in progress.
+2026-10-01. The observable ShoppingList integration is complete with guidance as
+of 2026-10-06: the parent owns one model, an ordinary child reads the same
+instance, and learner-reported Add/rejection/Remove runs updated both counts
+together. Separating that shared-instance behavior from a separately constructed
+model required repeated clarification. Next: implement and trace child controls
+using `@Bindable` in the assigned profile lab. The Phase 2 milestone remains in
+progress.
 
 ## Dependencies
 

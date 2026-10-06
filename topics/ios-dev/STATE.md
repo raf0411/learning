@@ -1,9 +1,10 @@
 # STATE
 
-Updated: 2026-10-01, session end — completed the guided observable shared-counter exercise.
-Shared reference reasoning was independently retrieved in a short prediction;
-separating mutation from UI observation required a diagnostic experiment.
-Observable shopping-model integration is the next unassessed step.
+Updated: 2026-10-06, session end — completed the guided observable shopping-model
+integration. Parent and summary counts updated together in the learner-reported
+run. Distinguishing the shared-instance test from a separate-instance hypothetical
+required repeated clarification. Direct control bindings through `@Bindable` are
+recognized but not yet implemented.
 
 ## Evidence limits
 
@@ -242,8 +243,17 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   shared mutation and distinguished property mutation through a let reference from
   reference reassignment. On 2026-10-01, independently predicted shared versus
   separately constructed instances, then implemented and learner-reported running
-  a class-based counter from scaffolded requirements. Broader independent use
+  a class-based counter from scaffolded requirements. On 2026-10-06, correctly
+  stated that a child `let` reference can call a mutating class method, but the
+  precise distinction between reference reassignment, instance mutation, and a
+  `private(set)` property was supplied by the tutor. Broader independent use
   remains unassessed.
+- Observable-model bindings — RECOGNIZED. Initially proposed passing the String
+  value `profile.nickname` to a `TextField` and reasoned only from class sharing.
+  After instruction on `@Bindable`, correctly stated that `profile.nickname` is a
+  String, `$profile.nickname` is the bindable connection, and the control requires
+  `Binding<String>`. The implementation and two-direction update trace in the
+  assigned profile lab remain unattempted.
 - Git snapshots and branches — GUIDED. In a disposable repository, learner-reported
   terminal output covered initialization, untracked/staged/clean status, two
   commits on `main`, working versus cached diffs, creation of a branch with an
@@ -253,12 +263,18 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Current gaps and uncertainties
 
-- Observable shared models — GUIDED. Correctly implemented the scaffolded shared
-  counter and reported matching UI results. Initially thought removing Observable
-  prevents mutation or compilation; a supplied print diagnostic showed stored
-  count advancing while labels stayed at zero. Then explained sharing and UI
-  tracking, with correction that properties change while references can stay the
-  same. Independent ownership and Bindable selection remain unassessed.
+- Observable shared models — GUIDED. Converted `ShoppingList` to an observable
+  final class, kept one parent-owned instance in private `@State`, passed it to an
+  ordinary child `let`, and learner-reported matching parent/summary counts of
+  `4/4`, `4/4`, and `3/3` across Add, rejected Add, and Remove. The learner first
+  applied incorrect count arithmetic and later mixed the separate-instance
+  hypothetical into the shared-instance table; after clarification, correctly
+  recorded parent `4` versus summary `3` for two separately constructed models.
+  Independent ownership selection remains unassessed.
+- Writable control bindings to an observable model — RECOGNIZED only. The learner
+  can state the immediate String-versus-Binding distinction after instruction,
+  but has not yet chosen and implemented `@Bindable` or traced updates initiated
+  from both child and parent.
 - Networking request-to-display flow — UNKNOWN.
 - Translating every detail of a requirement into code and test setup remains
   inconsistent. The learner has omitted requested output details, used an
@@ -279,10 +295,11 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Instructional implications
 
-Start with a brief retrieval of stored mutation versus UI observation, then
-continue with `labs/2026-10-01-observable-shopping-list.md` (still TODO at close).
-Keep reference sharing separate from observation and ownership. Use short traces
-when closure inputs, outputs, or scope are unclear, then reduce the scaffolding.
+Continue with `labs/2026-10-06-observable-bindable-profile.md`, reviewing its code
+and predictions before execution. Keep reference sharing, observation, ownership,
+and binding creation separate. After the lab, ask for a two-direction update trace
+without supplying the sequence. Use short traces when closure inputs, outputs, or
+scope are unclear, then reduce the scaffolding.
 Treat harmless naming choices proportionally; preserve earlier predictions and
 observations when correcting or rerunning a lab.
 Keep requirement tracing and automated verification active: after spacing,

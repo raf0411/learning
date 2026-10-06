@@ -73,26 +73,29 @@
 
 ## Class references and let
 
-- Stage: GUIDED overall; INDEPENDENT in a short shared/separate-instance prediction.
-- Last evidence: 2026-10-01; correctly predicted `4 4 9` and explained shared
-  versus separately constructed instances. Implemented and reported running the
-  scaffolded class counter. Property mutation versus reference change still
-  needed wording correction.
-- Next test: during shopping-model integration, diagnose a separately constructed
-  child model; after spacing, compare a class reference with a struct copy and
-  distinguish let-reference reassignment from instance-property mutation.
+- Stage: GUIDED overall; INDEPENDENT in one short shared/separate prediction.
+- Last evidence: 2026-10-06; recognized that a child `let` can call a class method
+  that changes the instance. The tutor supplied the precise distinction between
+  reference reassignment, instance-property mutation, and direct mutation blocked
+  by `private(set)`. In the shopping lab, separate-instance counts needed repeated
+  clarification before reaching parent `4`, summary `3`.
+- Next test: after spacing, compare a class reference with a struct copy and
+  distinguish let-reference reassignment from instance-property mutation without
+  being cued that class semantics are the deciding factor.
 - Goal: choose the intended instance and distinguish sharing from observation.
 
 ## Observation, state ownership, and bindings
 
 - Stage: GUIDED.
-- Last evidence: 2026-10-01; initially predicted removing Observable prevents
-  mutation or causes an error. A supplied diagnostic produced increasing console
-  counts with unchanged labels. Then explained sharing and change tracking;
-  independent Bindable selection and lifetime explanation remain unassessed.
-- Next test: next session, briefly predict stored data versus displayed text when
-  observation is absent, then apply the model to the pending shopping worksheet.
-  Later choose whether a writable control needs a binding without a supplied wrapper.
+- Last evidence: 2026-10-06; converted ShoppingList to an observable final class,
+  kept it in parent `@State`, passed the same instance through a child `let`, and
+  learner-reported matching counts for Add, rejection, and Remove. Initially mixed
+  the separate-instance hypothetical into the shared-instance table. After direct
+  `@Bindable` instruction, identified String versus `Binding<String>` but has not
+  implemented the pattern.
+- Next test: complete the assigned profile lab, independently using `@Bindable`
+  for a TextField and Toggle, then trace child-to-parent and parent-to-child updates
+  and explain that the wrapper creates bindings but does not own a second model.
 - Goal: distinguish reference sharing, property mutation, UI observation, model
   lifetime, and a control's binding requirement.
 
@@ -110,10 +113,12 @@
 ## Requirement trace and exact observable results
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-30; repaired a constructor-label mismatch and omitted UI
-  heading after reminders. Quantity-edit predictions matched reported results in
-  the supplied matrix. Independent test derivation still rests on the 2026-09-28
-  addUses exercise, which required a test outline and an assertion example.
+- Last evidence: 2026-10-06; the observable-shopping worksheet initially predicted
+  all counts as three despite sequential Add/Remove operations, then temporarily
+  applied a separate-instance result to the shared-instance table. Corrected the
+  required label casing and ultimately preserved correct predictions beside
+  learner-reported actuals. Also initially chose invalid quantity over the earlier
+  duplicate guard for `Flower / abc`; validation precedence required a trace.
 - Next test: after spacing, derive the behavioral matrix and checks for an
   unfamiliar feature without supplied cases, assertion conditions, or sequencing.
 - Goal: make the code, test input, exact predicted output, and requirement agree.

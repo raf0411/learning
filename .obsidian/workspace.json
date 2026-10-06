@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/ios-dev/ROADMAP.md",
-                "mode": "preview",
+                "file": "topics/ios-dev/labs/2026-10-01-observable-shopping-list.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ROADMAP"
+              "title": "2026-10-01-observable-shopping-list"
             }
           }
         ]
@@ -187,15 +187,17 @@
   },
   "active": "583889f799d4d81a",
   "lastOpenFiles": [
+    "topics/ios-dev/sessions/2026-10-06.md",
+    "topics/ios-dev/labs/2026-10-06-observable-bindable-profile.md",
+    "topics/ios-dev/STATE.md",
+    "topics/ios-dev/ROADMAP.md",
     "topics/ios-dev/sessions/2026-10-01.md",
     "topics/ios-dev/labs/2026-10-01-observable-shopping-list.md",
     "topics/ios-dev/labs/2026-09-30-observable-shared-counter.md",
     "topics/ios-dev/sessions/2026-09-30.md",
     "topics/ios-dev/labs/2026-09-30-detail-quantity-edit.md",
-    "topics/ios-dev/ROADMAP.md",
     "topics/ios-dev/REVIEW.md",
     "topics/ios-dev/RESOURCES.md",
-    "topics/ios-dev/STATE.md",
     "topics/ios-dev/AGENTS.md",
     "topics/ios-dev/GOAL.md",
     "topics/ios-dev/labs/2026-09-30-navigation-detail.md",
@@ -211,9 +213,7 @@
     "topics/ios-dev/labs/2026-09-29-shopping-entry.md",
     "topics/ios-dev/sessions/2026-09-29.md",
     "topics/ios-dev/labs/2026-09-28-swiftui-binding-probe.md",
-    "topics/leetcode/sessions/2026-09-29.md",
     "topics/leetcode/practice/count_nearby_pairs.py",
-    "topics/leetcode/labs/2026-09-28-pair-indices.md",
     "topics/leetcode/practice/find_pair_indices.py",
     "topics/leetcode/practice/has_pair_with_sum.py",
     "topics/leetcode/practice/find_smallest.py",
