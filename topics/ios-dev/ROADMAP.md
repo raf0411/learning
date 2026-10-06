@@ -37,9 +37,12 @@ together. Separating that shared-instance behavior from a separately constructed
 model required repeated clarification. The observable Profile binding lab is now
 complete with guidance: child TextField/Toggle writes and parent Reset changes
 matched predictions, while binding direction, class-reference mutability, and
-Observation required repeated clarification. Next: implement and verify a small
-persisted preference with `@AppStorage`, then move toward structured shopping-item
-persistence. The Phase 2 milestone remains in progress.
+Observation required repeated clarification. The `@AppStorage` preference lab is
+complete with guidance as of 2026-10-07: learner-reported first launch, mutation,
+relaunch, reset, and second-relaunch behavior all matched predictions. Next:
+implement the assigned minimal SwiftData record/context/query lab, then integrate
+structured persistence into shopping-item work. The Phase 2 milestone remains in
+progress.
 
 ## Dependencies
 

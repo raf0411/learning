@@ -1,10 +1,9 @@
 # STATE
 
-Updated: 2026-10-06, second session end — completed the observable Profile binding
-lab with guidance and learner-reported matching predictions/results. Implemented
-`@Bindable` controls successfully; separating reference mutability, binding
-projection, and Observation-driven reevaluation required repeated clarification.
-Persistence has been introduced, with the `@AppStorage` lab still unattempted.
+Updated: 2026-10-07 session end — completed the `@AppStorage` preference lab with
+guidance and learner-reported matching predictions/results across two relaunches.
+Correctly selected storage for temporary state, a small preference, and structured
+records; SwiftData record/context/query roles are recognized but not implemented.
 
 ## Evidence limits
 
@@ -256,12 +255,19 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   reference and the binding projection required repeated supplied corrections.
   Ultimately stated that plain `var` still does not produce `$profile`, and that
   no second Profile is created.
-- Persistence boundary and storage selection — RECOGNIZED. Correctly predicted
-  that an in-memory Profile returns to its defaults after termination/relaunch and
-  selected `@State` for an unsaved draft. Chose `@AppStorage` for a small preference
-  only as a guess. Chose SwiftData for shopping-item records but initially said
-  `@Model` turns a class into a collection; the record/context/query distinction
-  was supplied. No persistent feature has been implemented or run.
+- Persistence boundary and storage selection — GUIDED. Implemented a Bool
+  `@AppStorage` preference, bound it to a Toggle, reset it, and learner-reported
+  exact predicted results across first launch, mutation, relaunch, reset, and a
+  second relaunch. The first source used the wrong persistent key, and explanations
+  of default fallback, projected binding, and why record collections do not fit
+  separate preference keys were supplied before the learner rewrote them. In an
+  immediate recipe-app classification, independently selected `@State` for a
+  temporary search, `@AppStorage` for a unit preference, and SwiftData for recipe
+  records. Needed precision that `@State` follows view identity rather than the
+  whole process lifetime and that SwiftData models are records, not query
+  collections. Correctly answered a follow-up that three stored recipes mean three
+  model instances and that `@Query` retrieves and observes them. SwiftData
+  implementation remains unattempted.
 - Git snapshots and branches — GUIDED. In a disposable repository, learner-reported
   terminal output covered initialization, untracked/staged/clean status, two
   commits on `main`, working versus cached diffs, creation of a branch with an
@@ -284,9 +290,9 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   behavior. Independent explanation remains weak: the learner repeatedly merged
   reference mutability with binding projection and binding reads/writes with
   Observation-driven view reevaluation.
-- Persistence — RECOGNIZED only. The learner distinguishes in-memory lifetime from
-  relaunch persistence and broadly classified a draft, preference, and record
-  collection, but has not implemented `@AppStorage` or SwiftData.
+- Structured persistence — RECOGNIZED. The learner now has executed guided
+  `@AppStorage` evidence and distinguishes it from structured records, but has not
+  implemented a SwiftData model, model container, model context write, or query.
 - Networking request-to-display flow — UNKNOWN.
 - Translating every detail of a requirement into code and test setup remains
   inconsistent. The learner has omitted requested output details, used an
@@ -307,10 +313,11 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Instructional implications
 
-Continue with `labs/2026-10-06-app-storage-preference.md`, reviewing its code,
-predictions, and explanations before execution in the Simulator. Contrast the
-default value with a previously saved value and require termination/relaunch
-evidence. Keep `@State`, `@AppStorage`, and SwiftData responsibilities separate.
+Continue with `labs/2026-10-07-swiftdata-record-context-query.md`, reviewing its
+model, container, context, query, predictions, and role explanations before
+execution in the Simulator. Keep one persistent record, the context that manages
+writes, and the query that retrieves/observes records conceptually separate.
+Revisit `@State` versus `@AppStorage` after spacing using a new scenario.
 After spacing, reassess `@Bindable` with an unfamiliar model and control without
 supplying the setter/getter trace. Use short traces when closure inputs, outputs,
 or scope are unclear, then reduce the scaffolding.

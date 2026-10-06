@@ -100,15 +100,18 @@
 
 ## Persistence lifetime and storage selection
 
-- Stage: RECOGNIZED.
-- Last evidence: 2026-10-06; correctly predicted that the unsaved Profile returns
-  to default values after termination/relaunch and selected `@State` for a draft.
-  Chose `@AppStorage` for a preference without a rationale and initially described
-  a SwiftData `@Model` class as a collection; record/context/query roles were then
-  supplied.
-- Next test: complete the assigned `@AppStorage` lab, including first-launch,
-  mutation, termination/relaunch, reset, and second-relaunch evidence. Then choose
-  storage for a new mixture of drafts, preferences, and structured records.
+- Stage: GUIDED for `@AppStorage`; RECOGNIZED for SwiftData roles.
+- Last evidence: 2026-10-07; implemented and learner-reported matching results for
+  an `@AppStorage` Bool across first launch, mutation, relaunch, reset, and another
+  relaunch. Initially used the wrong exact key and could not explain the projected
+  binding or structured-record mismatch without instruction. Immediately afterward
+  selected `@State`, `@AppStorage`, and SwiftData correctly for three recipe-app
+  data shapes, then correctly distinguished three model instances from the query
+  that retrieves and observes them. View-lifetime and record terminology still
+  needed refinement.
+- Next test: complete the assigned SwiftData model/container/context/query lab.
+  After spacing, choose storage for an unfamiliar mixture of temporary UI state,
+  preferences, and structured records without being given the candidate tools.
 - Goal: choose storage by data lifetime and shape, and verify persistence rather
   than inferring it from an in-memory update.
 
