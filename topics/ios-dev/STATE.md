@@ -1,10 +1,10 @@
 # STATE
 
-Updated: 2026-10-06, session end — completed the guided observable shopping-model
-integration. Parent and summary counts updated together in the learner-reported
-run. Distinguishing the shared-instance test from a separate-instance hypothetical
-required repeated clarification. Direct control bindings through `@Bindable` are
-recognized but not yet implemented.
+Updated: 2026-10-06, second session end — completed the observable Profile binding
+lab with guidance and learner-reported matching predictions/results. Implemented
+`@Bindable` controls successfully; separating reference mutability, binding
+projection, and Observation-driven reevaluation required repeated clarification.
+Persistence has been introduced, with the `@AppStorage` lab still unattempted.
 
 ## Evidence limits
 
@@ -248,12 +248,20 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   precise distinction between reference reassignment, instance mutation, and a
   `private(set)` property was supplied by the tutor. Broader independent use
   remains unassessed.
-- Observable-model bindings — RECOGNIZED. Initially proposed passing the String
-  value `profile.nickname` to a `TextField` and reasoned only from class sharing.
-  After instruction on `@Bindable`, correctly stated that `profile.nickname` is a
-  String, `$profile.nickname` is the bindable connection, and the control requires
-  `Binding<String>`. The implementation and two-direction update trace in the
-  assigned profile lab remain unattempted.
+- Observable-model bindings — GUIDED. Implemented an observable Profile with one
+  parent-owned `@State` instance, a child `@Bindable` reference, direct TextField
+  and Toggle bindings, and a parent Reset. Predictions and learner-reported actual
+  results matched for child-to-parent and parent-to-child changes. The direction
+  traces, lifetime explanation, and distinction between a plain `let`/`var` class
+  reference and the binding projection required repeated supplied corrections.
+  Ultimately stated that plain `var` still does not produce `$profile`, and that
+  no second Profile is created.
+- Persistence boundary and storage selection — RECOGNIZED. Correctly predicted
+  that an in-memory Profile returns to its defaults after termination/relaunch and
+  selected `@State` for an unsaved draft. Chose `@AppStorage` for a small preference
+  only as a guess. Chose SwiftData for shopping-item records but initially said
+  `@Model` turns a class into a collection; the record/context/query distinction
+  was supplied. No persistent feature has been implemented or run.
 - Git snapshots and branches — GUIDED. In a disposable repository, learner-reported
   terminal output covered initialization, untracked/staged/clean status, two
   commits on `main`, working versus cached diffs, creation of a branch with an
@@ -271,10 +279,14 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   hypothetical into the shared-instance table; after clarification, correctly
   recorded parent `4` versus summary `3` for two separately constructed models.
   Independent ownership selection remains unassessed.
-- Writable control bindings to an observable model — RECOGNIZED only. The learner
-  can state the immediate String-versus-Binding distinction after instruction,
-  but has not yet chosen and implemented `@Bindable` or traced updates initiated
-  from both child and parent.
+- Writable control bindings to an observable model — GUIDED. The Profile lab used
+  `@Bindable` correctly and produced matching child-to-parent and parent-to-child
+  behavior. Independent explanation remains weak: the learner repeatedly merged
+  reference mutability with binding projection and binding reads/writes with
+  Observation-driven view reevaluation.
+- Persistence — RECOGNIZED only. The learner distinguishes in-memory lifetime from
+  relaunch persistence and broadly classified a draft, preference, and record
+  collection, but has not implemented `@AppStorage` or SwiftData.
 - Networking request-to-display flow — UNKNOWN.
 - Translating every detail of a requirement into code and test setup remains
   inconsistent. The learner has omitted requested output details, used an
@@ -295,11 +307,13 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Instructional implications
 
-Continue with `labs/2026-10-06-observable-bindable-profile.md`, reviewing its code
-and predictions before execution. Keep reference sharing, observation, ownership,
-and binding creation separate. After the lab, ask for a two-direction update trace
-without supplying the sequence. Use short traces when closure inputs, outputs, or
-scope are unclear, then reduce the scaffolding.
+Continue with `labs/2026-10-06-app-storage-preference.md`, reviewing its code,
+predictions, and explanations before execution in the Simulator. Contrast the
+default value with a previously saved value and require termination/relaunch
+evidence. Keep `@State`, `@AppStorage`, and SwiftData responsibilities separate.
+After spacing, reassess `@Bindable` with an unfamiliar model and control without
+supplying the setter/getter trace. Use short traces when closure inputs, outputs,
+or scope are unclear, then reduce the scaffolding.
 Treat harmless naming choices proportionally; preserve earlier predictions and
 observations when correcting or rerunning a lab.
 Keep requirement tracing and automated verification active: after spacing,

@@ -19,6 +19,12 @@ They are references, not a requirement to read every chapter or copy full apps.
   — Apple's reference for Observation, model ownership with `@State`, and passing
   observable models to views. Used for the shared-counter introduction on 2026-09-30;
   SwiftUI Observation support starts with iOS 17.
+- [AppStorage](https://developer.apple.com/documentation/swiftui/appstorage)
+  — Apple's API reference for small UserDefaults-backed values, view invalidation,
+  and the projected Binding used by SwiftUI controls.
+- [Preserving model data across launches](https://developer.apple.com/documentation/swiftdata/preserving-your-apps-model-data-across-launches)
+  — Apple's SwiftData overview for persistable model records, model contexts,
+  insertion, change tracking, and saving across launches.
 - [Pro Git](https://git-scm.com/book/en/v2)
   — version-control concepts and practical local/GitHub workflows; start with
   recording changes and inspecting history before branching/merging.

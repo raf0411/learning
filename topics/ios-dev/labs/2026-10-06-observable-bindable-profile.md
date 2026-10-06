@@ -34,11 +34,47 @@ Do not create a second `Profile` instance in the child. Do not add separate draf
 state for these two controls.
 
 ```swift
-// TODO: Profile
+import SwiftUI
+import Observation
 
-// TODO: ProfileHostView
+@Observable
+final class Profile {
+    var nickname = "Guest"
+    var receivesReminders = false
+}
 
-// TODO: ProfileEditor
+struct ProfileHostView: View {
+    @State private var profile: Profile = Profile()
+    
+    var body: some View {
+        VStack(alignment: .center, spacing: 32) {
+            Text("Parent nickname: \(profile.nickname)")
+            Text(profile.receivesReminders ? "Parent reminders: On" : "Parent reminders: Off")
+            
+            ProfileEditor(profile: profile)
+            
+            Button("Reset", action: {
+                profile.nickname = "Guest"
+                profile.receivesReminders = false
+            })
+            .buttonStyle(.borderedProminent)
+        }
+    }
+}
+
+struct ProfileEditor: View {
+    @Bindable var profile: Profile
+    
+    var body: some View {
+        VStack(spacing: 32) {
+            TextField("Edit nickname", text: $profile.nickname)
+                .textFieldStyle(.roundedBorder)
+            
+            Toggle("Receive reminders", isOn: $profile.receivesReminders)
+        }
+        .padding(32)
+    }
+}
 
 #Preview {
     ProfileHostView()
@@ -50,32 +86,41 @@ state for these two controls.
 Start from a fresh preview. Replace the contents of the nickname field with
 `Raffi`, turn reminders on, and then press the parent's Reset button.
 
-| Moment | Parent nickname label | Child nickname field | Parent reminder label | Child toggle |
-|---|---|---|---|---|
-| Fresh launch | TODO | TODO | TODO | TODO |
-| After entering `Raffi` | TODO | TODO | TODO | TODO |
-| After turning reminders on | TODO | TODO | TODO | TODO |
-| After parent Reset | TODO | TODO | TODO | TODO |
+| Moment                     | Parent nickname label  | Child nickname field | Parent reminder label | Child toggle |
+| -------------------------- | ---------------------- | -------------------- | --------------------- | ------------ |
+| Fresh launch               | Parent nickname: Guest | Guest                | Parent reminders: Off | off          |
+| After entering `Raffi`     | Parent nickname: Raffi | Raffi                | Parent reminders: Off | off          |
+| After turning reminders on | Parent nickname: Raffi | Raffi                | Parent reminders: On  | on           |
+| After parent Reset         | Parent nickname: Guest | Guest                | Parent reminders: Off | off          |
 
-Leave actual results empty until the tutor reviews the implementation and
-predictions.
+## Actual results
+
+Run the sequence only after the tutor has reviewed the implementation and
+predictions. Replace each `TODO` with exactly what you observe.
+
+| Moment                     | Parent nickname label  | Child nickname field | Parent reminder label | Child toggle |
+| -------------------------- | ---------------------- | -------------------- | --------------------- | ------------ |
+| Fresh launch               | Parent nickname: Guest | Guest                | Parent reminders: Off | off          |
+| After entering `Raffi`     | Parent nickname: Raffi | Raffi                | Parent reminders: Off | off          |
+| After turning reminders on | Parent nickname: Raffi | Raffi                | Parent reminders: On  | on           |
+| After parent Reset         | Parent nickname: Guest | Guest                | Parent reminders: Off | off          |
 
 ## Explain the two directions
 
 1. When the child text field changes, trace the change from the control to the
    parent label.
 
-> TODO
+>TextField → binding setter → Profile property → Observation → parent label
 
 2. When the parent Reset button changes `profile.nickname`, trace the change to
    the child's text field.
 
-> TODO
+> Reset action → Profile property → Observation → binding getter → child control
 
 3. Which view owns the profile's lifetime? What job does `@Bindable` perform in
    the child, and what job does it *not* perform?
 
-> TODO
+`ProfileHostView` owns the model’s lifetime and `@Bindable` does not create or own a second `Profile`. Also describe `$profile.nickname` as a get/set connection, not as “the same value.”
 
 Tell the tutor when the code, predictions, and explanations are ready. Do not run
 the interaction sequence until after source review.

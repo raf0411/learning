@@ -34,9 +34,12 @@ with a local draft and parent Save closure are complete with guidance as of
 of 2026-10-06: the parent owns one model, an ordinary child reads the same
 instance, and learner-reported Add/rejection/Remove runs updated both counts
 together. Separating that shared-instance behavior from a separately constructed
-model required repeated clarification. Next: implement and trace child controls
-using `@Bindable` in the assigned profile lab. The Phase 2 milestone remains in
-progress.
+model required repeated clarification. The observable Profile binding lab is now
+complete with guidance: child TextField/Toggle writes and parent Reset changes
+matched predictions, while binding direction, class-reference mutability, and
+Observation required repeated clarification. Next: implement and verify a small
+persisted preference with `@AppStorage`, then move toward structured shopping-item
+persistence. The Phase 2 milestone remains in progress.
 
 ## Dependencies
 

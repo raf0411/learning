@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/ios-dev/labs/2026-10-01-observable-shopping-list.md",
-                "mode": "source",
+                "file": "topics/ios-dev/ROADMAP.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-10-01-observable-shopping-list"
+              "title": "ROADMAP"
             }
           }
         ]
@@ -187,19 +187,20 @@
   },
   "active": "583889f799d4d81a",
   "lastOpenFiles": [
-    "topics/ios-dev/sessions/2026-10-06.md",
-    "topics/ios-dev/labs/2026-10-06-observable-bindable-profile.md",
+    "topics/ios-dev/labs/2026-10-06-app-storage-preference.md",
     "topics/ios-dev/STATE.md",
+    "topics/ios-dev/RESOURCES.md",
+    "topics/ios-dev/AGENTS.md",
+    "topics/ios-dev/GOAL.md",
     "topics/ios-dev/ROADMAP.md",
-    "topics/ios-dev/sessions/2026-10-01.md",
+    "topics/ios-dev/labs/2026-10-06-observable-bindable-profile.md",
     "topics/ios-dev/labs/2026-10-01-observable-shopping-list.md",
+    "topics/ios-dev/sessions/2026-10-06.md",
+    "topics/ios-dev/sessions/2026-10-01.md",
     "topics/ios-dev/labs/2026-09-30-observable-shared-counter.md",
     "topics/ios-dev/sessions/2026-09-30.md",
     "topics/ios-dev/labs/2026-09-30-detail-quantity-edit.md",
     "topics/ios-dev/REVIEW.md",
-    "topics/ios-dev/RESOURCES.md",
-    "topics/ios-dev/AGENTS.md",
-    "topics/ios-dev/GOAL.md",
     "topics/ios-dev/labs/2026-09-30-navigation-detail.md",
     "topics/ios-dev/labs/2026-09-29-child-entry-form.md",
     "topics/leetcode/labs/2026-09-28-fresh-pair-problem.md",
@@ -212,7 +213,6 @@
     "topics/ios-dev/labs/2026-09-29-shopping-model-connection.md",
     "topics/ios-dev/labs/2026-09-29-shopping-entry.md",
     "topics/ios-dev/sessions/2026-09-29.md",
-    "topics/ios-dev/labs/2026-09-28-swiftui-binding-probe.md",
     "topics/leetcode/practice/count_nearby_pairs.py",
     "topics/leetcode/practice/find_pair_indices.py",
     "topics/leetcode/practice/has_pair_with_sum.py",

@@ -87,17 +87,30 @@
 ## Observation, state ownership, and bindings
 
 - Stage: GUIDED.
-- Last evidence: 2026-10-06; converted ShoppingList to an observable final class,
-  kept it in parent `@State`, passed the same instance through a child `let`, and
-  learner-reported matching counts for Add, rejection, and Remove. Initially mixed
-  the separate-instance hypothetical into the shared-instance table. After direct
-  `@Bindable` instruction, identified String versus `Binding<String>` but has not
-  implemented the pattern.
-- Next test: complete the assigned profile lab, independently using `@Bindable`
-  for a TextField and Toggle, then trace child-to-parent and parent-to-child updates
-  and explain that the wrapper creates bindings but does not own a second model.
+- Last evidence: 2026-10-06; implemented a parent-owned observable Profile and a
+  child `@Bindable` TextField/Toggle, with learner-reported actual results matching
+  all child-edit and parent-Reset predictions. Needed supplied traces to separate
+  binding setters/getters from Observation, and repeated correction to distinguish
+  `let` reference reassignment from binding projection.
+- Next test: after spacing, choose and implement the ownership and control-binding
+  declarations for an unfamiliar observable model without wrapper hints, then
+  independently trace a control write and an owner write.
 - Goal: distinguish reference sharing, property mutation, UI observation, model
   lifetime, and a control's binding requirement.
+
+## Persistence lifetime and storage selection
+
+- Stage: RECOGNIZED.
+- Last evidence: 2026-10-06; correctly predicted that the unsaved Profile returns
+  to default values after termination/relaunch and selected `@State` for a draft.
+  Chose `@AppStorage` for a preference without a rationale and initially described
+  a SwiftData `@Model` class as a collection; record/context/query roles were then
+  supplied.
+- Next test: complete the assigned `@AppStorage` lab, including first-launch,
+  mutation, termination/relaunch, reset, and second-relaunch evidence. Then choose
+  storage for a new mixture of drafts, preferences, and structured records.
+- Goal: choose storage by data lifetime and shape, and verify persistence rather
+  than inferring it from an in-memory update.
 
 ## Combine iteration, a predicate, and conditional output
 
