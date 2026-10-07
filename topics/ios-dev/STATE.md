@@ -1,9 +1,9 @@
 # STATE
 
-Updated: 2026-10-07 session end — completed the `@AppStorage` preference lab with
-guidance and learner-reported matching predictions/results across two relaunches.
-Correctly selected storage for temporary state, a small preference, and structured
-records; SwiftData record/context/query roles are recognized but not implemented.
+Updated: 2026-10-07 session end — completed the `@AppStorage` preference lab and
+implemented a minimal SwiftData record/context/query flow with guidance. The
+learner reported correct live query updates and explicit-save persistence across
+a relaunch; the controlled autosave rerun remains unfinished.
 
 ## Evidence limits
 
@@ -266,8 +266,13 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   records. Needed precision that `@State` follows view identity rather than the
   whole process lifetime and that SwiftData models are records, not query
   collections. Correctly answered a follow-up that three stored recipes mean three
-  model instances and that `@Query` retrieves and observes them. SwiftData
-  implementation remains unattempted.
+  model instances and that `@Query` retrieves and observes them. Subsequently
+  implemented an `@Model` record, app-scene persistent container, in-memory preview
+  container, environment context inserts, and a sorted `@Query`. Learner-reported
+  live query updates and a successful relaunch after adding explicit
+  `modelContext.save()` calls with `do`/`catch`. Initially predicted insertion
+  order instead of query sort order, omitted both container placements, and said
+  `@Query` might own records; all were corrected with direct feedback.
 - Git snapshots and branches — GUIDED. In a disposable repository, learner-reported
   terminal output covered initialization, untracked/staged/clean status, two
   commits on `main`, working versus cached diffs, creation of a branch with an
@@ -290,9 +295,15 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   behavior. Independent explanation remains weak: the learner repeatedly merged
   reference mutability with binding projection and binding reads/writes with
   Observation-driven view reevaluation.
-- Structured persistence — RECOGNIZED. The learner now has executed guided
-  `@AppStorage` evidence and distinguishes it from structured records, but has not
-  implemented a SwiftData model, model container, model context write, or query.
+- Structured persistence — GUIDED. Implemented and learner-reported running a
+  minimal SwiftData model, persistent scene container, disposable preview
+  container, context inserts, name-sorted query, and query-derived UI. A quick
+  stop lost the first unsaved inserts; the learner accurately preserved that
+  observation. During the autosave diagnostic, the learner left the prediction
+  blank and independently added explicit saves, changing two experimental
+  conditions at once. The resulting relaunch verified explicit-save persistence,
+  not the background-autosave hypothesis. A controlled autosave comparison is
+  assigned and unattempted.
 - Networking request-to-display flow — UNKNOWN.
 - Translating every detail of a requirement into code and test setup remains
   inconsistent. The learner has omitted requested output details, used an
@@ -313,10 +324,13 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Instructional implications
 
-Continue with `labs/2026-10-07-swiftdata-record-context-query.md`, reviewing its
-model, container, context, query, predictions, and role explanations before
-execution in the Simulator. Keep one persistent record, the context that manages
-writes, and the query that retrieves/observes records conceptually separate.
+Continue with the controlled-autosave comparison in
+`labs/2026-10-07-swiftdata-record-context-query.md`: begin with the two explicitly
+saved records, remove only the manual save blocks, predict before running, then
+background, stop, and relaunch. Keep context insertion, pending in-memory changes,
+explicit or implicit saving, container storage, and query retrieval conceptually
+separate. Preserve results from different experimental conditions rather than
+overwriting them.
 Revisit `@State` versus `@AppStorage` after spacing using a new scenario.
 After spacing, reassess `@Bindable` with an unfamiliar model and control without
 supplying the setter/getter trace. Use short traces when closure inputs, outputs,

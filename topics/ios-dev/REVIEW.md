@@ -100,20 +100,22 @@
 
 ## Persistence lifetime and storage selection
 
-- Stage: GUIDED for `@AppStorage`; RECOGNIZED for SwiftData roles.
-- Last evidence: 2026-10-07; implemented and learner-reported matching results for
-  an `@AppStorage` Bool across first launch, mutation, relaunch, reset, and another
-  relaunch. Initially used the wrong exact key and could not explain the projected
-  binding or structured-record mismatch without instruction. Immediately afterward
-  selected `@State`, `@AppStorage`, and SwiftData correctly for three recipe-app
-  data shapes, then correctly distinguished three model instances from the query
-  that retrieves and observes them. View-lifetime and record terminology still
-  needed refinement.
-- Next test: complete the assigned SwiftData model/container/context/query lab.
-  After spacing, choose storage for an unfamiliar mixture of temporary UI state,
-  preferences, and structured records without being given the candidate tools.
+- Stage: GUIDED for `@AppStorage` and introductory SwiftData.
+- Last evidence: 2026-10-07; implemented a minimal `PantryItem` model, app and
+  preview containers, context inserts, and a name-sorted query after corrections.
+  Learner-reported query-driven count/row updates and relaunch persistence after
+  independently adding throwing explicit saves with `do`/`catch`. Initially
+  omitted the two containers, predicted insertion rather than sorted display
+  order, and was unsure whether `@Query` owned records. A quick autosave run lost
+  pending changes; the follow-up changed both lifecycle and save behavior and left
+  its prediction blank, so it verified manual saving but not autosave.
+- Next test: complete the assigned controlled autosave rerun without changing the
+  code after predicting. After spacing, choose storage for unfamiliar temporary
+  UI state, preferences, and records without being given candidate tools, then
+  implement the structured-record choice with less scaffolding.
 - Goal: choose storage by data lifetime and shape, and verify persistence rather
-  than inferring it from an in-memory update.
+  than inferring it from an in-memory update; distinguish insert, save, storage,
+  query, and rendering roles.
 
 ## Combine iteration, a predicate, and conditional output
 

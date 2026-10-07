@@ -39,10 +39,14 @@ complete with guidance: child TextField/Toggle writes and parent Reset changes
 matched predictions, while binding direction, class-reference mutability, and
 Observation required repeated clarification. The `@AppStorage` preference lab is
 complete with guidance as of 2026-10-07: learner-reported first launch, mutation,
-relaunch, reset, and second-relaunch behavior all matched predictions. Next:
-implement the assigned minimal SwiftData record/context/query lab, then integrate
-structured persistence into shopping-item work. The Phase 2 milestone remains in
-progress.
+relaunch, reset, and second-relaunch behavior all matched predictions. The minimal
+SwiftData lab is now implemented with guidance: one `@Model` record, persistent
+app container, in-memory preview, context inserts, sorted query, and query-derived
+UI. Learner-reported relaunch persistence is verified through explicit save;
+the controlled autosave comparison is still pending after the first diagnostic
+changed both lifecycle and save behavior. Next: finish that comparison, then
+integrate structured persistence into shopping-item work. The Phase 2 milestone
+remains in progress.
 
 ## Dependencies
 

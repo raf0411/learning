@@ -102,13 +102,61 @@ for the displayed collection.
 Paste your implementation below:
 
 ```swift
-// TODO: PantryItem
+import SwiftUI
+import SwiftData
 
-// TODO: PersistentItemsView
+@Model
+final class PantryItem {
+    var name: String
+    var quantity: Int
+    
+    init(name: String, quantity: Int) {
+        self.name = name
+        self.quantity = quantity
+    }
+}
 
-// TODO: relevant App scene code
+struct PersistentItemsView: View {
+    @Environment(\.modelContext) private var modelContext
+    @Query(sort: \PantryItem.name) private var items: [PantryItem]
+    
+    var body: some View {
+        VStack {
+            Text("Stored items: \(items.count)")
+            
+            ForEach(items, id: \.self) { item in
+                Text("\(item.name): \(item.quantity)")
+            }
+            
+            HStack {
+                Button("Add Milk", action: {
+                    modelContext.insert(PantryItem(name: "Milk", quantity: 1))
+                })
+                .buttonStyle(.borderedProminent)
+                
+                Button("Add Eggs", action: {
+                    modelContext.insert(PantryItem(name: "Eggs", quantity: 6))
+                })
+                .buttonStyle(.borderedProminent)
+            }
+        }
+        .padding()
+    }
+}
 
-// TODO: preview
+#Preview {
+    PersistentItemsView()
+        .modelContainer(for: PantryItem.self, inMemory: true)
+}
+
+@main struct MyApp: App {
+    var body: some Scene {
+        WindowGroup {
+            PersistentItemsView()
+        }
+        .modelContainer(for: PantryItem.self)
+    }
+}
 ```
 
 ## Predict before running
@@ -116,33 +164,188 @@ Paste your implementation below:
 Assume the installed app has a fresh persistent store. Perform these moments in
 order. For rows, write `none` or list every visible row in display order.
 
-| Moment | Predicted count label | Predicted rows |
-| --- | --- | --- |
-| First launch | TODO | TODO |
-| After pressing `Add Milk` once | TODO | TODO |
-| After pressing `Add Eggs` once | TODO | TODO |
-| After stopping and relaunching the app | TODO | TODO |
+| Moment                                 | Predicted count label | Predicted rows     |
+| -------------------------------------- | --------------------- | ------------------ |
+| First launch                           | Stored items: 0       | None               |
+| After pressing `Add Milk` once         | Stored items: 1       | Milk: 1            |
+| After pressing `Add Eggs` once         | Stored items: 2       | Eggs: 6<br>Milk: 1 |
+| After stopping and relaunching the app | Stored items: 2       | Eggs: 6<br>Milk: 1 |
 
 ## Explain before running
 
 1. After both button presses, how many `PantryItem` instances have been inserted?
 
-> TODO
+> Two, because we are using the model context to insert a new Pantry item in each button presses
 
 2. Which part of your code performs writes, and which part retrieves and observes
    the collection shown by the view?
 
-> TODO
+> Writes: modelContext.insert()
+> retrieves and observes: 
+> @Query(sort: \PantryItem.name) **private** **var** items: [PantryItem]
+> ForEach(items, id: \.**self**) { item **in**
+
+                Text("\(item.name): \(item.quantity)")
+
+            }
 
 3. Does `@Query` own or save the records? Explain its role in one or two sentences.
 
-> TODO
+> Query is to retrieves and observe matching records , it does not save the records or own it
 
 4. Why is the app scene's model container persistent while this lab's preview
    container is not suitable for testing relaunch persistence?
 
-> TODO
+>The app container is intended to use persistent storage. The preview
+     container requested by this lab uses `inMemory: true`, so its data is
+     disposable and cannot establish relaunch persistence.
 
 Tell the tutor when the implementation, predictions, and explanations are ready.
 Do not run the interaction sequence yet.
 
+## Tutor review 1 — revise before running
+
+What is already correct:
+
+- `PantryItem` has the required model annotation, mutable properties, and
+  initializer.
+- The view obtains a context, queries `PantryItem`, displays query-derived state,
+  and inserts one new instance from each button.
+- No parallel array is kept in `@State`.
+- The zero-item and one-item predictions match the implementation.
+
+Revise these four points in the original sections above:
+
+1. Add the relevant `App` scene code. The persistent model container must be
+   attached to the `WindowGroup` that creates `PersistentItemsView`.
+2. Give the standalone preview its own model container and make that container
+   explicitly in-memory, as shown in **New syntax**.
+3. Recalculate both two-record row predictions. Follow the declared query sort,
+   not the order in which the buttons were pressed.
+4. Rewrite explanations 3 and 4 using these distinctions:
+   - `@Query` retrieves and observes matching records; it does not own or save
+     them.
+   - The app container is intended to use persistent storage. The preview
+     container requested by this lab uses `inMemory: true`, so its data is
+     disposable and cannot establish relaunch persistence.
+
+Leave the interaction sequence unrun, then tell the tutor when the revision is
+ready.
+
+## Tutor review 2 — approved after prediction correction
+
+The implementation and role explanations are ready for execution after correcting
+the two-record predictions. `@Query(sort: \PantryItem.name)` returns the records
+in ascending name order; `ForEach` displays that query order, not insertion order.
+
+Before running, correct the two affected prediction cells above. Then preserve
+those predictions and record only observed results in this table:
+
+| Moment                                 | Actual count label | Actual rows        |
+| -------------------------------------- | ------------------ | ------------------ |
+| First launch with a fresh store        | Stored items: 0    | None               |
+| After pressing `Add Milk` once         | Stored items: 1    | Milk: 1            |
+| After pressing `Add Eggs` once         | Stored items: 2    | Eggs: 6<br>Milk: 1 |
+| After stopping and relaunching the app | Stored items: 0    | None               |
+
+Also record any compiler or runtime error exactly as Xcode reports it:
+
+> TODO: none
+
+Use only one `@main` app declaration in the target. If Xcode already generated an
+`App` type, add the model-container modifier to that existing scene rather than
+creating a second `@main` type.
+
+## Persistence diagnostic rerun
+
+The first Simulator run showed both records during the process but showed zero
+after a quick Xcode stop and relaunch. Preserve that actual result: it is evidence
+that query observation worked, but it does not demonstrate a completed disk save.
+
+Current hypothesis: Xcode stopped the process before the context's implicit
+autosave occurred. Autosave timing is not a fixed-duration guarantee, so test a
+documented UI lifecycle opportunity instead of guessing a wait time.
+
+Before rerunning, predict the final state:
+
+> After adding Milk and Eggs, sending the app to the background, stopping it, and
+> relaunching it, I predict: TODO
+
+Then perform this sequence without changing the code:
+
+1. Launch the app and confirm it currently shows zero records.
+2. Press `Add Milk` once and `Add Eggs` once; confirm both rows appear.
+3. Send the Simulator app to the background by going to its Home Screen.
+4. Once the Home Screen is visible, pause briefly, then stop the run in Xcode.
+5. Run the app again and record the result below.
+
+| Diagnostic moment                    | Actual count label | Actual rows        |
+| ------------------------------------ | ------------------ | ------------------ |
+| Before adding                        | Stored items: 0    | None               |
+| After both inserts                   | Stored items: 2    | Eggs: 6<br>Milk: 1 |
+| After background, stop, and relaunch | Stored items: 2    | Eggs: 6<br>Milk: 1 |
+
+Exact compiler/runtime error, if any:
+
+> TODO: none
+
+Okay it works now, i added these:
+
+## Tutor review 3 — separate explicit save from autosave
+
+The latest result verifies persistent storage through explicit
+`modelContext.save()`. It does not verify the background-autosave hypothesis,
+because the run introduced explicit saves while also adding the background step.
+
+Run one controlled comparison:
+
+1. Keep the two records that are currently persisted.
+2. Remove only the two `do`/`catch` save blocks from the Xcode implementation;
+   leave both `modelContext.insert(...)` calls intact.
+3. Before running, complete this prediction:
+
+> Starting with two stored records, after inserting Milk and Eggs once more,
+> backgrounding, stopping, and relaunching, I predict the count and rows will be:
+> TODO
+
+4. Run and record each moment without changing the code again.
+
+| Controlled-autosave moment | Actual count label | Actual rows |
+| --- | --- | --- |
+| Relaunch with the two explicitly saved records | TODO | TODO |
+| After one more Milk and one more Eggs | TODO | TODO |
+| After background, stop, and relaunch | TODO | TODO |
+
+Exact compiler/runtime error, if any:
+
+> TODO: none, or exact error
+
+Do not replace the earlier results. They are evidence from different experimental
+conditions.
+```
+HStack {
+	Button("Add Milk", action: {
+		modelContext.insert(PantryItem(name: "Milk", quantity: 1))
+		
+		do {
+			try modelContext.save()
+			print("✅ Milk saved")
+		} catch {
+			print("❌ Save failed: \(error)")
+		}
+	})
+	.buttonStyle(.borderedProminent)
+	
+	Button("Add Eggs", action: {
+		modelContext.insert(PantryItem(name: "Eggs", quantity: 6))
+		
+		do {
+			try modelContext.save()
+			print("✅ Eggs saved")
+		} catch {
+			print("❌ Save failed: \(error)")
+		}
+	})
+	.buttonStyle(.borderedProminent)
+}
+```
