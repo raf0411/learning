@@ -42,10 +42,14 @@ complete with guidance as of 2026-10-07: learner-reported first launch, mutation
 relaunch, reset, and second-relaunch behavior all matched predictions. The minimal
 SwiftData lab is now implemented with guidance: one `@Model` record, persistent
 app container, in-memory preview, context inserts, sorted query, and query-derived
-UI. Learner-reported relaunch persistence is verified through explicit save;
-the controlled autosave comparison is still pending after the first diagnostic
-changed both lifecycle and save behavior. Next: finish that comparison, then
-integrate structured persistence into shopping-item work. The Phase 2 milestone
+UI. Learner-reported relaunch persistence is verified through explicit save and a
+controlled PantryItem run without explicit saves. Structured persistence is now
+being integrated into shopping-item work: a persistent ShoppingItem model,
+two-model app container, validated context insertion, sorted query, and
+query-derived rows are implemented. In the first run, both records were visible
+before termination but only Milk survived relaunch, reinforcing that query
+visibility is not proof of a completed save. Next: make Add report success only
+after an explicit save, then migrate removal and editing. The Phase 2 milestone
 remains in progress.
 
 ## Dependencies

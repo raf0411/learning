@@ -1,9 +1,9 @@
 # STATE
 
-Updated: 2026-10-07 session end — completed the `@AppStorage` preference lab and
-implemented a minimal SwiftData record/context/query flow with guidance. The
-learner reported correct live query updates and explicit-save persistence across
-a relaunch; the controlled autosave rerun remains unfinished.
+Updated: 2026-10-08 session end — completed the controlled PantryItem autosave
+comparison and implemented a SwiftData-backed shopping Add path with guidance.
+The query showed Milk and Eggs, but only Milk survived the final relaunch; an
+explicit-save result path is assigned and unattempted.
 
 ## Evidence limits
 
@@ -272,7 +272,15 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   live query updates and a successful relaunch after adding explicit
   `modelContext.save()` calls with `do`/`catch`. Initially predicted insertion
   order instead of query sort order, omitted both container placements, and said
-  `@Query` might own records; all were corrected with direct feedback.
+  `@Query` might own records; all were corrected with direct feedback. On
+  2026-10-08, completed a controlled no-explicit-save PantryItem run in which two
+  additional records survived relaunch, then built a shopping-item `@Model`,
+  two-model app container, context-backed Add validation, and a sorted query.
+  Correctly predicted validation precedence and draft behavior. Initially
+  predicted repeated names would update and combine quantities rather than create
+  records, then corrected that `insert` creates distinct records. In the shopping
+  run, both rows appeared before termination but only Milk survived relaunch;
+  distinguishing context visibility from stored data required direct instruction.
 - Git snapshots and branches — GUIDED. In a disposable repository, learner-reported
   terminal output covered initialization, untracked/staged/clean status, two
   commits on `main`, working versus cached diffs, creation of a branch with an
@@ -295,15 +303,17 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   behavior. Independent explanation remains weak: the learner repeatedly merged
   reference mutability with binding projection and binding reads/writes with
   Observation-driven view reevaluation.
-- Structured persistence — GUIDED. Implemented and learner-reported running a
-  minimal SwiftData model, persistent scene container, disposable preview
-  container, context inserts, name-sorted query, and query-derived UI. A quick
-  stop lost the first unsaved inserts; the learner accurately preserved that
-  observation. During the autosave diagnostic, the learner left the prediction
-  blank and independently added explicit saves, changing two experimental
-  conditions at once. The resulting relaunch verified explicit-save persistence,
-  not the background-autosave hypothesis. A controlled autosave comparison is
-  assigned and unattempted.
+- Structured persistence — GUIDED. A controlled PantryItem run without explicit
+  saves progressed from two stored records to four records after background,
+  stop, and relaunch. A later persistent-shopping run showed Milk and Eggs through
+  the query before termination but only Milk after relaunch. The learner proposed
+  that Milk had more autosave opportunity and the app was stopped too quickly;
+  this is plausible, but needed guidance to separate that hypothesis from the
+  supported conclusion that Milk reached storage and Eggs did not. The shopping
+  Add path correctly uses `@Model`, `ModelContext`, a sorted `@Query`, validation
+  precedence, and success-only draft clearing. Its Preview still needs the
+  two-model in-memory schema, and Add currently reports success after insertion
+  rather than after a confirmed explicit save.
 - Networking request-to-display flow — UNKNOWN.
 - Translating every detail of a requirement into code and test setup remains
   inconsistent. The learner has omitted requested output details, used an
@@ -324,19 +334,20 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Instructional implications
 
-Continue with the controlled-autosave comparison in
-`labs/2026-10-07-swiftdata-record-context-query.md`: begin with the two explicitly
-saved records, remove only the manual save blocks, predict before running, then
-background, stop, and relaunch. Keep context insertion, pending in-memory changes,
-explicit or implicit saving, container storage, and query retrieval conceptually
-separate. Preserve results from different experimental conditions rather than
-overwriting them.
+Continue `Implementation 2` in
+`labs/2026-10-08-swiftdata-shopping-integration-probe.md`: correct the Preview's
+two-model schema, add a save-failure result, and return Add success only after an
+explicit context save. Use rollback only within the isolated no-other-pending-edit
+condition described in the worksheet. Keep query visibility, pending context
+changes, completed saves, store contents, and new-context retrieval conceptually
+separate. Preserve the partial-autosave result rather than overwriting it.
 Revisit `@State` versus `@AppStorage` after spacing using a new scenario.
 After spacing, reassess `@Bindable` with an unfamiliar model and control without
 supplying the setter/getter trace. Use short traces when closure inputs, outputs,
 or scope are unclear, then reduce the scaffolding.
-Treat harmless naming choices proportionally; preserve earlier predictions and
-observations when correcting or rerunning a lab.
+Treat harmless naming and visual-formatting choices proportionally. Require exact
+formatting only when presentation or exact-output compliance is the learning
+target; preserve earlier predictions and observations when correcting a lab.
 Keep requirement tracing and automated verification active: after spacing,
 assign an unfamiliar feature without a supplied matrix or assertion structure.
 Reassess associated-value design, assertion placement, value semantics, and Git

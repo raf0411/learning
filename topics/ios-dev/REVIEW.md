@@ -101,18 +101,19 @@
 ## Persistence lifetime and storage selection
 
 - Stage: GUIDED for `@AppStorage` and introductory SwiftData.
-- Last evidence: 2026-10-07; implemented a minimal `PantryItem` model, app and
-  preview containers, context inserts, and a name-sorted query after corrections.
-  Learner-reported query-driven count/row updates and relaunch persistence after
-  independently adding throwing explicit saves with `do`/`catch`. Initially
-  omitted the two containers, predicted insertion rather than sorted display
-  order, and was unsure whether `@Query` owned records. A quick autosave run lost
-  pending changes; the follow-up changed both lifecycle and save behavior and left
-  its prediction blank, so it verified manual saving but not autosave.
-- Next test: complete the assigned controlled autosave rerun without changing the
-  code after predicting. After spacing, choose storage for unfamiliar temporary
-  UI state, preferences, and records without being given candidate tools, then
-  implement the structured-record choice with less scaffolding.
+- Last evidence: 2026-10-08; completed the controlled PantryItem autosave run and
+  built a persistent shopping Add path using an `@Model`, context, sorted query,
+  and two-model app container. Validation precedence and draft behavior were
+  predicted correctly. Initially expected repeated-name inserts to combine
+  quantities, then corrected that each insert creates a distinct record. In the
+  shopping run, both Milk and Eggs were query-visible before termination but only
+  Milk survived relaunch. The learner proposed a plausible timing hypothesis but
+  needed instruction to distinguish current-context visibility, stored data, and
+  unknown autosave timing. The Preview omitted the second schema type.
+- Next test: finish the assigned explicit-save Add result and immediate-relaunch
+  check. After spacing, present a fresh mutation scenario and ask the learner to
+  distinguish inserted, query-visible, explicitly saved, and relaunch-retrieved
+  state without a supplied evidence table.
 - Goal: choose storage by data lifetime and shape, and verify persistence rather
   than inferring it from an in-memory update; distinguish insert, save, storage,
   query, and rendering roles.

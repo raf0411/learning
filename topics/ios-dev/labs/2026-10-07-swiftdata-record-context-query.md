@@ -306,19 +306,21 @@ Run one controlled comparison:
 
 > Starting with two stored records, after inserting Milk and Eggs once more,
 > backgrounding, stopping, and relaunching, I predict the count and rows will be:
-> TODO
+> Stored items: 2, 
+> Eggs: 12
+> Milk: 2
 
 4. Run and record each moment without changing the code again.
 
-| Controlled-autosave moment | Actual count label | Actual rows |
-| --- | --- | --- |
-| Relaunch with the two explicitly saved records | TODO | TODO |
-| After one more Milk and one more Eggs | TODO | TODO |
-| After background, stop, and relaunch | TODO | TODO |
+| Controlled-autosave moment                     | Actual count label | Actual rows                              |
+| ---------------------------------------------- | ------------------ | ---------------------------------------- |
+| Relaunch with the two explicitly saved records | Stored items: 2    | Eggs: 6<br>Milk: 1                       |
+| After one more Milk and one more Eggs          | Stored items: 4    | Eggs: 6<br>Eggs: 6<br>Milk: 1<br>Milk: 1 |
+| After background, stop, and relaunch           | Stored items: 4    | Eggs: 6<br>Eggs: 6<br>Milk: 1<br>Milk: 1 |
 
 Exact compiler/runtime error, if any:
 
-> TODO: none, or exact error
+> TODO: none
 
 Do not replace the earlier results. They are evidence from different experimental
 conditions.
