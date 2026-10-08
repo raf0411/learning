@@ -101,19 +101,18 @@
 ## Persistence lifetime and storage selection
 
 - Stage: GUIDED for `@AppStorage` and introductory SwiftData.
-- Last evidence: 2026-10-08; completed the controlled PantryItem autosave run and
-  built a persistent shopping Add path using an `@Model`, context, sorted query,
-  and two-model app container. Validation precedence and draft behavior were
-  predicted correctly. Initially expected repeated-name inserts to combine
-  quantities, then corrected that each insert creates a distinct record. In the
-  shopping run, both Milk and Eggs were query-visible before termination but only
-  Milk survived relaunch. The learner proposed a plausible timing hypothesis but
-  needed instruction to distinguish current-context visibility, stored data, and
-  unknown autosave timing. The Preview omitted the second schema type.
-- Next test: finish the assigned explicit-save Add result and immediate-relaunch
-  check. After spacing, present a fresh mutation scenario and ask the learner to
-  distinguish inserted, query-visible, explicitly saved, and relaunch-retrieved
-  state without a supplied evidence table.
+- Last evidence: 2026-10-09; completed explicit-save Add and Remove paths with
+  rollback-backed save-failure results and corrected the two-model Preview.
+  Learner-reported immediate relaunch retrieved the newly added Eggs record and,
+  after removal, retrieved only Milk. Correctly reasoned about an Add save-failure
+  scenario after one wording correction. Remove required repeated guidance to
+  restore the deleted record on rollback, order save before success, distinguish
+  the view's Add-draft `name` from `item.name`, and capture the name before
+  deletion. No throwing save was executed.
+- Next test: complete the assigned persistent quantity update. After spacing,
+  present a fresh mutation scenario and require an independent distinction among
+  pending context mutation, query visibility, explicit save, rollback, persistent
+  store contents, and new-context retrieval without a supplied trace.
 - Goal: choose storage by data lifetime and shape, and verify persistence rather
   than inferring it from an in-memory update; distinguish insert, save, storage,
   query, and rendering roles.

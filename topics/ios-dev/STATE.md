@@ -1,9 +1,9 @@
 # STATE
 
-Updated: 2026-10-08 session end — completed the controlled PantryItem autosave
-comparison and implemented a SwiftData-backed shopping Add path with guidance.
-The query showed Milk and Eggs, but only Milk survived the final relaunch; an
-explicit-save result path is assigned and unattempted.
+Updated: 2026-10-09 session end — persistent shopping Add and Remove now return
+success only after explicit saves. Learner-reported immediate relaunches retained
+the added Eggs record and retained its later deletion. Persistent quantity editing
+is assigned and unattempted.
 
 ## Evidence limits
 
@@ -281,6 +281,15 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   records, then corrected that `insert` creates distinct records. In the shopping
   run, both rows appeared before termination but only Milk survived relaunch;
   distinguishing context visibility from stored data required direct instruction.
+  On 2026-10-09, strengthened Add so `.added` follows only a successful explicit
+  save, added rollback-backed failure handling, corrected the multi-model Preview,
+  and learner-reported Eggs surviving an immediate relaunch. Then implemented a
+  persistent row Remove with delete, explicit save, rollback-backed failure, and
+  learner-reported immediate-relaunch evidence that Eggs remained deleted.
+  Rollback reasoning, save/result ordering, bare view-state `name` versus the
+  selected `item.name`, and capturing presentation data before deletion all
+  required repeated guidance. Save-failure behavior was reasoned about but not
+  executed.
 - Git snapshots and branches — GUIDED. In a disposable repository, learner-reported
   terminal output covered initialization, untracked/staged/clean status, two
   commits on `main`, working versus cached diffs, creation of a branch with an
@@ -303,17 +312,16 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   behavior. Independent explanation remains weak: the learner repeatedly merged
   reference mutability with binding projection and binding reads/writes with
   Observation-driven view reevaluation.
-- Structured persistence — GUIDED. A controlled PantryItem run without explicit
-  saves progressed from two stored records to four records after background,
-  stop, and relaunch. A later persistent-shopping run showed Milk and Eggs through
-  the query before termination but only Milk after relaunch. The learner proposed
-  that Milk had more autosave opportunity and the app was stopped too quickly;
-  this is plausible, but needed guidance to separate that hypothesis from the
-  supported conclusion that Milk reached storage and Eggs did not. The shopping
-  Add path correctly uses `@Model`, `ModelContext`, a sorted `@Query`, validation
-  precedence, and success-only draft clearing. Its Preview still needs the
-  two-model in-memory schema, and Add currently reports success after insertion
-  rather than after a confirmed explicit save.
+- Structured persistence — GUIDED. A controlled PantryItem run showed autosaved
+  records surviving relaunch, while an earlier shopping run showed that query
+  visibility alone did not prove durability. Persistent shopping Add and Remove
+  now use explicit saves, return success only after saving, and roll back their
+  isolated mutation on a thrown save. Learner-reported immediate relaunches
+  retrieved the added Eggs record and later confirmed its saved deletion. The
+  learner can state the context/store boundary after correction, but operation
+  ordering, rollback results, variable scope, and pre-deletion value capture
+  needed repeated scaffolding. The failure paths have not been executed. Quantity
+  editing is assigned but unattempted.
 - Networking request-to-display flow — UNKNOWN.
 - Translating every detail of a requirement into code and test setup remains
   inconsistent. The learner has omitted requested output details, used an
@@ -329,18 +337,18 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   state format. A filter test then omitted labels and accidentally printed and
   iterated over `filteredItems1` instead of inspecting `filteredItems2`.
 - Debugging tools beyond inspecting the error and stopped line — unassessed.
-- Architecture, persistence, concurrency, formal tests, independent documentation
-  use, and remaining advanced fundamentals — unassessed.
+- Architecture beyond the current view, concurrency, formal tests, independent
+  documentation use, and remaining advanced fundamentals — unassessed.
 
 ## Instructional implications
 
-Continue `Implementation 2` in
-`labs/2026-10-08-swiftdata-shopping-integration-probe.md`: correct the Preview's
-two-model schema, add a save-failure result, and return Add success only after an
-explicit context save. Use rollback only within the isolated no-other-pending-edit
-condition described in the worksheet. Keep query visibility, pending context
-changes, completed saves, store contents, and new-context retrieval conceptually
-separate. Preserve the partial-autosave result rather than overwriting it.
+Continue `labs/2026-10-09-swiftdata-persistent-quantity-edit.md`, beginning with
+the unattempted ownership, result-design, operation-trace, and prediction sections.
+Then migrate quantity editing with validation before mutation, captured old/new
+result data, explicit save, and isolated rollback on save failure. Keep query
+visibility, pending context changes, completed saves, store contents, and
+new-context retrieval conceptually separate. Require the learner to compare every
+implementation against each stated requirement before reporting readiness.
 Revisit `@State` versus `@AppStorage` after spacing using a new scenario.
 After spacing, reassess `@Bindable` with an unfamiliar model and control without
 supplying the setter/getter trace. Use short traces when closure inputs, outputs,

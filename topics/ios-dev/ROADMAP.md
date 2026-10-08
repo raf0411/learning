@@ -46,11 +46,14 @@ UI. Learner-reported relaunch persistence is verified through explicit save and 
 controlled PantryItem run without explicit saves. Structured persistence is now
 being integrated into shopping-item work: a persistent ShoppingItem model,
 two-model app container, validated context insertion, sorted query, and
-query-derived rows are implemented. In the first run, both records were visible
-before termination but only Milk survived relaunch, reinforcing that query
-visibility is not proof of a completed save. Next: make Add report success only
-after an explicit save, then migrate removal and editing. The Phase 2 milestone
-remains in progress.
+query-derived rows are implemented. Add now returns success only after an explicit
+save and has immediate-relaunch evidence for the added record. Row removal now
+deletes through the context, explicitly saves, rolls back on save failure, and has
+immediate-relaunch evidence for the committed deletion. Both implementations and
+their persistence explanations required guidance, especially around rollback,
+operation order, scope, and capturing data before deletion. Next: migrate quantity
+editing using a child-local draft and explicit-save result path. The Phase 2
+milestone remains in progress.
 
 ## Dependencies
 
