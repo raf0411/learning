@@ -1,8 +1,8 @@
 # STATE
 
-Updated: 2026-10-09 session end — persistent shopping Add and Remove now return
-success only after explicit saves. Learner-reported immediate relaunches retained
-the added Eggs record and retained its later deletion. Persistent quantity editing
+Updated: 2026-10-09 session end — persistent quantity editing is
+complete with guidance. Learner-reported Milk 5 → 9 survived immediate relaunch;
+four invalid-input cases preserved the accepted quantity and draft. Cancel-edit
 is assigned and unattempted.
 
 ## Evidence limits
@@ -320,8 +320,16 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   retrieved the added Eggs record and later confirmed its saved deletion. The
   learner can state the context/store boundary after correction, but operation
   ordering, rollback results, variable scope, and pre-deletion value capture
-  needed repeated scaffolding. The failure paths have not been executed. Quantity
-  editing is assigned but unattempted.
+  needed repeated scaffolding. Quantity editing is now complete with guidance:
+  child-local drafts, a parent Save action, validated property assignment, and an
+  explicit save. Learner-reported Milk 5 → 9 survived relaunch; text, zero,
+  negative, and empty input were rejected without changing the accepted quantity.
+  Model assignment and success-only draft clearing required explicit correction.
+  In the final hypothetical, correctly predicted rollback restores quantity 9,
+  but said save was not reached and predicted an empty draft. The tutor supplied
+  the correction: save was called and threw; failure preserves draft 12. The
+  learner acknowledged this without independent re-demonstration. Throwing-save
+  failure paths have not been executed.
 - Networking request-to-display flow — UNKNOWN.
 - Translating every detail of a requirement into code and test setup remains
   inconsistent. The learner has omitted requested output details, used an
@@ -342,13 +350,12 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Instructional implications
 
-Continue `labs/2026-10-09-swiftdata-persistent-quantity-edit.md`, beginning with
-the unattempted ownership, result-design, operation-trace, and prediction sections.
-Then migrate quantity editing with validation before mutation, captured old/new
-result data, explicit save, and isolated rollback on save failure. Keep query
-visibility, pending context changes, completed saves, store contents, and
-new-context retrieval conceptually separate. Require the learner to compare every
-implementation against each stated requirement before reporting readiness.
+Persistent quantity editing has passed the supplied success/relaunch and invalid
+input checks. Next, use `labs/2026-10-09-cancel-quantity-edit.md` for an
+unscaffolded implementation and learner-derived checks. After spacing, revisit
+throwing-save control flow and the separation of model rollback from local draft
+state. Avoid repeating the completed lab or treating acknowledged corrections as
+independent understanding.
 Revisit `@State` versus `@AppStorage` after spacing using a new scenario.
 After spacing, reassess `@Bindable` with an unfamiliar model and control without
 supplying the setter/getter trace. Use short traces when closure inputs, outputs,

@@ -51,8 +51,11 @@ save and has immediate-relaunch evidence for the added record. Row removal now
 deletes through the context, explicitly saves, rolls back on save failure, and has
 immediate-relaunch evidence for the committed deletion. Both implementations and
 their persistence explanations required guidance, especially around rollback,
-operation order, scope, and capturing data before deletion. Next: migrate quantity
-editing using a child-local draft and explicit-save result path. The Phase 2
+operation order, scope, and capturing data before deletion. Quantity editing is
+now complete with guidance: child-local drafts, a parent Save action, explicit
+save/rollback, and learner-reported relaunch and invalid-input checks. Next:
+the assigned Cancel-edit feature with learner-derived implementation and checks.
+Save-failure reasoning remains a spaced-review target. The overall Phase 2
 milestone remains in progress.
 
 ## Dependencies

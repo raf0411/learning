@@ -25,6 +25,9 @@ They are references, not a requirement to read every chapter or copy full apps.
 - [Preserving model data across launches](https://developer.apple.com/documentation/swiftdata/preserving-your-apps-model-data-across-launches)
   — Apple's SwiftData overview for persistable model records, model contexts,
   insertion, change tracking, and saving across launches.
+- [ModelContext](https://developer.apple.com/documentation/swiftdata/modelcontext)
+  — Apple's reference for tracking changes to existing model properties and
+  context operations including save and rollback.
 - [Pro Git](https://git-scm.com/book/en/v2)
   — version-control concepts and practical local/GitHub workflows; start with
   recording changes and inspecting history before branching/merging.

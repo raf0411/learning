@@ -108,9 +108,16 @@
   scenario after one wording correction. Remove required repeated guidance to
   restore the deleted record on rollback, order save before success, distinguish
   the view's Add-draft `name` from `item.name`, and capture the name before
-  deletion. No throwing save was executed.
-- Next test: complete the assigned persistent quantity update. After spacing,
-  present a fresh mutation scenario and require an independent distinction among
+  deletion. Persistent quantity editing is now complete with guidance; reported
+  Milk 5 → 9 survived relaunch and four invalid-input cases preserved accepted
+  state and draft. Direct property assignment and success-only draft clearing
+  needed correction. In the final failure scenario, correctly predicted restored
+  quantity 9 but incorrectly said save was not reached and that draft 12 cleared.
+  Both were corrected by the tutor and acknowledged, not independently retested.
+  No throwing save was executed.
+- Next test: after spacing, present a fresh mutation scenario and require an
+  independent trace of a called-but-throwing save and separate predictions for
+  model and local draft state. Require a distinction among
   pending context mutation, query visibility, explicit save, rollback, persistent
   store contents, and new-context retrieval without a supplied trace.
 - Goal: choose storage by data lifetime and shape, and verify persistence rather
