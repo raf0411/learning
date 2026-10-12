@@ -1,5 +1,29 @@
 # REVIEW
 
+## Throw versus an ordinary failure result
+
+- Stage: GUIDED overall; validator implementation correct within supplied setup.
+- Last evidence: 2026-10-12; correctly implemented and reportedly ran positive-Int
+  return versus invalid-input throw, with caller handling and successful early
+  return explanation. Initially described throwing as returning an Error value.
+- Next test: after spacing, implement or trace a small unfamiliar function that
+  can return normally or throw, without supplying the do/catch placement; contrast
+  an ordinary failure enum result with a thrown error.
+- Goal: distinguish error values, `throws`, `try`, `throw`, and handled control
+  flow. No actual persistence save failure has been executed.
+
+## Cancel scope and observation accuracy
+
+- Stage: INDEPENDENT for the narrow Cancel action; GUIDED for reasoning/testing.
+- Last evidence: 2026-10-12; supplied test and targeted recheck showed preserved
+  saved quantities and another row's draft/error feedback. Initial predictions
+  and reports incorrectly reset both rows; the learner did not recognize the
+  difference between the original report and corrected recheck without feedback.
+- Next test: after spacing, independently predict and inspect two instances of a
+  reusable view when an action changes one instance, including error feedback.
+- Goal: separate per-view state, persistence, and action branches; record actual
+  observations independently of expectations. See session record for details.
+
 ## SwiftUI local state and view updates
 
 - Stage: INDEPENDENT for a small single-view implementation; GUIDED for explanation
@@ -113,8 +137,10 @@
   state and draft. Direct property assignment and success-only draft clearing
   needed correction. In the final failure scenario, correctly predicted restored
   quantity 9 but incorrectly said save was not reached and that draft 12 cleared.
-  Both were corrected by the tutor and acknowledged, not independently retested.
-  No throwing save was executed.
+  Both were initially corrected by the tutor and acknowledged. On 2026-10-12,
+  correctly retrieved rollback, `.failed`, and preservation of draft 12; needed
+  the quantity-success case name corrected to `.updated`. Full model/store/context
+  reasoning was not independently reassessed. No throwing save was executed.
 - Next test: after spacing, present a fresh mutation scenario and require an
   independent trace of a called-but-throwing save and separate predictions for
   model and local draft state. Require a distinction among
@@ -252,8 +278,10 @@
   six-block outline and one supplied assertion example, interleaved complete result
   and state assertions for all six operations, including two absent-key checks;
   learner reported `All checks complete.`
-- Next test: after spacing, independently derive and sequence checks for a different
-  state-changing feature without an assertion example.
+- Next test: resume `labs/2026-10-12-validator-checks.md` next session (assigned,
+  unattempted). Write checks that reject wrong returned values and wrong
+  return/throw paths without an assertion example. Then verify the checks detect
+  a controlled regression; later return to a state-changing feature.
 - Goal: independently turn behavior and invariants into useful automated checks.
 
 ## Dictionaries and sets

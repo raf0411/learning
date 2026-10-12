@@ -1,9 +1,8 @@
 # STATE
 
-Updated: 2026-10-09 session end — persistent quantity editing is
-complete with guidance. Learner-reported Milk 5 → 9 survived immediate relaunch;
-four invalid-input cases preserved the accepted quantity and draft. Cancel-edit
-is assigned and unattempted.
+Updated: 2026-10-12 session end — Cancel and introductory throwing-validator
+practice are complete. Automated validator checks are assigned and unattempted.
+Actual persistence save-failure execution remains unverified.
 
 ## Evidence limits
 
@@ -13,6 +12,24 @@ INDEPENDENT below applies only to the small tasks described, not whole features.
 Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Current abilities
+
+- Throwing functions — GUIDED overall, with correct learner-written validator
+  body and caller statements inside supplied declarations/do-catch scaffolding.
+  Returns a converted positive Int; throws for failed conversion or nonpositive
+  input; reported output matches all three supplied cases. Correctly explains
+  that the successful return exits before throw. Earlier confused throwing an
+  error with returning an Error value; distinction was taught before this task.
+- Save-error trace — correctly retrieved rollback → `.failed` → preserved local
+  draft on 2026-10-12, with a result-case naming correction (`.updated`, not
+  `.added`). Full independent failure-path testing remains unassessed.
+
+- Row-local Cancel — INDEPENDENT for the small action implementation from the
+  feature brief; GUIDED for explanation and verification. Correctly changed only
+  local draft/feedback without a persistence call. Supplied scenarios and a
+  targeted rerun were needed to establish saved-quantity preservation and row
+  isolation. Initially expected draft persistence across relaunch and confused
+  feedback reset scope with success/error status; both required correction.
+  Accurate observation recording and independent test design remain weak.
 
 - Variables, assignment, and `var`/`let` — INDEPENDENT in small snippets. Correct
   mutation/constant explanation and arithmetic; output requirements were sometimes
@@ -328,8 +345,10 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
   In the final hypothetical, correctly predicted rollback restores quantity 9,
   but said save was not reached and predicted an empty draft. The tutor supplied
   the correction: save was called and threw; failure preserves draft 12. The
-  learner acknowledged this without independent re-demonstration. Throwing-save
-  failure paths have not been executed.
+  learner initially only acknowledged this. On 2026-10-12, correctly retrieved
+  rollback, `.failed`, and preserved draft 12, with a success-case naming
+  correction. Actual SwiftData throwing-save paths have not been executed;
+  controlled Playground throw/catch paths have learner-reported execution.
 - Networking request-to-display flow — UNKNOWN.
 - Translating every detail of a requirement into code and test setup remains
   inconsistent. The learner has omitted requested output details, used an
@@ -350,12 +369,15 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Instructional implications
 
-Persistent quantity editing has passed the supplied success/relaunch and invalid
-input checks. Next, use `labs/2026-10-09-cancel-quantity-edit.md` for an
-unscaffolded implementation and learner-derived checks. After spacing, revisit
-throwing-save control flow and the separation of model rollback from local draft
-state. Avoid repeating the completed lab or treating acknowledged corrections as
-independent understanding.
+Persistent quantity editing, Cancel, and introductory throwing-validator practice
+are complete. Next: `labs/2026-10-12-validator-checks.md`, assigned and unattempted.
+Assess learner-written assertion placement for returned values and return/throw
+paths before supplying a solution. Later reassess throw versus ordinary return
+without supplied structure and connect it to controlled failure-path testing.
+Actual throwing SwiftData save remains untested. Cancel verification required a
+concrete supplied scenario; use precise actions and separate observed/predicted values when an open test-design brief
+stops being productive, then reduce scaffolding in later work. Avoid repeating
+the completed lab or treating acknowledged corrections as independent understanding.
 Revisit `@State` versus `@AppStorage` after spacing using a new scenario.
 After spacing, reassess `@Bindable` with an unfamiliar model and control without
 supplying the setter/getter trace. Use short traces when closure inputs, outputs,

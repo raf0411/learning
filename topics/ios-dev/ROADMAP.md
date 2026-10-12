@@ -53,10 +53,13 @@ immediate-relaunch evidence for the committed deletion. Both implementations and
 their persistence explanations required guidance, especially around rollback,
 operation order, scope, and capturing data before deletion. Quantity editing is
 now complete with guidance: child-local drafts, a parent Save action, explicit
-save/rollback, and learner-reported relaunch and invalid-input checks. Next:
-the assigned Cancel-edit feature with learner-derived implementation and checks.
-Save-failure reasoning remains a spaced-review target. The overall Phase 2
-milestone remains in progress.
+save/rollback, and learner-reported relaunch and invalid-input checks. Cancel is
+complete as of 2026-10-12: its small action was implemented independently, while
+test design and verification required guidance. Introductory throwing-function
+practice is complete within supplied scaffolding; next are automated validator
+checks for success and error paths, currently assigned and unattempted. Actual
+SwiftData save-failure testing remains open. The overall Phase 2 milestone
+remains in progress.
 
 ## Dependencies
 
