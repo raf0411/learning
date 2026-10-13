@@ -56,8 +56,12 @@ now complete with guidance: child-local drafts, a parent Save action, explicit
 save/rollback, and learner-reported relaunch and invalid-input checks. Cancel is
 complete as of 2026-10-12: its small action was implemented independently, while
 test design and verification required guidance. Introductory throwing-function
-practice is complete within supplied scaffolding; next are automated validator
-checks for success and error paths, currently assigned and unattempted. Actual
+practice is complete within supplied scaffolding. Automated validator checks and
+a controlled regression check are complete with guidance as of 2026-10-13.
+An isolated SwiftData rollback lab is also complete with guidance, including
+detection of omitted rollback after a deliberate throw before saving. Next:
+write checks for a successful save followed by a simulated failed edit with
+less scaffolding; this exercise is assigned and unattempted. Actual
 SwiftData save-failure testing remains open. The overall Phase 2 milestone
 remains in progress.
 

@@ -141,6 +141,10 @@
   correctly retrieved rollback, `.failed`, and preservation of draft 12; needed
   the quantity-success case name corrected to `.updated`. Full model/store/context
   reasoning was not independently reassessed. No throwing save was executed.
+  On 2026-10-13, completed a guided in-memory rollback fixture with a deliberate
+  throw before save. Corrected the expected result/state after a trace, then
+  correctly explained and reportedly detected omitted rollback. This establishes
+  guided recovery-path practice, not a save-originated error or row-draft test.
 - Next test: after spacing, present a fresh mutation scenario and require an
   independent trace of a called-but-throwing save and separate predictions for
   model and local draft state. Require a distinction among
@@ -273,15 +277,19 @@
 ## Development assertions
 
 - Stage: GUIDED.
-- Last evidence: 2026-09-28; in `addUses`, initially treated prints as checks,
-  omitted two cases, delayed assertions, and missed absent-key evidence. After a
-  six-block outline and one supplied assertion example, interleaved complete result
-  and state assertions for all six operations, including two absent-key checks;
-  learner reported `All checks complete.`
-- Next test: resume `labs/2026-10-12-validator-checks.md` next session (assigned,
-  unattempted). Write checks that reject wrong returned values and wrong
-  return/throw paths without an assertion example. Then verify the checks detect
-  a controlled regression; later return to a state-changing feature.
+- Last evidence: 2026-10-13; completed returned-value and return/throw checks with
+  explicit assertion-placement guidance. Correctly predicted that the supplied
+  `>= 0` regression reaches the zero-case failing assertion; reported the expected
+  failure and a passing run after restoring `> 0`. Initially used prints alone
+  and later treated every catch as failure, including expected invalid inputs.
+  In the SwiftData fixture, corrected success expectations for a simulated failure
+  after a supplied trace. Then correctly explained why omitting rollback passes
+  the result check but fails the quantity check, with matching reported runs.
+- Next practice: resume `labs/2026-10-13-save-then-fail.md` next session;
+  predictions, calls, assertions, and output remain unattempted.
+- Next test: after spacing, derive checks for a small unfamiliar throwing
+  operation without assertion-placement hints. Include both expected and
+  unexpected error paths and, when state changes, state assertions.
 - Goal: independently turn behavior and invariants into useful automated checks.
 
 ## Dictionaries and sets

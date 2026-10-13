@@ -27,23 +27,49 @@ you get stuck.
 Your existing validator is copied here. Replace the TODO with your checks.
 
 ```swift
-enum QuantityInputError: Error {
-    case invalidQuantity
-}
+import Playgrounds
 
-func validatedQuantity(_ text: String) throws -> Int {
-    if let quantity = Int(text) {
-        if quantity > 0 {
-            return quantity
-        }
+#Playground {
+    enum QuantityInputError: Error {
+        case invalidQuantity
     }
 
-    throw QuantityInputError.invalidQuantity
+    func validatedQuantity(_ text: String) throws -> Int {
+        if let quantity = Int(text) {
+            if quantity > 0 {
+                return quantity
+            }
+        }
+
+        throw QuantityInputError.invalidQuantity
+    }
+
+    do {
+        let quantity = try validatedQuantity("4")
+        
+        assert(quantity == 4, "Expected 4!")
+        
+    } catch {
+        assert(false, "Unexpected error!")
+    }
+
+    do {
+        let quantity = try validatedQuantity("0")
+        assert(false, "Expected zero to throw!")
+    } catch {
+        print("Invalid quantity!")
+    }
+    
+    do {
+        let quantity = try validatedQuantity("abc")
+        assert(false, "Expected abc to throw!")
+    } catch {
+        print("Invalid quantity!")
+    }
+
+    print("All validator checks passed.")
 }
 
-// TODO: automated checks
-
-print("All validator checks passed.")
 ```
 
 ## Run
@@ -51,7 +77,11 @@ print("All validator checks passed.")
 Build and run your code. Record the actual output, or the error if blocked:
 
 ```text
-TODO
+Invalid quantity!
+
+Invalid quantity!
+
+All validator checks passed.
 ```
 
 Tell the tutor when ready for review. We will inspect whether the checks would

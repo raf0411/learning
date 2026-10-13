@@ -1,7 +1,8 @@
 # STATE
 
-Updated: 2026-10-12 session end — Cancel and introductory throwing-validator
-practice are complete. Automated validator checks are assigned and unattempted.
+Updated: 2026-10-13 session end — guided validator and SwiftData rollback checks,
+including deliberate regressions, are complete. Success-then-failure checks are
+assigned and unattempted.
 Actual persistence save-failure execution remains unverified.
 
 ## Evidence limits
@@ -13,6 +14,19 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Current abilities
 
+- State-changing failure checks — GUIDED. Completed rollback and `.failed` in a
+  supplied in-memory SwiftData fixture. Initially asserted success and quantity
+  12 for a simulated failure; corrected to failure and 9 after a supplied trace.
+  Correctly explained that removing rollback leaves 12 while still returning
+  `.failed`; reported the quantity assertion failing and the restored run passing.
+  This exercises a deliberate throw before save, not a save-originated error or
+  row-draft behavior. Next: write a success-then-failure sequence from a brief.
+- Throwing-function assertions — GUIDED. Completed separate success/error checks
+  after help distinguishing prints from checks, function from returned value,
+  test code from implementation, and expected from unexpected catch paths.
+  Correctly predicted a supplied `>= 0` regression would return zero and reach
+  the failing assertion; reported that failure and a passing restored run.
+  Independent assertion placement and test design remain unassessed.
 - Throwing functions — GUIDED overall, with correct learner-written validator
   body and caller statements inside supplied declarations/do-catch scaffolding.
   Returns a converted positive Int; throws for failed conversion or nonpositive
@@ -369,11 +383,13 @@ Nothing has yet demonstrated RETAINED or TRANSFERABLE performance.
 
 ## Instructional implications
 
-Persistent quantity editing, Cancel, and introductory throwing-validator practice
-are complete. Next: `labs/2026-10-12-validator-checks.md`, assigned and unattempted.
-Assess learner-written assertion placement for returned values and return/throw
-paths before supplying a solution. Later reassess throw versus ordinary return
-without supplied structure and connect it to controlled failure-path testing.
+Persistent quantity editing, Cancel, introductory throwing-validator practice,
+and guided automated checks are complete. Validator and omitted-rollback
+regressions were detected in learner-reported runs, with passing restored runs.
+Next: `labs/2026-10-13-save-then-fail.md`, assigned and unattempted, to assess
+checks after a successful save followed by a failed edit with less scaffolding.
+Do not repeat the completed regression labs. Later reassess
+assertion placement and throw versus ordinary return without supplied structure.
 Actual throwing SwiftData save remains untested. Cancel verification required a
 concrete supplied scenario; use precise actions and separate observed/predicted values when an open test-design brief
 stops being productive, then reduce scaffolding in later work. Avoid repeating
