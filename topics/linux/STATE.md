@@ -14,11 +14,12 @@
   of another directory without moving.
 - Home shortcut (`~`) — GUIDED. Direct observation corrected the prediction
   `/Users` to the actual home `/Users/raffi`.
-- Directory creation with `mkdir` — GUIDED. Created sibling directories and
-  missing parents with `-p`, and explained relative construction paths.
-- Project-tree construction and verification — GUIDED. Initially omitted one
-  requested branch and incorrectly judged the tree complete; repaired it after
-  feedback and verified both requested children.
+- Directory creation with `mkdir` — INDEPENDENT execution in one unscaffolded
+  checkpoint. Built the requested `copy-practice` tree with correct relative
+  paths; used `-p` safely but unnecessarily on some commands.
+- Project-tree verification — GUIDED. Recorded correct `ls` evidence and the
+  actual tree is complete, but left the explicit evidence mapping unfinished and
+  initially attributed path nesting to `-p` rather than `/` in the pathname.
 
 ## Points requiring reinforcement
 
@@ -33,6 +34,8 @@
 
 ## Current learning edge
 
-Complete the unscaffolded `copy-practice` directory-tree checkpoint in
-`labs/2026-10-28-project-structure-check.md`. If successful, begin safe file
-copying with `cp` and reuse navigation later for a spaced retention check.
+Complete the review correction in
+`labs/2026-10-28-project-structure-check.md`: map every requested directory to
+the recorded evidence and distinguish `/` path nesting from `mkdir -p` parent
+creation. Then begin safe copying with `cp` and reuse navigation later for a
+spaced retention check.

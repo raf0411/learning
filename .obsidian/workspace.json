@@ -4,35 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "257c989232108349",
+        "id": "fbe15e4826a99fbe",
         "type": "tabs",
         "children": [
           {
-            "id": "583889f799d4d81a",
+            "id": "3e7564648a7395fa",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/ios-dev/sessions/2026-10-13.md",
+                "file": "topics/linux/labs/2026-10-28-project-structure-check.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-10-13"
+              "title": "2026-10-28-project-structure-check"
             }
           },
           {
-            "id": "87c4398422eaa3ca",
+            "id": "042ada5bc30f326a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/linux/labs/2026-10-27-mkdir-lab.md",
+                "file": "topics/linux/labs/2026-10-28-project-structure-check.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-10-27-mkdir-lab"
+              "title": "2026-10-28-project-structure-check"
             }
           }
         ],
@@ -200,26 +200,29 @@
       "bases:Create new base": false
     }
   },
-  "active": "87c4398422eaa3ca",
+  "active": "042ada5bc30f326a",
   "lastOpenFiles": [
+    "topics/linux/ROADMAP.md",
     "topics/linux/sessions/2026-10-28.md",
+    "topics/linux/GOAL.md",
     "topics/linux/labs/2026-10-28-project-structure-check.md",
+    "topics/linux/RESOURCES.md",
+    "topics/linux/STATE.md",
+    "topics/linux/REVIEW.md",
+    "topics/linux/labs/copy-practice/source/images",
+    "topics/linux/labs/copy-practice/source/documents",
+    "topics/linux/labs/copy-practice/source",
+    "topics/linux/labs/copy-practice/destination",
+    "topics/linux/labs/copy-practice/backups/daily",
+    "topics/linux/labs/copy-practice/backups",
+    "topics/linux/labs/copy-practice",
+    "topics/linux/labs/2026-10-27-mkdir-lab.md",
     "topics/linux/labs/mkdir-practice/terminal-project/src/app",
     "topics/linux/labs/mkdir-practice/terminal-project/docs",
     "topics/linux/labs/mkdir-practice/terminal-project/config",
-    "topics/linux/labs/mkdir-practice/terminal-project/src/tests",
-    "topics/linux/labs/mkdir-practice/terminal-project/data/raw",
-    "topics/linux/labs/mkdir-practice/terminal-project/data/processed",
-    "topics/linux/labs/mkdir-practice/terminal-project/src",
-    "topics/linux/labs/mkdir-practice/terminal-project/data",
-    "topics/linux/labs/mkdir-practice/terminal-project",
-    "topics/linux/labs/mkdir-practice/src/tests",
     "topics/linux/labs/2026-10-26-navigation-lab.md",
-    "topics/linux/labs/2026-10-27-mkdir-lab.md",
-    "topics/linux/ROADMAP.md",
     "topics/linux/labs/2026-10-25-ls-lab.md",
     "topics/linux/labs/2026-10-25-filesystem-probe.md",
-    "topics/linux/RESOURCES.md",
     "AGENTS.md",
     "PROFILE.md",
     "README.md",
@@ -234,9 +237,6 @@
     "topics/ios-dev/labs/2026-10-13-swiftdata-rollback-check.md",
     "topics/ios-dev/AGENTS.md",
     "topics/ios-dev/labs/2026-10-13-validator-regression-check.md",
-    "topics/ios-dev/labs/2026-10-12-validator-checks.md",
-    "topics/ios-dev/sessions/2026-09-27.md",
-    "topics/ios-dev/sessions/2026-09-28.md",
-    "topics/ios-dev/sessions/2026-09-26.md"
+    "topics/ios-dev/labs/2026-10-12-validator-checks.md"
   ]
 }
