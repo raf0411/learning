@@ -202,6 +202,7 @@
   },
   "active": "042ada5bc30f326a",
   "lastOpenFiles": [
+    "topics/linux/labs/2026-10-28-cp-directories.md",
     "topics/linux/labs/2026-10-28-cp-single-file.md",
     "topics/linux/labs/2026-10-28-cp-overwrite-safety.md",
     "topics/linux/labs/copy-practice/destination/report.txt",
@@ -236,7 +237,6 @@
     "topics/ios-dev/STATE.md",
     "topics/ios-dev/REVIEW.md",
     "topics/ios-dev/ROADMAP.md",
-    "topics/ios-dev/labs/2026-10-13-swiftdata-rollback-check.md",
-    "topics/ios-dev/AGENTS.md"
+    "topics/ios-dev/labs/2026-10-13-swiftdata-rollback-check.md"
   ]
 }

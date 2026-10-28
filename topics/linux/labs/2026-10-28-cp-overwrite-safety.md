@@ -43,19 +43,23 @@ cat destination/report.txt
 Record the actual output:
 
 ```text
-TODO
+raffi@Raffis-Mac copy-practice % cat source/documents/replacement.txt
+NEW source content
+raffi@Raffis-Mac copy-practice % cat destination/report.txt
+OLD destination content
+raffi@Raffis-Mac copy-practice %
 ```
 
 ## Attempt 1 — decline the overwrite
 
 Predict before running anything:
 
-| Question | Prediction |
-|---|---|
-| Exact target file path | TODO |
-| Why should `cp -i` prompt this time? | TODO |
-| If you answer `n`, what content should remain in the target? | TODO |
-| Should the source content change? | TODO |
+| Question                                                     | Prediction              |
+| ------------------------------------------------------------ | ----------------------- |
+| Exact target file path                                       | destination/report.txt  |
+| Why should `cp -i` prompt this time?                         | TODO                    |
+| If you answer `n`, what content should remain in the target? | OLD destination content |
+| Should the source content change?                            | No                      |
 
 Run this one command:
 
@@ -72,19 +76,24 @@ cat destination/report.txt
 Record the prompt, your answer, and the observed content:
 
 ```text
-TODO
+raffi@Raffis-Mac copy-practice % cp -i source/documents/replacement.txt destination/report.txt
+overwrite destination/report.txt? (y/n [n]) n
+not overwritten
+raffi@Raffis-Mac copy-practice % cat destination/report.txt
+OLD destination content
+raffi@Raffis-Mac copy-practice %
 ```
 
 Explain whether the prediction matched:
 
-TODO
+Yes
 
 ## Attempt 2 — accept the overwrite
 
 Before running the same `cp -i` command again, predict the target's content
 after answering `y`:
 
-TODO
+NEW source content
 
 Run:
 
@@ -105,7 +114,11 @@ cat source/documents/replacement.txt
 Record the prompt, answer, and both outputs:
 
 ```text
-TODO
+raffi@Raffis-Mac copy-practice % cat destination/report.txt
+NEW source content
+raffi@Raffis-Mac copy-practice % cat source/documents/replacement.txt
+NEW source content
+raffi@Raffis-Mac copy-practice %
 ```
 
 ## Explain the safety model
@@ -114,12 +127,12 @@ Complete these in your own words:
 
 1. Plain `cp SOURCE TARGET` is risky when `TARGET` already exists because:
 
-   TODO
+   it can overwrite the TARGET file without confirming
 
 2. Adding `-i` changes the behavior by:
 
-   TODO
+    it can asks to confirm the TARGET file if it want to be overwritten or not
 
 3. Inspecting after the command is still necessary because:
 
-   TODO
+   To confirm it manually i guess idk
