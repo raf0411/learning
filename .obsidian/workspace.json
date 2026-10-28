@@ -27,15 +27,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/ios-dev/labs/2026-10-13-save-then-fail.md",
+                "file": "topics/linux/labs/2026-10-27-mkdir-lab.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-10-13-save-then-fail"
+              "title": "2026-10-27-mkdir-lab"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -97,7 +98,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 287.10021591186523
+    "width": 300.6791648864746
   },
   "right": {
     "id": "f4dfa73b80c2066b",
@@ -199,9 +200,31 @@
       "bases:Create new base": false
     }
   },
-  "active": "583889f799d4d81a",
+  "active": "87c4398422eaa3ca",
   "lastOpenFiles": [
+    "topics/linux/sessions/2026-10-28.md",
+    "topics/linux/labs/2026-10-28-project-structure-check.md",
+    "topics/linux/labs/mkdir-practice/terminal-project/src/app",
+    "topics/linux/labs/mkdir-practice/terminal-project/docs",
+    "topics/linux/labs/mkdir-practice/terminal-project/config",
+    "topics/linux/labs/mkdir-practice/terminal-project/src/tests",
+    "topics/linux/labs/mkdir-practice/terminal-project/data/raw",
+    "topics/linux/labs/mkdir-practice/terminal-project/data/processed",
+    "topics/linux/labs/mkdir-practice/terminal-project/src",
+    "topics/linux/labs/mkdir-practice/terminal-project/data",
+    "topics/linux/labs/mkdir-practice/terminal-project",
+    "topics/linux/labs/mkdir-practice/src/tests",
+    "topics/linux/labs/2026-10-26-navigation-lab.md",
+    "topics/linux/labs/2026-10-27-mkdir-lab.md",
+    "topics/linux/ROADMAP.md",
+    "topics/linux/labs/2026-10-25-ls-lab.md",
+    "topics/linux/labs/2026-10-25-filesystem-probe.md",
+    "topics/linux/RESOURCES.md",
+    "AGENTS.md",
+    "PROFILE.md",
+    "README.md",
     "topics/ios-dev/labs/2026-10-13-save-then-fail.md",
+    "Untitled.md",
     "topics/ios-dev/sessions/2026-10-13.md",
     "topics/ios-dev/RESOURCES.md",
     "topics/ios-dev/GOAL.md",
@@ -214,28 +237,6 @@
     "topics/ios-dev/labs/2026-10-12-validator-checks.md",
     "topics/ios-dev/sessions/2026-09-27.md",
     "topics/ios-dev/sessions/2026-09-28.md",
-    "topics/ios-dev/sessions/2026-09-26.md",
-    "topics/ios-dev/sessions/2026-09-25.md",
-    "topics/ios-dev/sessions/2026-09-24.md",
-    "topics/ios-dev/sessions/2026-09-23.md",
-    "topics/ios-dev/sessions/2026-09-22.md",
-    "topics/ios-dev/sessions/2026-10-12.md",
-    "topics/ios-dev/labs/2026-10-12-throwing-quantity-validator.md",
-    "topics/ios-dev/labs/2026-10-12-return-versus-throw.md",
-    "topics/ios-dev/labs/2026-10-12-cancel-guided-check.md",
-    "topics/ios-dev/labs/2026-10-09-cancel-quantity-edit.md",
-    "topics/ios-dev/sessions/2026-10-09.md",
-    "topics/ios-dev/sessions/2026-09-21.md",
-    "topics/ios-dev/labs/2026-10-09-swiftdata-persistent-quantity-edit.md",
-    "topics/leetcode/practice/count_nearby_pairs.py",
-    "topics/leetcode/practice/find_pair_indices.py",
-    "topics/leetcode/practice/has_pair_with_sum.py",
-    "topics/leetcode/practice/find_smallest.py",
-    "topics/leetcode/practice/check_duplicate.py",
-    "topics/ios-dev/sessions",
-    "topics/ios-dev/labs",
-    "topics/ios-dev/diagrams",
-    "topics/ios-dev",
-    "topics/leetcode/practice/count_above.py"
+    "topics/ios-dev/sessions/2026-09-26.md"
   ]
 }
