@@ -137,9 +137,10 @@ Bash automation and integrated terminal work (11-12)
 Phase 1 is complete. The learner independently constructed the requested
 `copy-practice` tree, explicitly mapped its branches to verification evidence,
 and distinguished `/` path nesting from `mkdir -p` parent creation after guided
-correction. Phase 2 is current. Basic single-file copying is GUIDED; the next
-step is safe handling of an existing destination with `cp -i` in the disposable
-tree.
+correction. Phase 2 is current. Single-file copying, `cp -i` overwrite choices,
+recursive directory copying with `cp -R`, and basic `mv` rename/relocation have
+been completed with guidance. The next checkpoint is the prepared `mv -i`
+replacement lab, followed by placeholder-file creation and safe removal.
 
 ## Current scope boundary
 

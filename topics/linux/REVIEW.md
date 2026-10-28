@@ -23,9 +23,23 @@
 ## `cp` destination-path resolution
 
 - Stage: GUIDED
-- Demonstrate: derive the exact resulting file path when the destination operand
-  is an existing directory and when it supplies a new filename
-- Why: initial predictions repeatedly stopped at the containing directory
-- Last evidence: 2026-10-28, independently answered that copying `report.txt`
-  into existing `archive/` produces `archive/report.txt` after correction
+- Demonstrate: derive the exact resulting path for both a file and a directory
+  when the destination is an existing directory or supplies a new name
+- Why: initially stopped at the containing directory; later included too much
+  of the source path instead of appending only its final component
+- Last evidence: 2026-10-28, derived `archive/demo` for copying
+  `projects/demo` into existing `archive` after direct correction
 - Next review: embedded in an overwrite-safety or multi-file copying task
+
+## Relative operands and unchanged working directory
+
+- Stage: GUIDED
+- Demonstrate: choose a valid relative operand from the actual current
+  directory and predict that `mkdir`, `cp`, and `mv` do not change the shell's
+  working directory
+- Why: from inside `move-practice`, predicted paths beginning with
+  `move-practice/` and initially predicted that `mv` would change `pwd`
+- Last evidence: 2026-10-28, independently predicted and verified that moving
+  `inbox/report.txt` into existing `review` creates `review/report.txt` while
+  `pwd` remains unchanged
+- Next review: embed both ideas in a later unfamiliar file-organization task
