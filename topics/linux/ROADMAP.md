@@ -28,13 +28,13 @@ Bash automation and integrated terminal work (11-12)
 
 ## Learning path
 
-1. `[>]` **Filesystem orientation and navigation**
+1. `[x]` **Filesystem orientation and navigation**
    - Terminal command anatomy; working directory; absolute and relative paths
    - `pwd`, `ls`, `cd`, `.`, `..`, and `~`
    - `mkdir` and a small project directory structure
    - Milestone: navigate and construct a requested directory tree independently
 
-2. `[ ]` **Safe file organization**
+2. `[>]` **Safe file organization**
    - `touch`, `cp`, `mv`, `rm`, and `rmdir`
    - Safe overwrite and removal checks; recursive operations
    - Globbing and selecting several files without unintended matches
@@ -134,11 +134,12 @@ Bash automation and integrated terminal work (11-12)
 
 ## Current position
 
-Phase 1 remains current. The `copy-practice` tree was constructed correctly and
-the recorded `ls` output matches the actual filesystem. The review correction in
-`labs/2026-10-28-project-structure-check.md` is still pending: map every requested
-directory to evidence and distinguish `/` path nesting from `mkdir -p` parent
-creation. After that checkpoint, continue with `cp` in Phase 2.
+Phase 1 is complete. The learner independently constructed the requested
+`copy-practice` tree, explicitly mapped its branches to verification evidence,
+and distinguished `/` path nesting from `mkdir -p` parent creation after guided
+correction. Phase 2 is current. Basic single-file copying is GUIDED; the next
+step is safe handling of an existing destination with `cp -i` in the disposable
+tree.
 
 ## Current scope boundary
 

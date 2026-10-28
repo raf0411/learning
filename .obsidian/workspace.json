@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/linux/labs/2026-10-28-project-structure-check.md",
+                "file": "topics/linux/labs/2026-10-28-cp-overwrite-safety.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-10-28-project-structure-check"
+              "title": "2026-10-28-cp-overwrite-safety"
             }
           }
         ],
@@ -202,10 +202,17 @@
   },
   "active": "042ada5bc30f326a",
   "lastOpenFiles": [
+    "topics/linux/labs/2026-10-28-cp-single-file.md",
+    "topics/linux/labs/2026-10-28-cp-overwrite-safety.md",
+    "topics/linux/labs/copy-practice/destination/report.txt",
+    "topics/linux/labs/copy-practice/source/documents/replacement.txt",
+    "topics/linux/labs/copy-practice/backups/daily/notes-backup.txt",
+    "topics/linux/labs/copy-practice/destination/notes.txt",
+    "topics/linux/labs/copy-practice/source/documents/notes.txt",
+    "topics/linux/labs/2026-10-28-project-structure-check.md",
     "topics/linux/ROADMAP.md",
     "topics/linux/sessions/2026-10-28.md",
     "topics/linux/GOAL.md",
-    "topics/linux/labs/2026-10-28-project-structure-check.md",
     "topics/linux/RESOURCES.md",
     "topics/linux/STATE.md",
     "topics/linux/REVIEW.md",
@@ -214,12 +221,7 @@
     "topics/linux/labs/copy-practice/source",
     "topics/linux/labs/copy-practice/destination",
     "topics/linux/labs/copy-practice/backups/daily",
-    "topics/linux/labs/copy-practice/backups",
-    "topics/linux/labs/copy-practice",
     "topics/linux/labs/2026-10-27-mkdir-lab.md",
-    "topics/linux/labs/mkdir-practice/terminal-project/src/app",
-    "topics/linux/labs/mkdir-practice/terminal-project/docs",
-    "topics/linux/labs/mkdir-practice/terminal-project/config",
     "topics/linux/labs/2026-10-26-navigation-lab.md",
     "topics/linux/labs/2026-10-25-ls-lab.md",
     "topics/linux/labs/2026-10-25-filesystem-probe.md",
@@ -235,8 +237,6 @@
     "topics/ios-dev/REVIEW.md",
     "topics/ios-dev/ROADMAP.md",
     "topics/ios-dev/labs/2026-10-13-swiftdata-rollback-check.md",
-    "topics/ios-dev/AGENTS.md",
-    "topics/ios-dev/labs/2026-10-13-validator-regression-check.md",
-    "topics/ios-dev/labs/2026-10-12-validator-checks.md"
+    "topics/ios-dev/AGENTS.md"
   ]
 }
