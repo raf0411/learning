@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/linux/labs/2026-10-28-cp-overwrite-safety.md",
+                "file": "topics/linux/labs/2026-10-28-cp-directories.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-10-28-cp-overwrite-safety"
+              "title": "2026-10-28-cp-directories"
             }
           }
         ],
@@ -202,9 +202,9 @@
   },
   "active": "042ada5bc30f326a",
   "lastOpenFiles": [
+    "topics/linux/labs/2026-10-28-cp-overwrite-safety.md",
     "topics/linux/labs/2026-10-28-cp-directories.md",
     "topics/linux/labs/2026-10-28-cp-single-file.md",
-    "topics/linux/labs/2026-10-28-cp-overwrite-safety.md",
     "topics/linux/labs/copy-practice/destination/report.txt",
     "topics/linux/labs/copy-practice/source/documents/replacement.txt",
     "topics/linux/labs/copy-practice/backups/daily/notes-backup.txt",
