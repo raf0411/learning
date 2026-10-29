@@ -36,7 +36,11 @@ cat archive/final.txt
 Record the actual contents:
 
 ```text
-TODO
+raffi@Raffis-Mac move-practice % cat review/report.txt
+Draft version 1
+raffi@Raffis-Mac move-practice % cat archive/final.txt
+Approved final content
+raffi@Raffis-Mac move-practice %
 ```
 
 ## Attempt 1 — decline the replacement
@@ -48,13 +52,13 @@ after answering `n` to this command:
 mv -i review/report.txt archive/final.txt
 ```
 
-| Question | Prediction |
-| --- | --- |
-| Exact destination path | TODO |
-| Content at `review/report.txt` after declining | TODO |
-| Content at `archive/final.txt` after declining | TODO |
-| Will both paths still exist? | TODO |
-| Will the working directory change? | TODO |
+| Question                                       | Prediction             |
+| ---------------------------------------------- | ---------------------- |
+| Exact destination path                         | archive/final.txt      |
+| Content at `review/report.txt` after declining | Draft version 1        |
+| Content at `archive/final.txt` after declining | Approved final content |
+| Will both paths still exist?                   | because we decline it  |
+| Will the working directory change?             | no                     |
 
 Run the command, type `n` at the prompt, and press Enter. Then inspect both
 files and the working directory:
@@ -74,22 +78,32 @@ pwd
 Record the prompt, your response, and the complete verification output:
 
 ```text
-TODO
+raffi@Raffis-Mac move-practice %
+raffi@Raffis-Mac move-practice % mv -i review/report.txt archive/final.txt
+overwrite archive/final.txt? (y/n [n]) n
+not overwritten
+raffi@Raffis-Mac move-practice % cat review/report.txt
+Draft version 1
+raffi@Raffis-Mac move-practice % cat archive/final.txt
+Approved final content
+raffi@Raffis-Mac move-practice % pwd
+/Users/raffi/Learning/topics/linux/labs/move-practice
+raffi@Raffis-Mac move-practice %
 ```
 
 Did the observed state match every prediction? Explain any difference.
 
-TODO
+it matched
 
 ## Attempt 2 — accept the replacement
 
 Before repeating the command, predict the state after answering `y`:
 
-| Question | Prediction |
-| --- | --- |
-| Content at `archive/final.txt` after accepting | TODO |
-| Will `review/report.txt` still exist? | TODO |
-| Why? | TODO |
+| Question                                       | Prediction                                                                           |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------ |
+| Content at `archive/final.txt` after accepting | Draft version 1                                                                      |
+| Will `review/report.txt` still exist?          | No                                                                                   |
+| Why?                                           | Because it's being moved and renamed to final.txt, and because we accept the changes |
 
 Run the same command again:
 
@@ -115,22 +129,30 @@ pwd
 Record the prompt, response, and complete output, including any error:
 
 ```text
-TODO
+raffi@Raffis-Mac move-practice % mv -i review/report.txt archive/final.txt
+overwrite archive/final.txt? (y/n [n]) y
+raffi@Raffis-Mac move-practice % cat review/report.txt
+cat: review/report.txt: No such file or directory
+raffi@Raffis-Mac move-practice % cat archive/final.txt
+Draft version 1
+raffi@Raffis-Mac move-practice % pwd
+/Users/raffi/Learning/topics/linux/labs/move-practice
+raffi@Raffis-Mac move-practice %
 ```
 
 ## Explain the safety model
 
 1. Why did answering `n` preserve both files?
 
-   TODO
+   because it means declining it
 
 2. Why did answering `y` leave the destination but remove the old source path?
 
-   TODO
+	because it means accepting the changes and moving the file into another path and removing the old one
 
 3. After an accepted interactive operation, what differs between `cp -i` and
    `mv -i`?
 
-   TODO
+   cp preserve the old source path while mv removes the old source path
 
 Stop here and tell the tutor when the worksheet is ready.

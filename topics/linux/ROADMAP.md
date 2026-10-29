@@ -138,9 +138,11 @@ Phase 1 is complete. The learner independently constructed the requested
 `copy-practice` tree, explicitly mapped its branches to verification evidence,
 and distinguished `/` path nesting from `mkdir -p` parent creation after guided
 correction. Phase 2 is current. Single-file copying, `cp -i` overwrite choices,
-recursive directory copying with `cp -R`, and basic `mv` rename/relocation have
-been completed with guidance. The next checkpoint is the prepared `mv -i`
-replacement lab, followed by placeholder-file creation and safe removal.
+recursive directory copying with `cp -R`, basic `mv` rename/relocation, `mv -i`
+replacement choices, and placeholder-file creation with `touch` have been
+completed with guidance. The next checkpoint is the prepared safe-removal lab
+covering `rm -i`, `rmdir`, inspection before deletion, and verification after
+deletion. Recursive removal has not yet been introduced.
 
 ## Current scope boundary
 

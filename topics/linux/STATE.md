@@ -39,6 +39,16 @@
   `report.txt`, then independently predicted and verified the move to
   `review/report.txt`; confirmed preserved content, disappearance of the old
   path, and an unchanged working directory.
+- Interactive replacement with `mv -i` — GUIDED. Correctly predicted and
+  observed that declining preserved both paths, while accepting replaced the
+  destination and made the old source pathname unavailable. Correctly
+  distinguished accepted `mv -i` from accepted `cp -i` by whether the source
+  pathname remains.
+- Placeholder-file creation with `touch` — GUIDED. Created several empty files
+  in one command, verified zero-byte sizes, predicted failure when a parent
+  directory was missing, then created the parent and nested file separately.
+  Initially predicted that touching an existing file would overwrite it; after
+  correction, verified that a nonempty file retained its content and size.
 
 ## Points requiring reinforcement
 
@@ -61,10 +71,18 @@
   `cp -R` enables recursive directory copying.
 - When an existing directory is the destination, append only the source item's
   final pathname component, not its entire parent path.
+- `touch` primarily updates timestamps. It creates the final file when that
+  file is missing, does not create missing parent directories, and does not
+  overwrite an existing file's content.
+- A reproducible command plan must include its starting-location command and
+  the exact requested options. The first `touch` plan assumed the starting
+  directory and substituted `ls` for the requested `ls -l`; it needed repeated
+  correction before all seven commands were recorded.
 
 ## Current learning edge
 
-Complete the prepared `mv -i` replacement lab: inspect distinct source and
-destination contents, decline once, accept once, and verify both paths after
-each choice. Then continue Phase 2 with placeholder-file creation and safe
-removal while reusing exact-path and unchanged-working-directory reasoning.
+Complete `labs/2026-10-29-safe-file-removal.md`. Build and inspect its
+disposable tree, practice declined and accepted `rm -i` choices, observe that
+`rmdir` refuses a nonempty directory, and remove a small tree leaf first. The
+worksheet is prepared but unstarted, and `labs/removal-practice` does not yet
+exist.

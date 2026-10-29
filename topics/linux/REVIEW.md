@@ -16,8 +16,9 @@
   independently when `-p` is necessary across a sequence of `mkdir` commands
 - Why: repeatedly attributed nesting to `-p` and initially ignored parents
   created by earlier commands
-- Last evidence: 2026-10-28, answered a near-transfer question correctly after
-  receiving the complete correction
+- Last evidence: 2026-10-29, predicted that `touch reports/daily.txt` would fail
+  when `reports` was missing, then successfully created the directory and file
+  separately; the initial prediction did not include a reason
 - Next review: during a later file-organization task without naming the concept
 
 ## `cp` destination-path resolution
@@ -39,7 +40,29 @@
   working directory
 - Why: from inside `move-practice`, predicted paths beginning with
   `move-practice/` and initially predicted that `mv` would change `pwd`
-- Last evidence: 2026-10-28, independently predicted and verified that moving
-  `inbox/report.txt` into existing `review` creates `review/report.txt` while
-  `pwd` remains unchanged
+- Last evidence: 2026-10-29, correctly predicted and observed unchanged `pwd`
+  across accepted/declined `mv -i` operations and several `touch` operations;
+  all occurred within structured worksheets
 - Next review: embed both ideas in a later unfamiliar file-organization task
+
+## `mv -i` source and destination state
+
+- Stage: GUIDED
+- Demonstrate: independently predict both pathname states and both contents
+  after declining or accepting replacement of an existing destination
+- Why: the guided lab was correct, but accepted replacement must remain distinct
+  from copying and from a separate delete operation
+- Last evidence: 2026-10-29, correctly completed decline and accept cases and
+  explained that accepted `cp -i` preserves the source path while `mv -i` does
+  not
+- Next review: embed in an unfamiliar file-reorganization task after spacing
+
+## Existing-file behavior of `touch`
+
+- Stage: GUIDED after correction
+- Demonstrate: predict that `touch` updates timestamps without erasing existing
+  content, and distinguish that from its missing-file creation behavior
+- Why: initially predicted that touching an existing file would overwrite it
+- Last evidence: 2026-10-29, copied nonempty content into `existing.txt`, ran
+  `touch`, and verified that the 16-byte content remained unchanged
+- Next review: test unexpectedly during later file setup or timestamp work
