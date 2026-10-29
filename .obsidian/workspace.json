@@ -187,8 +187,9 @@
   },
   "active": "042ada5bc30f326a",
   "lastOpenFiles": [
-    "topics/linux/labs/2026-10-28-mv-rename.md",
+    "topics/linux/sessions/2026-10-28.md",
     "topics/linux/labs/2026-10-28-mv-overwrite-safety.md",
+    "topics/linux/labs/2026-10-28-mv-rename.md",
     "topics/linux/labs/move-practice/archive/final.txt",
     "topics/linux/labs/move-practice/review/report.txt",
     "topics/linux/labs/move-practice/inbox/report.txt",
@@ -204,7 +205,6 @@
     "topics/linux/labs/2026-10-28-cp-single-file.md",
     "topics/linux/labs/2026-10-28-project-structure-check.md",
     "topics/linux/ROADMAP.md",
-    "topics/linux/sessions/2026-10-28.md",
     "topics/linux/GOAL.md",
     "topics/linux/RESOURCES.md",
     "topics/linux/STATE.md",
