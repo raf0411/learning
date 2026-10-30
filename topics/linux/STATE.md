@@ -49,6 +49,16 @@
   directory was missing, then created the parent and nested file separately.
   Initially predicted that touching an existing file would overwrite it; after
   correction, verified that a nonempty file retained its content and size.
+- Interactive file removal with `rm -i` — GUIDED. Correctly predicted and
+  verified that declining preserved the target and accepting removed it, while
+  an unrelated file and the working directory remained unchanged.
+- Empty-directory and leaf-first removal — GUIDED. Correctly predicted that
+  `rmdir` would reject a nonempty directory and remove an empty one, then
+  independently wrote and ran the two-step file-first, directory-second removal
+  sequence without using recursive removal.
+- Command-effect classification — GUIDED after correction. Correctly separated
+  filesystem-changing commands (`mkdir`, `touch`, `rm`, `rmdir`), shell movement
+  (`cd`), and observation (`pwd`, `ls`); the first two attempts omitted commands.
 
 ## Points requiring reinforcement
 
@@ -78,11 +88,25 @@
   the exact requested options. The first `touch` plan assumed the starting
   directory and substituted `ls` for the requested `ls -l`; it needed repeated
   correction before all seven commands were recorded.
+- `pwd` reports the current working directory; it does not prevent directory
+  changes. Its safety value before a relative removal is confirming the base
+  directory from which the target path will be resolved.
+- A listing of a parent directory proves that a child entry exists but does not
+  enumerate that child's contents. Inspect the child itself when emptiness or
+  internal entries matter.
+- State exact paths from the recorded working directory. From inside
+  `removal-practice`, the remaining file's relative path is `keep.txt`, not a
+  reconstructed or misspelled parent path.
+- Shell globbing is not yet demonstrated. In the initial probe, correctly
+  selected the `.txt` filenames but attributed wildcard expansion to `ls` and
+  expected plain `ls` to show long-listing metadata. The introduced model is
+  that the shell expands an unquoted pattern before the command runs, while
+  `ls -l` controls long-listing display; this still needs experimental evidence.
 
 ## Current learning edge
 
-Complete `labs/2026-10-29-safe-file-removal.md`. Build and inspect its
-disposable tree, practice declined and accepted `rm -i` choices, observe that
-`rmdir` refuses a nonempty directory, and remove a small tree leaf first. The
-worksheet is prepared but unstarted, and `labs/removal-practice` does not yet
-exist.
+Complete `labs/2026-10-30-globbing-safe-selection.md`. Its worksheet is
+prepared but unstarted, and `labs/glob-practice` does not exist. Establish that
+the shell expands patterns such as `*` before selected paths reach commands,
+distinguish selection from `ls` display options, inspect matches before acting,
+and avoid broad deletion patterns. Recursive removal has not yet been introduced.

@@ -66,3 +66,18 @@
 - Last evidence: 2026-10-29, copied nonempty content into `existing.txt`, ran
   `touch`, and verified that the 16-byte content remained unchanged
 - Next review: test unexpectedly during later file setup or timestamp work
+
+## Safe file and empty-directory removal
+
+- Stage: GUIDED
+- Demonstrate: orient and inspect before removal, use interactive confirmation
+  appropriately, verify absence without treating the expected lookup error as
+  a removal failure, and remove a small nonempty tree leaf first without hints
+- Why: execution and predictions were correct in a structured lab, but the
+  initial explanations confused `pwd` with preventing movement, misstated an
+  exact relative path, and incompletely classified the commands used
+- Last evidence: 2026-10-30, completed declined and accepted `rm -i` cases,
+  observed `rmdir` protect a nonempty directory, and wrote the correct
+  file-first, directory-second removal sequence
+- Next review: embed in an unfamiliar file-organization scenario after
+  globbing practice; do not announce which removal command to choose
