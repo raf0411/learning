@@ -56,6 +56,13 @@
   `rmdir` would reject a nonempty directory and remove an empty one, then
   independently wrote and ran the two-step file-first, directory-second removal
   sequence without using recursive removal.
+- Basic shell globbing — GUIDED with unresolved distinctions. Correctly
+  predicted that `*.txt` would expand to the three visible `.txt` names,
+  verified the resulting arguments with `printf`, previewed the two `*.tmp`
+  targets, and identified the shell as the expansion component and `rm` as the
+  confirmation component. Did not yet distinguish selection from `ls -l`
+  display, predict default `zsh` behavior for an unmatched pattern, or apply
+  separate `n` and `y` responses to the two `rm -i` targets.
 - Command-effect classification — GUIDED after correction. Correctly separated
   filesystem-changing commands (`mkdir`, `touch`, `rm`, `rmdir`), shell movement
   (`cd`), and observation (`pwd`, `ls`); the first two attempts omitted commands.
@@ -97,18 +104,24 @@
 - State exact paths from the recorded working directory. From inside
   `removal-practice`, the remaining file's relative path is `keep.txt`, not a
   reconstructed or misspelled parent path.
-- Shell globbing is not yet demonstrated. In the initial probe, correctly
-  selected the `.txt` filenames but attributed wildcard expansion to `ls` and
-  expected plain `ls` to show long-listing metadata. The introduced model is
-  that the shell expands an unquoted pattern before the command runs, while
-  `ls -l` controls long-listing display; this still needs experimental evidence.
+- Keep pathname selection separate from command behavior. The shell expands
+  `*.txt`; `-l` changes how `ls` displays the already selected paths, not the
+  selection and not the directory. Similarly, `*.tmp` selects the arguments
+  for `rm`, while `-i` changes how `rm` handles each selected argument.
+- In default `zsh`, an unmatched pathname pattern produces a shell error before
+  the requested command starts. This was observed but not predicted or fully
+  explained.
+- For `rm -i` with several expanded arguments, read each prompt's pathname and
+  connect each `n` or `y` response to that specific path's final state. The
+  first multi-target attempt omitted the prompt transcript and removed both
+  targets despite instructions to answer `n` and then `y`.
 
 ## Current learning edge
 
-Continue `labs/2026-10-30-globbing-safe-selection.md` from Part 2. Part 1 is
-complete: the learner created `labs/glob-practice`, populated the requested
-fixture, and recorded `pwd` and `ls -la` evidence. The first expansion
-prediction and all later parts remain unanswered. Establish that the shell
-expands patterns such as `*` before selected paths reach commands, distinguish
-selection from `ls` display options, inspect matches before acting, and avoid
-broad deletion patterns. Recursive removal has not yet been introduced.
+Continue the correction pass in
+`labs/2026-10-30-globbing-safe-selection.md`. Revisit the first correction:
+`*.txt` identifies the selected pathname arguments, while `ls -l` changes their
+display rather than changing a directory. Then complete the unmatched-pattern
+causal chain and the controlled `rm -i *.tmp` repeat, recording both prompts,
+the `n`/`y` responses, and verification output. Recursive removal has not yet
+been introduced.

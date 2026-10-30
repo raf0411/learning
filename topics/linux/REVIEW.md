@@ -81,3 +81,20 @@
   file-first, directory-second removal sequence
 - Next review: embed in an unfamiliar file-organization scenario after
   globbing practice; do not announce which removal command to choose
+
+## Shell globbing and command-option separation
+
+- Stage: GUIDED with unresolved distinctions
+- Demonstrate: predict visible matches for an unquoted pattern; explain that the
+  shell expands it before the program starts; distinguish selected pathname
+  arguments from `ls -l` display and `rm -i` interaction; safely preview and
+  act on several targets while connecting each prompt response to one path
+- Why: matching-pattern predictions and previews were correct, but `-l` was
+  still treated as affecting selection or a directory, unmatched default
+  `zsh` behavior was not predicted, and both `.tmp` files were removed when the
+  exercise specified `n` for the first prompt and `y` for the second
+- Last evidence: 2026-10-30, completed the main globbing experiment and began a
+  correction pass; the unmatched-pattern explanation and controlled
+  multi-target repeat remain unfinished
+- Next review: resume the correction pass at the next session; after successful
+  correction, test later with an unfamiliar pattern and changing command
