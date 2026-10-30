@@ -105,8 +105,10 @@
 
 ## Current learning edge
 
-Complete `labs/2026-10-30-globbing-safe-selection.md`. Its worksheet is
-prepared but unstarted, and `labs/glob-practice` does not exist. Establish that
-the shell expands patterns such as `*` before selected paths reach commands,
-distinguish selection from `ls` display options, inspect matches before acting,
-and avoid broad deletion patterns. Recursive removal has not yet been introduced.
+Continue `labs/2026-10-30-globbing-safe-selection.md` from Part 2. Part 1 is
+complete: the learner created `labs/glob-practice`, populated the requested
+fixture, and recorded `pwd` and `ls -la` evidence. The first expansion
+prediction and all later parts remain unanswered. Establish that the shell
+expands patterns such as `*` before selected paths reach commands, distinguish
+selection from `ls` display options, inspect matches before acting, and avoid
+broad deletion patterns. Recursive removal has not yet been introduced.

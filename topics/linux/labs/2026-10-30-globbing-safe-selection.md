@@ -63,7 +63,22 @@ ls -la
 Record the complete inspection output:
 
 ```text
-TODO
+raffi@Raffis-Mac glob-practice % pwd
+/Users/raffi/Learning/topics/linux/labs/glob-practice
+raffi@Raffis-Mac glob-practice % ls -la
+total 0
+drwxr-xr-x@ 11 raffi  staff  352 30 Oct 14:35 .
+drwxr-xr-x@ 23 raffi  staff  736 30 Oct 14:35 ..
+-rw-r--r--@  1 raffi  staff    0 30 Oct 14:35 .hidden.txt
+drwxr-xr-x@  2 raffi  staff   64 30 Oct 14:35 archive
+-rw-r--r--@  1 raffi  staff    0 30 Oct 14:35 draft.tmp
+-rw-r--r--@  1 raffi  staff    0 30 Oct 14:35 image.png
+-rw-r--r--@  1 raffi  staff    0 30 Oct 14:35 keep.txt
+-rw-r--r--@  1 raffi  staff    0 30 Oct 14:35 notes.txt
+-rw-r--r--@  1 raffi  staff    0 30 Oct 14:35 old.tmp
+-rw-r--r--@  1 raffi  staff    0 30 Oct 14:35 report.md
+-rw-r--r--@  1 raffi  staff    0 30 Oct 14:35 report.txt
+raffi@Raffis-Mac glob-practice %
 ```
 
 ## Part 2 — Predict and observe expansion
@@ -76,11 +91,11 @@ printf 'argument: <%s>\n' *.txt
 
 Before running it, predict:
 
-| Question | Prediction |
-| --- | --- |
-| Which filenames will appear? | TODO |
-| How many `argument:` lines will appear? | TODO |
-| Will `.hidden.txt` appear? Why or why not? | TODO |
+| Question                                   | Prediction |
+| ------------------------------------------ | ---------- |
+| Which filenames will appear?               | TODO       |
+| How many `argument:` lines will appear?    | TODO       |
+| Will `.hidden.txt` appear? Why or why not? | TODO       |
 
 Run the command and record its complete output:
 
