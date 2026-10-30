@@ -13,7 +13,7 @@ Briefly describe any experience you already have with:
 - Git
 - servers, containers, cloud platforms, CI/CD, or other DevOps tools
 
-TODO:
+none
 
 
 ## 2. Explain familiar ideas
@@ -22,22 +22,22 @@ In your own words, explain any of these terms you already understand. For unfami
 
 ### Variable
 
-TODO:
+a place to store a data type
 
 
 ### Conditional (`if`)
 
-TODO:
+conditional to condition an outcome
 
 
 ### Loop
 
-TODO:
+loops a code without doing it so many times
 
 
 ### Function
 
-TODO:
+call a repetitive code in one call function
 
 
 ## 3. Read a small Python program
@@ -55,12 +55,13 @@ for server in servers:
 Predicted output:
 
 ```text
-TODO
+Checking web-01
+Checking web-02
 ```
 
 Reasoning:
 
-TODO:
+because we are looking for servers that starts with web, db is not it
 
 
 ## 4. Decompose an automation task
@@ -69,9 +70,9 @@ Imagine we want a script that reads a log file and reports how many lines contai
 
 Without worrying about Python syntax, list the steps the program would need to perform, in order.
 
-1. TODO
-2. TODO
-3. TODO
+1. store a count from zero variable and loop the log file lines
+2. if the log contains the word ERROR increment the count by 1
+3. after the loop ends, print the count
 
 
 ## 5. Inspect your Python environment
@@ -85,9 +86,9 @@ python3 --version
 Paste the exact output:
 
 ```text
-TODO
+Python 3.14.6
 ```
 
 Did the command behave as you expected? Mention any error or surprise.
 
-TODO:
+as expected
