@@ -1,0 +1,5 @@
+INFO service started
+ERROR database unavailable
+INFO retry scheduled
+ERROR request timed out
+INFO service stopped

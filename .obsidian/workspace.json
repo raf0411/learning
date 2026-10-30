@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/python/ROADMAP.md",
+                "file": "topics/python/labs/2026-10-30-file-log-summary.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ROADMAP"
+              "title": "2026-10-30-file-log-summary"
             }
           }
         ]
@@ -187,10 +187,20 @@
   },
   "active": "31ad480da3c4db70",
   "lastOpenFiles": [
-    "topics/python/GOAL.md",
-    "topics/python/ROADMAP.md",
-    "topics/python/labs/2026-10-30-python-devops-baseline.md",
+    "topics/python/diagrams/2026-10-30-log-counting.md",
+    "topics/python/labs/2026-10-30-log-summary.md",
+    "topics/python/labs/2026-10-30-file-log-summary.md",
+    "topics/python/labs/sample.log",
+    "topics/python/labs/log_summary.py",
+    "topics/python/labs/2026-10-30-loop-counter.md",
+    "topics/python/labs/loop_counter.py",
+    "topics/python/labs/2026-10-30-conditional-counter.md",
+    "topics/python/labs/conditional_counter.py",
     "topics/python/labs/2026-10-30-variables-and-counters.md",
+    "topics/python/ROADMAP.md",
+    "topics/python/labs/first_counter.py",
+    "topics/python/labs/2026-10-30-python-devops-baseline.md",
+    "topics/python/GOAL.md",
     "topics/python/sessions/2026-10-30.md",
     "topics/linux/ROADMAP.md",
     "topics/linux/labs/2026-10-30-symbolic-links-first-model.md",
@@ -204,11 +214,6 @@
     "topics/linux/labs/phase2-checkpoint/review/notes/final.txt",
     "topics/linux/labs/phase2-checkpoint/backups/demo/assets/logo.png",
     "topics/linux/labs/phase2-checkpoint/backups/demo/assets",
-    "topics/linux/labs/phase2-checkpoint/backups/demo/README.txt",
-    "topics/linux/labs/phase2-checkpoint/backups/demo",
-    "topics/python/sessions",
-    "topics/python/labs",
-    "topics/python/diagrams",
     "topics/python/STATE.md",
     "topics/python/REVIEW.md",
     "topics/python/RESOURCES.md",
@@ -221,11 +226,6 @@
     "topics/linux/labs/glob-practice/image.png",
     "topics/linux/labs/glob-practice/report.md",
     "topics/linux/labs/2026-10-29-safe-file-removal.md",
-    "topics/linux/labs/2026-10-29-touch-file-creation.md",
-    "topics/linux/sessions/2026-10-29.md",
-    "topics/linux/labs/2026-10-28-mv-overwrite-safety.md",
-    "topics/linux/sessions/2026-10-28.md",
-    "topics/linux/labs/2026-10-28-mv-rename.md",
-    "topics/linux/labs/2026-10-28-cp-overwrite-safety.md"
+    "topics/linux/labs/2026-10-29-touch-file-creation.md"
   ]
 }

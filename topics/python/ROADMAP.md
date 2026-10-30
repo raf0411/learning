@@ -4,8 +4,8 @@ Destination: independently build reliable Python automation for DevOps (see GOAL
 
 ## Path and milestones
 
-1. **Program basics — current:** run a script; values, types, variables, expressions, strings, comparisons, conditions, and loops. Milestone: count and summarize sample log messages.
-2. **Useful local scripts:** lists and dictionaries, functions, imports, paths, file reading, and exceptions. Milestone: read a log file and produce a report, including handling a missing file.
+1. **Program basics — initial milestone completed:** run a script; values, types, variables, expressions, strings, comparisons, conditions, and loops. Milestone: count and summarize sample log messages. Completed with syntax references on 2026-10-30; independent retrieval and broader fundamentals remain subject to review.
+2. **Useful local scripts — current:** lists and dictionaries, functions, imports, paths, file reading, and exceptions. Milestone: read a log file and produce a report, including handling a missing file.
 3. **Reusable command-line tools:** arguments, JSON, configuration, exit codes, logging, and tests. Introduce virtual environments and dependencies when needed. Milestone: a tested log-reporting CLI.
 4. **System and API automation:** subprocesses, environment variables, HTTP requests, timeouts, and failure handling. Learn the necessary shell, process, and HTTP concepts alongside these. Milestone: a read-only service-checking tool.
 5. **Portfolio capstone:** scope, build, test, debug, and document a useful DevOps automation tool. Deliver a reproducible local demo, sample data, README, meaningful tests, and a CI check. Add dry-run behavior and repeat-run safety if it changes resources. Finish with an independent demonstration, failure diagnosis, and small feature addition.
@@ -25,6 +25,6 @@ Portfolio quality is judged by usefulness, correctness, reproducibility, and the
 
 ## Current position
 
-Baseline completed on 2026-10-30: accurate code tracing and counting algorithm; independent Python construction remains untested. Start with assignment and counter updates, then use conditions and loops to implement the learner's counting algorithm.
+Completed the first sample-log summary on 2026-10-30: correctly combined a loop, prefix condition, unconditional total counter, conditional error counter, and final report; handled empty input. Construction used syntax references, so this is an implementation milestone rather than a claim of independent mastery of every basic topic.
 
-No implementation milestone completed yet.
+Now adapt that script to read a text file. File-reading mechanics and missing-file handling remain unassessed.

@@ -31,12 +31,13 @@ print(errors)
 Write the exact output, one printed value per line:
 
 ```text
-TODO
+1
+2
 ```
 
 Explain what the right side of `errors = errors + 1` uses and what the assignment changes:
 
-TODO
+it uses the previous errors = 0, the assignment changes the new errors value 0 + 1 and now its 1
 
 ## 2. Run your first script
 
@@ -53,12 +54,13 @@ python3 /Users/raffi/Learning/topics/python/labs/first_counter.py
 Paste the actual output (or the exact error if it fails):
 
 ```text
-TODO
+1
+2
 ```
 
 Compare it with your prediction. If they differ, describe the difference; keep your original prediction:
 
-TODO
+matches
 
 ## 3. Write a small variation yourself
 
@@ -73,13 +75,18 @@ Use Python to calculate the updated counts rather than typing the final counts d
 Record your code here too:
 
 ```python
-# TODO: your program
+failed_checks = 2
+failed_checks = failed_checks + 1
+print(failed_checks)
+failed_checks = failed_checks + 3
+print(failed_checks)
 ```
 
 Save the script and run the same terminal command again. Paste the output:
 
 ```text
-TODO
+3
+6
 ```
 
 If creating or running the file is unfamiliar, tell me where you got stuck. We can handle that step together.
