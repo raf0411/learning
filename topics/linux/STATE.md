@@ -20,9 +20,9 @@
 - Project-tree verification — GUIDED. Correctly mapped every requested child
   directory to recorded `ls` evidence after the mapping requirement was
   clarified; needed correction for the evidence proving the top-level directory.
-- Path nesting versus `mkdir -p` — GUIDED. After repeated correction, identified
-  `/` in `beta/gamma` as expressing the relationship and correctly identified
-  the missing parent that `-p` would create in a transfer question.
+- Path nesting versus `mkdir -p` — INDEPENDENT in the Phase 2 checkpoint.
+  Planned and created `review/notes/2026` from the checkpoint root with the
+  correct nested operand and verified the resulting directory.
 - Basic single-file copying with `cp` — GUIDED. Correctly predicted, executed,
   and verified that the source remains and copies appear at two destinations;
   needed correction to distinguish a containing directory path from the full
@@ -39,11 +39,10 @@
   `report.txt`, then independently predicted and verified the move to
   `review/report.txt`; confirmed preserved content, disappearance of the old
   path, and an unchanged working directory.
-- Interactive replacement with `mv -i` — GUIDED. Correctly predicted and
-  observed that declining preserved both paths, while accepting replaced the
-  destination and made the old source pathname unavailable. Correctly
-  distinguished accepted `mv -i` from accepted `cp -i` by whether the source
-  pathname remains.
+- Interactive replacement with `mv -i` — INDEPENDENT in an unfamiliar
+  checkpoint decline case. Chose interactive movement, declined replacement,
+  and verified that both distinct source and destination contents remained.
+  Previously explained that accepted `mv -i` removes the old source pathname.
 - Placeholder-file creation with `touch` — GUIDED. Created several empty files
   in one command, verified zero-byte sizes, predicted failure when a parent
   directory was missing, then created the parent and nested file separately.
@@ -52,20 +51,40 @@
 - Interactive file removal with `rm -i` — GUIDED. Correctly predicted and
   verified that declining preserved the target and accepting removed it, while
   an unrelated file and the working directory remained unchanged.
-- Empty-directory and leaf-first removal — GUIDED. Correctly predicted that
-  `rmdir` would reject a nonempty directory and remove an empty one, then
-  independently wrote and ran the two-step file-first, directory-second removal
-  sequence without using recursive removal.
-- Basic shell globbing — GUIDED with unresolved distinctions. Correctly
-  predicted that `*.txt` would expand to the three visible `.txt` names,
-  verified the resulting arguments with `printf`, previewed the two `*.tmp`
-  targets, and identified the shell as the expansion component and `rm` as the
-  confirmation component. Did not yet distinguish selection from `ls -l`
-  display, predict default `zsh` behavior for an unmatched pattern, or apply
-  separate `n` and `y` responses to the two `rm -i` targets.
+- Empty-directory and leaf-first removal — INDEPENDENT in the Phase 2
+  checkpoint. Correctly selected `rmdir` for an unfamiliar empty target and
+  verified its absence. Earlier predicted that `rmdir` would reject a nonempty
+  directory and independently performed leaf-first removal.
+- Basic shell globbing — INDEPENDENT in immediate transfer after correction.
+  Independently previewed and acted on `intake/*.tmp` in the checkpoint,
+  preserving one prompted path and removing the other. Later expanded a novel
+  `*.log` scenario to exact arguments and mapped `y` and `n` to the correct
+  final path states. Earlier correctly expanded `report.*` to
+  `report.md report.txt` and stated that `ls -l` changes only display. Correctly
+  explained the leading-dot rule, concluded after correction that default
+  `zsh` stops before starting `ls` on an unmatched pattern.
+- Recursive removal with `rm -R` — GUIDED after correction. Predicted the
+  protection provided by `rmdir` and plain `rm`, inspected a disposable tree,
+  recursively removed only `doomed-tree`, and verified that `keep-tree` and
+  `sentinel.txt` remained. Initially confused sibling paths with command
+  operands and the working-directory base with the recursive root; later
+  correctly resolved `cache` from `/work/project` as `/work/project/cache`.
 - Command-effect classification — GUIDED after correction. Correctly separated
   filesystem-changing commands (`mkdir`, `touch`, `rm`, `rmdir`), shell movement
   (`cd`), and observation (`pwd`, `ls`); the first two attempts omitted commands.
+- Integrated safe file organization — INDEPENDENT practical execution with
+  GUIDED causal corrections. From an unfamiliar fixture, independently planned
+  and carried out nested creation, placeholder creation, recursive copying,
+  moving, declined copy and move replacements, previewed multi-file removal,
+  empty-directory removal, and bounded recursive removal. All final filesystem
+  states and protected contents were correct. Initial evidence omitted nested
+  copy contents, and explanations confused the recursive root and shell
+  expansion roles; both were corrected, with successful novel transfer.
+- Symbolic links — UNKNOWN at the Phase 3 probe. The learner did not yet know
+  what creating a link meant and predicted that a link would be edited or
+  deleted together with a linked copy. A direct pathname-reference model was
+  introduced, but no prediction or experiment has yet demonstrated
+  understanding.
 
 ## Points requiring reinforcement
 
@@ -104,24 +123,25 @@
 - State exact paths from the recorded working directory. From inside
   `removal-practice`, the remaining file's relative path is `keep.txt`, not a
   reconstructed or misspelled parent path.
-- Keep pathname selection separate from command behavior. The shell expands
-  `*.txt`; `-l` changes how `ls` displays the already selected paths, not the
-  selection and not the directory. Similarly, `*.tmp` selects the arguments
-  for `rm`, while `-i` changes how `rm` handles each selected argument.
+- Keep pathname selection separate from command behavior. This was corrected
+  successfully in an immediate transfer: the shell selects pathname arguments,
+  while `ls -l` changes display and `rm -i` changes treatment of each selected
+  path. Re-test after spacing with a different pattern and command.
 - In default `zsh`, an unmatched pathname pattern produces a shell error before
-  the requested command starts. This was observed but not predicted or fully
-  explained.
-- For `rm -i` with several expanded arguments, read each prompt's pathname and
-  connect each `n` or `y` response to that specific path's final state. The
-  first multi-target attempt omitted the prompt transcript and removed both
-  targets despite instructions to answer `n` and then `y`.
+  the requested command starts. The causal chain was completed after direct
+  correction and still needs later independent retrieval.
+- For `rm -i` with several expanded arguments, continue reading each prompt's
+  pathname and mapping its own `n` or `y` response to that path. The controlled
+  repeat succeeded after the initial attempt removed both targets.
+- Resolve a relative recursive-removal operand from the actual `pwd`. The
+  working directory is the base; the resolved operand is the removal root; its
+  descendants are inside the recursive boundary, while parent and sibling paths
+  are outside it unless separately named.
 
 ## Current learning edge
 
-Continue the correction pass in
-`labs/2026-10-30-globbing-safe-selection.md`. Revisit the first correction:
-`*.txt` identifies the selected pathname arguments, while `ls -l` changes their
-display rather than changing a directory. Then complete the unmatched-pattern
-causal chain and the controlled `rm -i *.tmp` repeat, recording both prompts,
-the `n`/`y` responses, and verification output. Recursive removal has not yet
+Resume the prepared symbolic-link experiment in
+`labs/2026-10-30-symbolic-links-first-model.md`. Test the difference between a
+copy and a symbolic pathname reference by changing, removing, and recreating
+the target, then removing only the link. Hard links and archives have not yet
 been introduced.

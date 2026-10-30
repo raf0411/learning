@@ -281,10 +281,10 @@ result:
 No pathname matched `*.csv`
         |
         v
-TODO reported the error
+zsh reported the error
         |
         v
-The `ls` program TODO
+The `ls` program idk to be honest
 ```
 
 ### 3. Repeat the interactive action exactly
@@ -304,16 +304,17 @@ printf 'target: <%s>\n' *.tmp
 Record the preview:
 
 ```text
-TODO
+target: <draft.tmp>
+target: <old.tmp>
 ```
 
 Before running the removal, predict the final state when the response to the
 first prompt is `n` and the response to the second prompt is `y`:
 
-| Path | Predicted final state | Reason tied to its prompt response |
-| --- | --- | --- |
-| `draft.tmp` | TODO | TODO |
-| `old.tmp` | TODO | TODO |
+| Path        | Predicted final state | Reason tied to its prompt response |
+| ----------- | --------------------- | ---------------------------------- |
+| `draft.tmp` | removed               | because we said y                  |
+| `old.tmp`   | removed               | because we said y                  |
 
 Now run:
 
@@ -325,12 +326,157 @@ Record both prompts and both responses. Then run `ls -la` and record that output
 too:
 
 ```text
-TODO
+raffi@Raffis-Mac glob-practice % rm -i *.tmp
+remove draft.tmp? n
+remove old.tmp? n
+raffi@Raffis-Mac glob-practice % rm -i *.tmp
+remove draft.tmp? y
+remove old.tmp? y
+raffi@Raffis-Mac glob-practice % ls -la
+total 0
+drwxr-xr-x@  9 raffi  staff  288 30 Oct 18:09 .
+drwxr-xr-x@ 23 raffi  staff  736 30 Oct 14:35 ..
+-rw-r--r--@  1 raffi  staff    0 30 Oct 14:35 .hidden.txt
+drwxr-xr-x@  2 raffi  staff   64 30 Oct 14:35 archive
+-rw-r--r--@  1 raffi  staff    0 30 Oct 14:35 image.png
+-rw-r--r--@  1 raffi  staff    0 30 Oct 16:49 keep.txt
+-rw-r--r--@  1 raffi  staff    0 30 Oct 16:49 notes.txt
+-rw-r--r--@  1 raffi  staff    0 30 Oct 14:35 report.md
+-rw-r--r--@  1 raffi  staff    0 30 Oct 14:35 report.txt
+raffi@Raffis-Mac glob-practice %
 ```
 
 Complete the model:
 
-> `*.tmp` determines TODO. The `-i` option does not change that selection; it
-> changes TODO.
+> `*.tmp` determines the arguments for ls. The `-i` option does not change that selection; it
+> changes the outcome.
 
 Tell the tutor when this correction pass is ready.
+
+---
+
+## Session restart — trace three separate decisions
+
+The earlier attempts are preserved above. This pass separates:
+
+1. which pathnames the shell supplies;
+2. how the command treats or displays those pathnames;
+3. what each interactive response does to its own pathname.
+
+### A. Trace `ls -l *.txt`
+
+Use the earlier `printf` and `ls` output as evidence. Do not run anything yet.
+
+```text
+Typed command:  ls -l *.txt
+
+Shell stage
+  Pattern inspected: *.txt
+  Pathname arguments produced: keep.txt notes.txt report.txt
+
+Program stage
+  Program started: idk
+  Option it receives: idk
+  What that option changes: -i
+```
+
+Complete both statements:
+
+> `*.txt` selected TODO
+
+> `-l` changed TODO
+
+For `.hidden.txt`, focus on the pattern's first character. By default, can the
+`*` in `*.txt` match a leading `.`? Explain briefly:
+
+> no i guess, it can match if we specify it like this .*.txt
+
+### B. Trace the unmatched pattern
+
+For the observed command `ls *.csv`, complete the stages in order:
+
+```text
+1. zsh attempted to expand: *.csv
+2. Number of matching pathnames: 0
+3. What zsh did next: display error
+4. Was `ls` started? no
+5. Evidence from the recorded error: csv files doesn't exists in the directory
+```
+
+### C. One controlled interactive run
+
+The tutor inspected the fixture at this session start: neither `.tmp` file
+currently exists. Run these commands separately:
+
+```bash
+cd /Users/raffi/Learning/topics/linux/labs/glob-practice
+```
+
+```bash
+touch draft.tmp old.tmp
+```
+
+```bash
+printf 'target: <%s>\n' *.tmp
+```
+
+Record the preview in its actual order:
+
+```text
+target: <draft.tmp>
+target: <old.tmp>
+```
+
+Copy those two pathnames into the table in preview order. Then predict each
+final state. The first response will be `n`; the second response will be `y`.
+
+| Prompt | Pathname from preview | Response | Predicted final state |
+| ------ | --------------------- | -------- | --------------------- |
+| first  | draft.tmp             | `n`      | remain                |
+| second | glob-practice/old.tmp | `y`      | removed               |
+
+Now run this command **once**:
+
+```bash
+rm -i *.tmp
+```
+
+At its first prompt, enter `n`. At its second prompt, enter `y`. Record the
+complete command and both prompt/response pairs:
+
+```text
+raffi@Raffis-Mac glob-practice % rm -i *.tmp
+remove draft.tmp? n
+remove old.tmp? y
+raffi@Raffis-Mac glob-practice %
+```
+
+Verify the result:
+
+```bash
+ls -la
+```
+
+Record the complete output:
+
+```text
+raffi@Raffis-Mac glob-practice % ls -la
+total 0
+drwxr-xr-x@ 10 raffi  staff  320 30 Oct 18:16 .
+drwxr-xr-x@ 23 raffi  staff  736 30 Oct 14:35 ..
+-rw-r--r--@  1 raffi  staff    0 30 Oct 14:35 .hidden.txt
+drwxr-xr-x@  2 raffi  staff   64 30 Oct 14:35 archive
+-rw-r--r--@  1 raffi  staff    0 30 Oct 18:15 draft.tmp
+-rw-r--r--@  1 raffi  staff    0 30 Oct 14:35 image.png
+-rw-r--r--@  1 raffi  staff    0 30 Oct 16:49 keep.txt
+-rw-r--r--@  1 raffi  staff    0 30 Oct 16:49 notes.txt
+-rw-r--r--@  1 raffi  staff    0 30 Oct 14:35 report.md
+-rw-r--r--@  1 raffi  staff    0 30 Oct 14:35 report.txt
+```
+
+Complete the final model in your own words:
+
+> The shell's expansion controls the file extension *. The `rm -i` option controls the idk. Each
+> `n` or `y` response controls rm operation to be run or not.
+
+Stop here and tell the tutor when this session-restart section is ready.

@@ -34,13 +34,13 @@ Bash automation and integrated terminal work (11-12)
    - `mkdir` and a small project directory structure
    - Milestone: navigate and construct a requested directory tree independently
 
-2. `[>]` **Safe file organization**
+2. `[x]` **Safe file organization**
    - `touch`, `cp`, `mv`, `rm`, and `rmdir`
    - Safe overwrite and removal checks; recursive operations
    - Globbing and selecting several files without unintended matches
    - Milestone: reorganize mixed files safely without procedural hints
 
-3. `[ ]` **Links, file types, and archives**
+3. `[>]` **Links, file types, and archives**
    - Regular files, directories, and other common file types
    - Hard links and symbolic links; copying versus linking
    - `tar`, `gzip`, `bzip2`, and `xz`; inspect before extracting
@@ -137,13 +137,18 @@ Bash automation and integrated terminal work (11-12)
 Phase 1 is complete. The learner independently constructed the requested
 `copy-practice` tree, explicitly mapped its branches to verification evidence,
 and distinguished `/` path nesting from `mkdir -p` parent creation after guided
-correction. Phase 2 is current. Single-file copying, `cp -i` overwrite choices,
+correction. Phase 2 covered single-file copying, `cp -i` overwrite choices,
 recursive directory copying with `cp -R`, basic `mv` rename/relocation, `mv -i`
 replacement choices, placeholder-file creation with `touch`, interactive file
-removal with `rm -i`, and leaf-first empty-directory removal with `rmdir` have
-been completed with guidance. The next step is safe multi-file selection and
-shell globbing, followed later by an integrated Phase 2 organization checkpoint.
-Recursive removal has not yet been introduced.
+removal with `rm -i`, and leaf-first empty-directory removal with `rmdir`.
+These were completed with guidance. Shell globbing, safe multi-file selection, and
+recursive removal with a verified target boundary were then completed with
+correction. Phase 2 is complete: in the integrated checkpoint the learner
+independently selected and executed the necessary organization commands and
+achieved every required final state without breaching the protected boundary.
+Recursive-root and pattern-role explanations needed direct correction, followed
+by successful transfer checks. Phase 3 is current; begin by probing file-type
+and link models, then use disposable link and archive experiments.
 
 ## Current scope boundary
 

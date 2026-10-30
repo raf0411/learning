@@ -11,15 +11,15 @@
 
 ## Path nesting versus `mkdir -p`
 
-- Stage: GUIDED
+- Stage: INDEPENDENT
 - Demonstrate: explain that `/` expresses path-component nesting and decide
   independently when `-p` is necessary across a sequence of `mkdir` commands
 - Why: repeatedly attributed nesting to `-p` and initially ignored parents
   created by earlier commands
-- Last evidence: 2026-10-29, predicted that `touch reports/daily.txt` would fail
-  when `reports` was missing, then successfully created the directory and file
-  separately; the initial prediction did not include a reason
-- Next review: during a later file-organization task without naming the concept
+- Last evidence: 2026-10-30, independently planned and created
+  `review/notes/2026` with `mkdir -p` in the integrated checkpoint
+- Next review: after spacing, require a choice between sequential `mkdir`
+  commands and `mkdir -p` in an unrelated setup task
 
 ## `cp` destination-path resolution
 
@@ -47,15 +47,14 @@
 
 ## `mv -i` source and destination state
 
-- Stage: GUIDED
+- Stage: INDEPENDENT for a declined replacement
 - Demonstrate: independently predict both pathname states and both contents
   after declining or accepting replacement of an existing destination
 - Why: the guided lab was correct, but accepted replacement must remain distinct
   from copying and from a separate delete operation
-- Last evidence: 2026-10-29, correctly completed decline and accept cases and
-  explained that accepted `cp -i` preserves the source path while `mv -i` does
-  not
-- Next review: embed in an unfamiliar file-reorganization task after spacing
+- Last evidence: 2026-10-30, independently chose `mv -i`, declined replacement,
+  and verified both distinct contents in the integrated checkpoint
+- Next review: after spacing, test an accepted replacement in a new fixture
 
 ## Existing-file behavior of `touch`
 
@@ -69,32 +68,43 @@
 
 ## Safe file and empty-directory removal
 
-- Stage: GUIDED
+- Stage: INDEPENDENT in unfamiliar checkpoint execution
 - Demonstrate: orient and inspect before removal, use interactive confirmation
   appropriately, verify absence without treating the expected lookup error as
   a removal failure, and remove a small nonempty tree leaf first without hints
 - Why: execution and predictions were correct in a structured lab, but the
   initial explanations confused `pwd` with preventing movement, misstated an
   exact relative path, and incompletely classified the commands used
-- Last evidence: 2026-10-30, completed declined and accepted `rm -i` cases,
-  observed `rmdir` protect a nonempty directory, and wrote the correct
-  file-first, directory-second removal sequence
-- Next review: embed in an unfamiliar file-organization scenario after
-  globbing practice; do not announce which removal command to choose
+- Last evidence: 2026-10-30, independently selected `rmdir` for an empty target
+  and used previewed `rm -i` choices correctly in the integrated checkpoint
+- Next review: after spacing, embed both commands in a different scenario
 
 ## Shell globbing and command-option separation
 
-- Stage: GUIDED with unresolved distinctions
+- Stage: INDEPENDENT in immediate transfer after correction
 - Demonstrate: predict visible matches for an unquoted pattern; explain that the
   shell expands it before the program starts; distinguish selected pathname
   arguments from `ls -l` display and `rm -i` interaction; safely preview and
   act on several targets while connecting each prompt response to one path
-- Why: matching-pattern predictions and previews were correct, but `-l` was
-  still treated as affecting selection or a directory, unmatched default
-  `zsh` behavior was not predicted, and both `.tmp` files were removed when the
-  exercise specified `n` for the first prompt and `y` for the second
-- Last evidence: 2026-10-30, completed the main globbing experiment and began a
-  correction pass; the unmatched-pattern explanation and controlled
-  multi-target repeat remain unfinished
-- Next review: resume the correction pass at the next session; after successful
-  correction, test later with an unfamiliar pattern and changing command
+- Why: the original attempt blended pattern selection, options, and prompt
+  responses; the checkpoint operation was correct but the explanation again
+  omitted the shell until corrected
+- Last evidence: 2026-10-30, produced the exact post-expansion command for a
+  novel `*.log` scenario and correctly mapped `y`, `n`, and an unmatched file
+- Next review: after spacing, test with a different pattern and non-removal
+  command to establish RETAINED
+
+## Recursive removal boundary
+
+- Stage: GUIDED after correction
+- Demonstrate: from an unfamiliar working directory, resolve the exact root of
+  a relative `rm -R` target, distinguish descendants from siblings, inspect the
+  boundary, remove only the requested disposable hierarchy, and verify both
+  absence and protected neighbors
+- Why: the practical removal was safe, but the first explanation incorrectly
+  named sibling paths as arguments and confused the working-directory base with
+  the recursive root
+- Last evidence: 2026-10-30, after direct equality/prefix instruction correctly
+  classified a novel cache descendant, sibling branch, and parent
+- Next review: after spacing, require an independent boundary diagram and exact
+  target resolution before any recursive operation
