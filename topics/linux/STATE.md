@@ -4,7 +4,9 @@
 
 - Basic purposes of `pwd`, `ls`, and `cd` — INDEPENDENT verbal recall.
 - Current/parent shorthand (`.` and `..`) — INDEPENDENT after correction.
-  Correctly predicted and verified a five-step navigation sequence.
+  Correctly predicted and verified a five-step navigation sequence; nested
+  parent traversal needed renewed correction on 2026-10-31 before successful
+  immediate independent application (see two-level traversal below).
 - Relative and absolute navigation — INDEPENDENT in a structured lab. Correctly
   used child, parent/child, and root-anchored paths.
 - Previous-directory navigation (`cd -`) — INDEPENDENT in one prediction and
@@ -80,13 +82,39 @@
   states and protected contents were correct. Initial evidence omitted nested
   copy contents, and explanations confused the recursive root and shell
   expansion roles; both were corrected, with successful novel transfer.
-- Symbolic links — UNKNOWN at the Phase 3 probe. The learner did not yet know
-  what creating a link meant and predicted that a link would be edited or
-  deleted together with a linked copy. A direct pathname-reference model was
-  introduced, but no prediction or experiment has yet demonstrated
-  understanding.
+- Symbolic links — GUIDED practical execution and understanding after
+  correction. Completed target editing, target removal/recreation, and link
+  removal experiments. Initially predicted target removal would remove the
+  link and described the link as storing target data. After correction,
+  independently explained that renaming the target leaves the stored pathname
+  unchanged and reading through the link fails until that path exists again.
+- Hard links — GUIDED, with successful causal explanation after correction.
+  Observed shared inode/content behavior, an independent copy, and continued
+  access after removing one name. Correctly explained that both names refer
+  to inode 48272923 and that the surviving name does not depend on the removed
+  pathname. Initial link-count error was corrected but not independently retested.
+- Two-level relative parent traversal — INDEPENDENT in an immediate, focused
+  application after teaching. From `relative-link-practice/links/deeper`, wrote
+  and ran `cat ../../data/note.txt` without a supplied command; recorded
+  `RELATIVE LINK CONTENT`. This supports current path construction, not retention
+  or independent symbolic-link diagnosis.
 
 ## Points requiring reinforcement
+
+- Relative symbolic-link paths — GUIDED execution, conceptual understanding
+  still needs independent verification. Initially confused link location,
+  stored pathname, and reached data, and used the shell's working directory
+  as the stored target's base. Observed unchanged reads after `cd`, failure
+  after moving the link, and success of a supplied two-parent correction.
+  Parent traversal now has immediate independent evidence, but choosing the
+  link's directory as the lookup base should be tested later without scaffolding.
+- Nested parent traversal needs spaced review: repeatedly treated one `..`
+  as reaching the lab root from two levels below before successfully writing
+  and executing the correct two-parent `cat` command independently.
+
+- Hard links: revisit shared file identity versus pathname references after
+  spacing. The original-path dependency misconception was corrected in writing;
+  independently counting all names, including the first, still needs verification.
 
 - Treat `.` and `..` as paths relative to the current directory; test this again
   after spacing because the initial model was reversed.
@@ -140,8 +168,14 @@
 
 ## Current learning edge
 
-Resume the prepared symbolic-link experiment in
-`labs/2026-10-30-symbolic-links-first-model.md`. Test the difference between a
-copy and a symbolic pathname reference by changing, removing, and recreating
-the target, then removing only the link. Hard links and archives have not yet
-been introduced.
+The link experiments and guided corrections are complete. The final direct
+file-read task independently demonstrated two-parent relative path construction.
+Keep symbolic-link lookup-base reasoning scheduled for later independent review;
+do not equate that direct read with full link mastery. The learner knows ZIP
+from downloading and extracting files but has no demonstrated archive-creation
+capability. Next: complete `labs/2026-10-31-first-tar-archive.md` for guided
+creation, listing, and extraction of plain tar. Compression follows later.
+The old dangling link and corrected comparison link remain available for review.
+At session close on 2026-10-31 the tar worksheet was still unfilled, no archive
+was present, and `restored/` was empty. Start next session with one brief
+link/path retrieval check, then begin Part 1 of that worksheet.

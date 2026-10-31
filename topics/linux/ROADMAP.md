@@ -134,21 +134,14 @@ Bash automation and integrated terminal work (11-12)
 
 ## Current position
 
-Phase 1 is complete. The learner independently constructed the requested
-`copy-practice` tree, explicitly mapped its branches to verification evidence,
-and distinguished `/` path nesting from `mkdir -p` parent creation after guided
-correction. Phase 2 covered single-file copying, `cp -i` overwrite choices,
-recursive directory copying with `cp -R`, basic `mv` rename/relocation, `mv -i`
-replacement choices, placeholder-file creation with `touch`, interactive file
-removal with `rm -i`, and leaf-first empty-directory removal with `rmdir`.
-These were completed with guidance. Shell globbing, safe multi-file selection, and
-recursive removal with a verified target boundary were then completed with
-correction. Phase 2 is complete: in the integrated checkpoint the learner
-independently selected and executed the necessary organization commands and
-achieved every required final state without breaching the protected boundary.
-Recursive-root and pattern-role explanations needed direct correction, followed
-by successful transfer checks. Phase 3 is current; begin by probing file-type
-and link models, then use disposable link and archive experiments.
+Phases 1 and 2 are complete: filesystem navigation/construction and the
+integrated safe-file-organization checkpoint have been demonstrated.
+
+Phase 3 is current. Symbolic-link, hard-link, and relative-link experiments
+are complete with guidance; link identity, link counts, and relative-target
+reasoning remain review items. The archive/compression distinction has been
+introduced. Next is the prepared plain-tar create/list/extract lab, followed
+by compression and the package/restore milestone. Phase 3 is not yet complete.
 
 ## Current scope boundary
 

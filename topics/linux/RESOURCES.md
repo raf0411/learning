@@ -14,6 +14,8 @@ observed machine output and installed documentation before external references.
 
 - Installed `--help`, shell `help`, `man`, `info`, `/usr/share/doc`, and package
   documentation — first external-memory tools to practice on the actual system.
+- Installed `man tar` — reference for the local tar implementation's creation,
+  listing, extraction, archive-file selection, and `-C` destination behavior.
 - [GNU Coreutils manual](https://www.gnu.org/software/coreutils/manual/coreutils.html)
   — upstream reference for GNU file, text, and system utilities.
 - [GNU Bash manual](https://www.gnu.org/software/bash/manual/bash.html)

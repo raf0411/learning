@@ -68,19 +68,29 @@ cat replacement.txt
 Record all commands and complete output:
 
 ```text
-TODO
+raffi@Raffis-Mac link-practice % pwd
+/Users/raffi/Learning/topics/linux/labs/link-practice
+raffi@Raffis-Mac link-practice % ls -l
+total 16
+-rw-r--r--@ 1 raffi  staff  17 30 Oct 21:17 original.txt
+-rw-r--r--@ 1 raffi  staff  20 30 Oct 21:17 replacement.txt
+raffi@Raffis-Mac link-practice % cat original.txt
+ORIGINAL CONTENT
+raffi@Raffis-Mac link-practice % cat replacement.txt
+REPLACEMENT CONTENT
+raffi@Raffis-Mac link-practice %
 ```
 
 ## Part 2 — Predict and create the symbolic link
 
 Before running the creation command, predict:
 
-| Question | Prediction |
-| -------- | ---------- |
-| Which new pathname will be created? | TODO |
-| Will a second copy of `ORIGINAL CONTENT` be created as independent file data? | TODO |
-| What should `cat shortcut.txt` display? | TODO |
-| Will `original.txt` still exist? | TODO |
+| Question                                                                      | Prediction       |
+| ----------------------------------------------------------------------------- | ---------------- |
+| Which new pathname will be created?                                           | shortcut.txt     |
+| Will a second copy of `ORIGINAL CONTENT` be created as independent file data? | No               |
+| What should `cat shortcut.txt` display?                                       | ORIGINAL CONTENT |
+| Will `original.txt` still exist?                                              | Yes              |
 
 Now run:
 
@@ -101,13 +111,20 @@ cat shortcut.txt
 Record the complete output:
 
 ```text
-TODO
+raffi@Raffis-Mac link-practice % ln -s original.txt shortcut.txt
+raffi@Raffis-Mac link-practice % ls -l
+total 16
+-rw-r--r--@ 1 raffi  staff  17 30 Oct 21:17 original.txt
+-rw-r--r--@ 1 raffi  staff  20 30 Oct 21:17 replacement.txt
+lrwxr-xr-x@ 1 raffi  staff  12 31 Oct 19:33 shortcut.txt -> original.txt
+raffi@Raffis-Mac link-practice % cat shortcut.txt
+ORIGINAL CONTENT
 ```
 
 In the long listing, what does the line for `shortcut.txt` show about its file
 type and stored target pathname?
 
-> TODO
+> its file type is a link (l) and the stored target pathname is original.txt
 
 ## Part 3 — Change the target's data
 
@@ -118,9 +135,9 @@ Predict the results before running anything:
 
 | Path read with `cat` | Predicted content after target replacement |
 | -------------------- | ------------------------------------------ |
-| `original.txt` | TODO |
-| `shortcut.txt` | TODO |
-| `replacement.txt` | TODO |
+| `original.txt`       | REPLACEMENT CONTENT                        |
+| `shortcut.txt`       | REPLACEMENT CONTENT                        |
+| `replacement.txt`    | REPLACEMENT CONTENT                        |
 
 Run this command and answer `y` to its prompt:
 
@@ -149,24 +166,39 @@ ls -l
 Record the prompt, response, and complete inspection output:
 
 ```text
-TODO
+raffi@Raffis-Mac link-practice % cp -i replacement.txt original.txt
+overwrite original.txt? (y/n [n]) y
+raffi@Raffis-Mac link-practice % cat original.txt
+REPLACEMENT CONTENT
+raffi@Raffis-Mac link-practice % cat shortcut.txt
+REPLACEMENT CONTENT
+raffi@Raffis-Mac link-practice % cat replacement.txt
+REPLACEMENT CONTENT
+raffi@Raffis-Mac link-practice % ls -l
+total 16
+-rw-r--r--@ 1 raffi  staff  20 31 Oct 19:35 original.txt
+-rw-r--r--@ 1 raffi  staff  20 30 Oct 21:17 replacement.txt
+lrwxr-xr-x@ 1 raffi  staff  12 31 Oct 19:33 shortcut.txt -> original.txt
 ```
 
 Did the symbolic link store an old independent copy of the content, or did
 opening it reach the current data at `original.txt`? Cite the observation.
 
-> TODO
+> it reach the current data at original.txt,
+> this is the evidence:
+> raffi@Raffis-Mac link-practice % cat shortcut.txt
+REPLACEMENT CONTENT
 
 ## Part 4 — Remove the target pathname
 
 Before acting, predict:
 
-| Path | Predicted state after removing `original.txt` |
-| ---- | --------------------------------------------- |
-| `original.txt` | TODO |
-| `shortcut.txt` entry | TODO |
-| Reading `shortcut.txt` with `cat` | TODO |
-| `replacement.txt` | TODO |
+| Path                              | Predicted state after removing `original.txt` |
+| --------------------------------- | --------------------------------------------- |
+| `original.txt`                    | Removed                                       |
+| `shortcut.txt` entry              | Removed                                       |
+| Reading `shortcut.txt` with `cat` | Error or don't exists                         |
+| `replacement.txt`                 | Remain                                        |
 
 Run and answer `y`:
 
@@ -191,13 +223,22 @@ cat replacement.txt
 Record the removal prompt and all inspection output:
 
 ```text
-TODO
+raffi@Raffis-Mac link-practice % rm -i original.txt
+remove original.txt? y
+raffi@Raffis-Mac link-practice % ls -l
+total 8
+-rw-r--r--@ 1 raffi  staff  20 30 Oct 21:17 replacement.txt
+lrwxr-xr-x@ 1 raffi  staff  12 31 Oct 19:33 shortcut.txt -> original.txt
+raffi@Raffis-Mac link-practice % cat shortcut.txt
+cat: shortcut.txt: No such file or directory
+raffi@Raffis-Mac link-practice % cat replacement.txt
+REPLACEMENT CONTENT
 ```
 
 Explain the difference between “the link entry still exists” and “the target
 pathname currently resolves to a file”:
 
-> TODO
+> i don't know what u mean
 
 ## Part 5 — Restore the target
 
@@ -220,22 +261,29 @@ ls -l
 Record the complete output:
 
 ```text
-TODO
+raffi@Raffis-Mac link-practice % cp replacement.txt original.txt
+raffi@Raffis-Mac link-practice % cat shortcut.txt
+REPLACEMENT CONTENT
+raffi@Raffis-Mac link-practice % ls -l
+total 16
+-rw-r--r--@ 1 raffi  staff  20 31 Oct 19:39 original.txt
+-rw-r--r--@ 1 raffi  staff  20 30 Oct 21:17 replacement.txt
+lrwxr-xr-x@ 1 raffi  staff  12 31 Oct 19:33 shortcut.txt -> original.txt
 ```
 
 Why did the old link begin working again when `original.txt` was recreated?
 
-> TODO
+> because the original.txt is linked in the shortcut.txt, the shortcut.txt turns out still exists, it just needs its original.txt file again
 
 ## Part 6 — Remove only the link
 
 Predict the final state:
 
-| Path | Predicted state after removing `shortcut.txt` |
-| ---- | --------------------------------------------- |
-| `shortcut.txt` | TODO |
-| `original.txt` | TODO |
-| Content of `original.txt` | TODO |
+| Path                      | Predicted state after removing `shortcut.txt` |
+| ------------------------- | --------------------------------------------- |
+| `shortcut.txt`            | Removed                                       |
+| `original.txt`            | Remain                                        |
+| Content of `original.txt` | REPLACEMENT CONTENT                           |
 
 Run and answer `y`:
 
@@ -260,30 +308,39 @@ ls -l shortcut.txt
 Record the prompt and complete verification output:
 
 ```text
-TODO
+raffi@Raffis-Mac link-practice % rm -i shortcut.txt
+remove shortcut.txt? y
+raffi@Raffis-Mac link-practice % ls -l
+total 16
+-rw-r--r--@ 1 raffi  staff  20 31 Oct 19:39 original.txt
+-rw-r--r--@ 1 raffi  staff  20 30 Oct 21:17 replacement.txt
+raffi@Raffis-Mac link-practice % cat original.txt
+REPLACEMENT CONTENT
+raffi@Raffis-Mac link-practice % ls -l shortcut.txt
+ls: shortcut.txt: No such file or directory
 ```
 
 ## Explain the model
 
 1. What information does a symbolic link store?
 
-   > TODO
+   > the current data of original.txt
 
 2. Why can changing the target be observed through the link?
 
-   > TODO
+   > because we linked it with ln
 
 3. Why does deleting the target leave a dangling link instead of deleting the
    link entry automatically?
 
-   > TODO
+   > because we are not removing the link we are removing the target
 
 4. Why does deleting the symbolic link leave the target unchanged?
 
-   > TODO
+   > because deleting the link does not mean also removing the target or original
 
 5. State one important difference between a copied file and a symbolic link.
 
-   > TODO
+   > copied file is an independent file based on the original source while symbolic link stores the current target data/original data
 
 Stop here and tell the tutor when the worksheet is ready.

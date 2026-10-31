@@ -1,13 +1,54 @@
 # Review
 
+## Hard-link identity and link count
+
+- Stage: GUIDED after successful conceptual correction
+- Demonstrate: distinguish shared file identity from a stored target pathname;
+  count every hard-linked name, including the first; explain changes and
+  removals using actual inode and content evidence
+- Why: predictions and execution succeeded, but the explanation claimed
+  dependence on the original path and the initial link count excluded it
+- Last evidence: 2026-10-31, shared writes and surviving-name access observed;
+  corrected explanation used inode 48272923 to explain shared content and
+  independence from the removed pathname
+- Next review: after spacing, test independent diagnosis in a mixed
+  copy/hard-link/symbolic-link scenario, including counting all hard-linked names
+
+## Symbolic links: stored pathname versus reached data
+
+- Stage: GUIDED after correction
+- Demonstrate: explain what a symbolic link stores and predict its behavior
+  after target editing, renaming, removal, and recreation without hints
+- Why: initially described the stored value as target data and predicted that
+  deleting the target would also delete the link
+- Last evidence: 2026-10-31, completed the guided experiment; after correction,
+  independently explained failure after target rename using the unchanged
+  stored pathname
+- Next review: after spacing, diagnose a dangling link in an unfamiliar fixture
+
+### Relative targets and nested parent traversal
+
+- 2026-10-31: the relative-link lab revealed renewed confusion between stored
+  pathname and reached data, plus dependence on the shell's current directory.
+- Later evidence: after guided side-by-side comparison, independently wrote
+  and executed `cat ../../data/note.txt` from `links/deeper`, confirming correct
+  two-parent traversal. This checks ordinary relative paths, not independent
+  selection of the symbolic link's directory as a lookup base.
+- Next: at the next session, use one brief diagnosis from a different shell
+  working directory; identify the link's containing directory and stored text
+  without hints. Keep this short before beginning the prepared tar lab.
+
 ## Current/parent relative navigation
 
 - Stage: INDEPENDENT after correction
 - Demonstrate: use `.`, `..`, and a compound relative path correctly in an
   unfamiliar directory tree without being told which form to use
 - Why: the initial `.`/`..` model was incorrect before the navigation lab
-- Last evidence: 2026-10-27, five correct predictions and matching observations
-- Next review: after several lessons, embedded in a file-organization scenario
+- Last evidence: 2026-10-31, nested parent traversal initially failed; after
+  correction, independently wrote and ran `cat ../../data/note.txt` from two
+  levels below the lab root. Earlier five-step navigation succeeded on 2026-10-27.
+- Next review: after spacing, construct a relative path across an unfamiliar
+  directory tree without a supplied route
 
 ## Path nesting versus `mkdir -p`
 
