@@ -1,17 +1,20 @@
 # STATE
 
-## Current learner model — 2026-10-30
+## Current learner model — 2026-11-01
 
 - Prior tool experience: learner reports none. Reported terminal output: `Python 3.14.6`; environment has not been independently inspected by tutor.
 - Reading a simple loop with a string-prefix condition — INDEPENDENT on one baseline example. Correctly predicted both matching servers and explained exclusion of the database server. Broader control-flow competence is untested.
 - Designing a line-counting algorithm — INDEPENDENT in prose on the baseline task: initialize counter, inspect lines, conditionally increment, report after loop. File-opening mechanics remain untested.
 - Assignment and sequential counter updates — INDEPENDENT on a small familiar task. Correctly predicted two increments, explained use of the previous value, and wrote a variation adding 1 then 3. Broader name/value/type distinctions remain unassessed.
 - Tracing a simple equality condition and its indented block — INDEPENDENT on the taught example. Correctly predicted counts for matching/nonmatching statuses and explained why an indented print is skipped when the condition is false. Conditional script construction remains GUIDED by supplied code.
-- Conditional counting over a list — GUIDED overall, with loop/if syntax examples available. Correctly assembled a counter with initialization before the loop, conditional increments, and one final report; explained initialization/report placement. Predicted and reported counts of 3 and 0 for mixed and all-passed inputs. Loop-output tracing correct. Used `+=` correctly for an integer counter.
+- Conditional counting over a list — RETAINED for tracing and report placement. At the next session, correctly reconstructed the four intermediate outputs of a changed loop and independently identified that a final-only report belongs after the loop. Construction of a new counting script without nearby syntax remains untested.
 - Two-counter log summary — GUIDED overall with new string-prefix syntax supplied; independently chose unconditional total updates and conditional error updates, explaining the differing indentation. Correct implementation for sample and empty inputs; output-recording shorthand clarified. File reading remains unassessed.
-- Functions — RECOGNIZED from a brief description; construction and behavior remain untested.
-- Creating and running a Python script — GUIDED workflow. Created the requested script and reported matching output using the supplied command; the tutor independently ran the saved variation and confirmed its output. No retention or transfer claims.
+- Functions — GUIDED. Correctly predicted parameter/return behavior, defined `is_error(line)` from an analogous example, tested exact prefix behavior, integrated the function into the file report, and traced value in → Boolean out → conditional update. Initially attributed preserved output only to using the same file, then correctly showed via a counterfactual that the classifier's returned value also determines the result. Returning multiple values remains unassessed.
+- File reading — GUIDED construction with `with open(...)` syntax supplied. Correctly adapted the two-counter summary to iterate over a text file, predicted both outputs before execution, and explained why changing external input changes an unchanged program. Tutor independently verified the saved script and output.
+- Specific exception handling — GUIDED with a `try`/`except FileNotFoundError`/`else` scaffold. Correctly implemented and predicted successful and missing-file paths, identified the specific exception being handled, and explained why success reports inside `else` avoid misleading zero counts after failure.
+- Creating and running a Python script — GUIDED workflow. Has created and run several requested scripts and recorded matching output; tutor independently verified saved versions. No independent end-to-end construction without a scaffold yet.
+- Indentation — block placement is conceptually sound and produces correct behavior. Learner uses valid non-four-space increments in some nested blocks and explicitly distinguished this from behavior; four spaces is a style convention, not a Python correctness requirement. Do not block conceptual progression on exact width.
 
-Current learning edge: adapt the working summary to iterate over an open text file using `with open(...)`.
+Current learning edge: define `summarize(lines)`, return two counts, and receive them through `total, errors = ...`; then apply that function to file input.
 
-Session-end checkpoint: sample-log summary milestone completed, including empty input. File-reading worksheet still contains TODOs; no `labs/file_log_summary.py` was present at close. Resume with a brief counter/indentation retrieval check if meaningfully spaced, then the pending file-reading exercise. No retention or transfer claims from same-session practice.
+Checkpoint: the local file-report milestone is complete, including changed external data and a clear missing-file path. A Boolean classifier function has also been constructed, called, traced, and integrated with guidance. The two-value summary-function worksheet is prepared but untouched. Dictionaries, imports, and less scaffolded script design remain ahead. No TRANSFERABLE claims.
