@@ -38,13 +38,24 @@ Requirements:
 Your code:
 
 ```python
-# TODO
+total = 0
+errors = 0
+
+with open("/Users/raffi/Learning/topics/python/labs/sample.log", encoding="utf-8") as log_file:
+  for line in log_file:
+    if line.startswith("ERROR "):
+      errors += 1
+    total += 1
+
+print("Total:", total)
+print("Errors:", errors)
 ```
 
 Predict the exact output, including labels:
 
 ```text
-TODO
+Total: 5
+Errors: 2
 ```
 
 Save and run:
@@ -56,7 +67,9 @@ python3 /Users/raffi/Learning/topics/python/labs/file_log_summary.py
 Actual output or exact error:
 
 ```text
-TODO
+raffi@Raffis-Mac labs % python3 /Users/raffi/Learning/topics/python/labs/file_log_summary.py
+Total: 5
+Errors: 2
 ```
 
 ## 2. Change the data
@@ -72,17 +85,20 @@ Leave your Python script unchanged.
 Predict its new output before running it again:
 
 ```text
-TODO
+Total: 6
+Errors: 3
 ```
 
 Run the same command again. Record the actual output:
 
 ```text
-TODO
+raffi@Raffis-Mac labs % python3 /Users/raffi/Learning/topics/python/labs/file_log_summary.py
+Total: 6
+Errors: 3
 ```
 
 Why can the result change even though you did not edit the Python script?
 
-TODO
+because our python code reads the sample.log file
 
 Keep any mismatches or errors so we can inspect them. Tell me when the worksheet is ready or where you get stuck.

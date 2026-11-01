@@ -16,6 +16,8 @@ observed machine output and installed documentation before external references.
   documentation — first external-memory tools to practice on the actual system.
 - Installed `man tar` — reference for the local tar implementation's creation,
   listing, extraction, archive-file selection, and `-C` destination behavior.
+- Installed `less --help` (less 668 on the learner's current machine) —
+  version-matched pager navigation, search, exit, and line-number controls.
 - [GNU Coreutils manual](https://www.gnu.org/software/coreutils/manual/coreutils.html)
   — upstream reference for GNU file, text, and system utilities.
 - [GNU Bash manual](https://www.gnu.org/software/bash/manual/bash.html)

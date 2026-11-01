@@ -68,7 +68,39 @@ Record commands and output. Confirm from the output that `project.tar` does
 not already exist and `restored/` contains no entries except `.` and `..`.
 
 ```text
-TODO
+raffi@Raffis-Mac relative-link-practice % cd /Users/raffi/Learning/topics/linux/labs/archive-practice
+raffi@Raffis-Mac archive-practice % pwd
+/Users/raffi/Learning/topics/linux/labs/archive-practice
+raffi@Raffis-Mac archive-practice % ls -la
+total 0
+drwxr-xr-x@  4 raffi  staff   128 31 Oct 21:04 .
+drwxr-xr-x@ 35 raffi  staff  1120 31 Oct 21:04 ..
+drwxr-xr-x@  4 raffi  staff   128 31 Oct 21:04 project
+drwxr-xr-x@  2 raffi  staff    64 31 Oct 21:04 restored
+raffi@Raffis-Mac archive-practice % ls -la project project/data restored
+project:
+total 8
+drwxr-xr-x@ 4 raffi  staff  128 31 Oct 21:04 .
+drwxr-xr-x@ 4 raffi  staff  128 31 Oct 21:04 ..
+drwxr-xr-x@ 3 raffi  staff   96 31 Oct 21:04 data
+-rw-r--r--@ 1 raffi  staff   52 31 Oct 21:04 notes.txt
+
+project/data:
+total 8
+drwxr-xr-x@ 3 raffi  staff   96 31 Oct 21:04 .
+drwxr-xr-x@ 4 raffi  staff  128 31 Oct 21:04 ..
+-rw-r--r--@ 1 raffi  staff   13 31 Oct 21:04 items.txt
+
+restored:
+total 0
+drwxr-xr-x@ 2 raffi  staff   64 31 Oct 21:04 .
+drwxr-xr-x@ 4 raffi  staff  128 31 Oct 21:04 ..
+raffi@Raffis-Mac archive-practice % cat project/notes.txt
+PROJECT NOTES
+Practice packing and restoring files.
+raffi@Raffis-Mac archive-practice % cat project/data/items.txt
+apple
+banana
 ```
 
 ## 2 — Create and list an archive
@@ -92,10 +124,10 @@ This command does not request compression. Success may produce no output.
 
 Before running it, predict:
 
-| Question | Prediction |
-| --- | --- |
-| Will the source `project/` and its files remain after archive creation? | TODO |
-| Will creating `project.tar` put files into `restored/`? | TODO |
+| Question                                                                | Prediction |
+| ----------------------------------------------------------------------- | ---------- |
+| Will the source `project/` and its files remain after archive creation? | yes        |
+| Will creating `project.tar` put files into `restored/`?                 | no         |
 
 Run the creation command above once, then inspect:
 
@@ -117,7 +149,16 @@ ls -la restored
 Record commands and actual output:
 
 ```text
-TODO
+raffi@Raffis-Mac archive-practice % tar -tf project.tar
+project/
+project/notes.txt
+project/data/
+project/data/items.txt
+raffi@Raffis-Mac archive-practice % ls -la restored
+total 0
+drwxr-xr-x@ 2 raffi  staff   64 31 Oct 21:04 .
+drwxr-xr-x@ 5 raffi  staff  160  1 Nov 18:57 ..
+raffi@Raffis-Mac archive-practice %
 ```
 
 ## 3 — Extract into the empty destination
@@ -139,10 +180,10 @@ tar -xf project.tar -C restored
 
 Before running it, use your archive listing to predict:
 
-| Item | Predicted path relative to the lab root after extraction |
-| --- | --- |
-| Extracted `notes.txt` | TODO |
-| Extracted `items.txt` | TODO |
+| Item                  | Predicted path relative to the lab root after extraction |
+| --------------------- | -------------------------------------------------------- |
+| Extracted `notes.txt` | restored/project/notes.txt                               |
+| Extracted `items.txt` | restored/project/data/items.txt                          |
 
 Recheck the working directory and the empty extraction destination:
 
@@ -190,7 +231,47 @@ pwd
 Record commands and actual output:
 
 ```text
-TODO
+raffi@Raffis-Mac archive-practice % ls -la restored
+total 0
+drwxr-xr-x@ 3 raffi  staff   96  1 Nov 19:01 .
+drwxr-xr-x@ 5 raffi  staff  160  1 Nov 18:57 ..
+drwxr-xr-x@ 4 raffi  staff  128 31 Oct 21:04 project
+raffi@Raffis-Mac archive-practice %
+raffi@Raffis-Mac archive-practice % ls -la restored restored/project restored/project/data
+restored:
+total 0
+drwxr-xr-x@ 3 raffi  staff   96  1 Nov 19:01 .
+drwxr-xr-x@ 5 raffi  staff  160  1 Nov 18:57 ..
+drwxr-xr-x@ 4 raffi  staff  128 31 Oct 21:04 project
+
+restored/project:
+total 8
+drwxr-xr-x@ 4 raffi  staff  128 31 Oct 21:04 .
+drwxr-xr-x@ 3 raffi  staff   96  1 Nov 19:01 ..
+drwxr-xr-x@ 3 raffi  staff   96 31 Oct 21:04 data
+-rw-r--r--@ 1 raffi  staff   52 31 Oct 21:04 notes.txt
+
+restored/project/data:
+total 8
+drwxr-xr-x@ 3 raffi  staff   96 31 Oct 21:04 .
+drwxr-xr-x@ 4 raffi  staff  128 31 Oct 21:04 ..
+-rw-r--r--@ 1 raffi  staff   13 31 Oct 21:04 items.txt
+raffi@Raffis-Mac archive-practice % cat restored/project/notes.txt
+PROJECT NOTES
+Practice packing and restoring files.
+raffi@Raffis-Mac archive-practice % cat restored/project/data/items.txt
+apple
+banana
+raffi@Raffis-Mac archive-practice % cat project/notes.txt
+PROJECT NOTES
+Practice packing and restoring files.
+raffi@Raffis-Mac archive-practice % cat project/data/items.txt
+apple
+banana
+raffi@Raffis-Mac archive-practice % ls -l project.tar
+-rw-r--r--@ 1 raffi  staff  12288  1 Nov 18:57 project.tar
+raffi@Raffis-Mac archive-practice % pwd
+/Users/raffi/Learning/topics/linux/labs/archive-practice
 ```
 
 ## Explain the result
@@ -198,7 +279,7 @@ TODO
 In one or two sentences, explain what `tar -tf project.tar` did differently
 from `tar -xf project.tar -C restored`. Cite one observation from your output.
 
-> TODO
+> the -tf means we are only listing whats available inside projec.tar pathnames wise and -xf is for when we want to extract that tar to a folder such as restored using -C
 
 Stop here and tell the tutor when the worksheet is ready. Keep the source,
 archive, and extracted files for the next experiment.

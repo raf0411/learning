@@ -1,5 +1,22 @@
 # Review
 
+## Archive compression option versus filename suffix
+
+- Stage: archive workflow INDEPENDENT; algorithm-option recall GUIDED after
+  correction
+- Demonstrate: choose `-j` for bzip2 and `-J` for xz without a hint, explain
+  that suffixes are conventions rather than format selectors, and verify actual
+  content format instead of trusting the name
+- Why: the learner used both mappings correctly in a transfer lab, then used
+  lowercase `-j` while calling the independently created archive xz; the valid
+  bzip2 archive was later renamed truthfully at the learner's request
+- Last evidence: 2026-11-01, independent bzip2 create/list/extract workflow and
+  correct archive boundary; tutor `file` and integrity checks diagnosed the
+  mislabeled format, and byte comparison confirmed the restored data
+- Next review: after spacing, embed a short format diagnosis and option choice
+  in Phase 4 content inspection; also require complete nested restoration
+  evidence in a later unfamiliar task
+
 ## Hard-link identity and link count
 
 - Stage: GUIDED after successful conceptual correction
@@ -34,9 +51,12 @@
   and executed `cat ../../data/note.txt` from `links/deeper`, confirming correct
   two-parent traversal. This checks ordinary relative paths, not independent
   selection of the symbolic link's directory as a lookup base.
-- Next: at the next session, use one brief diagnosis from a different shell
-  working directory; identify the link's containing directory and stored text
-  without hints. Keep this short before beginning the prepared tar lab.
+- 2026-11-01 spaced evidence: from a different shell working directory, first
+  skipped `links/`, then treated one `..` as reaching the project-level `linux/`
+  directory. Required incremental hints before producing the exact sought path
+  from the link's containing directory. Stage remains GUIDED.
+- Next: after several sessions, use one brief unfamiliar dangling-link diagnosis
+  without hints. Do not repeat immediately.
 
 ## Current/parent relative navigation
 

@@ -46,6 +46,7 @@ Complete an unfamiliar integrated terminal scenario without procedural hints:
   disposable Linux virtual machine.
 - Distinguish portable shell behavior from Linux-specific behavior while the
   learner is practicing on macOS.
+- Use a Ubuntu Linux VM to learn further linux commands only when we need it.
 - Use the Linux Foundation Introduction to Linux (LFS101) outline as the main
   beginner coverage check.
 - Prefer actual machine output, installed documentation, and official upstream

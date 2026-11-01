@@ -98,6 +98,16 @@
   and ran `cat ../../data/note.txt` without a supplied command; recorded
   `RELATIVE LINK CONTENT`. This supports current path construction, not retention
   or independent symbolic-link diagnosis.
+- Tar archive workflow — INDEPENDENT practical execution for a bzip2 checkpoint,
+  with evidence-recording omissions. After guided plain-tar and gzip work, used
+  installed option mappings to create and list bzip2 and xz archives, then
+  independently planned bzip2 create, member inspection, empty-destination
+  checks, extraction, and preservation of source and neighbor entries. Tutor
+  comparison confirmed all restored files matched their sources byte-for-byte.
+  The checkpoint initially mislabeled the bzip2 artifact as `.xz` after swapping
+  `-j` and `-J`; its scope was revised to bzip2 and the artifact was truthfully
+  renamed without recreating it. This supports the archive workflow, not retained
+  recall of the case-sensitive compression mapping.
 
 ## Points requiring reinforcement
 
@@ -106,8 +116,10 @@
   stored pathname, and reached data, and used the shell's working directory
   as the stored target's base. Observed unchanged reads after `cd`, failure
   after moving the link, and success of a supplied two-parent correction.
-  Parent traversal now has immediate independent evidence, but choosing the
-  link's directory as the lookup base should be tested later without scaffolding.
+  Parent traversal has earlier immediate independent evidence, but a 2026-11-01
+  spaced retrieval check again skipped directory levels and required progressive
+  scaffolding to resolve the target from the link's directory. Test this later
+  without scaffolding; do not repeat it immediately.
 - Nested parent traversal needs spaced review: repeatedly treated one `..`
   as reaching the lab root from two levels below before successfully writing
   and executing the correct two-parent `cat` command independently.
@@ -115,6 +127,18 @@
 - Hard links: revisit shared file identity versus pathname references after
   spacing. The original-path dependency misconception was corrected in writing;
   independently counting all names, including the first, still needs verification.
+
+- Compression selection versus filename convention: the command option selects
+  the algorithm; a `.gz`, `.bz2`, or `.xz` suffix does not. The learner used
+  `-J` correctly during guided transfer, then independently used `-j` while
+  calling it xz in the checkpoint. Re-test `-j` = bzip2 and `-J` = xz after
+  spacing, preferably using content inspection rather than trusting the suffix.
+
+- Archive evidence recording: the independent checkpoint omitted actual output
+  for the initial source inspection and did not record nested listings or file
+  contents after extraction. The final artifact was correct and tutor comparison
+  confirmed equality, but a later task should require complete learner-recorded
+  evidence before declaring restoration verified.
 
 - Treat `.` and `..` as paths relative to the current directory; test this again
   after spacing because the initial model was reversed.
@@ -168,14 +192,17 @@
 
 ## Current learning edge
 
-The link experiments and guided corrections are complete. The final direct
-file-read task independently demonstrated two-parent relative path construction.
-Keep symbolic-link lookup-base reasoning scheduled for later independent review;
-do not equate that direct read with full link mastery. The learner knows ZIP
-from downloading and extracting files but has no demonstrated archive-creation
-capability. Next: complete `labs/2026-10-31-first-tar-archive.md` for guided
-creation, listing, and extraction of plain tar. Compression follows later.
-The old dangling link and corrected comparison link remain available for review.
-At session close on 2026-10-31 the tar worksheet was still unfilled, no archive
-was present, and `restored/` was empty. Start next session with one brief
-link/path retrieval check, then begin Part 1 of that worksheet.
+Phase 3's archive milestone is complete. The learner created, listed, extracted,
+and verified plain and compressed tar archives, then independently completed the
+workflow with bzip2 after the checkpoint was honestly re-scoped. Symbolic-link,
+hard-link, nested-path, compression-flag, and evidence-quality items remain in
+spaced review; do not immediately repeat the full archive lab.
+
+Next: begin Phase 4 with content inspection and local documentation. `file` is
+a motivated starting point because it exposed the mislabeled archive by content
+rather than suffix. Then distinguish appropriate uses of `cat`, `less`, `head`,
+`tail`, and `nl` before introducing terminal editing. Embed one short delayed
+`-j` versus `-J` retrieval check in later inspection work. At session close on
+2026-11-01, the learner reported knowing only `cat` for content viewing; the
+prepared `labs/2026-11-01-less-pager.md` remained completely unfilled. Resume
+with that worksheet rather than re-probing or repeating archive work.

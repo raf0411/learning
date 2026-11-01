@@ -40,13 +40,15 @@ Bash automation and integrated terminal work (11-12)
    - Globbing and selecting several files without unintended matches
    - Milestone: reorganize mixed files safely without procedural hints
 
-3. `[>]` **Links, file types, and archives**
+3. `[x]` **Links, file types, and archives**
    - Regular files, directories, and other common file types
    - Hard links and symbolic links; copying versus linking
    - `tar`, `gzip`, `bzip2`, and `xz`; inspect before extracting
    - Milestone: package, verify, extract, and restore a disposable project
+   - Completed 2026-11-01 with an independently planned bzip2 archive workflow;
+     case-sensitive compression-option recall remains scheduled for review
 
-4. `[ ]` **Content inspection, CLI editing, and documentation**
+4. `[>]` **Content inspection, CLI editing, and documentation**
    - `cat`, `less`, `head`, `tail`, `nl`, and `file`
    - Follow changing output and choose tools appropriate to file size and purpose
    - Create and edit text with a terminal editor; save, search, and exit safely
@@ -137,11 +139,15 @@ Bash automation and integrated terminal work (11-12)
 Phases 1 and 2 are complete: filesystem navigation/construction and the
 integrated safe-file-organization checkpoint have been demonstrated.
 
-Phase 3 is current. Symbolic-link, hard-link, and relative-link experiments
-are complete with guidance; link identity, link counts, and relative-target
-reasoning remain review items. The archive/compression distinction has been
-introduced. Next is the prepared plain-tar create/list/extract lab, followed
-by compression and the package/restore milestone. Phase 3 is not yet complete.
+Phase 3 is complete. Symbolic-link, hard-link, and relative-link experiments
+were completed with guidance, and the learner independently planned and
+executed a safe bzip2 package/list/extract workflow. Link reasoning,
+case-sensitive compression-option recall, and complete evidence capture remain
+review items without blocking progression.
+
+Phase 4 is current. Begin with `file` and content inspection, using the
+mislabeled-archive diagnosis as motivation, then progress through large-file
+viewing, terminal editing, and local documentation.
 
 ## Current scope boundary
 
