@@ -1,21 +1,73 @@
 # Review
 
-## Archive compression option versus filename suffix
+## Local documentation and required option arguments
 
-- Stage: archive workflow INDEPENDENT; algorithm-option recall GUIDED after
-  correction
-- Demonstrate: choose `-j` for bzip2 and `-J` for xz without a hint, explain
-  that suffixes are conventions rather than format selectors, and verify actual
-  content format instead of trusting the name
-- Why: the learner used both mappings correctly in a transfer lab, then used
-  lowercase `-j` while calling the independently created archive xz; the valid
-  bzip2 archive was later renamed truthfully at the learner's request
-- Last evidence: 2026-11-01, independent bzip2 create/list/extract workflow and
-  correct archive boundary; tutor `file` and integrity checks diagnosed the
-  mislabeled format, and byte comparison confirmed the restored data
-- Next review: after spacing, embed a short format diagnosis and option choice
-  in Phase 4 content inspection; also require complete nested restoration
-  evidence in a later unfamiliar task
+- Stage: GUIDED after direct correction; command anatomy succeeded in immediate
+  transfer
+- Demonstrate: use installed documentation for a different unfamiliar command,
+  copy the complete option syntax, distinguish a standalone flag from a required
+  option argument, construct the exact command, execute it, and verify the
+  requested output without hints
+- Why: the Phase 4 checkpoint found the general `file` description but omitted
+  and did not apply `-b`; a second transfer found `head -c` but omitted the byte
+  count, causing the pathname to be parsed as an illegal count
+- Last evidence: 2026-11-02, after direct explanation correctly classified
+  `tail -n 4 app.log` and constructed `head -c 7 sample.txt`
+- Next review: next session after spacing, using a different command and option;
+  do not repeat `file -b` or `head -c`
+
+## Complete evidence capture and self-audit
+
+- Stage: GUIDED and inconsistent
+- Demonstrate: inspect and record pre-state before modification, capture the
+  exact command plus requested output/prompt evidence, and independently audit
+  whether every material claim is supported before declaring completion
+- Why: several 2026-11-02 worksheets initially recorded only commands or output;
+  the live-follow transcript omitted `^C`/prompt, and the integrated checkpoint
+  omitted the original configuration output before editing
+- Last evidence: repaired the editor and byte-count transcripts after prompts;
+  honestly acknowledged that the pre-edit configuration output could not be
+  recreated after the change
+- Next review: embed in the next unfamiliar task; do not accept reconstructed
+  historical output
+
+## Pager temporary state versus stored file
+
+- Stage: practical `less` use INDEPENDENT; causal explanation GUIDED
+- Demonstrate: without hints, distinguish displayed line range, search term,
+  and selected match from stored file content, and explain what disappears when
+  `less` exits
+- Why: navigation and exact searches succeeded, but the learner twice could not
+  name the temporary viewer state
+- Last evidence: 2026-11-02 integrated checkpoint; tutor supplied the final
+  explanation after the learner again answered `idk`
+- Next review: after several sessions in an unfamiliar pager scenario; do not
+  repeat immediately
+
+## `tail -f` versus `tail -F`
+
+- Stage: GUIDED after correction
+- Demonstrate: independently choose continuous append following versus
+  rotation-aware pathname following and explain the result using pathname and
+  file identity
+- Why: `-f` live observation succeeded, but the first `-F` explanation
+  incorrectly focused on standard input and the exact rotation command needed
+  a follow-up
+- Last evidence: 2026-11-02, reconstructed `tail -F server.log` after a
+  pathname/file-identity correction and observed a real append with `tail -f`
+- Next review: later unfamiliar log scenario, not immediately
+
+## Archive restoration evidence quality
+
+- Stage: archive workflow INDEPENDENT; evidence capture GUIDED
+- Demonstrate: record complete pre-state, safe member listing, extraction
+  destination state, nested restored content, source preservation, and protected
+  neighbors in an unfamiliar archive task
+- Why: the 2026-11-01 archive checkpoint outcome was correct, but initial source
+  output and nested post-extraction evidence were omitted
+- Last evidence: tutor comparisons proved byte equality and neighbor safety;
+  learner-recorded evidence remained incomplete
+- Next review: in a later archive task after substantial spacing
 
 ## Hard-link identity and link count
 

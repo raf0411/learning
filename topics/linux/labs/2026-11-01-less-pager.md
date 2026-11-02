@@ -32,18 +32,22 @@ ls -l sessions/2026-10-31.md
 Record commands and output:
 
 ```text
-TODO
+raffi@Raffis-Mac archive-checkpoint % cd /Users/raffi/Learning/topics/linux
+raffi@Raffis-Mac linux % pwd
+/Users/raffi/Learning/topics/linux
+raffi@Raffis-Mac linux % ls -l sessions/2026-10-31.md
+-rw-r--r--@ 1 raffi  staff  12325 31 Oct 21:06 sessions/2026-10-31.md
 ```
 
 ## 2 — Predict the interaction
 
 Before opening the pager, predict:
 
-| Question | Prediction |
-| --- | --- |
-| Will `less` print all 209 lines and immediately return to the shell prompt? | TODO |
-| Will the navigation keys below change the file's stored contents? | TODO |
-| What key do you expect to use when you want to leave `less`? | TODO or `I don't know` |
+| Question                                                                    | Prediction |
+| --------------------------------------------------------------------------- | ---------- |
+| Will `less` print all 209 lines and immediately return to the shell prompt? | no         |
+| Will the navigation keys below change the file's stored contents?           | yes        |
+| What key do you expect to use when you want to leave `less`?                | q          |
 
 ## 3 — Open and navigate
 
@@ -81,15 +85,15 @@ Do not use `v`, `s`, `!`, or other advanced controls in this lab.
 
 Record observations rather than copying the whole file:
 
-| Observation | Result |
-| --- | --- |
-| First visible numbered line | TODO |
-| Result after `Space` | TODO |
-| Result after `b` | TODO |
-| Final line number after `G` | TODO |
-| First `/archive` match | TODO |
-| Next match after `n` | TODO |
-| Did `q` return to the shell prompt? | TODO |
+| Observation                         | Result    |
+| ----------------------------------- | --------- |
+| First visible numbered line         | 1 - 44    |
+| Result after `Space`                | 45 - 88   |
+| Result after `b`                    | 1 - 44    |
+| Final line number after `G`         | 166 - 209 |
+| First `/archive` match              | 193 - 209 |
+| Next match after `n`                | none      |
+| Did `q` return to the shell prompt? | yes       |
 
 ## 4 — Verify and explain
 
@@ -106,12 +110,57 @@ ls -l sessions/2026-10-31.md
 Record commands and output:
 
 ```text
-TODO
+raffi@Raffis-Mac linux % pwd
+/Users/raffi/Learning/topics/linux
+raffi@Raffis-Mac linux % ls -l sessions/2026-10-31.md
+-rw-r--r--@ 1 raffi  staff  12325 31 Oct 21:06 sessions/2026-10-31.md
 ```
 
 In two or three sentences, explain when `cat` is convenient and why `less` is
 usually a better first choice for a 50,000-line log.
 
-> TODO
+> cat is good when the content is not too long, while less is better when the content is too long
 
 Stop and tell the tutor when the worksheet is ready.
+
+## 5 — Focused recheck (2026-11-02)
+
+Your movement through the file was successful. Keep the original answers above
+unchanged; they are useful evidence of your first prediction and observation.
+
+### A. Reading versus modifying
+
+Compare the `ls -l` evidence recorded before and after `less`: the size remained
+12325 bytes and the displayed modification time remained `31 Oct 21:06`.
+
+In your own words, answer both questions:
+
+1. Did `Space`, `b`, `G`, `g`, `/archive`, or `n` modify the stored file?
+2. What did those keys change instead?
+
+> 1. No
+>  2. idk what it modified actually, maybe it detects modified because we viewed the file
+
+Tutor clarification: the keys changed only `less`'s temporary viewing state—the
+screen position and selected search match. Viewing did not mark or modify the
+stored file.
+
+### B. Search precisely
+
+Open the same file again:
+
+```bash
+less -N /Users/raffi/Learning/topics/linux/sessions/2026-10-31.md
+```
+
+Press `g`, search with `/archive` followed by `Enter`, and look for the
+highlighted match. Record its exact line number and a short text fragment. Then
+press `n` once and record the exact line number and fragment of that next match.
+Do not record the whole visible screen range.
+
+| Search observation | Exact result |
+| --- | --- |
+| First match after `/archive` | 16 — Introduced archives versus compression. |
+| Next match after `n` | 18 — in the prepared archive fixture; archive creation/extraction is not assessed. |
+
+Press `q`, save this worksheet, and tell the tutor when the recheck is ready.

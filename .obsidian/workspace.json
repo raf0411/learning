@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/python/labs/2026-11-01-summary-function.md",
+                "file": "topics/linux/ROADMAP.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-11-01-summary-function"
+              "title": "ROADMAP"
+            }
+          },
+          {
+            "id": "433c4b0bdebb58d8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "topics/linux/labs/2026-11-02-local-docs-transfer.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2026-11-02-local-docs-transfer"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -185,44 +200,44 @@
       "bases:Create new base": false
     }
   },
-  "active": "31ad480da3c4db70",
+  "active": "433c4b0bdebb58d8",
   "lastOpenFiles": [
-    "topics/python/labs/2026-11-01-use-classifier-function.md",
+    "topics/linux/sessions/2026-11-02.md",
+    "topics/linux/labs/2026-11-02-phase4-inspection-checkpoint.md",
+    "topics/linux/labs/2026-11-02-local-docs-transfer.md",
+    "topics/linux/labs/documentation-transfer/bytes.txt",
+    "topics/linux/labs/documentation-transfer",
+    "topics/linux/labs/2026-11-02-local-documentation-methods.md",
+    "topics/linux/labs/2026-11-02-tail-follow-live-update.md",
+    "topics/linux/labs/phase4-inspection-checkpoint/service.conf.save",
+    "topics/linux/labs/phase4-inspection-checkpoint/service.conf",
+    "topics/linux/labs/phase4-inspection-checkpoint/app.log",
+    "topics/linux/labs/phase4-inspection-checkpoint/brief-note.data",
+    "topics/linux/labs/phase4-inspection-checkpoint",
+    "topics/linux/labs/tail-follow-practice/append-event.sh",
+    "topics/linux/labs/tail-follow-practice/live.log",
+    "topics/linux/labs/tail-follow-practice",
+    "topics/linux/labs/2026-11-02-editor-save-discard.md",
+    "topics/linux/ROADMAP.md",
+    "topics/linux/labs/2026-11-02-first-terminal-edit.md",
+    "topics/linux/labs/2026-11-02-man-tail.md",
+    "topics/linux/labs/2026-11-02-nl-line-numbering.md",
+    "topics/linux/labs/2026-11-02-file-type-inspection.md",
+    "topics/linux/labs/2026-11-02-head-tail.md",
+    "topics/linux/labs/2026-11-01-less-pager.md",
     "topics/python/labs/2026-11-01-summary-function.md",
-    "topics/python/labs/function_log_summary.py",
+    "topics/python/labs/2026-11-01-use-classifier-function.md",
     "topics/python/labs/2026-11-01-log-line-function.md",
-    "topics/python/labs/log_line_classifier.py",
     "topics/python/ROADMAP.md",
     "topics/python/GOAL.md",
     "topics/python/labs/2026-11-01-missing-log-file.md",
     "topics/python/sessions/2026-11-01.md",
-    "topics/python/labs/safe_file_log_summary.py",
     "topics/python/labs/2026-10-30-file-log-summary.md",
-    "topics/python/labs/file_log_summary.py",
     "topics/linux/sessions/2026-11-01.md",
-    "topics/linux/ROADMAP.md",
-    "topics/linux/labs/2026-11-01-less-pager.md",
     "topics/linux/GOAL.md",
     "topics/linux/labs/2026-11-01-archive-checkpoint.md",
     "topics/linux/labs/2026-11-01-bzip2-xz-transfer.md",
     "topics/linux/labs/2026-11-01-archive-checkpoint-repair.md",
-    "topics/linux/labs/archive-checkpoint/field-kit-backup.tar.bz2",
-    "topics/linux/labs/archive-checkpoint/recovery/field-kit/data/hosts.txt",
-    "topics/linux/labs/archive-checkpoint/recovery/field-kit/config/app.conf",
-    "topics/linux/labs/archive-checkpoint/recovery/field-kit/data",
-    "topics/linux/labs/archive-checkpoint/recovery/field-kit/config",
-    "topics/linux/labs/archive-checkpoint/recovery/field-kit/README.txt",
-    "topics/linux/labs/2026-11-01-gzip-compressed-tar.md",
-    "topics/linux/labs/2026-10-31-relative-symbolic-links.md",
-    "topics/linux/labs/2026-10-31-first-tar-archive.md",
-    "topics/linux/diagrams/2026-11-01-tar-gzip.md",
-    "topics/linux/REVIEW.md",
-    "topics/linux/STATE.md",
-    "topics/linux/diagrams/2026-10-31-archives.md",
-    "topics/python/labs/2026-10-30-log-summary.md",
-    "topics/linux/labs/2026-10-31-hard-links.md",
-    "topics/linux/labs/2026-10-30-symbolic-links-first-model.md",
-    "topics/linux/sessions/2026-10-31.md",
     "topics/linux/labs/phase2-checkpoint/backups/demo/assets/logo.png",
     "topics/linux/labs/phase2-checkpoint/projects/demo/assets/logo.png",
     "topics/linux/labs/phase2-checkpoint/intake/photo.png",

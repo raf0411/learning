@@ -46,7 +46,7 @@ Bash automation and integrated terminal work (11-12)
    - `tar`, `gzip`, `bzip2`, and `xz`; inspect before extracting
    - Milestone: package, verify, extract, and restore a disposable project
    - Completed 2026-11-01 with an independently planned bzip2 archive workflow;
-     case-sensitive compression-option recall remains scheduled for review
+     case-sensitive compression-option recall was retained on 2026-11-02
 
 4. `[>]` **Content inspection, CLI editing, and documentation**
    - `cat`, `less`, `head`, `tail`, `nl`, and `file`
@@ -55,6 +55,8 @@ Bash automation and integrated terminal work (11-12)
    - `--help`, shell `help`, `man`, `info`, and installed documentation
    - Milestone: inspect an unfamiliar file or log and use local documentation to
      complete an unfamiliar editing or command task
+   - Inspection and editing execution demonstrated 2026-11-02; milestone remains
+     open pending independent unfamiliar-option recovery from local documentation
 
 5. `[ ]` **Shell mechanics, pipes, and redirection**
    - Quoting, escaping, expansion, variables, environment, history, and aliases
@@ -141,13 +143,16 @@ integrated safe-file-organization checkpoint have been demonstrated.
 
 Phase 3 is complete. Symbolic-link, hard-link, and relative-link experiments
 were completed with guidance, and the learner independently planned and
-executed a safe bzip2 package/list/extract workflow. Link reasoning,
-case-sensitive compression-option recall, and complete evidence capture remain
-review items without blocking progression.
+executed a safe bzip2 package/list/extract workflow. The case-sensitive
+compression mapping was retrieved correctly after spacing on 2026-11-02. Link
+reasoning and complete archive-evidence capture remain review items.
 
-Phase 4 is current. Begin with `file` and content inspection, using the
-mislabeled-archive diagnosis as motivation, then progress through large-file
-viewing, terminal editing, and local documentation.
+Phase 4 is current. Content classification, bounded and interactive inspection,
+live log following, and independent terminal editing were demonstrated on
+2026-11-02. The integrated checkpoint's practical outcomes were correct. The
+milestone remains open because two unfamiliar local-documentation tasks required
+direct help to apply complete option syntax. After spacing, one successful
+independent transfer should complete Phase 4 and allow Phase 5 to begin.
 
 ## Current scope boundary
 

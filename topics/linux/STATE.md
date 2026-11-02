@@ -106,8 +106,38 @@
   comparison confirmed all restored files matched their sources byte-for-byte.
   The checkpoint initially mislabeled the bzip2 artifact as `.xz` after swapping
   `-j` and `-J`; its scope was revised to bzip2 and the artifact was truthfully
-  renamed without recreating it. This supports the archive workflow, not retained
-  recall of the case-sensitive compression mapping.
+  renamed without recreating it. On 2026-11-02, independently retrieved
+  `-j` = bzip2 and `-J` = xz after spacing and verified content format despite a
+  misleading suffix; the case-sensitive mapping is now RETAINED.
+- Content classification and viewer selection — INDEPENDENT in the Phase 4
+  checkpoint. Correctly used `file` to distinguish text, a directory, and
+  bzip2 data despite misleading suffixes; selected `cat`, `head -n`, and
+  `tail -n` for exact requested boundaries with complete output.
+- Interactive pager use — INDEPENDENT execution with GUIDED causal explanation.
+  Used `less -N`, forward search, `n`, and `q` to record exact matches at lines
+  9 and 16 in an unfamiliar log. Still needed direct explanation that screen
+  position, search term, and selected match are temporary viewer state.
+- Line-numbered inspection with `nl` — INDEPENDENT in the current learning
+  period. Predicted and observed default nonempty-line numbering versus
+  `nl -ba` numbering all lines, then independently used `nl -ba` for exact
+  configuration verification.
+- Terminal text editing — INDEPENDENT in reduced-scaffolding and integrated
+  tasks. Searched and edited disposable text with the Mac's Pico-backed `nano`,
+  saved with `Ctrl-O`, exited with `Ctrl-X`, deliberately discarded one
+  unsaved buffer, and later produced and verified exact three- and five-line
+  results without procedural keystroke hints.
+- Live log following — GUIDED practical success. Correctly predicted and
+  observed `tail -f` displaying a newly appended line from another process and
+  stopping with `Ctrl-C`. After correction, reconstructed `tail -F server.log`
+  for a rotated-path scenario; independent transfer remains untested.
+- Local documentation use — GUIDED. Successfully navigated `man`, program
+  `--help`, and Bash `help`, but did not independently extract and apply the
+  unfamiliar `file -b` option. In a second task, found `head -c` but omitted its
+  required count argument until direct explanation.
+- Command anatomy for option arguments — INDEPENDENT immediate transfer after
+  correction. Correctly labeled program, option, option argument, and operand
+  in `tail -n 4 app.log`, then constructed `head -c 7 sample.txt`. Retention and
+  use while reading unfamiliar documentation remain untested.
 
 ## Points requiring reinforcement
 
@@ -128,17 +158,28 @@
   spacing. The original-path dependency misconception was corrected in writing;
   independently counting all names, including the first, still needs verification.
 
-- Compression selection versus filename convention: the command option selects
-  the algorithm; a `.gz`, `.bz2`, or `.xz` suffix does not. The learner used
-  `-J` correctly during guided transfer, then independently used `-j` while
-  calling it xz in the checkpoint. Re-test `-j` = bzip2 and `-J` = xz after
-  spacing, preferably using content inspection rather than trusting the suffix.
-
 - Archive evidence recording: the independent checkpoint omitted actual output
   for the initial source inspection and did not record nested listings or file
   contents after extraction. The final artifact was correct and tutor comparison
   confirmed equality, but a later task should require complete learner-recorded
   evidence before declaring restoration verified.
+
+- Local-documentation syntax extraction: distinguish a standalone flag from an
+  option followed by a required placeholder argument, copy the complete option
+  entry, place every required token in the command, and verify that actual
+  output meets the stated goal without hints.
+- Evidence capture and self-audit: repeatedly recorded commands without their
+  output or omitted requested prompt/control evidence. The integrated Phase 4
+  checkpoint also omitted the original configuration output before editing.
+  Inspect and record pre-state before modification, then audit every material
+  claim before declaring a task complete.
+- Pager viewer state: practical navigation and search are independent, but the
+  learner twice could not explain what changes temporarily during `less`.
+  Re-test later using screen position and selected search match versus stored
+  file data; do not repeat immediately.
+- `tail -f` versus `tail -F`: the pathname/file-identity correction succeeded,
+  but the first explanation was incorrect and the exact command needed a
+  follow-up. Test later in a novel rotation scenario.
 
 - Treat `.` and `..` as paths relative to the current directory; test this again
   after spacing because the initial model was reversed.
@@ -192,17 +233,19 @@
 
 ## Current learning edge
 
-Phase 3's archive milestone is complete. The learner created, listed, extracted,
-and verified plain and compressed tar archives, then independently completed the
-workflow with bzip2 after the checkpoint was honestly re-scoped. Symbolic-link,
-hard-link, nested-path, compression-flag, and evidence-quality items remain in
-spaced review; do not immediately repeat the full archive lab.
+Phase 4 remains current. The learner independently completed practical content
+classification, bounded and interactive inspection, live-follow observation,
+terminal editing, and final-state verification. The integrated checkpoint's
+inspection and editing results were correct.
 
-Next: begin Phase 4 with content inspection and local documentation. `file` is
-a motivated starting point because it exposed the mislabeled archive by content
-rather than suffix. Then distinguish appropriate uses of `cat`, `less`, `head`,
-`tail`, and `nl` before introducing terminal editing. Embed one short delayed
-`-j` versus `-J` retrieval check in later inspection work. At session close on
-2026-11-01, the learner reported knowing only `cat` for content viewing; the
-prepared `labs/2026-11-01-less-pager.md` remained completely unfilled. Resume
-with that worksheet rather than re-probing or repeating archive work.
+The remaining Phase 4 milestone dependency is independent recovery of an
+unfamiliar option from local documentation. Two attempts required direct help:
+`file -b` was not extracted/applied, and `head -c` was used without its required
+count argument. Immediate command-anatomy transfer then succeeded.
+
+Next session, after spacing, use one short unfamiliar documentation task with a
+different command. Require complete syntax extraction, explicit classification
+of any option argument, a correct executed command, and complete pre/post
+evidence. If successful, mark Phase 4 complete and begin Phase 5. Keep pager
+state, `tail -f` versus `-F`, link reasoning, and evidence quality in spaced
+review rather than repeating them immediately.
