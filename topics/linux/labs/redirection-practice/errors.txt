@@ -1,0 +1,1 @@
+ls: labs/redirection-practice/missing.txt: No such file or directory

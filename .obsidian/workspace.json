@@ -27,16 +27,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/linux/labs/2026-11-02-local-docs-transfer.md",
+                "file": "topics/linux/labs/2026-11-03-evidence-repair.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-11-02-local-docs-transfer"
+              "title": "2026-11-03-evidence-repair"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -200,25 +199,31 @@
       "bases:Create new base": false
     }
   },
-  "active": "433c4b0bdebb58d8",
+  "active": "31ad480da3c4db70",
   "lastOpenFiles": [
+    "topics/linux/RESOURCES.md",
+    "topics/linux/GOAL.md",
+    "topics/linux/STATE.md",
+    "topics/linux/ROADMAP.md",
+    "topics/linux/sessions/2026-11-03.md",
     "topics/linux/sessions/2026-11-02.md",
-    "topics/linux/labs/2026-11-02-phase4-inspection-checkpoint.md",
+    "topics/linux/labs/redirection-practice/last2.txt",
+    "topics/linux/labs/redirection-practice/last.txt",
+    "topics/linux/labs/redirection-practice/errors3.txt",
+    "topics/linux/labs/redirection-practice/result.txt",
+    "topics/linux/labs/redirection-practice/listing2.txt",
+    "topics/linux/labs/redirection-practice/errors.txt",
+    "topics/linux/labs/redirection-practice/listing.txt",
+    "topics/linux/labs/redirection-practice/notes.txt",
+    "topics/linux/labs/redirection-practice",
+    "topics/linux/labs/2026-11-03-evidence-repair.md",
+    "topics/linux/labs/2026-11-03-local-docs-retry.md",
+    "topics/linux/2024-07-15 09:30:45",
     "topics/linux/labs/2026-11-02-local-docs-transfer.md",
-    "topics/linux/labs/documentation-transfer/bytes.txt",
-    "topics/linux/labs/documentation-transfer",
+    "topics/linux/labs/2026-11-02-phase4-inspection-checkpoint.md",
     "topics/linux/labs/2026-11-02-local-documentation-methods.md",
     "topics/linux/labs/2026-11-02-tail-follow-live-update.md",
-    "topics/linux/labs/phase4-inspection-checkpoint/service.conf.save",
-    "topics/linux/labs/phase4-inspection-checkpoint/service.conf",
-    "topics/linux/labs/phase4-inspection-checkpoint/app.log",
-    "topics/linux/labs/phase4-inspection-checkpoint/brief-note.data",
-    "topics/linux/labs/phase4-inspection-checkpoint",
-    "topics/linux/labs/tail-follow-practice/append-event.sh",
-    "topics/linux/labs/tail-follow-practice/live.log",
-    "topics/linux/labs/tail-follow-practice",
     "topics/linux/labs/2026-11-02-editor-save-discard.md",
-    "topics/linux/ROADMAP.md",
     "topics/linux/labs/2026-11-02-first-terminal-edit.md",
     "topics/linux/labs/2026-11-02-man-tail.md",
     "topics/linux/labs/2026-11-02-nl-line-numbering.md",
@@ -232,12 +237,6 @@
     "topics/python/GOAL.md",
     "topics/python/labs/2026-11-01-missing-log-file.md",
     "topics/python/sessions/2026-11-01.md",
-    "topics/python/labs/2026-10-30-file-log-summary.md",
-    "topics/linux/sessions/2026-11-01.md",
-    "topics/linux/GOAL.md",
-    "topics/linux/labs/2026-11-01-archive-checkpoint.md",
-    "topics/linux/labs/2026-11-01-bzip2-xz-transfer.md",
-    "topics/linux/labs/2026-11-01-archive-checkpoint-repair.md",
     "topics/linux/labs/phase2-checkpoint/backups/demo/assets/logo.png",
     "topics/linux/labs/phase2-checkpoint/projects/demo/assets/logo.png",
     "topics/linux/labs/phase2-checkpoint/intake/photo.png",

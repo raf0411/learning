@@ -138,6 +138,24 @@
   correction. Correctly labeled program, option, option argument, and operand
   in `tail -n 4 app.log`, then constructed `head -c 7 sample.txt`. Retention and
   use while reading unfamiliar documentation remain untested.
+- Output replacement and append redirection (`>` and `>>`) — GUIDED with one
+  successful immediate transfer. Initially called `>` append while also
+  predicting overwrite; then predicted and observed replacement, no terminal
+  output, and later append behavior. Independently mapped a simple pipeline
+  followed by `>` to the exact two-line file result.
+- Standard input redirection (`<`) — GUIDED. Correctly identified the pathname
+  as a shell redirection target rather than a `cat` operand, but needed direct
+  explanation that operand-free `cat` reads standard input before observing the
+  expected content.
+- Standard output, standard error, and `2>` — GUIDED after correction. Observed
+  normal `ls` output redirected to a file while a missing-file diagnostic stayed
+  on the terminal, then successfully separated the two streams with `>` and
+  `2>`. Combined pipeline scenarios repeatedly required correction about stderr
+  bypassing `|` and retaining the terminal when `2>` is absent.
+- Basic pipelines (`|`) — GUIDED with independent success in a simple transfer.
+  Correctly predicted `printf ... | tail -n 1` and a pipe followed by output
+  redirection. Still confused the source seen by `tail` when `ls` also emitted
+  standard error; actual execution corrected the routing.
 
 ## Points requiring reinforcement
 
@@ -167,12 +185,24 @@
 - Local-documentation syntax extraction: distinguish a standalone flag from an
   option followed by a required placeholder argument, copy the complete option
   entry, place every required token in the command, and verify that actual
-  output meets the stated goal without hints.
+  output meets the stated goal without hints. On 2026-11-03, initially selected
+  `touch -d` despite its description changing both timestamps; after a hint,
+  derived valid `touch -m -d` syntax but still misclassified tokens and did not
+  independently produce a coherent proof transcript.
 - Evidence capture and self-audit: repeatedly recorded commands without their
   output or omitted requested prompt/control evidence. The integrated Phase 4
-  checkpoint also omitted the original configuration output before editing.
-  Inspect and record pre-state before modification, then audit every material
-  claim before declaring a task complete.
+  checkpoint also omitted the original configuration output before editing. On
+  2026-11-03, reused a stale timestamp baseline, ran bare `touch` as supposed
+  content evidence, omitted requested commands, and declared success despite an
+  explicit unequal access-time comparison. Eventually corrected the conclusion
+  to failure. Inspect and record fresh pre-state, preserve causal command order,
+  then audit every material claim before declaring completion.
+- Standard-stream routing: keep stdout and stderr as independent channels.
+  `|` connects the left command's stdout to the right command's stdin by default;
+  it does not include stderr. A redirection beside the right command does not
+  redirect the left command's stderr. Re-test after spacing with a different
+  pipeline because the 2026-11-03 integrated predictions needed repeated
+  correction.
 - Pager viewer state: practical navigation and search are independent, but the
   learner twice could not explain what changes temporarily during `less`.
   Re-test later using screen position and selected search match versus stored
@@ -233,19 +263,16 @@
 
 ## Current learning edge
 
-Phase 4 remains current. The learner independently completed practical content
-classification, bounded and interactive inspection, live-follow observation,
-terminal editing, and final-state verification. The integrated checkpoint's
-inspection and editing results were correct.
+Phase 5 is current. Phase 4 is complete for curriculum progression; unfamiliar
+local-documentation recovery remains GUIDED and stays in the review queue rather
+than blocking forward progress.
 
-The remaining Phase 4 milestone dependency is independent recovery of an
-unfamiliar option from local documentation. Two attempts required direct help:
-`file -b` was not extracted/applied, and `head -c` was used without its required
-count argument. Immediate command-anatomy transfer then succeeded.
+Simple `>`, `>>`, `<`, `2>`, and `|` experiments succeeded, including an
+independent prediction combining a pipe with output redirection. Routing stderr
+around a pipeline remains the current conceptual edge and required repeated
+correction.
 
-Next session, after spacing, use one short unfamiliar documentation task with a
-different command. Require complete syntax extraction, explicit classification
-of any option argument, a correct executed command, and complete pre/post
-evidence. If successful, mark Phase 4 complete and begin Phase 5. Keep pager
-state, `tail -f` versus `-F`, link reasoning, and evidence quality in spaced
-review rather than repeating them immediately.
+Next session, begin with one short spaced stream-routing scenario using a new
+command, then continue Phase 5. Revisit unfamiliar local-documentation syntax,
+pager state, `tail -f` versus `-F`, link reasoning, and archive evidence through
+spaced review without reopening Phase 4.

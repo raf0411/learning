@@ -48,22 +48,24 @@ Bash automation and integrated terminal work (11-12)
    - Completed 2026-11-01 with an independently planned bzip2 archive workflow;
      case-sensitive compression-option recall was retained on 2026-11-02
 
-4. `[>]` **Content inspection, CLI editing, and documentation**
+4. `[x]` **Content inspection, CLI editing, and documentation**
    - `cat`, `less`, `head`, `tail`, `nl`, and `file`
    - Follow changing output and choose tools appropriate to file size and purpose
    - Create and edit text with a terminal editor; save, search, and exit safely
    - `--help`, shell `help`, `man`, `info`, and installed documentation
    - Milestone: inspect an unfamiliar file or log and use local documentation to
      complete an unfamiliar editing or command task
-   - Inspection and editing execution demonstrated 2026-11-02; milestone remains
-     open pending independent unfamiliar-option recovery from local documentation
+   - Completed for curriculum progression on 2026-11-03; unfamiliar-option
+     recovery and evidence quality remain active review items
 
-5. `[ ]` **Shell mechanics, pipes, and redirection**
+5. `[>]` **Shell mechanics, pipes, and redirection**
    - Quoting, escaping, expansion, variables, environment, history, and aliases
    - Standard input, output, and error; `>`, `>>`, `<`, `2>`, pipes, and `tee`
    - Exit status, `&&`, `||`, and safe command sequencing
    - Milestone: predict and verify where each command's input, output, and error
      travel through a multi-stage command
+   - Introductory work began 2026-11-03 with `>`, `>>`, `<`, `2>`, and `|`;
+     combined stdout/stderr pipeline routing remains GUIDED
 
 6. `[ ]` **Text searching and manipulation**
    - `grep` and basic regular expressions
@@ -147,12 +149,14 @@ executed a safe bzip2 package/list/extract workflow. The case-sensitive
 compression mapping was retrieved correctly after spacing on 2026-11-02. Link
 reasoning and complete archive-evidence capture remain review items.
 
-Phase 4 is current. Content classification, bounded and interactive inspection,
-live log following, and independent terminal editing were demonstrated on
-2026-11-02. The integrated checkpoint's practical outcomes were correct. The
-milestone remains open because two unfamiliar local-documentation tasks required
-direct help to apply complete option syntax. After spacing, one successful
-independent transfer should complete Phase 4 and allow Phase 5 to begin.
+Phase 4 is complete for curriculum progression. Content classification, bounded
+and interactive inspection, live log following, and terminal editing were
+demonstrated. Unfamiliar local-documentation recovery and evidence quality stay
+in `REVIEW.md` rather than blocking forward progress.
+
+Phase 5 is current. Work began on 2026-11-03 with output replacement, append,
+input redirection, error redirection, and pipelines. Combined stdout/stderr
+pipeline routing remains GUIDED and is the immediate learning edge.
 
 ## Current scope boundary
 

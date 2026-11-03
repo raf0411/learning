@@ -8,13 +8,15 @@
   copy the complete option syntax, distinguish a standalone flag from a required
   option argument, construct the exact command, execute it, and verify the
   requested output without hints
-- Why: the Phase 4 checkpoint found the general `file` description but omitted
-  and did not apply `-b`; a second transfer found `head -c` but omitted the byte
-  count, causing the pathname to be parsed as an illegal count
-- Last evidence: 2026-11-02, after direct explanation correctly classified
-  `tail -n 4 app.log` and constructed `head -c 7 sample.txt`
-- Next review: next session after spacing, using a different command and option;
-  do not repeat `file -b` or `head -c`
+- Why: the Phase 4 checkpoint omitted `file -b`; a second transfer omitted the
+  required count for `head -c`; a 2026-11-03 attempt chose `touch -d` even
+  though its copied description changed both timestamps
+- Last evidence: after a hint, derived valid `touch -m -d` structure, but copied
+  a command instead of complete manual syntax, misclassified option roles, and
+  needed repeated evidence repair. Final verbal audit correctly identified the
+  failed proof from unequal access timestamps.
+- Next review: after spacing, use a different command and option; do not repeat
+  `file`, `head`, or `touch`
 
 ## Complete evidence capture and self-audit
 
@@ -25,11 +27,27 @@
 - Why: several 2026-11-02 worksheets initially recorded only commands or output;
   the live-follow transcript omitted `^C`/prompt, and the integrated checkpoint
   omitted the original configuration output before editing
-- Last evidence: repaired the editor and byte-count transcripts after prompts;
-  honestly acknowledged that the pre-edit configuration output could not be
-  recreated after the change
-- Next review: embed in the next unfamiliar task; do not accept reconstructed
-  historical output
+- Last evidence: 2026-11-03 timestamp attempts reused a stale baseline, omitted
+  exact commands, used bare `touch` as supposed content evidence, and declared
+  success despite unequal access times. After direct comparison, correctly
+  changed the verbal conclusion to failure.
+- Next review: embed in the next unfamiliar task; require one fresh, contiguous
+  transcript and do not accept reconstructed historical output
+
+## Standard streams across pipelines and redirections
+
+- Stage: GUIDED after repeated correction
+- Demonstrate: independently route and predict stdin, stdout, and stderr through
+  a new command containing a pipe plus file redirection; explain which command
+  each redirection belongs to and why stderr does or does not reach the pipe
+- Why: simple `>`, `>>`, `<`, `2>`, and `|` observations succeeded, but combined
+  scenarios repeatedly placed an `ls` error in the pipe or final stdout file
+  and predicted no terminal output when `2>` was absent
+- Last evidence: 2026-11-03, actual execution showed `ls` stderr on the terminal
+  while stdout flowed through `tail` into a file; finally explained the terminal
+  error by noting that `2>` was absent
+- Next review: next session after spacing, use a different command and fixture;
+  do not repeat the same `ls`/`tail` command immediately
 
 ## Pager temporary state versus stored file
 
