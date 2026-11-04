@@ -147,15 +147,29 @@
   as a shell redirection target rather than a `cat` operand, but needed direct
   explanation that operand-free `cat` reads standard input before observing the
   expected content.
-- Standard output, standard error, and `2>` — GUIDED after correction. Observed
-  normal `ls` output redirected to a file while a missing-file diagnostic stayed
-  on the terminal, then successfully separated the two streams with `>` and
-  `2>`. Combined pipeline scenarios repeatedly required correction about stderr
-  bypassing `|` and retaining the terminal when `2>` is absent.
+- Standard output, standard error, and `2>` — GUIDED with successful immediate
+  application after a refresher. On 2026-11-04, correctly identified that a
+  right-side `2>` belongs only to `wc`, that unredirected `cat` stderr remains
+  on the terminal, and that only `cat` stdout enters a normal pipe. The first
+  worksheet still confused input contents with `wc` output and omitted required
+  verification evidence before focused repair.
 - Basic pipelines (`|`) — GUIDED with independent success in a simple transfer.
   Correctly predicted `printf ... | tail -n 1` and a pipe followed by output
-  redirection. Still confused the source seen by `tail` when `ls` also emitted
-  standard error; actual execution corrected the routing.
+  redirection. On 2026-11-04, successfully transferred the rule to `cat | wc`
+  after a refresher and explained that the pipe carries stdout by default.
+- Stream merging and redirection order (`2>&1`) — GUIDED with successful
+  immediate application. Correctly predicted and observed that merging `cat`
+  stderr into stdout made `wc -l` count six lines. Initially predicted that
+  `2>&1 > file` would put stderr in the file; a stepwise destination-label model
+  corrected this. Then correctly predicted and verified both orderings:
+  `> file 2>&1` stored both streams, while `2>&1 > file` left stderr on the
+  terminal and stored only stdout. Spaced independent transfer is untested.
+- `tee` and `tee -a` — GUIDED practical execution. Correctly predicted and
+  observed that basic `tee` both displayed and stored two input lines. Initially
+  predicted that `tee -a` would redisplay old file content, then observed that
+  it displayed only new stdin while appending it. In a merged-stream example,
+  initially omitted the diagnostic despite `2>&1`; after a reminder, correctly
+  predicted and observed all six lines in both terminal output and the file.
 
 ## Points requiring reinforcement
 
@@ -197,12 +211,14 @@
   explicit unequal access-time comparison. Eventually corrected the conclusion
   to failure. Inspect and record fresh pre-state, preserve causal command order,
   then audit every material claim before declaring completion.
-- Standard-stream routing: keep stdout and stderr as independent channels.
-  `|` connects the left command's stdout to the right command's stdin by default;
-  it does not include stderr. A redirection beside the right command does not
-  redirect the left command's stderr. Re-test after spacing with a different
-  pipeline because the 2026-11-03 integrated predictions needed repeated
-  correction.
+- Standard-stream routing: keep stdout and stderr as independent channels until
+  explicitly merged. `|` carries the left command's stdout by default, and a
+  redirection belongs to the command section where it is written. For `2>&1`,
+  remember that stderr copies stdout's destination at that moment; a later
+  stdout redirection does not update it. `tee` forwards only its current stdin,
+  not old file contents. The 2026-11-04 guided experiments succeeded, but the
+  learner initially lost stderr in a merged `tee` pipeline and still needs an
+  unfamiliar independent multi-stage transfer after spacing.
 - Pager viewer state: practical navigation and search are independent, but the
   learner twice could not explain what changes temporarily during `less`.
   Re-test later using screen position and selected search match versus stored
@@ -267,12 +283,14 @@ Phase 5 is current. Phase 4 is complete for curriculum progression; unfamiliar
 local-documentation recovery remains GUIDED and stays in the review queue rather
 than blocking forward progress.
 
-Simple `>`, `>>`, `<`, `2>`, and `|` experiments succeeded, including an
-independent prediction combining a pipe with output redirection. Routing stderr
-around a pipeline remains the current conceptual edge and required repeated
-correction.
+Simple `>`, `>>`, `<`, `2>`, and `|` experiments have succeeded. Guided work on
+2026-11-04 added `2>&1`, left-to-right redirection order, `tee`, and `tee -a`.
+The learner produced correct practical results after corrections, but repeatedly
+needed reminders when stderr was merged or when `tee` appended new input.
 
-Next session, begin with one short spaced stream-routing scenario using a new
-command, then continue Phase 5. Revisit unfamiliar local-documentation syntax,
-pager state, `tail -f` versus `-F`, link reasoning, and archive evidence through
-spaced review without reopening Phase 4.
+Next session, resume `labs/2026-11-04-phase5-stream-routing-checkpoint.md`,
+which was prepared but not attempted. Use its two-pipe command as the next
+evidence for independent multi-stage routing and evidence capture. Then continue
+Phase 5. Revisit unfamiliar local-documentation syntax, pager state, `tail -f`
+versus `-F`, link reasoning, and archive evidence through spaced review without
+reopening Phase 4.

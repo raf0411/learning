@@ -30,24 +30,34 @@
 - Last evidence: 2026-11-03 timestamp attempts reused a stale baseline, omitted
   exact commands, used bare `touch` as supposed content evidence, and declared
   success despite unequal access times. After direct comparison, correctly
-  changed the verbal conclusion to failure.
-- Next review: embed in the next unfamiliar task; require one fresh, contiguous
-  transcript and do not accept reconstructed historical output
+  changed the verbal conclusion to failure. On 2026-11-04, the first stream lab
+  left the execution section blank, put the pipeline under verification, omitted
+  the requested verification commands, and marked an unrecorded returned prompt
+  as recorded. After correction, later terminal experiments captured commands,
+  visible output, and returned prompts coherently.
+- Next review: use the prepared multi-stage stream checkpoint; require one fresh,
+  contiguous execution transcript, separate result verification, and an honest
+  self-audit without reconstructing missing evidence
 
-## Standard streams across pipelines and redirections
+## Standard streams, merging, redirection order, and `tee`
 
-- Stage: GUIDED after repeated correction
-- Demonstrate: independently route and predict stdin, stdout, and stderr through
-  a new command containing a pipe plus file redirection; explain which command
-  each redirection belongs to and why stderr does or does not reach the pipe
-- Why: simple `>`, `>>`, `<`, `2>`, and `|` observations succeeded, but combined
-  scenarios repeatedly placed an `ls` error in the pipe or final stdout file
-  and predicted no terminal output when `2>` was absent
-- Last evidence: 2026-11-03, actual execution showed `ls` stderr on the terminal
-  while stdout flowed through `tail` into a file; finally explained the terminal
-  error by noting that `2>` was absent
-- Next review: next session after spacing, use a different command and fixture;
-  do not repeat the same `ls`/`tail` command immediately
+- Stage: GUIDED with successful immediate applications after correction
+- Demonstrate: independently route stdin, stdout, and stderr through an
+  unfamiliar multi-stage command using `2>&1`, pipes, `tee`, and final output
+  redirection; apply redirections left to right and verify every destination
+- Why: the learner now handles a normal `cat | wc` route after a refresher and
+  practically verified both `2>&1` redirection orderings. However, the first
+  ordering prediction put stderr in the wrong destination, `tee -a` was expected
+  to redisplay old contents, and a later merged `tee` prediction again omitted
+  the diagnostic until `2>&1` was highlighted.
+- Last evidence: 2026-11-04, correctly observed six lines through
+  `cat ... 2>&1 | wc -l`; verified that `> file 2>&1` stored both streams while
+  `2>&1 > file` kept stderr on the terminal; used `tee` and `tee -a`; and, after
+  correction, verified a six-line merged stream in both terminal output and a
+  capture file
+- Next review: resume `labs/2026-11-04-phase5-stream-routing-checkpoint.md`
+  next session without supplying its predictions; require complete execution
+  and verification evidence before changing the stage
 
 ## Pager temporary state versus stored file
 

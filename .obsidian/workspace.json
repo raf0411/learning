@@ -13,6 +13,20 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "topics/linux/labs/2026-11-04-stream-routing-focused-repair.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "2026-11-04-stream-routing-focused-repair"
+            }
+          },
+          {
+            "id": "d50271be4c780320",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "topics/linux/ROADMAP.md",
                 "mode": "source",
                 "source": false
@@ -20,22 +34,9 @@
               "icon": "lucide-file",
               "title": "ROADMAP"
             }
-          },
-          {
-            "id": "433c4b0bdebb58d8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "topics/linux/labs/2026-11-03-evidence-repair.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2026-11-03-evidence-repair"
-            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -199,26 +200,30 @@
       "bases:Create new base": false
     }
   },
-  "active": "31ad480da3c4db70",
+  "active": "d50271be4c780320",
   "lastOpenFiles": [
+    "topics/linux/sessions/2026-11-04.md",
+    "topics/linux/labs/2026-11-04-stream-routing-focused-repair.md",
+    "topics/linux/labs/2026-11-04-phase5-stream-routing-checkpoint.md",
+    "topics/linux/labs/stream-routing-retrieval/all-output-2026-11-04.txt",
+    "topics/linux/labs/stream-routing-retrieval/tee-demo.txt",
+    "topics/linux/labs/stream-routing-retrieval/normal-order-2026-11-04.txt",
+    "topics/linux/labs/stream-routing-retrieval/combined-order-2026-11-04.txt",
+    "topics/linux/labs/2026-11-03-stream-routing-retrieval.md",
+    "topics/linux/labs/stream-routing-retrieval/count.txt",
+    "topics/linux/labs/stream-routing-retrieval/errors.txt",
+    "topics/linux/ROADMAP.md",
+    "topics/linux/labs/stream-routing-retrieval/beta.txt",
+    "topics/linux/labs/stream-routing-retrieval/alpha.txt",
+    "topics/linux/labs/stream-routing-retrieval",
+    "topics/linux/labs/2026-11-03-evidence-repair.md",
     "topics/linux/RESOURCES.md",
     "topics/linux/GOAL.md",
     "topics/linux/STATE.md",
-    "topics/linux/ROADMAP.md",
     "topics/linux/sessions/2026-11-03.md",
     "topics/linux/sessions/2026-11-02.md",
     "topics/linux/labs/redirection-practice/last2.txt",
-    "topics/linux/labs/redirection-practice/last.txt",
-    "topics/linux/labs/redirection-practice/errors3.txt",
-    "topics/linux/labs/redirection-practice/result.txt",
-    "topics/linux/labs/redirection-practice/listing2.txt",
-    "topics/linux/labs/redirection-practice/errors.txt",
-    "topics/linux/labs/redirection-practice/listing.txt",
-    "topics/linux/labs/redirection-practice/notes.txt",
-    "topics/linux/labs/redirection-practice",
-    "topics/linux/labs/2026-11-03-evidence-repair.md",
     "topics/linux/labs/2026-11-03-local-docs-retry.md",
-    "topics/linux/2024-07-15 09:30:45",
     "topics/linux/labs/2026-11-02-local-docs-transfer.md",
     "topics/linux/labs/2026-11-02-phase4-inspection-checkpoint.md",
     "topics/linux/labs/2026-11-02-local-documentation-methods.md",
@@ -233,10 +238,6 @@
     "topics/python/labs/2026-11-01-summary-function.md",
     "topics/python/labs/2026-11-01-use-classifier-function.md",
     "topics/python/labs/2026-11-01-log-line-function.md",
-    "topics/python/ROADMAP.md",
-    "topics/python/GOAL.md",
-    "topics/python/labs/2026-11-01-missing-log-file.md",
-    "topics/python/sessions/2026-11-01.md",
     "topics/linux/labs/phase2-checkpoint/backups/demo/assets/logo.png",
     "topics/linux/labs/phase2-checkpoint/projects/demo/assets/logo.png",
     "topics/linux/labs/phase2-checkpoint/intake/photo.png",
