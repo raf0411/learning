@@ -34,10 +34,14 @@
   left the execution section blank, put the pipeline under verification, omitted
   the requested verification commands, and marked an unrecorded returned prompt
   as recorded. After correction, later terminal experiments captured commands,
-  visible output, and returned prompts coherently.
-- Next review: use the prepared multi-stage stream checkpoint; require one fresh,
-  contiguous execution transcript, separate result verification, and an honest
-  self-audit without reconstructing missing evidence
+  visible output, and returned prompts coherently. On 2026-11-05, the multi-stage
+  checkpoint recorded only `no output`, omitted the command and returned prompt,
+  and inaccurately checked the corresponding self-audit item. The separate
+  verification commands did prove both stored results, but the learner could
+  not yet identify that proof independently during repair.
+- Next review: complete sections 6–8 of the guided repair, then require a fresh
+  unfamiliar task with one contiguous execution transcript, separate result
+  verification, and an honest self-audit without reconstructed evidence
 
 ## Standard streams, merging, redirection order, and `tee`
 
@@ -54,10 +58,15 @@
   `cat ... 2>&1 | wc -l`; verified that `> file 2>&1` stored both streams while
   `2>&1 > file` kept stderr on the terminal; used `tee` and `tee -a`; and, after
   correction, verified a six-line merged stream in both terminal output and a
-  capture file
-- Next review: resume `labs/2026-11-04-phase5-stream-routing-checkpoint.md`
-  next session without supplying its predictions; require complete execution
-  and verification evidence before changing the stage
+  capture file. On 2026-11-05, predicted five of six outcomes in a two-pipe
+  checkpoint, including the exact capture and count, but expected `tee` stdout
+  on the terminal and could not reconstruct the second pipe as connecting
+  `tee` stdout to `wc` stdin. A worked example was supplied after the learner
+  requested one; the guided retry was not attempted before session end.
+- Next review: finish sections 6–8 of
+  `labs/2026-11-05-phase5-stream-routing-repair.md` without rerunning the
+  original pipeline; then test the same channel model with a shorter different
+  pipeline before considering a stage change
 
 ## Pager temporary state versus stored file
 

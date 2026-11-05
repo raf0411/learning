@@ -1,0 +1,6 @@
+alpha-one
+alpha-two
+alpha-three
+cat: labs/stream-routing-retrieval/missing.txt: No such file or directory
+beta-one
+beta-two

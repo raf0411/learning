@@ -169,7 +169,11 @@
   predicted that `tee -a` would redisplay old file content, then observed that
   it displayed only new stdin while appending it. In a merged-stream example,
   initially omitted the diagnostic despite `2>&1`; after a reminder, correctly
-  predicted and observed all six lines in both terminal output and the file.
+  predicted and observed all six lines in both terminal output and the file. In
+  a 2026-11-05 two-pipe checkpoint, correctly predicted five of six outcomes,
+  including diagnostic merging, exact capture contents, and the final count,
+  but incorrectly expected `tee` stdout on the terminal and could not yet
+  reconstruct that the second pipe carries it to `wc` stdin.
 
 ## Points requiring reinforcement
 
@@ -209,16 +213,23 @@
   2026-11-03, reused a stale timestamp baseline, ran bare `touch` as supposed
   content evidence, omitted requested commands, and declared success despite an
   explicit unequal access-time comparison. Eventually corrected the conclusion
-  to failure. Inspect and record fresh pre-state, preserve causal command order,
-  then audit every material claim before declaring completion.
+  to failure. On 2026-11-05, recorded only `no output` for the checkpoint
+  execution while omitting the command and returned prompt, then checked a
+  self-audit item claiming that evidence was present. Separate `cat -n`
+  verification did prove both stored results, but the learner could not yet
+  audit that proof independently. Inspect and record fresh pre-state, preserve
+  causal command order, then audit every material claim before declaring
+  completion.
 - Standard-stream routing: keep stdout and stderr as independent channels until
   explicitly merged. `|` carries the left command's stdout by default, and a
   redirection belongs to the command section where it is written. For `2>&1`,
   remember that stderr copies stdout's destination at that moment; a later
   stdout redirection does not update it. `tee` forwards only its current stdin,
   not old file contents. The 2026-11-04 guided experiments succeeded, but the
-  learner initially lost stderr in a merged `tee` pipeline and still needs an
-  unfamiliar independent multi-stage transfer after spacing.
+  learner initially lost stderr in a merged `tee` pipeline. On 2026-11-05, the
+  checkpoint showed strong result prediction but continued confusion among a
+  command's stdin, stdout, a pipe destination, and `tee`'s separate file copy.
+  A worked example was supplied; the guided retry remains unfinished.
 - Pager viewer state: practical navigation and search are independent, but the
   learner twice could not explain what changes temporarily during `less`.
   Re-test later using screen position and selected search match versus stored
@@ -285,12 +296,14 @@ than blocking forward progress.
 
 Simple `>`, `>>`, `<`, `2>`, and `|` experiments have succeeded. Guided work on
 2026-11-04 added `2>&1`, left-to-right redirection order, `tee`, and `tee -a`.
-The learner produced correct practical results after corrections, but repeatedly
-needed reminders when stderr was merged or when `tee` appended new input.
+On 2026-11-05, the learner attempted the two-pipe checkpoint and correctly
+predicted five of six outcomes, but could not causally route `tee` stdout through
+the second pipe to `wc` stdin. Execution evidence also omitted the command and
+returned prompt despite an inaccurate checked self-audit item.
 
-Next session, resume `labs/2026-11-04-phase5-stream-routing-checkpoint.md`,
-which was prepared but not attempted. Use its two-pipe command as the next
-evidence for independent multi-stage routing and evidence capture. Then continue
-Phase 5. Revisit unfamiliar local-documentation syntax, pager state, `tail -f`
-versus `-F`, link reasoning, and archive evidence through spaced review without
+Next session, resume only sections 6–8 of
+`labs/2026-11-05-phase5-stream-routing-repair.md`; do not rerun the original
+pipeline. After the guided reconstruction, use a shorter, different pipeline
+for independent transfer. Continue spaced review of documentation syntax,
+pager state, `tail -f` versus `-F`, link reasoning, and archive evidence without
 reopening Phase 4.
