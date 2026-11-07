@@ -301,9 +301,132 @@ predicted five of six outcomes, but could not causally route `tee` stdout throug
 the second pipe to `wc` stdin. Execution evidence also omitted the command and
 returned prompt despite an inaccurate checked self-audit item.
 
-Next session, resume only sections 6–8 of
-`labs/2026-11-05-phase5-stream-routing-repair.md`; do not rerun the original
-pipeline. After the guided reconstruction, use a shorter, different pipeline
-for independent transfer. Continue spaced review of documentation syntax,
-pager state, `tail -f` versus `-F`, link reasoning, and archive evidence without
-reopening Phase 4.
+On 2026-11-07, the learner requested a restart from basics. The old checkpoint
+and repair remain deferred. After short experiments, constructing and verifying
+combined stdin/stdout file redirection is INDEPENDENT in this session: wrote
+`wc -l < greeting.txt > saved-count.txt` without supplied syntax, executed it,
+and independently chose `cat` to verify the stored count of 2. Initially
+expected combined input/output redirection to also display text; corrected
+through observation and later successful application. Replacement, append, and
+single-pipe execution are GUIDED; independently predicted destinations and
+redirection ownership for a supplied `printf | wc -l > file` command.
+
+Separate stdout/stderr routing — INDEPENDENT current command construction:
+built and verified `cat greeting.txt missing.txt > normal-output.txt 2> errors.txt`.
+Then independently added `2> errors.txt` to the `cat` side of a counting
+pipeline and verified both destinations (file inspection needed a reminder).
+Initially counted an unmerged stderr line as entering `wc`; after a channel
+hint, corrected 3 to 2 and observed the result. Count reasoning remains GUIDED.
+
+Merged output through `2>&1` — GUIDED in this restart, with correct causal
+explanation after observation. Predicted and verified a count of 3, then
+explained that normal text and the diagnostic entered the same pipe. When
+adding final count redirection, incorrectly added `errors.txt` after `2>&1`;
+after correction, removed the extra operand and verified saved count 3.
+
+`tee` routing — GUIDED execution with correct prediction and channel naming:
+verified both file/stdout copies, then predicted 2 and identified `wc` as the
+destination of `tee` stdout in a supplied two-pipe command. Verified the
+terminal count and, after a reminder, the unchanged text in the capture file.
+This resolves the immediate channel explanation; independent construction
+of the combined pipeline still needs assessment.
+
+Combined routing checkpoint — GUIDED completion on 2026-11-07. First attempt
+omitted `tee`, placed a filename after `2>&1`, and described `tee` stdout as
+going to file and terminal. With a partial pipeline structure, constructed the
+correct command and correctly distinguished the named-file copy from stdout
+feeding `wc` stdin. Executed and recorded a complete transcript proving all
+three destinations; comparison was accurate. Independent construction still
+needs a later fresh task, not immediate repetition of the supplied structure.
+
+Next: rebuild left-to-right redirection order, emphasizing that `2>&1` copies
+stdout's destination at that moment. Retention of restarted skills is untested.
+
+Redirection order — GUIDED with successful observation on 2026-11-07. Initially
+predicted that both streams would enter `together.txt` for
+`2>&1 > together.txt`; after a destination-table correction, observed stderr
+on the terminal and normal output in the file. Then ran the reverse order,
+`> together.txt 2>&1`, and verified both normal text and the diagnostic in the
+file. Explained that the latter redirects the error to the file; the result is
+correct, while the precise causal rule still needs retrieval: `2>&1` copies
+stdout's destination at the moment it is processed.
+
+Next: introduce exit status and `&&`/`||` through small experiments. Revisit
+redirection order later using a new command rather than repeating `cat` now.
+
+Exit status and conditional sequencing — INDEPENDENT immediate application on
+2026-11-07. Observed `test -f greeting.txt` return 0 and a missing path return
+1 through `$?`. Correctly predicted and verified both `&&` and `||` behavior,
+then explained that `;` runs the following command regardless of status.
+Independently constructed and executed
+`test -f missing.txt || printf 'missing\n'; printf 'check complete\n'`, producing
+both requested lines. Retention and transfer to commands with visible failures
+remain untested.
+
+Next: introduce shell variables, parameter expansion, and single versus double
+quotes through small predictions. Continue later to broader expansion and
+environment concepts.
+
+Variables, quoting, and expansion — GUIDED with successful immediate use on
+2026-11-07. Correctly predicted double-quoted parameter expansion versus a
+single-quoted literal. Initially predicted that `"\$topic"` would print a
+backslash plus the variable value; after explanation, observed literal `$topic`.
+Correctly predicted unquoted `*.txt` pathname expansion and quoted literal
+behavior, then verified exact argument boundaries with `printf`.
+
+Shell versus environment variables — GUIDED. Assigned a shell variable and
+observed no output from `printenv` before export and the value afterward. The
+requested immediate exit-status check was omitted, so the nonzero result of the
+first `printenv` was not captured as evidence.
+
+Command substitution — GUIDED with a corrected combined application. Correctly
+predicted and verified `current_dir=$(pwd)`. For a line-count task, first used a
+filename operand and `%s`; after learning that `wc` then includes the filename
+and macOS pads its numeric output, revised to
+`line_total=$(wc -l < greeting.txt)` and `printf 'lines=%d\n' "$line_total"`,
+then verified exact `lines=2`. Independent unfamiliar construction remains
+untested.
+
+Next: interactive aliases and safe history use, followed by a fresh integrated
+Phase 5 check. Spaced retention remains untested.
+
+Aliases — GUIDED practical success. Correctly derived that
+`showlong greeting.txt` expands to `ls -l greeting.txt`, defined the alias,
+used `type` to inspect it, and executed it. After `unalias`, `type showlong`
+reported not found but a later `$?` check showed 0. Local zsh documentation, a
+clean-shell reproduction, and a controlled same-line check established that
+`type` returned 1. History then revealed the exact cause: a typoed intermediate
+`printf 'statis=...' $?` captured the failure and itself succeeded; the corrected
+`printf` therefore saw that new status 0. This was not a prompt-hook effect.
+
+History — GUIDED interpretation. `fc -l -5` showed submitted command lines,
+including the typo and the later same-line check. An apparent output transcript
+in one history entry had been pasted back as shell input; history did not
+automatically record program output.
+
+Next: fresh integrated Phase 5 check in
+`labs/2026-11-07-phase5-restart-checkpoint.md`. Review predictions and commands
+before execution. Spaced retention remains untested.
+
+Phase 5 restart checkpoint — GUIDED completion on 2026-11-07. Independently
+wrote the correct variable assignment, complete separate-stderr/`tee`/`wc`
+pipeline, destination predictions, and redirection-order destinations. The
+channel diagram twice confused pipes, commands, and named files; direct teaching
+was needed before correctly stating that the second pipe connects `tee` stdout
+to `wc` stdin. Left-to-right order required stepwise scaffolding before correctly
+placing stdout in the file and stderr on the terminal.
+
+The first execution omitted the variable assignment, so the quoted expansion
+was empty and the pipeline stored count 0. After explicit repair instructions,
+verified the variable and produced correct normal, error, and count files.
+Command substitution and three-file conditional checks required focused syntax
+hints, then executed correctly. Evidence capture improved to named-file
+inspections, but the final audit became unproductive; tutor closed two remaining
+claims from existing evidence rather than requiring more transcription.
+
+Current conclusion: the learner understands the basic meanings of stdin,
+stdout, stderr, pipes, file redirection, `tee`, exit status, variables, quoting,
+and sequencing, and can apply several pieces independently. Unfamiliar combined
+routing remains GUIDED. Next session should begin with a brief spaced retrieval
+using a smaller scenario, without a long evidence worksheet, before deciding
+whether Phase 5 is ready for an independent milestone.

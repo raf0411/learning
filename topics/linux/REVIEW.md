@@ -1,5 +1,52 @@
 # Review
 
+## Current priority — Phase 5 restart (2026-11-07)
+
+The learner requested a restart from basics and completed a new combined
+routing checkpoint with guidance. This supersedes the older instruction to
+resume sections 6–8 of the November 5 repair. At the next session, use one
+short unfamiliar transfer with minimal evidence capture to reassess independent
+construction and retention; do not reopen the old repair worksheet.
+
+- Combined stdin/stdout file redirection — INDEPENDENT on 2026-11-07 after
+  teaching and correction. Independently built and verified
+  `wc -l < greeting.txt > saved-count.txt`. After spacing, test a different
+  input-processing task and require prediction of terminal and file results.
+- Single-pipe routing with final output redirection — GUIDED execution, correct
+  independent prediction for supplied syntax on 2026-11-07. Later require
+  construction without a supplied pipeline before changing the stage.
+- Separate stdout/stderr destinations — INDEPENDENT command construction on
+  2026-11-07. Built separate file routes and added error redirection to a
+  counting pipeline; file verification needed one reminder. Recheck after
+  spacing with different data. Specifically test that an unmerged diagnostic
+  does not enter a pipe: the initial count of 3 needed a hint to become 2.
+- Merged capture-and-count pipeline — GUIDED completion on 2026-11-07.
+  Corrected omission of `tee`, extra filename after `2>&1`, and stdout/file-copy
+  confusion using a partial structure. Execution and both-file verification
+  were complete and the comparison was accurate. After spacing, require an
+  unfamiliar construction without a supplied structure, including explanation
+  of `tee` stdout and verification of every destination.
+- Exit status and `&&`/`||`/`;` — INDEPENDENT immediate construction on
+  2026-11-07. After spacing, require a novel safe sequence where a second step
+  must depend on actual command success and a final report must always run.
+  Include retrieval of `$?` immediately after a command.
+- Variables, quoting, and expansion — GUIDED after immediate predictions and
+  correction on 2026-11-07. Recheck escaped `$`, quoted/unquoted pathname
+  expansion, shell versus exported variables, and command substitution in a
+  fresh practical task. Require an immediate `$?` check when a silent failure
+  is part of the evidence.
+- Alias resolution and immediate status capture — GUIDED on 2026-11-07. Alias
+  creation, inspection, use, and removal succeeded. History proved a typoed
+  intermediate `printf` replaced status 1 with 0 before the corrected check.
+  On later review, capture status before any intervening command and use history
+  to audit the actual command sequence rather than reconstructing it.
+- Phase 5 combined transfer — GUIDED checkpoint completion on 2026-11-07.
+  Correct final routes and artifacts required direct channel-model teaching,
+  repair of an unset variable, syntax hints for later steps, and tutor closure
+  of the final audit. Next test should be short and unfamiliar after spacing:
+  one pipeline, two destination predictions, and minimal verification. Avoid a
+  long audit worksheet; measure routing understanding rather than transcription.
+
 ## Local documentation and required option arguments
 
 - Stage: GUIDED after direct correction; command anatomy succeeded in immediate

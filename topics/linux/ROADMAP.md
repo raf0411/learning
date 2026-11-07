@@ -154,9 +154,14 @@ and interactive inspection, live log following, and terminal editing were
 demonstrated. Unfamiliar local-documentation recovery and evidence quality stay
 in `REVIEW.md` rather than blocking forward progress.
 
-Phase 5 is current. Work began on 2026-11-03 with output replacement, append,
-input redirection, error redirection, and pipelines. Combined stdout/stderr
-pipeline routing remains GUIDED and is the immediate learning edge.
+Phase 5 is current. After reporting substantial forgetting, the learner
+restarted the phase from basics on 2026-11-07 and rebuilt stdout/stderr, file
+redirection, pipes, merging, `tee`, redirection order, exit status, sequencing,
+variables, quoting, expansion, aliases, and history. Individual stream routing
+and conditional sequencing have some independent immediate evidence. A fresh
+integrated checkpoint was completed with guidance; unfamiliar multi-stage
+routing remains GUIDED. The next step is one short spaced transfer with minimal
+evidence capture before deciding whether the Phase 5 milestone is independent.
 
 ## Current scope boundary
 
