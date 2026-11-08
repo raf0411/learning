@@ -35,8 +35,7 @@
               "title": "ROADMAP"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -200,10 +199,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "7c13646e1137ea9c",
+  "active": "31ad480da3c4db70",
   "lastOpenFiles": [
-    "topics/linux/labs/2026-11-07-phase5-restart-checkpoint.md",
     "topics/linux/ROADMAP.md",
+    "topics/linux/labs/2026-11-07-phase5-restart-checkpoint.md",
     "topics/linux/labs/2026-11-07-stream-routing-rebuild-check.md",
     "topics/linux/labs/2026-11-05-phase5-stream-routing-repair.md",
     "topics/linux/sessions/2026-11-07.md",
