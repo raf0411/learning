@@ -1,0 +1,3 @@
+backup started
+backup delayed
+BACKUP failed

@@ -1,0 +1,6 @@
+INFO service started
+WARN disk nearing limit
+INFO backup started
+ERROR backup failed
+INFO service healthy
+WARN retry scheduled

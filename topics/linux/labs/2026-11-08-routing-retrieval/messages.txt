@@ -1,0 +1,5 @@
+backup started
+daily backup
+backup delayed
+service started
+BACKUP failed

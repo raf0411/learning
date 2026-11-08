@@ -35,7 +35,8 @@
               "title": "ROADMAP"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -199,10 +200,19 @@
       "bases:Create new base": false
     }
   },
-  "active": "31ad480da3c4db70",
+  "active": "7c13646e1137ea9c",
   "lastOpenFiles": [
-    "topics/linux/ROADMAP.md",
+    "topics/linux/labs/2026-11-08-routing-retrieval/levels.log",
+    "topics/linux/labs/2026-11-08-routing-retrieval/backup-lines.txt",
+    "topics/linux/labs/2026-11-08-routing-retrieval/messages.txt",
     "topics/linux/labs/2026-11-07-phase5-restart-checkpoint.md",
+    "topics/linux/labs/2026-11-08-routing-retrieval.md",
+    "topics/linux/diagrams/2026-11-08-zsh-output-routing.md",
+    "topics/linux/sessions/2026-11-08.md",
+    "topics/linux/labs/2026-11-08-routing-retrieval/recent.txt",
+    "topics/linux/ROADMAP.md",
+    "topics/linux/labs/2026-11-08-routing-retrieval/events.txt",
+    "topics/linux/labs/2026-11-08-routing-retrieval",
     "topics/linux/labs/2026-11-07-stream-routing-rebuild-check.md",
     "topics/linux/labs/2026-11-05-phase5-stream-routing-repair.md",
     "topics/linux/sessions/2026-11-07.md",
@@ -216,12 +226,7 @@
     "topics/linux/labs/stream-routing-retrieval/all-output-2026-11-04.txt",
     "topics/linux/labs/stream-routing-retrieval/tee-demo.txt",
     "topics/linux/labs/stream-routing-retrieval/normal-order-2026-11-04.txt",
-    "topics/linux/labs/stream-routing-retrieval/combined-order-2026-11-04.txt",
     "topics/linux/labs/2026-11-03-stream-routing-retrieval.md",
-    "topics/linux/labs/stream-routing-retrieval/count.txt",
-    "topics/linux/labs/stream-routing-retrieval/errors.txt",
-    "topics/linux/labs/stream-routing-retrieval/beta.txt",
-    "topics/linux/labs/stream-routing-retrieval/alpha.txt",
     "topics/linux/labs/2026-11-03-evidence-repair.md",
     "topics/linux/RESOURCES.md",
     "topics/linux/GOAL.md",
@@ -233,10 +238,6 @@
     "topics/linux/labs/2026-11-02-phase4-inspection-checkpoint.md",
     "topics/linux/labs/2026-11-02-local-documentation-methods.md",
     "topics/linux/labs/2026-11-02-tail-follow-live-update.md",
-    "topics/linux/labs/2026-11-02-editor-save-discard.md",
-    "topics/linux/labs/2026-11-02-first-terminal-edit.md",
-    "topics/linux/labs/2026-11-02-man-tail.md",
-    "topics/linux/labs/2026-11-02-nl-line-numbering.md",
     "topics/linux/labs/phase2-checkpoint/backups/demo/assets/logo.png",
     "topics/linux/labs/phase2-checkpoint/projects/demo/assets/logo.png",
     "topics/linux/labs/phase2-checkpoint/intake/photo.png",

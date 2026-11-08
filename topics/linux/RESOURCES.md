@@ -22,6 +22,9 @@ observed machine output and installed documentation before external references.
   — upstream reference for GNU file, text, and system utilities.
 - [GNU Bash manual](https://www.gnu.org/software/bash/manual/bash.html)
   — upstream shell behavior and scripting reference.
+- [zsh redirection documentation](https://zsh.sourceforge.io/Doc/Release/Redirection.html)
+  — upstream reference for zsh redirection and default MULTIOS behavior, which
+  can duplicate stdout to a file and pipe where Bash would not.
 - [Linux man-pages project](https://www.kernel.org/doc/man-pages/)
   — Linux interfaces, file formats, and administrative command semantics.
 - [systemd manual index](https://www.freedesktop.org/software/systemd/man/latest/)

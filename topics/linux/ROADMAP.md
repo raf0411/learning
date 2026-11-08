@@ -58,20 +58,23 @@ Bash automation and integrated terminal work (11-12)
    - Completed for curriculum progression on 2026-11-03; unfamiliar-option
      recovery and evidence quality remain active review items
 
-5. `[>]` **Shell mechanics, pipes, and redirection**
+5. `[x]` **Shell mechanics, pipes, and redirection**
    - Quoting, escaping, expansion, variables, environment, history, and aliases
    - Standard input, output, and error; `>`, `>>`, `<`, `2>`, pipes, and `tee`
    - Exit status, `&&`, `||`, and safe command sequencing
    - Milestone: predict and verify where each command's input, output, and error
      travel through a multi-stage command
    - Introductory work began 2026-11-03 with `>`, `>>`, `<`, `2>`, and `|`;
-     combined stdout/stderr pipeline routing remains GUIDED
+     completed for curriculum progression on 2026-11-08 after spaced retrieval;
+     combined routing and variable integration retain GUIDED review items
 
-6. `[ ]` **Text searching and manipulation**
+6. `[>]` **Text searching and manipulation**
    - `grep` and basic regular expressions
    - `wc`, `cut`, `paste`, `sort`, `uniq`, `tr`, `diff`, and `join`
    - `xargs`, introductory `sed`, and introductory `awk`
    - Milestone: derive and verify a requested report from unfamiliar text data
+   - Work began 2026-11-08 with `grep`, anchors, `.*`, `sort`, `uniq`, `cut`,
+     and `tr`; a normalized frequency report was completed with guidance
 
 7. `[ ]` **Linux environment, filesystem layout, and access**
    - Use a disposable Linux VM and distinguish Linux from macOS observations
@@ -154,14 +157,20 @@ and interactive inspection, live log following, and terminal editing were
 demonstrated. Unfamiliar local-documentation recovery and evidence quality stay
 in `REVIEW.md` rather than blocking forward progress.
 
-Phase 5 is current. After reporting substantial forgetting, the learner
-restarted the phase from basics on 2026-11-07 and rebuilt stdout/stderr, file
-redirection, pipes, merging, `tee`, redirection order, exit status, sequencing,
-variables, quoting, expansion, aliases, and history. Individual stream routing
-and conditional sequencing have some independent immediate evidence. A fresh
-integrated checkpoint was completed with guidance; unfamiliar multi-stage
-routing remains GUIDED. The next step is one short spaced transfer with minimal
-evidence capture before deciding whether the Phase 5 milestone is independent.
+Phase 5 is complete for curriculum progression as of 2026-11-08. After the
+November 7 rebuild, a spaced session independently retrieved redirection order,
+conditional sequencing, environment export, alias inspection, and history
+meaning. A short portable `tail | tee | wc` route was constructed and verified
+after a functional `tee` cue. Immediate status capture, combined routing, and
+variable/command-substitution integration remain review items rather than
+blocking forward progress.
+
+Phase 6 is current. The first session established literal and case-insensitive
+`grep`, inverse selection, counts, anchors, `.*`, sorting, adjacent duplicate
+handling, field extraction, and case normalization. A normalized frequency
+report was completed after correction of a missing grouping sort. Next, use a
+different small dataset for spaced reconstruction, then continue to `paste` and
+`diff`.
 
 ## Current scope boundary
 

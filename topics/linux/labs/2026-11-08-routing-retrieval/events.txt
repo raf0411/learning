@@ -1,0 +1,4 @@
+service started
+configuration loaded
+backup started
+backup finished

@@ -1,12 +1,43 @@
 # Review
 
-## Current priority — Phase 5 restart (2026-11-07)
+## Current priority — Phase 6 text selection and frequency reports
 
-The learner requested a restart from basics and completed a new combined
-routing checkpoint with guidance. This supersedes the older instruction to
-resume sections 6–8 of the November 5 repair. At the next session, use one
-short unfamiliar transfer with minimal evidence capture to reassess independent
-construction and retention; do not reopen the old repair worksheet.
+### grep selection and basic regular expressions
+
+- Stage: GUIDED with independent immediate anchor construction
+- Demonstrate: on unfamiliar text, select requested lines using case handling,
+  `^` or `$`, and line-number or count output; distinguish no match (status 1)
+  from command failure; quote patterns so grep receives regular-expression
+  syntax
+- Why: literal matching and anchors succeeded, but exact `-n` formatting and
+  `-c` meaning required correction; the integrated search first omitted the
+  required start anchor
+- Last evidence: 2026-11-08, independently built and verified
+  `grep -n 'started$' messages.txt`; later repaired `grep -i '^backup'` and
+  verified its file copy and terminal count
+- Next review: after spacing, use a different fixture and require one exact
+  prediction plus execution; avoid repeating today's examples
+
+### sort, uniq, cut, and tr report pipeline
+
+- Stage: GUIDED first application
+- Demonstrate: independently identify the field to extract, normalize it,
+  group identical values, count groups, rank numerically, and verify the report
+- Why: initially treated `uniq` as global duplicate removal, omitted the sort
+  required before `uniq -c`, omitted retained text from `uniq -c` output, and
+  reversed the first `tr` conversion prediction
+- Last evidence: 2026-11-08, completed and explained
+  `cut | tr | sort | uniq -c | sort -nr`, producing verified counts
+  `3 info`, `2 warn`, `1 error`
+- Next review: at the start of the next session, reconstruct the workflow once
+  from a small unfamiliar dataset with reduced scaffolding; then advance
+
+## Phase 5 follow-up after curriculum progression
+
+Phase 5 completed for curriculum progression on 2026-11-08. The main shell
+mechanics are sufficient to begin text searching, while the items below remain
+scheduled for spaced retrieval. Do not reopen the old November 5 repair
+worksheet or repeat long evidence audits.
 
 - Combined stdin/stdout file redirection — INDEPENDENT on 2026-11-07 after
   teaching and correction. Independently built and verified
@@ -30,11 +61,21 @@ construction and retention; do not reopen the old repair worksheet.
   2026-11-07. After spacing, require a novel safe sequence where a second step
   must depend on actual command success and a final report must always run.
   Include retrieval of `$?` immediately after a command.
+  On 2026-11-08, independently constructed and executed both success and
+  failure branches plus an unconditional final report. Initially expected `$?`
+  after the whole line to preserve the earlier failed `test` and then used
+  `$1` while repairing the check. After one conceptual hint, captured the test
+  immediately and observed status 1. Keep immediate status capture in review;
+  conditional sequencing itself has spaced independent evidence.
 - Variables, quoting, and expansion — GUIDED after immediate predictions and
   correction on 2026-11-07. Recheck escaped `$`, quoted/unquoted pathname
   expansion, shell versus exported variables, and command substitution in a
   fresh practical task. Require an immediate `$?` check when a silent failure
   is part of the evidence.
+  On 2026-11-08, a fresh line-count task still required correction from a
+  single-quoted variable and filename operand to `< "$source_file"`, plus a
+  separate correction to use semicolons on one physical line. The final command
+  and output were correct. Recheck later with a different practical purpose.
 - Alias resolution and immediate status capture — GUIDED on 2026-11-07. Alias
   creation, inspection, use, and removal succeeded. History proved a typoed
   intermediate `printf` replaced status 1 with 0 before the corrected check.
@@ -46,6 +87,11 @@ construction and retention; do not reopen the old repair worksheet.
   of the final audit. Next test should be short and unfamiliar after spacing:
   one pipeline, two destination predictions, and minimal verification. Avoid a
   long audit worksheet; measure routing understanding rather than transcription.
+  On 2026-11-08, independently constructed the full portable
+  `grep | tee | wc -l` routing structure in a new text-search context and
+  verified both destinations. A focused correction was needed for the grep
+  start anchor, not the stream route. Recheck after spacing before changing the
+  combined-routing mastery stage.
 
 ## Local documentation and required option arguments
 

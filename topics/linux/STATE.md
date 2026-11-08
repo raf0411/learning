@@ -1,5 +1,49 @@
 # Learner State
 
+## Latest checkpoint — 2026-11-08
+
+- Independently constructed and verified a last-two-line capture/count command
+  that works through default zsh MULTIOS. Its file-plus-pipe behavior was
+  reproduced by the tutor; do not apply Bash assumptions to this evidence.
+- After a functional `tee` recall cue, constructed the explicit
+  `tail | tee | wc -l` pipeline correctly. Corrected an execution-only `wc -`
+  typo and verified both the terminal count and saved lines. Combined routing
+  remains GUIDED overall; this smaller construction succeeded with reduced
+  support.
+- Correctly retrieved both Bash redirection orderings after spacing and
+  explained the decisive intermediate state: in `2>&1 > file`, stderr copies
+  stdout while it still points to the terminal; in `> file 2>&1`, stderr copies
+  the file destination. This causal redirection-order skill is INDEPENDENT in
+  the current retrieval check; later unfamiliar use will test retention.
+- Independently constructed and executed an `&&`/`||`/`;` sequence for both an
+  existing and missing path. Initially attributed the compound line's final
+  status to the earlier failed `test`; observation corrected this to the final
+  successful `printf`. Then confused `$1` with `$?`, but after a conceptual
+  hint correctly captured the failed test immediately as `test-status=1`.
+  Conditional sequencing is currently INDEPENDENT; immediate status capture
+  remains GUIDED after correction.
+- Variables and command substitution remain GUIDED. On 2026-11-08, integrated
+  assignment, quoted pathname expansion, stdin redirection, command
+  substitution, and numeric output successfully after focused corrections.
+  Initially single-quoted the variable and used it as a `wc` filename operand;
+  then needed another prompt to put semicolon-separated fragments on one
+  physical line. Final execution produced exact `lines=2`.
+- Basic `grep` literal selection, case handling, inverse selection, count, and
+  no-match status are GUIDED with several correct predictions and executions.
+  Initially confused `-n` formatting and `-c` with match line numbers.
+  Correctly applied `^`, `$`, `.*`, and quote protection in immediate
+  exercises. Independently built a portable `grep | tee | wc -l` route; only
+  the required start anchor needed correction. Verified count 3 and all saved
+  matches.
+- `sort`, `uniq`, `cut`, and `tr` — GUIDED first application on 2026-11-08.
+  Correctly observed that `sort` emits a reordered copy without modifying the
+  input and predicted reverse order. Needed correction that `uniq` collapses
+  adjacent runs only and initially omitted the required grouping sort in a
+  frequency pipeline. Correctly extracted first and remaining fields with
+  `cut`, normalized uppercase levels with `tr` after one direction correction,
+  and produced the verified ranking `3 info`, `2 warn`, `1 error`. Final causal
+  explanation correctly linked sorting to adjacency-based counting.
+
 ## Demonstrated capabilities
 
 - Basic purposes of `pwd`, `ls`, and `cd` — INDEPENDENT verbal recall.
@@ -290,9 +334,11 @@
 
 ## Current learning edge
 
-Phase 5 is current. Phase 4 is complete for curriculum progression; unfamiliar
-local-documentation recovery remains GUIDED and stays in the review queue rather
-than blocking forward progress.
+Phase 6 is current. Phase 5 completed for curriculum progression on 2026-11-08
+after spaced retrieval of its main shell mechanics. Combined routing, immediate
+status capture, and variable/command-substitution integration remain GUIDED
+review items. Begin text searching with a brief `grep` probe and a small actual
+search. Phase 4 local-documentation recovery also remains in the review queue.
 
 Simple `>`, `>>`, `<`, `2>`, and `|` experiments have succeeded. Guided work on
 2026-11-04 added `2>&1`, left-to-right redirection order, `tee`, and `tee -a`.
@@ -424,9 +470,9 @@ hints, then executed correctly. Evidence capture improved to named-file
 inspections, but the final audit became unproductive; tutor closed two remaining
 claims from existing evidence rather than requiring more transcription.
 
-Current conclusion: the learner understands the basic meanings of stdin,
-stdout, stderr, pipes, file redirection, `tee`, exit status, variables, quoting,
-and sequencing, and can apply several pieces independently. Unfamiliar combined
-routing remains GUIDED. Next session should begin with a brief spaced retrieval
-using a smaller scenario, without a long evidence worksheet, before deciding
-whether Phase 5 is ready for an independent milestone.
+Current conclusion: Phase 5 is complete for curriculum progression, with
+combined routing, immediate status capture, and variable integration retained
+as review items. Phase 6 is current. Basic `grep` and regular-expression anchors
+have successful immediate applications; `sort`, `uniq`, `cut`, and `tr` remain
+GUIDED. Next session should begin with one short unfamiliar frequency-report
+transfer, then continue to `paste` and `diff`.
