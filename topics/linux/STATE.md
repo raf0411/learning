@@ -20,8 +20,9 @@
   status to the earlier failed `test`; observation corrected this to the final
   successful `printf`. Then confused `$1` with `$?`, but after a conceptual
   hint correctly captured the failed test immediately as `test-status=1`.
-  Conditional sequencing is currently INDEPENDENT; immediate status capture
-  remains GUIDED after correction.
+  Conditional sequencing is currently INDEPENDENT. Later independently captured
+  `diff` statuses 1 and 0 immediately, so immediate status capture is also
+  INDEPENDENT in the current learning period; retention remains untested.
 - Variables and command substitution remain GUIDED. On 2026-11-08, integrated
   assignment, quoted pathname expansion, stdin redirection, command
   substitution, and numeric output successfully after focused corrections.
@@ -43,6 +44,38 @@
   `cut`, normalized uppercase levels with `tr` after one direction correction,
   and produced the verified ranking `3 info`, `2 warn`, `1 error`. Final causal
   explanation correctly linked sorting to adjacency-based counting.
+- Frequency-report construction remains GUIDED. In a spaced opening attempt,
+  separated `grep -c` from the pipeline and made `cut` reopen all source rows;
+  progressive help was required to maintain selected rows through every stage.
+  In a later unfamiliar checkpoint, independently chose the right tools but
+  normalized case after `uniq -c`, splitting mixed-case groups. After one
+  focused stage-order explanation, produced and verified `3 api`, `2 web`,
+  `1 db`, then correctly distinguished grouping sort, adjacent counting, and
+  final numeric ranking. Reassess after spacing without a supplied structure.
+- `paste` — GUIDED first application. Correctly predicted default tab pairing
+  and a custom colon delimiter, and explained that line position determines
+  which rows pair. Byte evidence confirmed the displayed `\t` was tab byte 09.
+- Unified `diff` — GUIDED interpretation with INDEPENDENT immediate status
+  capture. Correctly predicted and read context, first-file `-`, and second-file
+  `+` lines. Independently captured status 1 for different files and 0 for the
+  same file, then verified redirected results. A later checkpoint honestly used
+  status 1 to detect a mismatch; a tutor padding error was corrected before
+  status 0 verification.
+- `join` — GUIDED first application. Correctly paired equal first fields,
+  explained absent unmatched keys, and predicted `-a 1 -a 2` retaining unpaired
+  rows from both files. A prepared manual-based delimiter task is unfinished.
+- `xargs` — GUIDED first application. Correctly explained stdin-to-argument
+  conversion and predicted that default parsing turns three lines containing
+  `blue sky` into four arguments. Null-delimited pathname safety is untested.
+- `sed` — GUIDED first application with independent immediate construction of
+  a global substitution and redirection. Correctly distinguished transformed
+  stdout from unchanged source content, then built and verified
+  `sed 's/ERROR/WARN/g' events.log > normalized.log`. The final source check was
+  initially omitted and supplied after one reminder.
+- `awk` — GUIDED first application. Correctly predicted and ran a second-field
+  condition printing the first field, and accumulated numeric fields before an
+  `END` report of `total=11`. Needed a wording refinement that the print action
+  runs only for records satisfying the condition.
 
 ## Demonstrated capabilities
 
@@ -336,9 +369,13 @@
 
 Phase 6 is current. Phase 5 completed for curriculum progression on 2026-11-08
 after spaced retrieval of its main shell mechanics. Combined routing, immediate
-status capture, and variable/command-substitution integration remain GUIDED
-review items. Begin text searching with a brief `grep` probe and a small actual
-search. Phase 4 local-documentation recovery also remains in the review queue.
+status capture, and variable/command-substitution integration remain review
+items; immediate status capture now has a later independent `diff` application.
+All planned Phase 6 tools have introductory guided evidence. The report
+milestone is not yet independent because data-flow and normalization order
+required focused help. Complete the prepared `man join` delimiter task next,
+then use unfamiliar data for a spaced report transfer. Phase 4
+local-documentation recovery remains in the review queue.
 
 Simple `>`, `>>`, `<`, `2>`, and `|` experiments have succeeded. Guided work on
 2026-11-04 added `2>&1`, left-to-right redirection order, `tee`, and `tee -a`.
@@ -472,7 +509,7 @@ claims from existing evidence rather than requiring more transcription.
 
 Current conclusion: Phase 5 is complete for curriculum progression, with
 combined routing, immediate status capture, and variable integration retained
-as review items. Phase 6 is current. Basic `grep` and regular-expression anchors
-have successful immediate applications; `sort`, `uniq`, `cut`, and `tr` remain
-GUIDED. Next session should begin with one short unfamiliar frequency-report
-transfer, then continue to `paste` and `diff`.
+as review items. Phase 6 is current. All planned tools now have introductory
+practice, while integrated report construction remains GUIDED. Next session
+should complete `labs/2026-11-08-join-docs-transfer.md`, then test an unfamiliar
+report after spacing without repeating the completed checkpoint fixture.

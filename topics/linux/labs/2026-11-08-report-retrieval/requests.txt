@@ -1,0 +1,8 @@
+OK Ada
+FAIL Bo
+OK CY
+OK ada
+FAIL Ada
+OK Bo
+OK ADA
+OK cy

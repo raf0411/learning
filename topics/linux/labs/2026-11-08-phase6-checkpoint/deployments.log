@@ -1,0 +1,8 @@
+READY api north
+FAILED web west
+ready WEB east
+READY db north
+READY api south
+FAILED api east
+ready web north
+READY API west

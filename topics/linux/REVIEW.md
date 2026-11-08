@@ -20,17 +20,44 @@
 
 ### sort, uniq, cut, and tr report pipeline
 
-- Stage: GUIDED first application
+- Stage: GUIDED across two unfamiliar reports
 - Demonstrate: independently identify the field to extract, normalize it,
   group identical values, count groups, rank numerically, and verify the report
-- Why: initially treated `uniq` as global duplicate removal, omitted the sort
-  required before `uniq -c`, omitted retained text from `uniq -c` output, and
-  reversed the first `tr` conversion prediction
-- Last evidence: 2026-11-08, completed and explained
-  `cut | tr | sort | uniq -c | sort -nr`, producing verified counts
-  `3 info`, `2 warn`, `1 error`
-- Next review: at the start of the next session, reconstruct the workflow once
-  from a small unfamiliar dataset with reduced scaffolding; then advance
+- Why: the first report omitted grouping sort. A spaced retrieval then separated
+  `grep -c` from the pipeline and reopened the full input with `cut`. A later
+  checkpoint placed `tr` after `uniq -c`, so mixed-case values were counted as
+  separate groups. The first repair explanation also assigned numeric ranking
+  to `uniq -c` before being corrected.
+- Last evidence: 2026-11-08, after a focused ordering hint, produced and
+  verified `3 api`, `2 web`, `1 db`. Correctly explained that the first `sort`
+  makes equal values adjacent, `uniq -c` counts those runs, and `sort -nr`
+  ranks the counts. A tutor-created padding mismatch in the expected file was
+  diagnosed by byte evidence and corrected; the learner report then diffed
+  equal with status 0.
+- Next review: after spacing and after the unfinished manual task, reconstruct
+  one report from unfamiliar data with no supplied pipeline or stage-order hint.
+  Keep evidence capture minimal and do not reuse either 2026-11-08 fixture.
+
+### `paste`, `diff`, `join`, `xargs`, `sed`, and `awk`
+
+- Stage: GUIDED first applications; immediate `diff` status capture is
+  INDEPENDENT in the current learning period
+- Demonstrate: choose among position-based pairing, key-based joining, file
+  comparison, stdin-to-argument conversion, stream substitution, and
+  field-based filtering or aggregation in unfamiliar small tasks
+- Why: supplied syntax was used for the first applications. `sed` global
+  construction succeeded independently after the new flag was introduced, but
+  source verification needed one reminder. The first `awk` explanation needed
+  refinement that its action runs only for matching records. Default `xargs`
+  whitespace splitting is understood; null-delimited pathname safety is not yet
+  taught.
+- Last evidence: 2026-11-08, exact predictions and executions for default and
+  custom-delimiter `paste`, unified `diff`, inner and unmatched-row `join`,
+  default `xargs` splitting, `sed` first/global substitution, and `awk` filtering
+  plus `END` aggregation. Captured `diff` statuses 1 and 0 immediately and
+  verified both saved results.
+- Next review: integrate these tools naturally in later tasks rather than quiz
+  all at once. Teach null-delimited `find -print0 | xargs -0` during Phase 7.
 
 ## Phase 5 follow-up after curriculum progression
 
@@ -65,8 +92,11 @@ worksheet or repeat long evidence audits.
   failure branches plus an unconditional final report. Initially expected `$?`
   after the whole line to preserve the earlier failed `test` and then used
   `$1` while repairing the check. After one conceptual hint, captured the test
-  immediately and observed status 1. Keep immediate status capture in review;
-  conditional sequencing itself has spaced independent evidence.
+  immediately and observed status 1. Later the same day, independently captured
+  `diff` status 1 for different files and status 0 for identical files before
+  any intervening command. Immediate capture is INDEPENDENT in the current
+  learning period; later spacing will test retention. Conditional sequencing
+  itself has spaced independent evidence.
 - Variables, quoting, and expansion — GUIDED after immediate predictions and
   correction on 2026-11-07. Recheck escaped `$`, quoted/unquoted pathname
   expansion, shell versus exported variables, and command substitution in a
@@ -108,8 +138,10 @@ worksheet or repeat long evidence audits.
   a command instead of complete manual syntax, misclassified option roles, and
   needed repeated evidence repair. Final verbal audit correctly identified the
   failed proof from unequal access timestamps.
-- Next review: after spacing, use a different command and option; do not repeat
-  `file`, `head`, or `touch`
+- Next review: complete `labs/2026-11-08-join-docs-transfer.md`. Use `man join`
+  to recover the comma-delimiter option, copy its complete syntax, distinguish
+  the option token from its required placeholder, apply it, and verify output.
+  The worksheet was prepared but not attempted before session end.
 
 ## Complete evidence capture and self-audit
 

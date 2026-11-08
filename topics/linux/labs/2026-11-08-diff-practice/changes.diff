@@ -1,0 +1,8 @@
+--- old.conf	2026-11-08 21:49:39
++++ new.conf	2026-11-08 21:49:39
+@@ -1,3 +1,4 @@
+ port=8080
+-mode=test
++mode=production
++timeout=30
+ color=blue

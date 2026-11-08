@@ -74,7 +74,9 @@ Bash automation and integrated terminal work (11-12)
    - `xargs`, introductory `sed`, and introductory `awk`
    - Milestone: derive and verify a requested report from unfamiliar text data
    - Work began 2026-11-08 with `grep`, anchors, `.*`, `sort`, `uniq`, `cut`,
-     and `tr`; a normalized frequency report was completed with guidance
+     and `tr`; introductory practice now covers every listed tool. A second
+     unfamiliar normalized report was completed and verified with focused
+     guidance; independent milestone performance remains to be tested
 
 7. `[ ]` **Linux environment, filesystem layout, and access**
    - Use a disposable Linux VM and distinguish Linux from macOS observations
@@ -165,12 +167,15 @@ after a functional `tee` cue. Immediate status capture, combined routing, and
 variable/command-substitution integration remain review items rather than
 blocking forward progress.
 
-Phase 6 is current. The first session established literal and case-insensitive
-`grep`, inverse selection, counts, anchors, `.*`, sorting, adjacent duplicate
-handling, field extraction, and case normalization. A normalized frequency
-report was completed after correction of a missing grouping sort. Next, use a
-different small dataset for spaced reconstruction, then continue to `paste` and
-`diff`.
+Phase 6 is current. Introductory work now covers literal and regular-expression
+searching, field selection, normalization, grouping and ranking, horizontal
+pairing with `paste`, file comparison with unified `diff`, key-based `join`,
+stdin-to-argument conversion with `xargs`, substitutions with `sed`, and
+field-based filtering and aggregation with `awk`. An unfamiliar report was
+correctly produced and verified after focused correction of normalization
+order, so the milestone remains GUIDED. Next, complete the prepared local-manual
+`join` delimiter task and later reconstruct a report independently after
+spacing.
 
 ## Current scope boundary
 
