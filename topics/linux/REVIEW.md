@@ -1,6 +1,88 @@
 # Review
 
-## Current priority — Phase 6 text selection and frequency reports
+## Next session: unfinished directory-permission experiment
+
+- Stage: GUIDED introduction; practical read-versus-search distinction untested
+- Demonstrate: predict and observe directory listing versus access to a known
+  readable file with directory read removed but search retained; restore and
+  verify the original mode.
+- Last evidence: 2026-11-09, correctly identified that an outer directory's
+  missing traversal permission blocks access to a more permissive inner one.
+- Next: resume `labs/2026-11-09-directory-read-search.md` (still blank at close).
+  Re-establish the VM fixture and shell variable before any chmod operation.
+
+## Permission-class selection and symbolic chmod
+
+- Stage: class selection GUIDED; symbolic removal INDEPENDENT in current session
+- Demonstrate: distinguish owner/group/other bits, select the applicable class
+  rather than combine classes, construct a narrow symbolic change, and verify it.
+- Why: learner thought group write grants an owner write access when owner
+  write is absent. Initially unfamiliar with all fields in `ls -l`.
+- Last evidence: 2026-11-09, correctly interpreted other read-only bits; supplied
+  `chmod u-w` produced `-r--rw-r--` and `test -w` status 1 despite group write.
+  Supplied `chmod u+w` restored `-rw-rw-r--`, verified by a new listing.
+  Subsequently independently constructed four group/other read/write removals
+  and verified `-rw-------`, preserving owner access.
+- Next review: after spacing, use a different owner/group combination to
+  reassess class selection and independently choose a narrow change.
+
+## Pathname boundaries through find and xargs
+
+- Stage: INDEPENDENT immediate integrated construction after teaching
+- Demonstrate: select matching files and preserve each complete pathname when
+  passing it as an argument; explain the roles of `-print0` and `-0`.
+- Why: initially predicted default xargs would preserve a pathname containing
+  a space. Observation showed two arguments; supplied null-delimited repair
+  restored one argument.
+- Last evidence: 2026-11-09, independently constructed a depth-2 regular `.log`
+  search piped through `-print0 | xargs -0 printf '<%s>\n'`; verified three
+  intact arguments including `access log.log` and exclusion of a depth-3 file.
+- Next review: after spacing, use unfamiliar harmless argument processing with
+  filenames containing spaces; assess retention before adding destructive actions.
+
+## Find starting path and combined filters
+
+- Stage: INDEPENDENT depth/type/name construction in the current lab; earlier
+  home-root selection was GUIDED
+- Demonstrate: choose the requested search root, constrain depth, and combine
+  a file-type test with a quoted name pattern without procedural hints.
+- Why: first construction used `/home` instead of the user's home and omitted
+  hidden-name filtering, despite correct supplied-command predictions.
+- Last evidence: 2026-11-09, after repairing the home-directory task with hints,
+  independently constructed `find "$find_lab" -maxdepth 2 -type f -name '*.log'`
+  and an unlimited-depth variant. Verified two versus three matches and correctly
+  predicted inclusion of `app/archive/old.log` in the unrestricted search.
+- Next review: after the depth lab and some spacing, use a different requested
+  starting directory and file selection.
+
+## Parent and child working directories
+
+- Stage: GUIDED after correction
+- Demonstrate: predict inherited working directories and explain why a child's
+  directory change does not change its parent's; connect this to builtin `cd`.
+- Why: learner predicted builtin and external pwd would report different paths
+  after the parent shell changed directory.
+- Last evidence: 2026-11-09, both pwd forms printed `/tmp`; after explanation,
+  ran `bash -c 'cd /tmp; pwd'` from home and verified the child printed `/tmp`
+  while the subsequent parent `pwd` printed `/home/raf_0411`.
+- Next review: after spacing, use a different short subprocess scenario without
+  supplying the inheritance explanation immediately beforehand.
+
+## PATH lookup and command types
+
+- Stage: GUIDED after correction
+- Demonstrate: use shell inspection to distinguish aliases, builtins, and
+  executable paths; predict a fresh executable lookup through an unfamiliar
+  ordered PATH, skipping missing candidates and stopping at the first match.
+- Why: learner initially prioritized `/usr/bin` over `/usr/local/bin` despite
+  PATH order, then thought lookup stopped at the first missing candidate.
+- Last evidence: 2026-11-09, after an explicit trace, correctly stated that an
+  earlier executable would be found and run. Subsequently inspected builtin cd
+  and builtin/external pwd; causal lookup reconstruction remains untested.
+- Next review: after intervening material, use a small disposable executable
+  lookup experiment rather than another immediate verbal repetition.
+
+## Spaced follow-up — Phase 6 text selection and frequency reports
 
 ### grep selection and basic regular expressions
 
@@ -17,6 +99,9 @@
   verified its file copy and terminal count
 - Next review: after spacing, use a different fixture and require one exact
   prediction plus execution; avoid repeating today's examples
+- 2026-11-09 update: `^PASS` incorrectly admitted `PASSIVE`. After a field-boundary
+  hint, learner constructed `^PASS,` and verified the correction. Include exact
+  field matching in the next spaced selection task.
 
 ### sort, uniq, cut, and tr report pipeline
 
@@ -34,9 +119,14 @@
   ranks the counts. A tutor-created padding mismatch in the expected file was
   diagnosed by byte evidence and corrected; the learner report then diffed
   equal with status 0.
-- Next review: after spacing and after the unfinished manual task, reconstruct
+- Next review: after spacing, reconstruct
   one report from unfamiliar data with no supplied pipeline or stage-order hint.
   Keep evidence capture minimal and do not reuse either 2026-11-08 fixture.
+- 2026-11-09 update: manual task complete. Fresh report correctly reconstructed
+  normalization before grouping, counting, ranking, and file verification with
+  no stage-order hint. Selection required one boundary correction; final report
+  verified as 4 cache, 3 queue, 1 search. Next independent report should follow
+  other material, with no immediate repeat of this fixture.
 
 ### `paste`, `diff`, `join`, `xargs`, `sed`, and `awk`
 
@@ -49,15 +139,16 @@
   construction succeeded independently after the new flag was introduced, but
   source verification needed one reminder. The first `awk` explanation needed
   refinement that its action runs only for matching records. Default `xargs`
-  whitespace splitting is understood; null-delimited pathname safety is not yet
-  taught.
+  whitespace splitting needed renewed correction on a pathname in Phase 7;
+  null-delimited integration now has a separate review item above.
 - Last evidence: 2026-11-08, exact predictions and executions for default and
   custom-delimiter `paste`, unified `diff`, inner and unmatched-row `join`,
   default `xargs` splitting, `sed` first/global substitution, and `awk` filtering
   plus `END` aggregation. Captured `diff` statuses 1 and 0 immediately and
   verified both saved results.
 - Next review: integrate these tools naturally in later tasks rather than quiz
-  all at once. Teach null-delimited `find -print0 | xargs -0` during Phase 7.
+  all at once. Null-delimited `find -print0 | xargs -0` was taught on 2026-11-09;
+  use its dedicated item for later retrieval.
 
 ## Phase 5 follow-up after curriculum progression
 
@@ -125,8 +216,7 @@ worksheet or repeat long evidence audits.
 
 ## Local documentation and required option arguments
 
-- Stage: GUIDED after direct correction; command anatomy succeeded in immediate
-  transfer
+- Stage: INDEPENDENT on the 2026-11-09 `join` manual task
 - Demonstrate: use installed documentation for a different unfamiliar command,
   copy the complete option syntax, distinguish a standalone flag from a required
   option argument, construct the exact command, execute it, and verify the
@@ -134,14 +224,11 @@ worksheet or repeat long evidence audits.
 - Why: the Phase 4 checkpoint omitted `file -b`; a second transfer omitted the
   required count for `head -c`; a 2026-11-03 attempt chose `touch -d` even
   though its copied description changed both timestamps
-- Last evidence: after a hint, derived valid `touch -m -d` structure, but copied
-  a command instead of complete manual syntax, misclassified option roles, and
-  needed repeated evidence repair. Final verbal audit correctly identified the
-  failed proof from unequal access timestamps.
-- Next review: complete `labs/2026-11-08-join-docs-transfer.md`. Use `man join`
-  to recover the comma-delimiter option, copy its complete syntax, distinguish
-  the option token from its required placeholder, apply it, and verify output.
-  The worksheet was prepared but not attempted before session end.
+- Last evidence: 2026-11-09, independently extracted `-t char` from `man join`,
+  identified both syntax roles, supplied a comma, and correctly predicted and
+  verified the joined output in `labs/2026-11-08-join-docs-transfer.md`.
+- Next review: after several sessions, recover a required option argument for
+  another practical task without a supplied syntax pattern; test retention.
 
 ## Complete evidence capture and self-audit
 

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "topics/linux/labs/2026-11-08-join-docs-transfer.md",
+                "file": "topics/linux/labs/2026-11-09-directory-read-search.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-11-08-join-docs-transfer"
+              "title": "2026-11-09-directory-read-search"
             }
           },
           {
@@ -35,7 +35,8 @@
               "title": "ROADMAP"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -199,25 +200,32 @@
       "bases:Create new base": false
     }
   },
-  "active": "31ad480da3c4db70",
+  "active": "7c13646e1137ea9c",
   "lastOpenFiles": [
-    "topics/linux/labs/2026-11-08-phase6-report-checkpoint.md",
+    "topics/linux/labs/2026-11-09-directory-read-search.md",
+    "topics/linux/labs/2026-11-09-find-depth.md",
+    "topics/linux/ROADMAP.md",
+    "topics/linux/diagrams/2026-11-09-permissions.md",
+    "topics/linux/labs/2026-11-09-report-retrieval.md",
+    "topics/linux/diagrams/2026-11-09-linux-environment.md",
+    "topics/linux/labs/2026-11-09-report-data/report.txt",
     "topics/linux/labs/2026-11-08-join-docs-transfer.md",
+    "topics/linux/diagrams/2026-11-09-text-work.md",
+    "topics/linux/sessions/2026-11-09.md",
+    "topics/linux/labs/2026-11-09-report-data/checks.txt",
+    "topics/linux/labs/2026-11-09-report-data",
+    "topics/linux/labs/2026-11-08-join-introduction.md",
+    "topics/linux/labs/2026-11-08-phase6-report-checkpoint.md",
     "topics/linux/labs/2026-11-08-join-docs/tickets.csv",
     "topics/linux/labs/2026-11-08-join-docs/departments.csv",
     "topics/linux/labs/2026-11-08-join-docs",
-    "topics/linux/ROADMAP.md",
     "topics/linux/labs/2026-11-08-phase6-checkpoint/report.txt",
     "topics/linux/labs/2026-11-08-awk-introduction.md",
     "topics/linux/labs/2026-11-08-phase6-checkpoint/expected-report.txt",
     "topics/linux/labs/2026-11-08-phase6-checkpoint/deployments.log",
     "topics/linux/labs/2026-11-08-phase6-checkpoint",
     "topics/linux/labs/2026-11-08-sed-introduction.md",
-    "topics/linux/labs/2026-11-08-awk-practice/scores.txt",
-    "topics/linux/labs/2026-11-08-awk-practice",
-    "topics/linux/labs/2026-11-08-sed-practice/normalized.log",
     "topics/linux/labs/2026-11-08-xargs-introduction.md",
-    "topics/linux/labs/2026-11-08-join-introduction.md",
     "topics/linux/labs/2026-11-08-diff-introduction.md",
     "topics/linux/labs/2026-11-08-paste-introduction.md",
     "topics/linux/labs/2026-11-08-report-retrieval.md",
@@ -230,13 +238,6 @@
     "topics/linux/labs/2026-11-05-phase5-stream-routing-repair.md",
     "topics/linux/sessions/2026-11-07.md",
     "topics/linux/diagrams/2026-11-07-shell-basics.md",
-    "topics/linux/sessions/2026-11-05.md",
-    "topics/linux/labs/2026-11-04-phase5-stream-routing-checkpoint.md",
-    "topics/linux/labs/2026-11-04-stream-routing-focused-repair.md",
-    "topics/linux/sessions/2026-11-04.md",
-    "topics/linux/labs/2026-11-03-stream-routing-retrieval.md",
-    "topics/linux/labs/2026-11-03-evidence-repair.md",
-    "topics/linux/RESOURCES.md",
     "topics/linux/labs/phase2-checkpoint/backups/demo/assets/logo.png",
     "topics/linux/labs/phase2-checkpoint/projects/demo/assets/logo.png",
     "topics/linux/labs/phase2-checkpoint/intake/photo.png",

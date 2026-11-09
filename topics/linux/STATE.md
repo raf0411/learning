@@ -1,5 +1,45 @@
 # Learner State
 
+## Current checkpoint — 2026-11-09
+
+- Environment: learner's Ubuntu VM reported Ubuntu 26.04.1 LTS, kernel
+  `7.0.0-31-generic`, Bash, user/home `raf_0411` / `/home/raf_0411`, uid/gid
+  1000. Tutor workspace and Obsidian notes remain on macOS.
+- Local manual option recovery — INDEPENDENT. Extracted `-t char`, identified
+  its syntax roles, and constructed/predicted/verified comma-delimited join.
+- Frequency reports — GUIDED overall, with independent stage construction.
+  Normalization/grouping/counting/ranking and saved-output inspection succeeded.
+  `^PASS` admitted PASSIVE; a boundary hint led to `^PASS,` and verified counts
+  4 cache, 3 queue, 1 search. Exact selection remains a review priority.
+- Bounded tail inspection — RETAINED. Independently retrieved and executed
+  `tail -n 5 /var/log/syslog` after spacing; live-follow options remain separate.
+- Linux orientation — GUIDED. Inspected distribution, kernel, shell, home,
+  `/var/log`, and `/proc` hostname. Introduced `/etc`, `/tmp`, `/` versus `/root`,
+  and shell/kernel roles. Independently followed `/var` into `/var/log`.
+- Command resolution and PATH — GUIDED. Inspected aliases, builtins, executable
+  paths, and `/bin -> usr/bin`. Initially prioritized `/usr/bin` despite PATH
+  order and thought a missing candidate stopped lookup; corrected after a trace.
+- Process working directories — GUIDED. Initially predicted different builtin
+  and external pwd results. Observed inherited working directories and verified
+  that a child changing directory leaves the parent's directory unchanged.
+- Find depth/type/name construction — INDEPENDENT current lab. Constructed
+  depth-2 and unrestricted `.log` searches, with verified results. Earlier
+  hidden-directory construction needed hints for `$HOME` and the name filter.
+- Null-delimited find/xargs integration — INDEPENDENT immediate construction
+  after teaching. Initially expected default xargs to preserve a spaced pathname;
+  observed splitting. Then independently combined depth/type/name selection,
+  `-print0`, and `xargs -0`, verifying three intact arguments. Retention untested.
+- Permission-class reasoning — GUIDED. Correctly interpreted other-class r--,
+  but thought group write supplemented missing owner write. Controlled chmod
+  and test -w evidence corrected that model; independent causal retrieval pending.
+- Symbolic permission removal — INDEPENDENT immediate construction. Used
+  separate g-r, g-w, o-r, and o-w changes and verified root.log as `-rw-------`,
+  preserving owner read/write. Earlier temporary owner-write removal was restored
+  and verified before this deliberate group/other removal.
+- Directory permissions — GUIDED introduction. Correctly recognized that outer
+  directory traversal restrictions block access despite inner group rwx.
+  Read-versus-search experiment is prepared but unattempted.
+
 ## Latest checkpoint — 2026-11-08
 
 - Independently constructed and verified a last-two-line capture/count command
@@ -63,10 +103,10 @@
   status 0 verification.
 - `join` — GUIDED first application. Correctly paired equal first fields,
   explained absent unmatched keys, and predicted `-a 1 -a 2` retaining unpaired
-  rows from both files. A prepared manual-based delimiter task is unfinished.
+  rows from both files. The delimiter manual task was completed independently on 2026-11-09.
 - `xargs` — GUIDED first application. Correctly explained stdin-to-argument
   conversion and predicted that default parsing turns three lines containing
-  `blue sky` into four arguments. Null-delimited pathname safety is untested.
+  `blue sky` into four arguments. Null-delimited integration advanced to INDEPENDENT on 2026-11-09.
 - `sed` — GUIDED first application with independent immediate construction of
   a global substitution and redirection. Correctly distinguished transformed
   stdout from unchanged source content, then built and verified
@@ -213,8 +253,8 @@
   required count argument until direct explanation.
 - Command anatomy for option arguments — INDEPENDENT immediate transfer after
   correction. Correctly labeled program, option, option argument, and operand
-  in `tail -n 4 app.log`, then constructed `head -c 7 sample.txt`. Retention and
-  use while reading unfamiliar documentation remain untested.
+  in `tail -n 4 app.log`, then constructed `head -c 7 sample.txt`. Unfamiliar manual use succeeded independently in the 2026-11-09 join task;
+  broader retention remains to be tested.
 - Output replacement and append redirection (`>` and `>>`) — GUIDED with one
   successful immediate transfer. Initially called `>` append while also
   predicting overwrite; then predicted and observed replacement, no terminal
@@ -367,149 +407,18 @@
 
 ## Current learning edge
 
-Phase 6 is current. Phase 5 completed for curriculum progression on 2026-11-08
-after spaced retrieval of its main shell mechanics. Combined routing, immediate
-status capture, and variable/command-substitution integration remain review
-items; immediate status capture now has a later independent `diff` application.
-All planned Phase 6 tools have introductory guided evidence. The report
-milestone is not yet independent because data-flow and normalization order
-required focused help. Complete the prepared `man join` delimiter task next,
-then use unfamiliar data for a spaced report transfer. Phase 4
-local-documentation recovery remains in the review queue.
+Phase 7 is active: directory read versus search permissions. Resume
+`labs/2026-11-09-directory-read-search.md`, whose predictions and execution
+sections are still blank. Confirm the VM fixture and `find_lab` variable before
+modification; recreate a disposable fixture if needed rather than trusting a
+historical /tmp path. Last observed modes: outer lab `drwx------`, app
+`drwxrwxr-x`, root.log `-rw-------`.
 
-Simple `>`, `>>`, `<`, `2>`, and `|` experiments have succeeded. Guided work on
-2026-11-04 added `2>&1`, left-to-right redirection order, `tee`, and `tee -a`.
-On 2026-11-05, the learner attempted the two-pipe checkpoint and correctly
-predicted five of six outcomes, but could not causally route `tee` stdout through
-the second pipe to `wc` stdin. Execution evidence also omitted the command and
-returned prompt despite an inaccurate checked self-audit item.
+Phase 6's independent report milestone remains open for spaced review. Briefly
+retrieve permission-class selection when useful; later interleave PATH order,
+process inheritance, exact field selection, and find/xargs retention. Do not
+repeat all completed exercises at session start. Prefer actual command/output
+and avoid requiring redundant written explanations or compact command rewrites.
 
-On 2026-11-07, the learner requested a restart from basics. The old checkpoint
-and repair remain deferred. After short experiments, constructing and verifying
-combined stdin/stdout file redirection is INDEPENDENT in this session: wrote
-`wc -l < greeting.txt > saved-count.txt` without supplied syntax, executed it,
-and independently chose `cat` to verify the stored count of 2. Initially
-expected combined input/output redirection to also display text; corrected
-through observation and later successful application. Replacement, append, and
-single-pipe execution are GUIDED; independently predicted destinations and
-redirection ownership for a supplied `printf | wc -l > file` command.
-
-Separate stdout/stderr routing — INDEPENDENT current command construction:
-built and verified `cat greeting.txt missing.txt > normal-output.txt 2> errors.txt`.
-Then independently added `2> errors.txt` to the `cat` side of a counting
-pipeline and verified both destinations (file inspection needed a reminder).
-Initially counted an unmerged stderr line as entering `wc`; after a channel
-hint, corrected 3 to 2 and observed the result. Count reasoning remains GUIDED.
-
-Merged output through `2>&1` — GUIDED in this restart, with correct causal
-explanation after observation. Predicted and verified a count of 3, then
-explained that normal text and the diagnostic entered the same pipe. When
-adding final count redirection, incorrectly added `errors.txt` after `2>&1`;
-after correction, removed the extra operand and verified saved count 3.
-
-`tee` routing — GUIDED execution with correct prediction and channel naming:
-verified both file/stdout copies, then predicted 2 and identified `wc` as the
-destination of `tee` stdout in a supplied two-pipe command. Verified the
-terminal count and, after a reminder, the unchanged text in the capture file.
-This resolves the immediate channel explanation; independent construction
-of the combined pipeline still needs assessment.
-
-Combined routing checkpoint — GUIDED completion on 2026-11-07. First attempt
-omitted `tee`, placed a filename after `2>&1`, and described `tee` stdout as
-going to file and terminal. With a partial pipeline structure, constructed the
-correct command and correctly distinguished the named-file copy from stdout
-feeding `wc` stdin. Executed and recorded a complete transcript proving all
-three destinations; comparison was accurate. Independent construction still
-needs a later fresh task, not immediate repetition of the supplied structure.
-
-Next: rebuild left-to-right redirection order, emphasizing that `2>&1` copies
-stdout's destination at that moment. Retention of restarted skills is untested.
-
-Redirection order — GUIDED with successful observation on 2026-11-07. Initially
-predicted that both streams would enter `together.txt` for
-`2>&1 > together.txt`; after a destination-table correction, observed stderr
-on the terminal and normal output in the file. Then ran the reverse order,
-`> together.txt 2>&1`, and verified both normal text and the diagnostic in the
-file. Explained that the latter redirects the error to the file; the result is
-correct, while the precise causal rule still needs retrieval: `2>&1` copies
-stdout's destination at the moment it is processed.
-
-Next: introduce exit status and `&&`/`||` through small experiments. Revisit
-redirection order later using a new command rather than repeating `cat` now.
-
-Exit status and conditional sequencing — INDEPENDENT immediate application on
-2026-11-07. Observed `test -f greeting.txt` return 0 and a missing path return
-1 through `$?`. Correctly predicted and verified both `&&` and `||` behavior,
-then explained that `;` runs the following command regardless of status.
-Independently constructed and executed
-`test -f missing.txt || printf 'missing\n'; printf 'check complete\n'`, producing
-both requested lines. Retention and transfer to commands with visible failures
-remain untested.
-
-Next: introduce shell variables, parameter expansion, and single versus double
-quotes through small predictions. Continue later to broader expansion and
-environment concepts.
-
-Variables, quoting, and expansion — GUIDED with successful immediate use on
-2026-11-07. Correctly predicted double-quoted parameter expansion versus a
-single-quoted literal. Initially predicted that `"\$topic"` would print a
-backslash plus the variable value; after explanation, observed literal `$topic`.
-Correctly predicted unquoted `*.txt` pathname expansion and quoted literal
-behavior, then verified exact argument boundaries with `printf`.
-
-Shell versus environment variables — GUIDED. Assigned a shell variable and
-observed no output from `printenv` before export and the value afterward. The
-requested immediate exit-status check was omitted, so the nonzero result of the
-first `printenv` was not captured as evidence.
-
-Command substitution — GUIDED with a corrected combined application. Correctly
-predicted and verified `current_dir=$(pwd)`. For a line-count task, first used a
-filename operand and `%s`; after learning that `wc` then includes the filename
-and macOS pads its numeric output, revised to
-`line_total=$(wc -l < greeting.txt)` and `printf 'lines=%d\n' "$line_total"`,
-then verified exact `lines=2`. Independent unfamiliar construction remains
-untested.
-
-Next: interactive aliases and safe history use, followed by a fresh integrated
-Phase 5 check. Spaced retention remains untested.
-
-Aliases — GUIDED practical success. Correctly derived that
-`showlong greeting.txt` expands to `ls -l greeting.txt`, defined the alias,
-used `type` to inspect it, and executed it. After `unalias`, `type showlong`
-reported not found but a later `$?` check showed 0. Local zsh documentation, a
-clean-shell reproduction, and a controlled same-line check established that
-`type` returned 1. History then revealed the exact cause: a typoed intermediate
-`printf 'statis=...' $?` captured the failure and itself succeeded; the corrected
-`printf` therefore saw that new status 0. This was not a prompt-hook effect.
-
-History — GUIDED interpretation. `fc -l -5` showed submitted command lines,
-including the typo and the later same-line check. An apparent output transcript
-in one history entry had been pasted back as shell input; history did not
-automatically record program output.
-
-Next: fresh integrated Phase 5 check in
-`labs/2026-11-07-phase5-restart-checkpoint.md`. Review predictions and commands
-before execution. Spaced retention remains untested.
-
-Phase 5 restart checkpoint — GUIDED completion on 2026-11-07. Independently
-wrote the correct variable assignment, complete separate-stderr/`tee`/`wc`
-pipeline, destination predictions, and redirection-order destinations. The
-channel diagram twice confused pipes, commands, and named files; direct teaching
-was needed before correctly stating that the second pipe connects `tee` stdout
-to `wc` stdin. Left-to-right order required stepwise scaffolding before correctly
-placing stdout in the file and stderr on the terminal.
-
-The first execution omitted the variable assignment, so the quoted expansion
-was empty and the pipeline stored count 0. After explicit repair instructions,
-verified the variable and produced correct normal, error, and count files.
-Command substitution and three-file conditional checks required focused syntax
-hints, then executed correctly. Evidence capture improved to named-file
-inspections, but the final audit became unproductive; tutor closed two remaining
-claims from existing evidence rather than requiring more transcription.
-
-Current conclusion: Phase 5 is complete for curriculum progression, with
-combined routing, immediate status capture, and variable integration retained
-as review items. Phase 6 is current. All planned tools now have introductory
-practice, while integrated report construction remains GUIDED. Next session
-should complete `labs/2026-11-08-join-docs-transfer.md`, then test an unfamiliar
-report after spacing without repeating the completed checkpoint fixture.
+Detailed history is in sessions/; earlier checkpoint summaries above describe
+prior evidence, while this checkpoint controls current stages and next steps.

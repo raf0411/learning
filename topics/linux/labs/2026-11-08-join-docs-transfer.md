@@ -1,4 +1,4 @@
-# Local documentation transfer: comma-separated `join` — 2026-11-08
+ # Local documentation transfer: comma-separated `join` — 2026-11-08
 
 The two files use commas instead of whitespace between fields. Find the `join`
 option that makes one character the input and output field delimiter, then use
@@ -25,30 +25,37 @@ Search for `delimiter`, inspect the relevant option entry, then quit the pager.
 Record the complete option syntax shown by the manual:
 
 ```text
-TODO
+-t char
+
+Use character char as a field delimiter for both input and output.  Every occurrence of char in a line is significant.
 ```
 
-- Option token: TODO
-- Required option-argument placeholder: TODO
+- Option token: -t
+- Required option-argument placeholder: char
 
 ## Apply it
 
 Write one `join` command using a comma as the delimiter:
 
 ```bash
-TODO
+join -t ',' departments.csv tickets.csv
 ```
 
 Predict its complete output:
 
 ```text
-TODO
+ada,Design,4
+bo,Operations,2
+cy,Research,3
 ```
 
 Run it and paste the command plus output:
 
 ```text
-TODO
+raffi@Raffis-Mac 2026-11-08-join-docs % join -t ',' departments.csv tickets.csv
+ada,Design,4
+bo,Operations,2
+cy,Research,3
 ```
 
 Tell me when the note is ready.

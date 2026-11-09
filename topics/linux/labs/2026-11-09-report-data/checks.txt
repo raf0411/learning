@@ -1,0 +1,12 @@
+PASS,Cache,morning
+FAIL,Queue,timeout
+pass,QUEUE,morning
+BYPASS,Cache,maintenance
+PASS,cache,afternoon
+PASS,Search,morning
+pass,queue,afternoon
+FAIL,Search,timeout
+PASS,CACHE,evening
+PASS,Queue,evening
+PASS,cache,night
+PASSIVE,Search,standby

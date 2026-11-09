@@ -78,7 +78,7 @@ Bash automation and integrated terminal work (11-12)
      unfamiliar normalized report was completed and verified with focused
      guidance; independent milestone performance remains to be tested
 
-7. `[ ]` **Linux environment, filesystem layout, and access**
+7. `[>]` **Linux environment, filesystem layout, and access**
    - Use a disposable Linux VM and distinguish Linux from macOS observations
    - Distributions, release information, shell versus kernel, and command paths
    - `/etc`, `/var`, `/tmp`, `/run`, `/dev`, `/proc`, `/sys`, and home directories
@@ -167,15 +167,22 @@ after a functional `tee` cue. Immediate status capture, combined routing, and
 variable/command-substitution integration remain review items rather than
 blocking forward progress.
 
-Phase 6 is current. Introductory work now covers literal and regular-expression
-searching, field selection, normalization, grouping and ranking, horizontal
-pairing with `paste`, file comparison with unified `diff`, key-based `join`,
-stdin-to-argument conversion with `xargs`, substitutions with `sed`, and
-field-based filtering and aggregation with `awk`. An unfamiliar report was
-correctly produced and verified after focused correction of normalization
-order, so the milestone remains GUIDED. Next, complete the prepared local-manual
-`join` delimiter task and later reconstruct a report independently after
-spacing.
+Phase 6 introductory coverage is complete; its independent report milestone
+remains open for spaced review. On 2026-11-09 the learner independently recovered
+the `join` delimiter option and reconstructed report processing stages. Exact
+status selection required a field-boundary hint before successful verification.
+
+Phase 7 is the active teaching branch as of 2026-11-09. An existing Ubuntu VM
+is available, and distribution, kernel release, shell, and working directory
+have been inspected. Filesystem orientation, command resolution, and basic find
+searches have begun. The learner independently constructed a depth-limited
+find/xargs pipeline preserving spaced pathnames after teaching null delimiters.
+Basic ownership and permission-class selection were introduced; independent
+symbolic group/other permission removal and verification succeeded. Next:
+resume the unattempted directory read-versus-search experiment, confirming or
+recreating its disposable VM fixture first. Keep permission-class selection,
+PATH ordering, process working directories, and Phase 6 reporting in spaced
+review; broader Phase 7 filesystem/tool coverage remains open.
 
 ## Current scope boundary
 
