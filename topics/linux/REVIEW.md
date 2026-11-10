@@ -1,30 +1,44 @@
 # Review
 
-## Next session: unfinished directory-permission experiment
+## Next session: `/etc` versus `/run`
 
-- Stage: GUIDED introduction; practical read-versus-search distinction untested
-- Demonstrate: predict and observe directory listing versus access to a known
-  readable file with directory read removed but search retained; restore and
-  verify the original mode.
-- Last evidence: 2026-11-09, correctly identified that an outer directory's
-  missing traversal permission blocks access to a more permissive inner one.
-- Next: resume `labs/2026-11-09-directory-read-search.md` (still blank at close).
-  Re-establish the VM fixture and shell variable before any chmod operation.
+- Stage: GUIDED introduction; transfer question unanswered at session end
+- Demonstrate: choose persistent administrator configuration versus volatile
+  current-boot PID/socket state and explain why `/run` being `tmpfs` matters.
+- Last evidence: 2026-11-10, inspected `/run/user/1000` mode 700 and verified
+  `/run` filesystem type `tmpfs`; session ended before the comparison answer.
+- Next: begin with the two-case retrieval, then continue new Phase 7 material.
 
-## Permission-class selection and symbolic chmod
+## Permission classes, directory modes, and ownership repair
 
-- Stage: class selection GUIDED; symbolic removal INDEPENDENT in current session
-- Demonstrate: distinguish owner/group/other bits, select the applicable class
-  rather than combine classes, construct a narrow symbolic change, and verify it.
+- Stage: class selection and numeric derivation INDEPENDENT current session;
+  integrated ownership/mode repair GUIDED
+- Demonstrate: select exactly one owner/group/other class, reason about directory
+  `r/w/x`, derive numeric modes, set both mode and group ownership, and audit all
+  requested fields without reminders.
 - Why: learner thought group write grants an owner write access when owner
-  write is absent. Initially unfamiliar with all fields in `ls -l`.
-- Last evidence: 2026-11-09, correctly interpreted other read-only bits; supplied
-  `chmod u-w` produced `-r--rw-r--` and `test -w` status 1 despite group write.
-  Supplied `chmod u+w` restored `-rw-rw-r--`, verified by a new listing.
-  Subsequently independently constructed four group/other read/write removals
-  and verified `-rw-------`, preserving owner access.
-- Next review: after spacing, use a different owner/group combination to
-  reassess class selection and independently choose a narrow change.
+  write is absent. On 2026-11-10, opening retrieval corrected this independently.
+  Directory read/search predictions were independently correct; directory write
+  versus removal initially needed correction.
+- Last evidence: independently derived `750`, `750`, `640` in the integrated
+  checkpoint. Initial plan omitted group `users`; first repair repeated the
+  directory target and left the file group wrong. After prompts, final listing
+  and content check proved the complete requested state.
+- Next review: after spacing, use an unfamiliar tree and require a complete
+  owner/group/mode plan plus self-audit before declaring success.
+
+## `umask` derivation and process scope
+
+- Stage: GUIDED
+- Demonstrate: derive file/directory results for an unfamiliar mask as removed
+  bits, explain why normal files do not gain execute, and distinguish a child
+  shell's temporary mask from the interactive shell's state.
+- Last evidence: 2026-11-10, reconstructed `027` file mode `640`; corrected the
+  directory from missing group search to `750`, then verified both in a child
+  shell. Needed direct teaching for unchanged parent `0002` and a hint to use
+  `umask 0002` rather than `chmod` for restoration.
+- Next review: after other material, derive a different mask and use a guarded
+  child-shell creation experiment without a supplied result.
 
 ## Pathname boundaries through find and xargs
 
@@ -65,8 +79,11 @@
 - Last evidence: 2026-11-09, both pwd forms printed `/tmp`; after explanation,
   ran `bash -c 'cd /tmp; pwd'` from home and verified the child printed `/tmp`
   while the subsequent parent `pwd` printed `/home/raf_0411`.
-- Next review: after spacing, use a different short subprocess scenario without
-  supplying the inheritance explanation immediately beforehand.
+- 2026-11-10 update: a child changed its own umask to `027` while the interactive
+  shell remained `0002`; the learner did not independently connect this to
+  process isolation until it was explained.
+- Next review: use a different short subprocess scenario and ask what state is
+  inherited versus what the child can change in the parent.
 
 ## PATH lookup and command types
 
@@ -76,11 +93,14 @@
   ordered PATH, skipping missing candidates and stopping at the first match.
 - Why: learner initially prioritized `/usr/bin` over `/usr/local/bin` despite
   PATH order, then thought lookup stopped at the first missing candidate.
-- Last evidence: 2026-11-09, after an explicit trace, correctly stated that an
-  earlier executable would be found and run. Subsequently inspected builtin cd
-  and builtin/external pwd; causal lookup reconstruction remains untested.
+- Last evidence: 2026-11-10, initially expected `command -v cd` to print
+  nothing; actual comparison established builtin-aware shell resolution versus
+  `which` and `whereis`. Independently chose `type -a backup` when every alias,
+  function, builtin, or executable definition was requested. PATH directory
+  ordering itself was not retested. `locate` was unavailable with status 1.
 - Next review: after intervening material, use a small disposable executable
-  lookup experiment rather than another immediate verbal repetition.
+  lookup experiment for PATH ordering; integrate `type -a` only if ambiguity is
+  present. Revisit `locate` during package management rather than installing now.
 
 ## Spaced follow-up — Phase 6 text selection and frequency reports
 
@@ -164,11 +184,10 @@ worksheet or repeat long evidence audits.
 - Single-pipe routing with final output redirection — GUIDED execution, correct
   independent prediction for supplied syntax on 2026-11-07. Later require
   construction without a supplied pipeline before changing the stage.
-- Separate stdout/stderr destinations — INDEPENDENT command construction on
-  2026-11-07. Built separate file routes and added error redirection to a
-  counting pipeline; file verification needed one reminder. Recheck after
-  spacing with different data. Specifically test that an unmerged diagnostic
-  does not enter a pipe: the initial count of 3 needed a hint to become 2.
+- Separate stdout/stderr destinations — RETAINED on 2026-11-10. After spacing,
+  correctly predicted that `> /dev/null` leaves a missing-path diagnostic on
+  stderr while `2> /dev/null` discards it; both `ls` failures retained status 2.
+  No immediate isolated review is needed; integrate the distinction later.
 - Merged capture-and-count pipeline — GUIDED completion on 2026-11-07.
   Corrected omission of `tee`, extra filename after `2>&1`, and stdout/file-copy
   confusion using a partial structure. Execution and both-file verification
@@ -250,14 +269,19 @@ worksheet or repeat long evidence audits.
   checkpoint recorded only `no output`, omitted the command and returned prompt,
   and inaccurately checked the corresponding self-audit item. The separate
   verification commands did prove both stored results, but the learner could
-  not yet identify that proof independently during repair.
-- Next review: complete sections 6–8 of the guided repair, then require a fresh
-  unfamiliar task with one contiguous execution transcript, separate result
-  verification, and an honest self-audit without reconstructed evidence
+  not yet identify that proof independently during repair. On 2026-11-10, a
+  sudo/chown worksheet first recorded a baseline already at the target state;
+  a prompted rerun produced valid before/change/restore evidence. The integrated
+  permission checkpoint's own listing showed the file group still wrong after a
+  duplicated target, but another prompt was needed before repairing it.
+- Next review: require a fresh unfamiliar task with one contiguous execution
+  transcript, separate result verification, and an independent comparison of
+  every requested field before declaring completion.
 
 ## Standard streams, merging, redirection order, and `tee`
 
-- Stage: GUIDED with successful immediate applications after correction
+- Stage: separate stdout/stderr routing RETAINED; merged multi-stage routing
+  with `tee` remains GUIDED
 - Demonstrate: independently route stdin, stdout, and stderr through an
   unfamiliar multi-stage command using `2>&1`, pipes, `tee`, and final output
   redirection; apply redirections left to right and verify every destination
@@ -274,11 +298,10 @@ worksheet or repeat long evidence audits.
   checkpoint, including the exact capture and count, but expected `tee` stdout
   on the terminal and could not reconstruct the second pipe as connecting
   `tee` stdout to `wc` stdin. A worked example was supplied after the learner
-  requested one; the guided retry was not attempted before session end.
-- Next review: finish sections 6–8 of
-  `labs/2026-11-05-phase5-stream-routing-repair.md` without rerunning the
-  original pipeline; then test the same channel model with a shorter different
-  pipeline before considering a stage change
+  requested one. On 2026-11-10, independently retrieved separate stdout/stderr
+  routing with `/dev/null`; this does not establish merged or `tee` routing.
+- Next review: use one short unfamiliar merged `tee` pipeline with two output
+  destinations; do not reopen the old November 5 repair worksheet.
 
 ## Pager temporary state versus stored file
 

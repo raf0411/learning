@@ -1,6 +1,45 @@
 # Learner State
 
-## Current checkpoint — 2026-11-09
+## Current checkpoint — 2026-11-10
+
+- Directory read versus search — INDEPENDENT current session. Correctly
+  predicted and verified both inverse cases: `-wx` blocked listing but allowed
+  known-file access; `rw-` allowed name listing but blocked traversal. Restored
+  each disposable mode and verified it.
+- Directory write versus file write — GUIDED overall. Correctly predicted that
+  file write permits content append without directory write, but initially
+  thought directory search alone permits removal. After correction,
+  independently predicted and verified the inverse: file append failed while
+  directory `w+x` permitted removal of the write-protected entry.
+- Permission-class selection — INDEPENDENT current retrieval. Explained without
+  a hint that an owner uses owner bits and does not borrow group write.
+- Numeric `chmod` — INDEPENDENT current session. Converted `rw-r-----` and `640`
+  both ways, applied and verified `640`, and derived directory `750` as
+  `rwxr-x---`.
+- `umask` — GUIDED. After the mask-as-eraser explanation, derived file `640`
+  and corrected directory `750` for `027`; a child-shell experiment verified
+  both. Process-local scope and `umask 0002` restoration needed teaching/hints.
+- Group/user ownership and `sudo` — GUIDED. Predicted and verified `chgrp`
+  effects and restoration, observed unprivileged `chown` failure, distinguished
+  effective identities with `id` versus `sudo -u root id`, and completed a
+  privileged root-ownership change/restoration after repairing baseline evidence.
+- Integrated permission repair — GUIDED. Independently derived and applied
+  modes `750`, `750`, and `640`; initially omitted all group-owner changes and
+  later repeated one target. Final evidence verified group `users` on all three
+  objects, exact modes, and unchanged content.
+- Command discovery — GUIDED with independent immediate tool choice. Initially
+  expected `command -v cd` to print nothing; actual comparisons established
+  `command -v`, `type -a`, `which`, and `whereis` roles. Independently chose
+  `type -a` for all shell-visible definitions. `locate` is unavailable (status 1).
+- `/dev/null` and separated streams — INDEPENDENT after spacing. Predicted zero
+  bytes on read and correctly distinguished visible stderr under `> /dev/null`
+  from discarded stderr under `2> /dev/null`; both failed `ls` commands retained
+  status 2.
+- `/sys` and `/run` orientation — GUIDED. Inspected network-class symlinks and
+  operstate, private `/run/user/1000`, and `/run` as `tmpfs`. Persistent `/etc`
+  configuration versus current-boot `/run` state remains the next retrieval.
+
+## Previous checkpoint — 2026-11-09
 
 - Environment: learner's Ubuntu VM reported Ubuntu 26.04.1 LTS, kernel
   `7.0.0-31-generic`, Bash, user/home `raf_0411` / `/home/raf_0411`, uid/gid
@@ -40,7 +79,7 @@
   directory traversal restrictions block access despite inner group rwx.
   Read-versus-search experiment is prepared but unattempted.
 
-## Latest checkpoint — 2026-11-08
+## Earlier checkpoint — 2026-11-08
 
 - Independently constructed and verified a last-two-line capture/count command
   that works through default zsh MULTIOS. Its file-plus-pipe behavior was
@@ -407,18 +446,16 @@
 
 ## Current learning edge
 
-Phase 7 is active: directory read versus search permissions. Resume
-`labs/2026-11-09-directory-read-search.md`, whose predictions and execution
-sections are still blank. Confirm the VM fixture and `find_lab` variable before
-modification; recreate a disposable fixture if needed rather than trusting a
-historical /tmp path. Last observed modes: outer lab `drwx------`, app
-`drwxrwxr-x`, root.log `-rw-------`.
+Phase 7 is active. Resume with the unanswered `/etc` versus `/run` distinction:
+persistent administrator configuration belongs under `/etc`, while current-boot
+PID/socket state belongs under `/run`. Continue filesystem/tool orientation
+after retrieval rather than repeating today's permission labs immediately.
 
 Phase 6's independent report milestone remains open for spaced review. Briefly
-retrieve permission-class selection when useful; later interleave PATH order,
-process inheritance, exact field selection, and find/xargs retention. Do not
-repeat all completed exercises at session start. Prefer actual command/output
-and avoid requiring redundant written explanations or compact command rewrites.
+interleave PATH order, umask process scope, combined ownership/mode repair,
+exact field selection, and find/xargs retention. Numeric modes need no immediate
+repeat; group ownership integration and evidence self-audit do. Prefer actual
+command/output and avoid redundant written explanations.
 
 Detailed history is in sessions/; earlier checkpoint summaries above describe
 prior evidence, while this checkpoint controls current stages and next steps.

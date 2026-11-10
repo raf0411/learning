@@ -172,17 +172,21 @@ remains open for spaced review. On 2026-11-09 the learner independently recovere
 the `join` delimiter option and reconstructed report processing stages. Exact
 status selection required a field-boundary hint before successful verification.
 
-Phase 7 is the active teaching branch as of 2026-11-09. An existing Ubuntu VM
+Phase 7 is the active teaching branch as of 2026-11-10. An existing Ubuntu VM
 is available, and distribution, kernel release, shell, and working directory
 have been inspected. Filesystem orientation, command resolution, and basic find
 searches have begun. The learner independently constructed a depth-limited
 find/xargs pipeline preserving spaced pathnames after teaching null delimiters.
-Basic ownership and permission-class selection were introduced; independent
-symbolic group/other permission removal and verification succeeded. Next:
-resume the unattempted directory read-versus-search experiment, confirming or
-recreating its disposable VM fixture first. Keep permission-class selection,
-PATH ordering, process working directories, and Phase 6 reporting in spaced
-review; broader Phase 7 filesystem/tool coverage remains open.
+Directory `r/w/x`, numeric modes, `umask`, `chgrp`, privileged `chown`, and basic
+`sudo` identity were exercised on disposable fixtures. Numeric-mode derivation
+and directory read/search predictions were independent; the integrated access
+repair needed prompts for group ownership and evidence auditing. Command lookup
+now includes actual comparisons of `command -v`, `type -a`, `which`, and
+`whereis`; `locate` is unavailable and can be revisited with packages. `/dev`,
+`/sys`, and `/run` inspection has begun. Next: retrieve `/etc` versus `/run`,
+continue the remaining filesystem/tool coverage, and later reassess umask scope
+plus combined ownership/mode repair after spacing. Keep PATH ordering, process
+inheritance, find/xargs, and Phase 6 reporting in interleaved review.
 
 ## Current scope boundary
 
