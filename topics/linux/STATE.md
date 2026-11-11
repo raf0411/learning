@@ -1,6 +1,37 @@
 # Learner State
 
-## Current checkpoint — 2026-11-10
+## Current checkpoint — 2026-11-11 (session complete)
+
+- Package inspection and installation — GUIDED. Used supplied dpkg-query and
+  apt-cache commands to inspect file ownership, metadata, dependencies, and
+  installed/candidate versions. Completed simulated then real locate installation
+  on Ubuntu and verified installed version plus shell resolution. Recalled
+  apt-cache policy with confirmation on final verification; earlier tool
+  selection needed the complete command. Retrieved command -v after a cue.
+- Repository catalog freshness — GUIDED. Initially thought apt-cache policy
+  fetches current web information because it displays a repository URL.
+  After explanation, correctly identified Candidate as the field that may
+  change after catalog refresh. No catalog refresh or upgrade performed today.
+- Integrated ownership/mode repair — INDEPENDENT. Derived directory modes
+  710 and 770 plus file mode 660 from a new access policy; changed all three
+  group owners to users, preserved user ownership and content, and supplied
+  correct before/after evidence without repair hints. Evidence capture and
+  self-audit were independent in this lab; retention remains untested.
+- Configuration/runtime/kernel views — GUIDED. Correctly chose `/etc` and
+  `/run`, but rationale required teaching. Inspected a PID file, socket, live
+  process, and `/proc` status using supplied commands. Initially thought editing
+  a PID record changes the actual PID, then thought a reader would still use
+  the actual PID despite changed contents. After explanation, correctly stated
+  that file contents change while the actual PID does not; independent transfer
+  remains untested.
+- `umask` — GUIDED, with recurring bit-removal errors. For `022`, initially
+  predicted file `444` and directory `744`; class-specific hints led to `644`
+  and `755`. Supplied subshell experiment verified both on the Ubuntu VM.
+  Correctly answered that the parenthesized change affects only the subshell
+  after the scope explanation earlier in the session; parent-shell mask has
+  not been read today.
+
+## Previous checkpoint — 2026-11-10
 
 - Directory read versus search — INDEPENDENT current session. Correctly
   predicted and verified both inverse cases: `-wx` blocked listing but allowed
@@ -446,15 +477,18 @@
 
 ## Current learning edge
 
-Phase 7 is active. Resume with the unanswered `/etc` versus `/run` distinction:
-persistent administrator configuration belongs under `/etc`, while current-boot
-PID/socket state belongs under `/run`. Continue filesystem/tool orientation
-after retrieval rather than repeating today's permission labs immediately.
+Phase 7's practical milestone is complete. Phase 8 has progressed through guided
+package/dependency/catalog inspection and a verified locate installation.
+Next inspect locate's indexed search behavior; its index existence/freshness
+has not been checked. The proposed `ls -l /etc/passwd` and `locate /etc/passwd`
+comparison was not attempted before session end. Later continue package search/inspection, safe removal,
+and update concepts without assuming introductory execution is independence.
+Runtime records versus process identity and umask still need later retrieval.
 
 Phase 6's independent report milestone remains open for spaced review. Briefly
 interleave PATH order, umask process scope, combined ownership/mode repair,
-exact field selection, and find/xargs retention. Numeric modes need no immediate
-repeat; group ownership integration and evidence self-audit do. Prefer actual
+exact field selection, and find/xargs retention. Numeric modes, group ownership,
+and evidence self-audit need no immediate repeat after the successful lab. Prefer actual
 command/output and avoid redundant written explanations.
 
 Detailed history is in sessions/; earlier checkpoint summaries above describe

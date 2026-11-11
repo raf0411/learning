@@ -78,7 +78,7 @@ Bash automation and integrated terminal work (11-12)
      unfamiliar normalized report was completed and verified with focused
      guidance; independent milestone performance remains to be tested
 
-7. `[>]` **Linux environment, filesystem layout, and access**
+7. `[x]` **Linux environment, filesystem layout, and access**
    - Use a disposable Linux VM and distinguish Linux from macOS observations
    - Distributions, release information, shell versus kernel, and command paths
    - `/etc`, `/var`, `/tmp`, `/run`, `/dev`, `/proc`, `/sys`, and home directories
@@ -87,12 +87,17 @@ Bash automation and integrated terminal work (11-12)
      `umask`, and basic `sudo` usage
    - Milestone: orient in an unfamiliar Linux host, locate requested resources,
      and repair a standard permission problem safely
+   - Completed for curriculum progression 2026-11-11 with independent combined
+     ownership/mode repair; umask and runtime-record reasoning remain in review
 
-8. `[ ]` **Packages and installed software**
+8. `[>]` **Packages and installed software**
    - Package, repository, dependency, and update concepts
    - Basic Debian-family (`apt`, `dpkg`) and Red Hat-family (`dnf`, `rpm`) usage
    - Search, inspect, install, update, and remove a test package; verify the result
    - Milestone: use documentation to manage unfamiliar test software safely
+   - Began 2026-11-11: guided package/dependency/catalog inspection and verified
+     locate installation after simulation. Index behavior is next; update/removal
+     practice and independent milestone performance remain open
 
 9. `[ ]` **Processes, jobs, and resource monitoring**
    - PID/PPID, foreground and background jobs, sessions, and signals
@@ -172,21 +177,21 @@ remains open for spaced review. On 2026-11-09 the learner independently recovere
 the `join` delimiter option and reconstructed report processing stages. Exact
 status selection required a field-boundary hint before successful verification.
 
-Phase 7 is the active teaching branch as of 2026-11-10. An existing Ubuntu VM
-is available, and distribution, kernel release, shell, and working directory
-have been inspected. Filesystem orientation, command resolution, and basic find
-searches have begun. The learner independently constructed a depth-limited
-find/xargs pipeline preserving spaced pathnames after teaching null delimiters.
-Directory `r/w/x`, numeric modes, `umask`, `chgrp`, privileged `chown`, and basic
-`sudo` identity were exercised on disposable fixtures. Numeric-mode derivation
-and directory read/search predictions were independent; the integrated access
-repair needed prompts for group ownership and evidence auditing. Command lookup
-now includes actual comparisons of `command -v`, `type -a`, `which`, and
-`whereis`; `locate` is unavailable and can be revisited with packages. `/dev`,
-`/sys`, and `/run` inspection has begun. Next: retrieve `/etc` versus `/run`,
-continue the remaining filesystem/tool coverage, and later reassess umask scope
-plus combined ownership/mode repair after spacing. Keep PATH ordering, process
-inheritance, find/xargs, and Phase 6 reporting in interleaved review.
+Phase 7 is complete for curriculum progression as of 2026-11-11. Ubuntu host
+orientation, command lookup, filesystem interfaces, find/xargs, and standard
+ownership/permissions have been exercised. An independent shared-workspace
+repair correctly combined distinct directory policies, group ownership, file
+permissions, content preservation, and evidence auditing. Umask derivation,
+runtime records versus kernel identity, PATH ordering, and find/xargs retention
+remain in interleaved review.
+
+Phase 8 is active. Package metadata, dependency status, repository catalogs,
+and installed/candidate versions were inspected with guidance. locate was
+installed after a simulation and verified through package records and shell
+lookup. Next compare direct pathname inspection with locate's index; this
+experiment was unattempted at session end. Catalog refresh, upgrades, removal,
+and independent package management remain open. Phase 6's independent report
+milestone also remains open.
 
 ## Current scope boundary
 

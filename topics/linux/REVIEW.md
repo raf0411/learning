@@ -1,18 +1,38 @@
 # Review
 
-## Next session: `/etc` versus `/run`
+## Package records, command lookup, and catalog freshness
 
-- Stage: GUIDED introduction; transfer question unanswered at session end
-- Demonstrate: choose persistent administrator configuration versus volatile
-  current-boot PID/socket state and explain why `/run` being `tmpfs` matters.
-- Last evidence: 2026-11-10, inspected `/run/user/1000` mode 700 and verified
-  `/run` filesystem type `tmpfs`; session ended before the comparison answer.
-- Next: begin with the two-case retrieval, then continue new Phase 7 material.
+- Stage: GUIDED
+- Demonstrate: distinguish command resolution, installed package ownership,
+  installed version, and APT candidate; explain local catalog versus remote
+  repository and catalog refresh versus software upgrade.
+- Last evidence: 2026-11-11, inspected supplied package queries and completed
+  simulation/install/verification for locate. Initially attributed live web
+  fetching to apt-cache policy; corrected Candidate prediction after teaching.
+  Initially chose command -v for a package installed/candidate check and needed
+  the full apt-cache policy command. Later recalled policy with confirmation
+  and command -v after a cue during post-install verification.
+- Next: after intervening practice, select tools independently in an unfamiliar
+  package scenario and explain what a stale catalog can and cannot establish.
+
+## Configuration, runtime records, and actual process identity
+
+- Stage: GUIDED
+- Demonstrate: explain persistent configuration versus runtime state; distinguish
+  a PID file's contents from kernel-assigned identity and predict what a reader
+  of an incorrect record will do.
+- Last evidence: 2026-11-11, correctly selected `/etc` and `/run` but guessed
+  the latter by name. Supplied commands compared a PID record with `ps` and
+  `/proc`. Thought editing the record changes the PID, then predicted a reader
+  would use the actual PID despite edited contents. Corrected the distinction
+  after explicit teaching.
+- Next: after intervening material, use an unfamiliar stale-record scenario;
+  do not infer independence from the final prompted sentence completion.
 
 ## Permission classes, directory modes, and ownership repair
 
-- Stage: class selection and numeric derivation INDEPENDENT current session;
-  integrated ownership/mode repair GUIDED
+- Stage: class selection, numeric derivation, and integrated ownership/mode
+  repair INDEPENDENT; retention of integrated repair not yet established
 - Demonstrate: select exactly one owner/group/other class, reason about directory
   `r/w/x`, derive numeric modes, set both mode and group ownership, and audit all
   requested fields without reminders.
@@ -24,8 +44,11 @@
   checkpoint. Initial plan omitted group `users`; first repair repeated the
   directory target and left the file group wrong. After prompts, final listing
   and content check proved the complete requested state.
-- Next review: after spacing, use an unfamiliar tree and require a complete
-  owner/group/mode plan plus self-audit before declaring success.
+- 2026-11-11: independently planned and verified modes 710/770/660 and group
+  users on all three objects in a fresh workspace. Preserved user ownership
+  and content; no repair or evidence prompts were needed.
+- Next review: after several sessions, embed an access diagnosis in a different
+  task to test retention; do not repeat another isolated repair immediately.
 
 ## `umask` derivation and process scope
 
@@ -39,6 +62,11 @@
   `umask 0002` rather than `chmod` for restoration.
 - Next review: after other material, derive a different mask and use a guarded
   child-shell creation experiment without a supplied result.
+- 2026-11-11: for `022`, first predicted file `444` (removed owner write too)
+  and directory `744` (removed group/other execute too). Hints led to `644`
+  and `755`; a supplied subshell experiment verified both. Correctly answered
+  that only the subshell mask changes after same-session scope teaching.
+  Later test bit preservation and scope without preceding explanation.
 
 ## Pathname boundaries through find and xargs
 
@@ -251,7 +279,8 @@ worksheet or repeat long evidence audits.
 
 ## Complete evidence capture and self-audit
 
-- Stage: GUIDED and inconsistent
+- Stage: INDEPENDENT in the 2026-11-11 permission lab; broader consistency
+  and retention still need review
 - Demonstrate: inspect and record pre-state before modification, capture the
   exact command plus requested output/prompt evidence, and independently audit
   whether every material claim is supported before declaring completion
@@ -274,9 +303,11 @@ worksheet or repeat long evidence audits.
   a prompted rerun produced valid before/change/restore evidence. The integrated
   permission checkpoint's own listing showed the file group still wrong after a
   duplicated target, but another prompt was needed before repairing it.
-- Next review: require a fresh unfamiliar task with one contiguous execution
-  transcript, separate result verification, and an independent comparison of
-  every requested field before declaring completion.
+- 2026-11-11: complete baseline, ordered repair transcript, final metadata and
+  content verification, and correct completion judgment supplied without hints
+  in the shared-workspace lab.
+- Next review: test consistent self-audit in a later different practical task,
+  including recognition of a real mismatch if one occurs.
 
 ## Standard streams, merging, redirection order, and `tee`
 
