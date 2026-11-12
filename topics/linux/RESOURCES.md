@@ -31,6 +31,10 @@ observed machine output and installed documentation before external references.
   — upstream reference for basic service and journal behavior.
 - [Ubuntu Server documentation](https://ubuntu.com/server/docs/)
   — official Debian-family package and Linux usage guidance.
+- [Ubuntu Resolute archive Release metadata](https://archive.ubuntu.com/ubuntu/dists/resolute/Release)
+  — primary source for suite and supported architectures when diagnosing mirror
+  configuration. Directly inspected 2026-11-12; arm64 is listed on the main
+  archive. Avoid assuming historical ports-only routing applies to this release.
 - [Red Hat Enterprise Linux documentation](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/)
   — official Red Hat-family package and Linux usage guidance.
 

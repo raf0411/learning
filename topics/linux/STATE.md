@@ -1,6 +1,29 @@
 # Learner State
 
-## Current checkpoint — 2026-11-11 (session complete)
+## Current checkpoint — 2026-11-12 (session complete)
+
+- Package lifecycle and repository repair — GUIDED. Verified catalog refresh
+  after regional-mirror 404 repair, scoped two-package upgrade, and locate
+  removal then purge using supplied commands and previews. Installed/candidate
+  tool selection independently recalled: apt-cache policy for both upgraded
+  packages. Full independent package milestone remains open.
+- Catalog freshness — INDEPENDENT brief spaced verbal retrieval: explained
+  that a new remote release need not appear without local refresh. Broader
+  transfer and upgrade-versus-refresh reasoning remain to be assessed.
+- Indexed versus live search — GUIDED verified experiment. A new home file was
+  found by ls/find but absent from locate's index (status 1).
+- Find construction — GUIDED on spaced review, superseding earlier independent
+  same-session evidence. Full transcript revealed confusion between starting
+  pathname and basename pattern; depth/type/dot constraints needed hints before
+  successful execution. Local --help/man consulted.
+- System-change evidence — backup before repository edit not demonstrated.
+  Actual successful source used HTTP archive rather than suggested HTTPS;
+  signature checks were not bypassed. Do not infer a backup from instructions.
+- Next: independent read-only package plan in
+  labs/2026-11-12-package-plan.md, confirmed unattempted at session end.
+  Details in sessions/2026-11-12.md.
+
+## Previous checkpoint — 2026-11-11 (session complete)
 
 - Package inspection and installation — GUIDED. Used supplied dpkg-query and
   apt-cache commands to inspect file ownership, metadata, dependencies, and
@@ -479,10 +502,11 @@
 
 Phase 7's practical milestone is complete. Phase 8 has progressed through guided
 package/dependency/catalog inspection and a verified locate installation.
-Next inspect locate's indexed search behavior; its index existence/freshness
-has not been checked. The proposed `ls -l /etc/passwd` and `locate /etc/passwd`
-comparison was not attempted before session end. Later continue package search/inspection, safe removal,
-and update concepts without assuming introductory execution is independence.
+On 2026-11-12, verified locate's indexed behavior against a fresh file, repaired
+an APT mirror failure with guidance, refreshed catalogs, upgraded two packages,
+and verified locate removal and purge. Next complete the independent read-only
+package plan before any further package changes; introductory execution does
+not establish independent lifecycle management.
 Runtime records versus process identity and umask still need later retrieval.
 
 Phase 6's independent report milestone remains open for spaced review. Briefly

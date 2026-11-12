@@ -2,7 +2,8 @@
 
 ## Package records, command lookup, and catalog freshness
 
-- Stage: GUIDED
+- Stage: lifecycle GUIDED; installed/candidate tool choice and brief catalog
+  freshness explanation INDEPENDENT on 2026-11-12
 - Demonstrate: distinguish command resolution, installed package ownership,
   installed version, and APT candidate; explain local catalog versus remote
   repository and catalog refresh versus software upgrade.
@@ -12,8 +13,14 @@
   Initially chose command -v for a package installed/candidate check and needed
   the full apt-cache policy command. Later recalled policy with confirmation
   and command -v after a cue during post-install verification.
-- Next: after intervening practice, select tools independently in an unfamiliar
-  package scenario and explain what a stale catalog can and cannot establish.
+- 2026-11-12: independently recalled that a remote release need not appear
+  without local refresh, and chose apt-cache policy for both upgraded packages.
+  Completed guided mirror repair, refresh, scoped two-package upgrade, and
+  locate remove/purge with verification. Interpreting dependencies, preview
+  plans, phased rollout, and retained config was taught, not independently tested.
+- Next: unattempted labs/2026-11-12-package-plan.md tests tool selection and
+  simulation planning on tree. Later distinguish remove/purge and local package
+  records from available candidates without a supplied interpretation.
 
 ## Configuration, runtime records, and actual process identity
 
@@ -84,8 +91,8 @@
 
 ## Find starting path and combined filters
 
-- Stage: INDEPENDENT depth/type/name construction in the current lab; earlier
-  home-root selection was GUIDED
+- Stage: GUIDED on 2026-11-12 spaced review; earlier same-session independent
+  construction did not establish retention
 - Demonstrate: choose the requested search root, constrain depth, and combine
   a file-type test with a quoted name pattern without procedural hints.
 - Why: first construction used `/home` instead of the user's home and omitted
@@ -94,8 +101,13 @@
   independently constructed `find "$find_lab" -maxdepth 2 -type f -name '*.log'`
   and an unlimited-depth variant. Verified two versus three matches and correctly
   predicted inclusion of `app/archive/old.log` in the unrestricted search.
-- Next review: after the depth lab and some spacing, use a different requested
-  starting directory and file selection.
+- 2026-11-12: full transcript showed patterns placed in quoted starting paths,
+  regex-like ^, nested literal quotes, and full paths passed to -name. Eventually
+  separated home root and basename pattern, but omitted depth/type and literal
+  dot until hinted. Final command/output correct; --help/man consulted.
+- Next review: after other material, separate search root from basename filter
+  in a fresh read-only task, then integrate depth/type without supplied options.
+  Also distinguish live find traversal from locate's indexed results.
 
 ## Parent and child working directories
 
@@ -306,8 +318,12 @@ worksheet or repeat long evidence audits.
 - 2026-11-11: complete baseline, ordered repair transcript, final metadata and
   content verification, and correct completion judgment supplied without hints
   in the shared-workspace lab.
+- 2026-11-12: repository repair succeeded, but the supplied pre-edit backup
+  command/output was absent from the fuller transcript; backup remains unverified.
+  Actual source used HTTP rather than suggested HTTPS. Do not equate successful
+  refresh with proof that every requested safety step was performed.
 - Next review: test consistent self-audit in a later different practical task,
-  including recognition of a real mismatch if one occurs.
+  including a verified pre-change backup and recognition of a real mismatch.
 
 ## Standard streams, merging, redirection order, and `tee`
 

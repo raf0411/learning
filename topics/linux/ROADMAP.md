@@ -95,9 +95,10 @@ Bash automation and integrated terminal work (11-12)
    - Basic Debian-family (`apt`, `dpkg`) and Red Hat-family (`dnf`, `rpm`) usage
    - Search, inspect, install, update, and remove a test package; verify the result
    - Milestone: use documentation to manage unfamiliar test software safely
-   - Began 2026-11-11: guided package/dependency/catalog inspection and verified
-     locate installation after simulation. Index behavior is next; update/removal
-     practice and independent milestone performance remain open
+   - Guided lifecycle work completed 2026-11-12: indexed-search comparison,
+     repository repair, catalog refresh, scoped upgrade, removal, and purge.
+     Next: independent read-only package plan; full independent milestone and
+     introductory Red Hat-family coverage remain open
 
 9. `[ ]` **Processes, jobs, and resource monitoring**
    - PID/PPID, foreground and background jobs, sessions, and signals
@@ -185,13 +186,13 @@ permissions, content preservation, and evidence auditing. Umask derivation,
 runtime records versus kernel identity, PATH ordering, and find/xargs retention
 remain in interleaved review.
 
-Phase 8 is active. Package metadata, dependency status, repository catalogs,
-and installed/candidate versions were inspected with guidance. locate was
-installed after a simulation and verified through package records and shell
-lookup. Next compare direct pathname inspection with locate's index; this
-experiment was unattempted at session end. Catalog refresh, upgrades, removal,
-and independent package management remain open. Phase 6's independent report
-milestone also remains open.
+Phase 8 is active. Guided practical coverage now includes package metadata,
+installation, locate's index versus live search, a real repository failure and
+repair, catalog refresh, scoped upgrade, removal, and purge. Verification was
+completed for the upgrade and cleanup. Next resume the unattempted independent
+read-only tree package plan in labs/2026-11-12-package-plan.md. Full independent
+package management and introductory Red Hat-family coverage remain open, as
+does Phase 6's independent report milestone.
 
 ## Current scope boundary
 
