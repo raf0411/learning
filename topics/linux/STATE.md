@@ -1,6 +1,27 @@
 # Learner State
 
-## Current checkpoint — 2026-11-12 (session complete)
+## Current checkpoint — 2026-11-12 (latest continuation complete)
+
+- Resource interpretation — GUIDED. Chose available rather than free RAM but
+  explicitly could not identify needed workload-demand evidence. Load/sample-window
+  reasoning required teaching. Actual VM available RAM 558Mi, swap 0B at inspection;
+  this is a historical snapshot, not current guaranteed capacity.
+- Directory usage command — INDEPENDENT construction of du -sh /var/log.
+  Permission-limited totals — GUIDED, unresolved misconception: after explanation,
+  selected that du could count everything because only content reading is blocked.
+  Directory traversal/metadata access versus file-content access needs retrieval.
+- Process discovery — GUIDED execution of pgrep -a -x sleep and PID inspection.
+  Parent-name query — INDEPENDENT immediate construction: adapted ps to verify
+  recorded parent PID 8171 as bash without a supplied command.
+- Running versus S — GUIDED, recurring misconception. Selected continuous CPU
+  execution for a Running job despite S state; distinction retaught, not yet
+  independently retrieved. Two quizzes in this continuation: both incorrect.
+- Next: unattempted top -o %MEM inspection, capturing headings and first five
+  process rows after two refreshes. RES/%MEM/VIRT introduced only. Do not restart
+  the completed resource worksheet. Timer 9290 exit was not observed; old IDs
+  are historical, never targets for action without fresh verification.
+
+## Earlier checkpoint — 2026-11-12
 
 - Tree package checkpoint — GUIDED overall. Independently selected shell lookup,
   installed/candidate queries, simulation, and later the privileged installation
@@ -555,9 +576,12 @@ Phase 9 has begun with guided foreground/background timers, jobs, PID/PPID,
 process-state inspection, and normal completion. Job-control lab completed with
 support; fresh PID inspection, targeted TERM, and exit verification independently
 performed in the current session. Resource tools introduced with actual CPU,
-RAM, and disk observations; broad interpretation remains guided. Next resume
-labs/2026-11-12-resource-triage.md before adding more monitoring material. State
-interpretation, complete parent evidence, and escalation reasoning need review.
+RAM, and disk observations; broad interpretation remains guided. Resource triage has now been attempted: available-RAM selection and
+scoped du construction succeeded, but workload-demand reasoning and permission-limited
+totals required teaching. Running versus S remained incorrect on retrieval.
+Parent-name query construction subsequently succeeded independently. Next resume
+the unattempted top -o %MEM memory inspection. State interpretation, directory
+traversal effects, and escalation reasoning need later review.
 Runtime records versus process identity and umask still need later retrieval.
 
 Phase 6's independent report milestone remains open for spaced review. Briefly

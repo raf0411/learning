@@ -11,9 +11,17 @@
   recognized available RAM as more relevant than free but overclaimed no worry.
   Independently built/executed home-directory du; RAM versus disk explanation
   needed a terminology correction. Supplied resource commands executed correctly.
-- Next: unattempted labs/2026-11-12-resource-triage.md at next session start.
-  Detailed wa interpretation is not yet taught; do not demand unfamiliar facts
-  as though learned. Later test independent diagnosis from fresh actual output.
+- Latest 2026-11-12 continuation: worksheet attempted. Independently selected
+  available RAM and constructed du -sh /var/log; explicitly did not know to
+  compare application demand with available RAM. Tutor explained demand, load
+  contributors/time windows, and wa accounting. Actual free -h inspected with
+  tutor interpretation (558Mi available, no swap); independent diagnosis untested.
+- Permission-limited totals remain a gap: claimed du can count everything, then
+  chose the same misconception in a quiz after teaching. Directory traversal and
+  metadata access versus file-content reading were retaught.
+- Next: unattempted top -o %MEM memory inspection. Later retrieve demand versus
+  capacity and permission-limited du evidence in short unfamiliar scenarios.
+  Do not reopen the completed worksheet for another full pass.
 
 ## Program instances, jobs, and process inspection
 
@@ -27,9 +35,16 @@
   omitted, then constructed after reminder; Bash verified after termination.
   Running versus S needed explanation again. Reasons to wait/inspect before
   KILL, including cleanup and zombies, were taught, not independently applied.
+- Latest 2026-11-12 continuation: supplied pgrep/ps commands discovered timer
+  9290 and parent 8171. Independently constructed ps -p 8171 -o pid,comm and
+  verified bash. Running-versus-S quiz incorrectly selected continuous CPU
+  execution; distinction retaught, no independent corrected retrieval yet.
 - Next: after spacing, inspect/control a fresh disposable process with complete
   parent evidence. Recheck state interpretation and justified escalation; no
-  immediate repeat of the successful TERM lab.
+  immediate repeat of the successful TERM lab. All recorded IDs are historical.
+- Quiz checkpoint 2026-11-12 continuation: 2 questions, 0 correct, 2 incorrect,
+  0 I-don't-know selections. Topics: incomplete du totals and Running versus S.
+  Both remain scheduled for review; detailed responses are in the session record.
 
 ## Package records, command lookup, and catalog freshness
 

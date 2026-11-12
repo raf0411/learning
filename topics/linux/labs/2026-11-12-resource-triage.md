@@ -14,7 +14,7 @@ A colleague says this proves CPU execution is at 100% and wants to kill a proces
 Does the evidence support that conclusion? What could contribute to the high
 load, and what limits a comparison of these two measurements?
 
-TODO
+No, the 20% I/O wait, a CPU usage and load average are not good compariso between these two measurements
 
 ## B. “Almost no free RAM”
 
@@ -24,7 +24,7 @@ Does this snapshot alone justify declaring a RAM shortage? Explain which
 number matters more for starting another application, and one thing you would
 still need to know before declaring there is no problem.
 
-TODO
+No, because free doesn't mean its all the free space in RAM left, the 3 GB available is a better starting point, i honestly don't know what one additional fact we need
 
 ## C. “Where did the disk space go?”
 
@@ -35,12 +35,12 @@ summary—not inspect RAM or repeat the whole-filesystem capacity check.
 Write the read-only command you would choose:
 
 ```bash
-# TODO
+du -sh /var/log
 ```
 
 If that command returns permission errors, would its reported total establish
 the complete usage of /var/log? Briefly explain; do not propose deletion yet.
 
-TODO
+it can count size of everything beneath a directory but doesn't inspect the filesystem
 
 Tell the tutor when the worksheet is ready.

@@ -109,8 +109,9 @@ Bash automation and integrated terminal work (11-12)
    - Began 2026-11-12: guided foreground/background timers, jobs, PID/PPID,
      process-state inspection, and normal completion. Guided job-control lab and
      independent targeted TERM/exit verification completed. Resource tools
-     introduced; next assess the unattempted resource-triage worksheet.
-     State/resource interpretation and escalation remain guided; pgrep pending
+     introduced; resource triage attempted and guided pgrep discovery completed.
+     Parent-name query independently constructed. Next: top memory inspection.
+     State/resource interpretation and escalation remain guided
 
 10. `[ ]` **Services, logs, scheduling, and basic networking**
     - Basic `systemctl` service status/start/stop/restart behavior
@@ -207,9 +208,11 @@ Guided job-control practice and independent fresh-PID inspection, targeted TERM,
 and exit verification succeeded. Parent-name evidence needed a reminder.
 Resource monitoring now includes uptime/nproc/top, free, df, and du; home-directory
 usage construction succeeded independently, while resource interpretation remains
-guided. Next resume labs/2026-11-12-resource-triage.md (unattempted), then continue
-process discovery and resource diagnosis. State interpretation and escalation
-reasoning remain guided; Phase 9 milestone not yet complete.
+guided. Resource triage attempted and guided pgrep discovery completed; a parent-name
+query was independently constructed. Next resume the unattempted top -o %MEM
+inspection. Permission-limited du totals and Running versus S remain misconceptions
+requiring later retrieval. State interpretation and escalation reasoning remain
+guided; Phase 9 milestone not yet complete.
 
 ## Current scope boundary
 
