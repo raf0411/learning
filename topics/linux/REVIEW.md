@@ -1,5 +1,36 @@
 # Review
 
+## CPU load, available RAM, and disk scope
+
+- Stage: interpretation GUIDED; immediate home-directory du construction
+  INDEPENDENT (2026-11-12)
+- Demonstrate: distinguish Linux load from CPU utilization, account for sampling
+  windows/non-CPU contributions, interpret free versus available RAM without
+  assuming either shortage or safety, and select df versus du by scope.
+- Evidence: guessed load 4 on two CPUs guarantees 100% CPU. After teaching,
+  recognized available RAM as more relevant than free but overclaimed no worry.
+  Independently built/executed home-directory du; RAM versus disk explanation
+  needed a terminology correction. Supplied resource commands executed correctly.
+- Next: unattempted labs/2026-11-12-resource-triage.md at next session start.
+  Detailed wa interpretation is not yet taught; do not demand unfamiliar facts
+  as though learned. Later test independent diagnosis from fresh actual output.
+
+## Program instances, jobs, and process inspection
+
+- Stage: fresh PID inspection, targeted TERM, and exit verification INDEPENDENT
+  current session; job control, state interpretation, and escalation GUIDED
+- Demonstrate: distinguish executable/process, job ID/PID, background/stopped,
+  and Running/S; inspect fresh identity and parent; terminate safely and verify.
+- Evidence 2026-11-12: guided Ctrl-Z/bg/fg/Ctrl-C lab succeeded. Independent
+  checkpoint inspected sleep 8759, sent TERM to verified job 1, checked jobs
+  and ps, and correctly concluded no further action. Parent-name query initially
+  omitted, then constructed after reminder; Bash verified after termination.
+  Running versus S needed explanation again. Reasons to wait/inspect before
+  KILL, including cleanup and zombies, were taught, not independently applied.
+- Next: after spacing, inspect/control a fresh disposable process with complete
+  parent evidence. Recheck state interpretation and justified escalation; no
+  immediate repeat of the successful TERM lab.
+
 ## Package records, command lookup, and catalog freshness
 
 - Stage: lifecycle GUIDED; installed/candidate tool choice and brief catalog
@@ -18,9 +49,14 @@
   Completed guided mirror repair, refresh, scoped two-package upgrade, and
   locate remove/purge with verification. Interpreting dependencies, preview
   plans, phased rollout, and retained config was taught, not independently tested.
-- Next: unattempted labs/2026-11-12-package-plan.md tests tool selection and
-  simulation planning on tree. Later distinguish remove/purge and local package
-  records from available candidates without a supplied interpretation.
+- Resumed 2026-11-12: tree plan independently retrieved lookup, policy, and
+  simulation commands; real privileged installation command also constructed
+  independently. Metadata retrieval and approval reasoning needed direct help;
+  verification pair supplied after command/package distinction teaching.
+  Actual installation verified tree 2.3.1-1 and /usr/bin/tree.
+- Next: after spacing, interpret metadata/dependencies and all proposed actions,
+  justify approval, and select complementary verification without hints. Later
+  distinguish remove/purge and local records from available candidates.
 
 ## Configuration, runtime records, and actual process identity
 
@@ -286,8 +322,12 @@ worksheet or repeat long evidence audits.
 - Last evidence: 2026-11-09, independently extracted `-t char` from `man join`,
   identified both syntax roles, supplied a comma, and correctly predicted and
   verified the joined output in `labs/2026-11-08-join-docs-transfer.md`.
-- Next review: after several sessions, recover a required option argument for
-  another practical task without a supplied syntax pattern; test retention.
+- 2026-11-12: independently recovered and ran `tree /usr/local -L 2`, with
+  output meeting the requested depth. Fuller transcript showed repeated wrong
+  --filelimit choices and missing/malformed arguments before independent manual
+  recovery to -L 2 and comparison against unrestricted output. Required-option
+  documentation application is RETAINED as self-correcting performance, not
+  first-try fluency. Later integrate semantic option selection and result checks.
 
 ## Complete evidence capture and self-audit
 

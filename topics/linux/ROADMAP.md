@@ -97,14 +97,20 @@ Bash automation and integrated terminal work (11-12)
    - Milestone: use documentation to manage unfamiliar test software safely
    - Guided lifecycle work completed 2026-11-12: indexed-search comparison,
      repository repair, catalog refresh, scoped upgrade, removal, and purge.
-     Next: independent read-only package plan; full independent milestone and
-     introductory Red Hat-family coverage remain open
+     Resumed tree plan/install completed with guidance; independent inspection
+     and simulation choices succeeded, but approval reasoning needed teaching.
+     Red Hat-family roles introduced conceptually; independent milestone open
 
-9. `[ ]` **Processes, jobs, and resource monitoring**
+9. `[>]` **Processes, jobs, and resource monitoring**
    - PID/PPID, foreground and background jobs, sessions, and signals
    - `ps`, `pgrep`, `jobs`, `bg`, `fg`, `top`, `free`, `uptime`, `df`, and `du`
    - Safe TERM -> wait -> inspect -> conditional KILL -> verify workflow
    - Milestone: investigate and control a disposable process from evidence
+   - Began 2026-11-12: guided foreground/background timers, jobs, PID/PPID,
+     process-state inspection, and normal completion. Guided job-control lab and
+     independent targeted TERM/exit verification completed. Resource tools
+     introduced; next assess the unattempted resource-triage worksheet.
+     State/resource interpretation and escalation remain guided; pgrep pending
 
 10. `[ ]` **Services, logs, scheduling, and basic networking**
     - Basic `systemctl` service status/start/stop/restart behavior
@@ -189,10 +195,21 @@ remain in interleaved review.
 Phase 8 is active. Guided practical coverage now includes package metadata,
 installation, locate's index versus live search, a real repository failure and
 repair, catalog refresh, scoped upgrade, removal, and purge. Verification was
-completed for the upgrade and cleanup. Next resume the unattempted independent
-read-only tree package plan in labs/2026-11-12-package-plan.md. Full independent
-package management and introductory Red Hat-family coverage remain open, as
-does Phase 6's independent report milestone.
+completed for the upgrade and cleanup. The resumed tree plan/install succeeded
+with guidance in metadata and approval reasoning; independent command selection
+and bounded tree execution were demonstrated. Red Hat-family roles introduced
+conceptually, without execution. Full independent package management remains
+open, as does Phase 6's independent report milestone.
+
+Phase 9 began with guided timers and process inspection: foreground waiting,
+background jobs, PID/PPID, Bash parentage, S state, and normal completion.
+Guided job-control practice and independent fresh-PID inspection, targeted TERM,
+and exit verification succeeded. Parent-name evidence needed a reminder.
+Resource monitoring now includes uptime/nproc/top, free, df, and du; home-directory
+usage construction succeeded independently, while resource interpretation remains
+guided. Next resume labs/2026-11-12-resource-triage.md (unattempted), then continue
+process discovery and resource diagnosis. State interpretation and escalation
+reasoning remain guided; Phase 9 milestone not yet complete.
 
 ## Current scope boundary
 

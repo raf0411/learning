@@ -2,6 +2,50 @@
 
 ## Current checkpoint — 2026-11-12 (session complete)
 
+- Tree package checkpoint — GUIDED overall. Independently selected shell lookup,
+  installed/candidate queries, simulation, and later the privileged installation
+  command. Metadata retrieval, dependency/approval reasoning, and complementary
+  verification needed teaching. Installed tree 2.3.1-1 on Ubuntu; supplied checks
+  verified Installed/Candidate 2.3.1-1 and resolution to /usr/bin/tree. Functional
+  execution subsequently verified; full independent package milestone open.
+
+- Bounded tree display/documentation — RETAINED required-option application:
+  independently constructed and verified `tree /usr/local -L 2` after the earlier
+  spaced join-manual success. Fuller transcript showed initial --filelimit/depth
+  confusion and malformed/missing arguments, followed by independent manual
+  recovery and output comparison. Successful self-correction, not first-try fluency.
+- Package ownership lookup — GUIDED: initially selected status (-s), then found
+  ownership search (-S) after a conceptual/manual hint and verified the owner.
+  Catalog refresh versus installed upgrade independently explained again.
+- Processes and jobs — GUIDED introduction. Program/process distinction needed
+  teaching. Correctly predicted and reported foreground timer waiting; supplied
+  background/jobs/ps commands verified shell-local job number, sleep PID, Bash
+  parent, S state, and eventual Done. Subsequent checkpoint advanced practical
+  inspection and normal termination as summarized below.
+- Safe normal termination and PID inspection — INDEPENDENT current-session
+  checkpoint. Inspected fresh sleep PID 8759, selected TERM by verified job ID,
+  and verified exit with empty jobs/header-only ps; correctly declined further
+  action. Initial parent-name evidence omitted; after reminder independently
+  constructed a parent query verifying Bash. Full evidence completeness remains
+  GUIDED in this checkpoint.
+- Job control — GUIDED practical execution of Ctrl-Z, bg, fg, Ctrl-C; independently
+  recalled stop-then-background sequence verbally. Running versus S and reasons
+  not to escalate immediately required explanation; no KILL/escalation practice.
+- Resource interpretation — GUIDED. Inspected uptime/nproc/top/free/df/du.
+  Initially equated load 4 on two CPUs with guaranteed 100% CPU; corrected by
+  teaching non-CPU contributions and time windows. Free/available distinction
+  retrieved immediately, but “no need to worry” needed qualification by demand
+  and trends. RAM/disk separation recognized; available disk terminology corrected.
+- Directory disk-usage construction — INDEPENDENT immediate transfer. Selected
+  du -sh for the home directory and executed du -sh ~, recording 16M. Resource
+  diagnosis as a whole and error-limited du totals remain untested.
+- Next: labs/2026-11-12-resource-triage.md, checked and wholly unattempted at
+  session end. Then continue Phase 9 resource diagnosis/process discovery.
+  Phase 8 independent lifecycle remains open; Red Hat-family comparison
+  introduced conceptually, not executed.
+
+### Earlier checkpoint before resuming
+
 - Package lifecycle and repository repair — GUIDED. Verified catalog refresh
   after regional-mirror 404 repair, scoped two-package upgrade, and locate
   removal then purge using supplied commands and previews. Installed/candidate
@@ -19,9 +63,8 @@
 - System-change evidence — backup before repository edit not demonstrated.
   Actual successful source used HTTP archive rather than suggested HTTPS;
   signature checks were not bypassed. Do not infer a backup from instructions.
-- Next: independent read-only package plan in
-  labs/2026-11-12-package-plan.md, confirmed unattempted at session end.
-  Details in sessions/2026-11-12.md.
+- The previously unattempted package plan was completed with guidance after
+  resuming; see current checkpoint above and sessions/2026-11-12.md.
 
 ## Previous checkpoint — 2026-11-11 (session complete)
 
@@ -504,9 +547,17 @@ Phase 7's practical milestone is complete. Phase 8 has progressed through guided
 package/dependency/catalog inspection and a verified locate installation.
 On 2026-11-12, verified locate's indexed behavior against a fresh file, repaired
 an APT mirror failure with guidance, refreshed catalogs, upgraded two packages,
-and verified locate removal and purge. Next complete the independent read-only
-package plan before any further package changes; introductory execution does
-not establish independent lifecycle management.
+and verified locate removal and purge. The resumed tree plan and installation
+verified successful execution, but metadata retrieval and approval reasoning
+needed guidance. Bounded tree display succeeded independently; Red Hat-family tool roles were
+introduced conceptually. Independent lifecycle management remains unproven.
+Phase 9 has begun with guided foreground/background timers, jobs, PID/PPID,
+process-state inspection, and normal completion. Job-control lab completed with
+support; fresh PID inspection, targeted TERM, and exit verification independently
+performed in the current session. Resource tools introduced with actual CPU,
+RAM, and disk observations; broad interpretation remains guided. Next resume
+labs/2026-11-12-resource-triage.md before adding more monitoring material. State
+interpretation, complete parent evidence, and escalation reasoning need review.
 Runtime records versus process identity and umask still need later retrieval.
 
 Phase 6's independent report milestone remains open for spaced review. Briefly
