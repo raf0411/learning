@@ -1,5 +1,18 @@
 # Learner State
 
+## Current checkpoint — 2026-11-13 (session complete)
+
+- Process and parent ps query construction — RETAINED in a spaced lab: independently inspected fresh timer and verified bash parent. Shell job-status evidence needed a reminder and supplied command; complete workflow remains GUIDED.
+- Running versus S / elapsed versus CPU time — GUIDED, unresolved conceptual gap. Despite correct opening recognition, independently written answers still asserted CPU execution and waiting for signals. Two later quizzes selected continuous polling, including after time sleep 5 showed 5.005s elapsed versus 0.004s CPU. Contrasting busy-loop experiment showed 2.794s elapsed versus 2.777s CPU; taught interpretation not independently retrieved afterward.
+- Resource interpretation — GUIDED. Completed top inspection; VIRT/RES/SHR explained, not independently assessed. free -h showed 1.1Gi available and 0B swap at inspection. Incorrectly treated unused disk as automatic swap; corrected demand-risk scenario succeeded immediately after teaching.
+- Permission-limited du interpretation — correct spaced recognition of incomplete total. Both unprivileged (five errors) and privileged (no errors) /var/log inspections displayed 175M; rounding/completeness explained.
+- TERM follow-up — correct recognition of bounded cleanup wait before renewed inspection. Supplied TERM and verification commands confirmed timer exit; practical escalation remains untested. PID 4946 and parent 4582 are historical only.
+- Signal-handling experiments — GUIDED. Observed delayed cleanup after TERM, then a separate known TERM-ignoring disposable job requiring supplied KILL. Verified both exits with jobs/ps. Newline-split ps option repaired. No independent escalation decision yet; PIDs 5237/5348 are historical.
+- Integrated process workflow — INDEPENDENT in later checkpoint: complete job/process/parent evidence, fresh identity check, targeted TERM, and dual exit verification for timer 5442. No further signal correctly justified; initial Yes was inconsistent wording repaired to No. Timer exited.
+- Integrated RAM assessment — GUIDED: chose free -h independently and rejected automatic disk-to-swap use, but selected free instead of available and needed physical-damage wording corrected. Revised comparison used 1.0Gi available against 2Gi additional demand correctly after guidance.
+- top state versus %CPU — introduced only: momentary state versus CPU use over an update interval. No assessment; establish sleeping-versus-executing understanding before building further on this.
+- Next session: one brief retrieval of alive-versus-executing using the contrasting timing experiments, then adapt. Current practical process work is sufficient; interpretation remains weak. Completed labs should not be restarted. All practice jobs exited; no cleanup action pending. Detailed evidence: sessions/2026-11-13.md.
+
 ## Current checkpoint — 2026-11-12 (latest continuation complete)
 
 - Resource interpretation — GUIDED. Chose available rather than free RAM but

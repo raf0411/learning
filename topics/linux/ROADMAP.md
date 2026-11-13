@@ -110,8 +110,11 @@ Bash automation and integrated terminal work (11-12)
      process-state inspection, and normal completion. Guided job-control lab and
      independent targeted TERM/exit verification completed. Resource tools
      introduced; resource triage attempted and guided pgrep discovery completed.
-     Parent-name query independently constructed. Next: top memory inspection.
-     State/resource interpretation and escalation remain guided
+     On 2026-11-13, completed top memory inspection, guided cleanup/TERM-ignore
+     experiments with verified exits, and independent complete process inspection,
+     parent verification, fresh target check, TERM, and exit verification.
+     State/CPU-time and RAM interpretation remain guided; independent conditional
+     escalation untested. Next: brief state/CPU retrieval, then resource interpretation
 
 10. `[ ]` **Services, logs, scheduling, and basic networking**
     - Basic `systemctl` service status/start/stop/restart behavior
@@ -208,11 +211,17 @@ Guided job-control practice and independent fresh-PID inspection, targeted TERM,
 and exit verification succeeded. Parent-name evidence needed a reminder.
 Resource monitoring now includes uptime/nproc/top, free, df, and du; home-directory
 usage construction succeeded independently, while resource interpretation remains
-guided. Resource triage attempted and guided pgrep discovery completed; a parent-name
-query was independently constructed. Next resume the unattempted top -o %MEM
-inspection. Permission-limited du totals and Running versus S remain misconceptions
-requiring later retrieval. State interpretation and escalation reasoning remain
-guided; Phase 9 milestone not yet complete.
+guided. On 2026-11-13, top memory inspection and privileged/unprivileged du
+comparison were completed; incomplete-total recognition was correct. Guided
+TERM cleanup and TERM-ignoring/KILL experiments verified exits. A later integrated
+checkpoint independently completed job/process/parent inspection, fresh target
+verification, TERM, and exit checks. Process-state interpretation remains a
+significant gap: sleeping was repeatedly interpreted as CPU polling despite
+elapsed/CPU timing evidence. Contrasting busy-loop evidence was taught, not
+independently interpreted. RAM available-versus-free selection also needed
+correction. Next session: brief retrieval of alive versus executing, then adapt
+resource interpretation. Instantaneous top state versus interval %CPU introduced
+only. Full Phase 9 milestone remains open; do not repeat completed worksheets.
 
 ## Current scope boundary
 

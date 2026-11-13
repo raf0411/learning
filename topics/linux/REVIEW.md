@@ -1,5 +1,16 @@
 # Review
 
+## Latest checkpoint — 2026-11-13
+
+- Quiz evidence: 7 questions, 4 correct, 3 incorrect, 0 I-don't-know. Correct: Running/S recognition, post-correction RAM-demand risk, incomplete du totals, bounded TERM cleanup wait. Incorrect: free disk automatically becoming swap, S-state pipe wait interpreted as polling, sleep timing interpreted as continuous checking.
+- RAM/swap — GUIDED. After spacing, require demand-versus-capacity reasoning without treating spare disk as configured swap or adding buff/cache to available again. Immediate corrected scenario is not retention.
+- Running/S — GUIDED, unresolved. Written integrated checkpoint asserted CPU execution during S; two follow-up quizzes selected polling. Actual sleep timing (5.005s elapsed, 0.004s CPU) and busy-loop timing (2.794s elapsed, 2.777s CPU) contrasted with teaching. No independent retrieval after final contrast. Pause repetitive immediate quizzes; later assess alive versus executing and who manages a sleeping process's wakeup.
+- Process/parent ps queries — RETAINED construction. Later integrated checkpoint independently completed jobs/process/parent inspection, fresh target check, TERM, and dual exit verification. Complete workflow INDEPENDENT this session; no immediate repeat needed. All test jobs exited; never reuse recorded IDs without fresh checks.
+- Integrated RAM checkpoint selected free -h independently and rejected automatic disk-to-swap use, but used free rather than available until corrected. Keep available-selection review active; successful revised answer was guided.
+- Permission-limited du — correct spaced recognition; privileged comparison completed. Later integrate error assessment naturally, not another immediate isolated quiz.
+- Signal escalation — GUIDED practical coverage complete: observed TERM cleanup delay and separate known TERM-ignoring fixture; supplied KILL and exit checks verified completion. Next assess independent escalation reasoning and complete evidence in a reduced-scaffolding scenario. Both jobs exited; no recorded identifier is a future target.
+- The top memory inspection is complete; its column interpretation was taught, not independently tested. Instantaneous state versus interval-based %CPU was introduced at session close, not assessed. Next session first retrieve the underlying sleeping-versus-executing distinction with one short evidence-based check; avoid another long correction worksheet. These updates supersede older unattempted-top instructions below.
+
 ## CPU load, available RAM, and disk scope
 
 - Stage: interpretation GUIDED; immediate home-directory du construction
