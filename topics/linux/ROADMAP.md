@@ -116,7 +116,7 @@ Bash automation and integrated terminal work (11-12)
      State/CPU-time and RAM interpretation remain guided; independent conditional
      escalation untested. Next: brief state/CPU retrieval, then resource interpretation
 
-10. `[ ]` **Services, logs, scheduling, and basic networking**
+10. `[>]` **Services, logs, scheduling, and basic networking**
     - Basic `systemctl` service status/start/stop/restart behavior
     - `journalctl`, common log locations, filtering, and following new entries
     - Introductory `cron` and one safe recurring task
@@ -219,9 +219,24 @@ verification, TERM, and exit checks. Process-state interpretation remains a
 significant gap: sleeping was repeatedly interpreted as CPU polling despite
 elapsed/CPU timing evidence. Contrasting busy-loop evidence was taught, not
 independently interpreted. RAM available-versus-free selection also needed
-correction. Next session: brief retrieval of alive versus executing, then adapt
-resource interpretation. Instantaneous top state versus interval %CPU introduced
-only. Full Phase 9 milestone remains open; do not repeat completed worksheets.
+correction. On 2026-11-14, sleep timing and available RAM were correctly
+recognized after spacing; shared-memory accounting still needed correction.
+Known-fixture TERM/KILL selection was independent, but waiting, justification,
+and complete verification remained guided. Full Phase 9 milestone remains open;
+interleave later review rather than repeat completed worksheets.
+
+### Phase 10 entry — 2026-11-14
+
+Read-only cron and dbus investigations completed. Full status and current-boot
+bounded journal queries independently constructed for dbus; definition retrieval,
+static enablement, and log-evidence interpretation remained guided. Subsequently
+completed guided disposable user-service creation/restart/stop/collection after
+scope and name checks; independently constructed its user-journal history query.
+No persistent service configuration changed; lab service cleanup verified.
+Service control remains guided. Completed guided personal cron installation,
+repeated timestamp observation, and verified removal/restoration to no crontab.
+Networking not yet covered; next begin with a prerequisite probe.
+Phase 9 interpretation/escalation review remains open; no repeat of completed labs.
 
 ## Current scope boundary
 

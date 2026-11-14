@@ -1,6 +1,17 @@
 # Review
 
-## Latest checkpoint — 2026-11-13
+## Latest checkpoint — 2026-11-14 (session complete)
+
+- Quiz evidence: 8 questions, 6 correct, 2 incorrect, 0 I-don't-know. Correct: blocked sleep timing, available-RAM estimate, known TERM-ignoring fixture escalation, enabled-versus-active, post-teaching activation evidence, fixed cron minute. Incorrect: adding SHR to RES and double-counting the same shared pages across process totals.
+- Personal cron — GUIDED completed safe one-minute recurring log task and verified removal. Later construct an unfamiliar schedule, distinguish fixed fields from intervals and clock boundaries from install-relative delays, and preserve existing entries during changes. Immediate fixed-minute quiz correct; all lab commands supplied. No personal crontab remains; do not reinstall completed exercise for review.
+- Service investigation — query construction INDEPENDENT immediate application; interpretation GUIDED. Later retrieve status versus definition versus journal, loaded/static/active distinctions, and activation versus completed work. dbus lab omitted definition until supplied command; static explanation and log-evidence conclusions required teaching. No immediate repeat of completed worksheet.
+- Memory accounting — GUIDED. At a later session, briefly distinguish resident versus virtual memory, SHR inclusion in RES, and duplicate shared pages across processes without preceding reteaching. Last evidence 2026-11-14: two visual corrections supplied; no independent corrected retrieval. Use one short check, not another long arithmetic loop.
+- Process state — correct spaced timing recognition, but causal explanation and top state-versus-interval interpretation still need independent assessment. Top/ps observations were guided.
+- Signal escalation — GUIDED full workflow despite independent signal choice/execution. Known disposable job exited; ps verification added after reminder. Three-second wait annotation precedes TERM, so post-TERM waiting remains unverified. Written rationale still treated persistence as sufficient; tutor corrected. Later test bounded waiting, contextual escalation justification, and both exit checks without prompts. Do not repeat today's completed lab or reuse PID 5387.
+- Available-RAM selection — correct spaced recognition. Later embed demand-versus-capacity reasoning in practical diagnosis rather than repeating the same selection quiz.
+- User-service lifecycle — GUIDED successful transient creation/restart/stop/collection. Independently constructed complete user-unit journal query after --user teaching. Later demonstrate fresh-target service control and verification without supplied commands; distinguish user/system managers, unit name/process identity, and absent current unit versus retained journal history. tutor-sleep.service stopped and collected; do not restart the completed lab immediately.
+
+## Previous checkpoint — 2026-11-13
 
 - Quiz evidence: 7 questions, 4 correct, 3 incorrect, 0 I-don't-know. Correct: Running/S recognition, post-correction RAM-demand risk, incomplete du totals, bounded TERM cleanup wait. Incorrect: free disk automatically becoming swap, S-state pipe wait interpreted as polling, sleep timing interpreted as continuous checking.
 - RAM/swap — GUIDED. After spacing, require demand-versus-capacity reasoning without treating spare disk as configured swap or adding buff/cache to available again. Immediate corrected scenario is not retention.

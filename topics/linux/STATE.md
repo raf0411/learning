@@ -1,6 +1,19 @@
 # Learner State
 
-## Current checkpoint — 2026-11-13 (session complete)
+## Current checkpoint — 2026-11-14 (session complete)
+
+- Sleeping versus executing — correct spaced recognition from elapsed/CPU evidence. Independent causal reconstruction remains untested; earlier polling misconception not yet considered resolved.
+- Resource interpretation — GUIDED. Correctly selected available RAM in a spaced capacity quiz. Actual top S/nonzero-CPU rows inspected; instantaneous state versus interval usage explained, not assessed.
+- Resident/shared memory — GUIDED, active gap. Twice double-counted shared pages: added SHR to RES, then summed two RES totals containing the same shared block. Containment and physical-block diagrams taught; no independent correction yet.
+- Signal escalation — independent signal selection and targeted execution for a supplied known TERM-ignoring fixture. Full workflow GUIDED: post-TERM wait not demonstrated, ps exit verification required a reminder, written justification relied only on persistence after TERM. Tutor supplied causal distinction. Empty jobs and header-only ps verified fixture exit; PID 5387 is historical, not a future target.
+- Service status and bounded journal queries — INDEPENDENT immediate construction for dbus after guided cron work. Correct main PID identification. Definition retrieval/ExecStart extraction GUIDED; supplied systemctl cat after omission.
+- Service interpretation — GUIDED. Enabled-versus-active recognition correct; static meaning taught after learner reported loaded instead. Activation-versus-task-success distinction needed teaching, followed by correct recognition. No independent written log inference yet. System cron/dbus investigations were read-only; disposable user-service control followed separately.
+- User-service lifecycle — GUIDED completed creation, inspection, restart, stop, and transient-unit collection verification. Journal confirms final stop; no cleanup pending. User/system scope and stable unit name versus new process instance taught.
+- User journal query — INDEPENDENT immediate construction after --user introduction: selected tutor-sleep.service, current boot, last 12 entries, no pager. Actual eight entries confirmed start/restart/stop despite unit no longer existing.
+- Personal cron scheduling — GUIDED successful draft/precheck/install/list/log observation/remove/verify cycle. Correct fixed-minute quiz; clock-boundary timing needed explanation after initial absent log. Five one-minute-spaced timestamps observed. Personal crontab restored to absence; lab files retained, no recurring cleanup pending.
+- Next: Phase 10 service/log/scheduling introductory work complete with guided control; networking not yet begun. Later independent lifecycle, scope/history interpretation, and schedule construction/safety. No immediate repeat of completed labs. Phase 9 remains open; later retrieve shared-memory accounting and causal escalation/wait/verification. Evidence: sessions/2026-11-14.md.
+
+## Previous checkpoint — 2026-11-13 (session complete)
 
 - Process and parent ps query construction — RETAINED in a spaced lab: independently inspected fresh timer and verified bash parent. Shell job-status evidence needed a reminder and supplied command; complete workflow remains GUIDED.
 - Running versus S / elapsed versus CPU time — GUIDED, unresolved conceptual gap. Despite correct opening recognition, independently written answers still asserted CPU execution and waiting for signals. Two later quizzes selected continuous polling, including after time sleep 5 showed 5.005s elapsed versus 0.004s CPU. Contrasting busy-loop experiment showed 2.794s elapsed versus 2.777s CPU; taught interpretation not independently retrieved afterward.
