@@ -235,8 +235,23 @@ scope and name checks; independently constructed its user-journal history query.
 No persistent service configuration changed; lab service cleanup verified.
 Service control remains guided. Completed guided personal cron installation,
 repeated timestamp observation, and verified removal/restoration to no crontab.
-Networking not yet covered; next begin with a prerequisite probe.
+Networking was subsequently introduced in the continuation below.
 Phase 9 interpretation/escalation review remains open; no repeat of completed labs.
+
+### Phase 10 networking continuation — 2026-11-14
+
+Guided interface/address, routing, ICMP, name-resolution, HTTPS, and TCP-listener
+inspection completed with actual Ubuntu output. Linked SSH listener/process/socket
+unit/service evidence. Configured localhost-only VirtualBox NAT forwarding as
+reported, completed Mac-to-Ubuntu SSH login, and uploaded a file with matching
+local/remote SHA-256 evidence. Host/guest loopback, forwarded port selection,
+reachability versus listening/authentication, and verification remain guided.
+No independent connectivity milestone yet; UDP practical coverage remains open.
+
+Next: labs/2026-11-14-scp-download-checkpoint.md, prepared and unattempted.
+Use reduced scaffolding for download construction and two-sided verification;
+check temporary-source availability first. Do not restart the completed upload.
+Then assess independent diagnostic tool selection before advancing to scripting.
 
 ## Current scope boundary
 

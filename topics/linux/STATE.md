@@ -1,6 +1,15 @@
 # Learner State
 
-## Current checkpoint — 2026-11-14 (session complete)
+## Current checkpoint — 2026-11-14 (networking continuation complete)
+
+- Networking diagnostics — GUIDED. Executed supplied interface/route/ping/resolver/HTTPS/listener commands and provided actual evidence. Correct recognition that ping does not prove web access and that reachable hosts may lack an SSH listener; independent tool selection/diagnosis untested.
+- IP/software ports and host context — GUIDED. Initially confused TCP ports with cable sockets; later ran Mac-specific nc inside Ubuntu. Host-dependent loopback and NAT endpoint distinctions taught. Reverse-copy quiz still selected guest port 22 instead of Mac forwarded port 2222.
+- Socket/process/service relationship — GUIDED. Supplied ss/systemctl inspection linked SSH listener to sshd and socket activation. Listener versus remote reachability/authentication was an honest knowledge gap; three-stage model taught, not independently retrieved.
+- SSH and SCP — GUIDED. Reported saving localhost-only VirtualBox NAT forwarding, logged into Ubuntu from Mac, supplied remote identity/connection evidence, exited, then uploaded a file and verified identical two-sided SHA-256 hashes. All commands supplied; local hash needed a reminder. Public host fingerprint retrieved, but actual comparison at trust prompt not recorded. Path typo, pasted template, and physical-newline errors repaired with help.
+- Shared physical RAM — GUIDED, unresolved. Latest quiz assumed RES summation automatically deduplicates shared pages. Per-process versus physical-block diagram retaught; no independent correction yet.
+- Next: labs/2026-11-14-scp-download-checkpoint.md is prepared and wholly unattempted. Resume reduced-scaffolding download/verification after fresh availability checks; do not repeat guided upload. Forwarding rule remains configured as reported; practice files last verified in Mac/Ubuntu temporary directories. Detailed paths/evidence: sessions/2026-11-14.md. No independent networking milestone yet.
+
+## Earlier checkpoint — 2026-11-14 (before networking continuation)
 
 - Sleeping versus executing — correct spaced recognition from elapsed/CPU evidence. Independent causal reconstruction remains untested; earlier polling misconception not yet considered resolved.
 - Resource interpretation — GUIDED. Correctly selected available RAM in a spaced capacity quiz. Actual top S/nonzero-CPU rows inspected; instantaneous state versus interval usage explained, not assessed.

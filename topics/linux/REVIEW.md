@@ -1,6 +1,15 @@
 # Review
 
-## Latest checkpoint — 2026-11-14 (session complete)
+## Latest checkpoint — 2026-11-14 (networking continuation complete)
+
+- Observed continuation quizzes: 6 questions, 2 correct, 3 incorrect, 1 I-don't-know. Correct: ping does not establish web access; refused SSH despite reachable host. Incorrect: shared-page automatic deduplication, TCP port as cable socket, reverse SCP using guest port 22. I-don't-know: listener evidence versus Mac reachability/login. Date total with earlier session: 14 questions, 8 correct, 5 incorrect, 1 I-don't-know.
+- Host/guest endpoint reasoning — GUIDED. Next test: construct a reverse SCP transfer without the completed command supplied. Need remote source/local destination, Mac endpoint port 2222, and execution from Mac shell. Initial remote-source recognition was correct, but connection-port selection was not. Worksheet labs/2026-11-14-scp-download-checkpoint.md remains unattempted.
+- Evidence-based network diagnosis — GUIDED. After spacing, distinguish interface configuration, selected route, ICMP replies, name-resolution result, HTTPS response, listener state, and authenticated access. Two correct recognition checks do not establish independent tool choice. Include loopback-only versus wildcard bindings and the separate network path/authentication gates.
+- SSH identity and transfer verification — GUIDED. Later demonstrate fingerprint comparison and two-sided file verification without prompts. Successful login reported; trust-prompt comparison not shown. Upload hashes matched, but local hash required reminder. Practice files are temporary: recheck rather than assume continued existence.
+- Command submission — path typo and template/newline failures repaired with help. In next practical task, assess literal paths and one physical command line; avoid interpreting these execution errors as network misconceptions.
+- Shared RAM — GUIDED, still unresolved. Latest check selected automatic deduplication when summing RES. Revisit briefly after other material using per-process views versus unique physical pages, without another immediate arithmetic loop.
+
+## Earlier checkpoint — 2026-11-14 (before networking continuation)
 
 - Quiz evidence: 8 questions, 6 correct, 2 incorrect, 0 I-don't-know. Correct: blocked sleep timing, available-RAM estimate, known TERM-ignoring fixture escalation, enabled-versus-active, post-teaching activation evidence, fixed cron minute. Incorrect: adding SHR to RES and double-counting the same shared pages across process totals.
 - Personal cron — GUIDED completed safe one-minute recurring log task and verified removal. Later construct an unfamiliar schedule, distinguish fixed fields from intervals and clock boundaries from install-relative delays, and preserve existing entries during changes. Immediate fixed-minute quiz correct; all lab commands supplied. No personal crontab remains; do not reinstall completed exercise for review.
