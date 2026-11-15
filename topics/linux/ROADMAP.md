@@ -2,6 +2,68 @@
 
 Status key: `[ ]` upcoming, `[>]` current, `[x]` milestone demonstrated.
 
+## Your path at a glance
+
+> **You are here → 11 · Bash scripting**  
+> Next: write your first web-check script. Earlier open milestones stay in review as you advance.
+
+```mermaid
+%%{init: {"flowchart": {"curve": "basis", "nodeSpacing": 20, "rankSpacing": 28}, "themeVariables": {"fontFamily": "Inter, ui-sans-serif, system-ui, sans-serif", "fontSize": "14px", "lineColor": "#94a3b8"}}}%%
+flowchart TB
+    subgraph A["01—03  /  BUILD YOUR FOUNDATIONS"]
+        direction LR
+        P1("01 · Navigation<br/>Paths & filesystem<br/>✓ Complete")
+        P2("02 · File operations<br/>Organize safely<br/>✓ Complete")
+        P3("03 · Links & archives<br/>Connect & package files<br/>✓ Complete")
+        P1 --> P2 --> P3
+    end
+
+    subgraph B["04—06  /  WORK WITH CONTENT"]
+        direction LR
+        P4("04 · Inspect & edit<br/>Files & documentation<br/>✓ Complete")
+        P5("05 · Shell mechanics<br/>Pipes & redirection<br/>✓ Complete")
+        P6("06 · Text processing<br/>Search & build reports<br/>◐ Milestone open")
+        P4 --> P5 --> P6
+    end
+
+    subgraph C["07—09  /  UNDERSTAND THE SYSTEM"]
+        direction LR
+        P7("07 · Linux & access<br/>Layout & permissions<br/>✓ Complete")
+        P8("08 · Packages<br/>Manage software<br/>◐ Milestone open")
+        P9("09 · Processes<br/>Jobs & resources<br/>◐ Milestone open")
+        P7 --> P8 --> P9
+    end
+
+    subgraph D["10—12  /  INVESTIGATE → AUTOMATE → BUILD"]
+        direction LR
+        P10("10 · Services & networks<br/>Logs · cron · SSH<br/>◐ Milestone open")
+        P11("11 · Bash scripting<br/>Automate your checks<br/>▶ YOU ARE HERE")
+        P12("12 · Portfolio toolkit<br/>Operations & log analysis<br/>○ Up next")
+        P10 --> P11 -.-> P12
+    end
+
+    A --> B --> C --> D
+
+    classDef done fill:#ecfdf5,stroke:#34d399,color:#064e3b,stroke-width:1.5px;
+    classDef review fill:#fffbeb,stroke:#fbbf24,color:#78350f,stroke-width:1.5px;
+    classDef current fill:#2563eb,stroke:#93c5fd,color:#ffffff,stroke-width:4px;
+    classDef future fill:#f1f5f9,stroke:#94a3b8,color:#475569,stroke-width:1.5px,stroke-dasharray:5 4;
+
+    class P1,P2,P3,P4,P5,P7 done;
+    class P6,P8,P9,P10 review;
+    class P11 current;
+    class P12 future;
+
+    style A fill:transparent,stroke:#94a3b8,stroke-width:1px
+    style B fill:transparent,stroke:#94a3b8,stroke-width:1px
+    style C fill:transparent,stroke:#94a3b8,stroke-width:1px
+    style D fill:transparent,stroke:#60a5fa,stroke-width:2px
+```
+
+**Read left → right within each row, then down.**  
+**Green:** complete for progression · **Amber:** independent milestone open · **Blue:** current focus · **Gray:** upcoming.  
+Completed phases can still need review; the arrows show learning order, not a requirement to master every earlier skill before advancing.
+
 ## Coverage standard
 
 This path targets confident, independent Linux terminal use. Its breadth is
@@ -126,7 +188,7 @@ Bash automation and integrated terminal work (11-12)
     - Milestone: answer a service or connectivity question using process, log,
       and network evidence rather than guesswork
 
-11. `[ ]` **Bash scripting fundamentals**
+11. `[>]` **Bash scripting fundamentals**
     - Script files, shebangs, execution, arguments, and command substitution
     - Tests, conditionals, loops, functions, input, output, and exit codes
     - Quoting and validation that prevent common scripting mistakes
@@ -248,10 +310,22 @@ local/remote SHA-256 evidence. Host/guest loopback, forwarded port selection,
 reachability versus listening/authentication, and verification remain guided.
 No independent connectivity milestone yet; UDP practical coverage remains open.
 
-Next: labs/2026-11-14-scp-download-checkpoint.md, prepared and unattempted.
-Use reduced scaffolding for download construction and two-sided verification;
-check temporary-source availability first. Do not restart the completed upload.
-Then assess independent diagnostic tool selection before advancing to scripting.
+### Networking checkpoint and Bash entry — 2026-11-15
+
+Download completed after an operand-order hint; two-sided hash commands independently
+constructed. TCP/UDP socket inspection and a loopback UDP experiment completed with
+guidance and receiver exit verified. Web and integrated diagnostic worksheets showed
+independent tool selection and bounded curl construction, but hostname/URL,
+resolver/result, endpoint binding, and evidence-scope reasoning still needed teaching.
+Introductory networking coverage complete; independent Phase 10 milestone remains open.
+Interleave later review rather than repeat the completed labs.
+
+Phase 11 begins with correct recognition that an intervening successful command
+replaces an earlier failure in $?. Practical immediate status capture remains to be
+demonstrated. First script worksheet prepared: labs/2026-11-15-first-bash-script.md.
+Verified wholly unattempted at November 15 session closure; no script written or run.
+Next: write and run a bounded web-check script via explicit Bash invocation, capture
+its status, then introduce arguments and conditional behavior as understanding permits.
 
 ## Current scope boundary
 

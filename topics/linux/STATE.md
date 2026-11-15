@@ -1,5 +1,18 @@
 # Learner State
 
+## Current checkpoint — 2026-11-15 (session complete)
+
+- SCP download — GUIDED. Correct Mac context, forwarded port, and remote pathname; initially reversed operands and attempted a directory upload. After a source/destination hint, corrected the command and downloaded successfully.
+- Two-sided SHA-256 verification — INDEPENDENT immediate construction. Used local shasum and SSH remote shasum, recorded matching digests, and correctly identified equality. Broader transfer workflow remains guided; retention untested.
+- Evidence interpretation — initially called unperformed hash comparison a mismatch; corrected after feedback and actual verification. Source availability and pasted-border repair were guided.
+- Shared RAM — correct spaced recognition that shared pages contribute to both processes' RES. Independent explanation/application remains untested; do not mark full retention from recognition alone.
+- Socket inspection — GUIDED. Initially suggested nc, then ss -t; after tool/option-purpose hints constructed ss -tln. Mac nc probe succeeded with option hints. Authentication-failure recognition correct; hypothetical loopback-only listener incorrectly attributed failure to unequal forwarded ports. Binding/endpoint reasoning remains weak.
+- Web diagnostics — independent getent/resolvectl/curl selection and recorded successful HEAD responses. Total-timeout semantics GUIDED: chose connect-timeout, then recovered max-time after a scope hint. Interpretation GUIDED: overclaimed name resolution proves website existence and HEAD 200 proves whole website works; corrected by tutor, not independently reconstructed.
+- UDP — GUIDED practical lab complete. Adapted ss to -uln after option-purpose prompt; supplied nc loopback receiver/sender commands delivered a datagram and verified receiver exit. Correctly identified receiver output as arrival evidence; honestly did not know limits for future messages. After teaching, correctly recognized that local send success leaves remote arrival unknown. Immediate recognition only, not retention/transferable mastery.
+- Integrated network diagnosis — tool selection and bounded curl command INDEPENDENT; interpretation GUIDED. Used full URLs in resolver commands and confused lookup failure with absent resolver. After hostname/control hints, correct getent comparison and revised name-specific conclusion; terminology and untested-stage reasoning still needed teaching. First revised resolvectl transcript has command/output inconsistency. Curl diagnostic code retrieved from manual, but immediate shell exit-status capture omitted.
+- Bash entry — saved-command/script model introduced only. Correct recognition that an intervening successful printf replaces false's status in $?. Practical immediate capture still unverified today; no script written or run.
+- Next: labs/2026-11-15-first-bash-script.md is verified wholly unattempted at closure. Resume first script and immediate status capture, with brief spaced networking retrieval if useful. Introductory networking coverage complete; independent milestone open. No repeat of completed labs and no UDP receiver cleanup pending. Detailed evidence: sessions/2026-11-15.md.
+
 ## Current checkpoint — 2026-11-14 (networking continuation complete)
 
 - Networking diagnostics — GUIDED. Executed supplied interface/route/ping/resolver/HTTPS/listener commands and provided actual evidence. Correct recognition that ping does not prove web access and that reachable hosts may lack an SSH listener; independent tool selection/diagnosis untested.
