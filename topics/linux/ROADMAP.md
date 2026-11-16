@@ -1,11 +1,22 @@
-# Roadmap
+<!-- learning-progress:start -->
+## Linux learning progress
+
+```text
+████████████░░░░░░░░░░░░  50% complete
+```
+
+**6 / 12 phases complete · 6 remaining**  
+Remaining: **5 in progress / milestone open · 1 upcoming**.
+
+*Based on completed `[x]` phases in the learning path, equally weighted—not time remaining or total Linux mastery.*
+<!-- learning-progress:end -->
 
 Status key: `[ ]` upcoming, `[>]` current, `[x]` milestone demonstrated.
 
 ## Your path at a glance
 
 > **You are here → 11 · Bash scripting**  
-> Next: write your first web-check script. Earlier open milestones stay in review as you advance.
+> Next: independently build a local-file checker using your Bash arguments, loops, and exit-status skills. Earlier open milestones stay in review as you advance.
 
 ```mermaid
 %%{init: {"flowchart": {"curve": "basis", "nodeSpacing": 20, "rankSpacing": 28}, "themeVariables": {"fontFamily": "Inter, ui-sans-serif, system-ui, sans-serif", "fontSize": "14px", "lineColor": "#94a3b8"}}}%%
@@ -326,6 +337,18 @@ demonstrated. First script worksheet prepared: labs/2026-11-15-first-bash-script
 Verified wholly unattempted at November 15 session closure; no script written or run.
 Next: write and run a bounded web-check script via explicit Bash invocation, capture
 its status, then introduce arguments and conditional behavior as understanding permits.
+
+### Bash practical checkpoint — 2026-11-16
+
+Completed guided scripting work: direct invocation/shebang/permissions, quoted
+arguments, command substitution and variables, if/else, argument loops, and
+remembering failures across iterations. Built a multi-URL checker with verified
+0/1/2 outcomes. Immediate status-capture commands and loop/conditional composition
+show independent elements; full script construction and verification remain guided.
+
+Next: `labs/2026-11-16-file-checkpoint.md`, verified wholly unattempted at closure.
+Assess independent combination before adding functions or other scripting features.
+Phase 11 remains current; its independent milestone is not yet complete.
 
 ## Current scope boundary
 

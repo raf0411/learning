@@ -1,5 +1,19 @@
 # Learner State
 
+## Current checkpoint — 2026-11-16 (session complete)
+
+- First Bash script — GUIDED completed. Saved and ran bounded web check; initial printf/command-substitution wrappers hid curl status. Guided repair restored direct commands and explicit HTTPS.
+- Immediate status capture — INDEPENDENT command construction, repeatedly executed correctly. Multi-case test completeness needed a reminder; do not infer fully independent verification workflow.
+- Arguments and empty-input guard — GUIDED. Used quoted "$1", ran supplied guard, verified normal status 0 and missing-input status 2.
+- Conditional flow and failure handling — GUIDED. Initially treated false test as automatic exit, compared URL text numerically to zero, then checked $? after printf. Supplied child-shell experiments contrasted nonzero status with explicit exit; supplied final if-curl block verified success 0 and failure 1. Later grep branch/status recognition correct; independent construction still untested.
+- Network evidence — correct spaced recognition of lookup scope. Explicit HTTPS still needed a repair reminder during script editing; do not mark full diagnostic independence.
+- Direct execution — GUIDED completed. Correct shebang added; initially omitted execute permission, then used 774 instead of owner-only addition to 664. After component hints, constructed g-x and verified 764. Direct launch succeeded with HTTPS 200 and immediate status 0. Selective permission preservation remains weak in this application.
+- Command-output capture and fixed-format printf — GUIDED pattern application complete without repair; hostname assignment and interpolated heading verified by execution.
+- Argument loops — GUIDED. Initial scalar assignment and literal `for target in targets` produced one literal line. Supplied repair used `for target in "$@"`; actual two-line output preserved a spaced argument. Correct recognition that "$1" ignores extra arguments and exit inside a loop terminates the whole script; later loop/conditional composition succeeded, but complete independent workflow remains unverified.
+- Multi-URL integration — GUIDED overall, correct loop/conditional composition without body repair. Initially used "$@" in unary -z guard, causing argument-count errors; restored "$1" after teaching. Usage text needed supplied correction; final two-target retest required repeated reminders, then actual chat output verified both HTTP 200 and status 0 with no guard errors. Malformed-first fail-fast behavior independently assembled and observed. Correct recognition that merely removing exit would let later success mask failure.
+- Remembered failure status — GUIDED completed. Supplied flag pattern correctly kept mixed-run status 1 despite later success and all-success status 0. Initially also replaced guard exit 2 with an assignment, allowing later execution; restored after correction. Requested guard test omitted while network tests repeated; reminder led to actual usage-only/status 2 evidence. Assignment versus early exit and targeted verification still need independent application.
+- Next: labs/2026-11-16-file-checkpoint.md re-read at closure and verified wholly unattempted. Construct local-path checker independently using supplied regular-file test primitive, prior control-flow skills, and three actual test cases before adding more syntax. Completed web-check labs need no repetition; some final evidence is in chat. No active lab-process cleanup pending. Detailed evidence: sessions/2026-11-16.md.
+
 ## Current checkpoint — 2026-11-15 (session complete)
 
 - SCP download — GUIDED. Correct Mac context, forwarded port, and remote pathname; initially reversed operands and attempted a directory upload. After a source/destination hint, corrected the command and downloaded successfully.

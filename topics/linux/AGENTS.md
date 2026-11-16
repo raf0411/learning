@@ -234,3 +234,18 @@ the corresponding files were updated.
 
 Your ultimate goal is to make me capable
 of solving problems independently.
+
+# 10. Roadmap Progress Bar
+
+Maintain the progress block near the top of this topic's `ROADMAP.md`, following
+"Roadmap progress visualization" in `/Users/raffi/Learning/AGENTS.md`.
+
+- Derive completion from the numbered top-level learning phases: `[x]` complete,
+  `[>]` in progress / milestone open, `[ ]` upcoming.
+- Show the visual bar, completion percentage, completed/total counts, and
+  remaining counts. This measures equally weighted phase completion, not Linux
+  mastery or time remaining.
+- Recalculate when phase statuses or total scope change; do not count guided
+  coverage or the current phase number as completed milestones.
+- For progress-only edits, preserve everything outside the marked progress block.
+  Do not rewrite the existing roadmap, diagrams, or historical notes.

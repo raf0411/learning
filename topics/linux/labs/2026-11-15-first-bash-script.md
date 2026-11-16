@@ -14,7 +14,7 @@ script_lab=$(mktemp -d /tmp/bash-practice.XXXXXX) && cd "$script_lab" && pwd
 
 Record the actual directory:
 
-/tmp/bash-practice.zIVfUs
+/tmp/bash-practice.e6ofDY
 
 ## 2. Write your script
 
@@ -35,7 +35,9 @@ Use the shell commands you have already practiced. Do not add sudo, installation
 Paste the script's actual saved contents here (use a read-only command to inspect the file, rather than reconstructing it from memory):
 
 ```bash
-printf ''
+printf 'Web check\n'
+printf "$(hostname)\n"
+printf "$(curl -I --max-time 10 https://example.com)\n"
 ```
 
 ## 3. Execute and capture status
@@ -51,17 +53,121 @@ bash check-web.sh
 Record the execution command, output, and immediate status-capture command/output:
 
 ```text
-TODO
+raf_0411@ubuntu-desktop:/tmp/bash-practice.e6ofDY$ bash check-web.sh
+Web check
+ubuntu-desktop
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0
+HTTP/1.1 200 OK
+Date: Mon, 16 Nov 2026 11:19:22 GMT
+Content-Type: text/html; charset=utf-8
+Connection: keep-alive
+Server: cloudflare
+Last-Modified: Mon, 16 Nov 2026 00:30:20 GMT
+Allow: GET, HEAD
+Accept-Ranges: bytes
+Age: 9
+cf-cache-status: HIT
+CF-RAY: a5b619abfa8e68b7-SIN
+alt-svc: h3=":443"; ma=86400
+
+raf_0411@ubuntu-desktop:/tmp/bash-practice.e6ofDY$ printf 'status=%s\n' "$?"
+status=0
 ```
 
 ## 4. Interpret
 
 Did this particular HTTPS request succeed? Identify the evidence without claiming that every feature of the website works.
 
-TODO
+the request succeed because we got 200 status code OK
 
 Help used beyond these supplied instructions (manuals, tutor hints, etc.):
 
-TODO
+none
 
 Stop here and tell the tutor when ready. Keep the script for the next step; do not add arguments, loops, or conditionals yet.
+
+## 5. Review and targeted repair
+
+Tutor feedback: the script ran, the immediate status capture was correct, and HTTP 200 supports success of this particular HEAD request. However, the final command was `printf`, so the recorded script status reflects that wrapper rather than directly reporting curl's status. In the follow-up quiz, you correctly identified that a successful final printf can hide curl's failure.
+
+Keep the original evidence above unchanged.
+
+In Ubuntu, first confirm your current directory and inspect `check-web.sh`; do not assume the temporary directory still exists. Edit only your disposable script:
+
+- Keep the heading command.
+- Run `hostname` and the bounded HTTPS HEAD request directly, without wrapping them in `printf` or `$()`.
+- Inspect the saved file, run it with Bash, and immediately capture its status again.
+
+Actual saved script:
+
+```bash
+printf 'Web check\n'
+hostname
+curl -I --max-time 10 example.com
+```
+
+Actual execution and immediate status capture:
+
+```text
+raf_0411@ubuntu-desktop:/tmp/bash-practice.e6ofDY$ bash check-web.sh
+Web check
+ubuntu-desktop
+HTTP/1.1 200 OK
+Date: Mon, 16 Nov 2026 11:24:12 GMT
+Content-Type: text/html; charset=utf-8
+Connection: keep-alive
+Age: 6
+Server: cloudflare
+Last-Modified: Mon, 16 Nov 2026 00:30:20 GMT
+Allow: GET, HEAD
+Accept-Ranges: bytes
+cf-cache-status: HIT
+CF-RAY: a5b620c34fdf3102-SIN
+alt-svc: h3=":443"; ma=86400
+raf_0411@ubuntu-desktop:/tmp/bash-practice.e6ofDY$ printf 'status=%s\n' "$?"
+status=0
+```
+
+Which command now determines the script's exit status when it reaches its end normally?
+
+bash check-web.sh, this command determines the result of the last status printf status=0
+
+Tell the tutor when this section is ready.
+
+## 6. Small correction — HTTPS and status origin
+
+Tutor feedback: wrapper removal and immediate capture are correct. The revised request omitted `https://`, so it did not establish HTTPS success. When this script reaches its end normally, its final `curl` supplies the script's exit status; the outer shell receives that status from `bash check-web.sh`.
+
+Preserve the previous evidence. Restore the explicit HTTPS URL in your disposable script, inspect its saved contents, rerun, and immediately capture status.
+
+Saved contents and actual execution/status transcript:
+
+```text
+printf 'Web check\n'
+hostname
+curl -I --max-time 10 https://example.com
+
+raf_0411@ubuntu-desktop:/tmp/bash-practice.e6ofDY$ bash check-web.sh
+Web check
+ubuntu-desktop
+HTTP/2 200 
+date: Mon, 16 Nov 2026 11:28:05 GMT
+content-type: text/html; charset=utf-8
+server: cloudflare
+last-modified: Mon, 16 Nov 2026 00:26:08 GMT
+allow: GET, HEAD
+accept-ranges: bytes
+age: 4
+cf-cache-status: HIT
+cf-ray: a5b6266fad45f930-SIN
+alt-svc: h3=":443"; ma=86400
+
+raf_0411@ubuntu-desktop:/tmp/bash-practice.e6ofDY$ printf 'status=%s\n' "$?"
+status=0
+```
+
+Complete in your own words: The printed status comes from ______ inside the script, passed back through ______ to my terminal shell.
+
+what to complete? i dont even know ur question? are u dumb? please be a better teacher next time!
