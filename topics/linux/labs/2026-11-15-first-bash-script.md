@@ -14,7 +14,7 @@ script_lab=$(mktemp -d /tmp/bash-practice.XXXXXX) && cd "$script_lab" && pwd
 
 Record the actual directory:
 
-TODO
+/tmp/bash-practice.zIVfUs
 
 ## 2. Write your script
 
@@ -35,7 +35,7 @@ Use the shell commands you have already practiced. Do not add sudo, installation
 Paste the script's actual saved contents here (use a read-only command to inspect the file, rather than reconstructing it from memory):
 
 ```bash
-TODO
+printf ''
 ```
 
 ## 3. Execute and capture status
