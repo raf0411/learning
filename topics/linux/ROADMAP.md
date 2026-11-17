@@ -16,7 +16,7 @@ Status key: `[ ]` upcoming, `[>]` current, `[x]` milestone demonstrated.
 ## Your path at a glance
 
 > **You are here → 11 · Bash scripting**  
-> Next: independently build a local-file checker using your Bash arguments, loops, and exit-status skills. Earlier open milestones stay in review as you advance.
+> Next: combine arguments, functions, line input, validation, and exit statuses in a parameterized list checker. Earlier open milestones stay in review as you advance.
 
 ```mermaid
 %%{init: {"flowchart": {"curve": "basis", "nodeSpacing": 20, "rankSpacing": 28}, "themeVariables": {"fontFamily": "Inter, ui-sans-serif, system-ui, sans-serif", "fontSize": "14px", "lineColor": "#94a3b8"}}}%%
@@ -349,6 +349,18 @@ show independent elements; full script construction and verification remain guid
 Next: `labs/2026-11-16-file-checkpoint.md`, verified wholly unattempted at closure.
 Assess independent combination before adding functions or other scripting features.
 Phase 11 remains current; its independent milestone is not yet complete.
+
+### Functions and line-input checkpoint — 2026-11-17
+
+Local-file checker completed with independent loop/flag construction and guided
+validation/verification. Function refactoring and line-input integration completed
+with guidance; inverted readability guard repaired and tested. Phase 11's full
+independent milestone remains open; phase completion remains 6/12 (50%).
+
+Next: `labs/2026-11-17-list-checkpoint.md`. Fixture directory recorded at closure,
+but script and all five tests remain TODO. Recheck fixture availability, then
+assess reduced-scaffolding integration before adding syntax. Do not repeat the
+completed local-file, function, or fixed-list labs.
 
 ## Current scope boundary
 

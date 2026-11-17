@@ -1,5 +1,14 @@
 # Learner State
 
+## Current checkpoint — 2026-11-17 (session complete)
+
+- Local-file loop/condition/failure flag — INDEPENDENT construction. Preserved spaced arguments, routed diagnostics, processed all paths, and returned remembered failure. Whole-script task remains GUIDED: omitted input guard, incomplete shebang, and missing test evidence needed hints.
+- Input validation — GUIDED. Correct missing/empty-argument guard after hints; later inverted readability guard rejected good input and allowed missing-list failure to end in 0. Correct success/else repair verified mixed-list 1 and unavailable-list 2. Independent guard construction remains the edge.
+- Functions — GUIDED, documentation-assisted. Valid reporting function with local argument and outer flag; later correctly refactored to test-only function used directly in an if. Failure-first/success-last run verified status 1 after a test-selection reminder. Function return versus stored variable correctly recognized with assignment-status rule supplied.
+- Line input — GUIDED. Correct prediction and execution of supplied IFS=/read -r loop; integrated checker preserved spaced filename and remembered failure. Non-pipeline state persistence explained; independent scope reasoning untested.
+- Verification — immediate status captures repeatedly correct; full scenario coverage and precise evidence still need reminders. Minor usage filename and unreadable-versus-missing wording fixes requested but unverified. Completed functional labs need no repetition.
+- Next: labs/2026-11-17-list-checkpoint.md. At closure, fixture path recorded but script and all tests still TODO. Resume after fresh availability check; combine list argument, prechecks, function, line loop, and status policy without a supplied implementation. No active process cleanup pending. Detailed evidence: sessions/2026-11-17.md.
+
 ## Current checkpoint — 2026-11-16 (session complete)
 
 - First Bash script — GUIDED completed. Saved and ran bounded web check; initial printf/command-substitution wrappers hid curl status. Guided repair restored direct commands and explicit HTTPS.

@@ -1,5 +1,15 @@
 # Review
 
+## Current checkpoint — 2026-11-17 (session complete)
+
+- Input validation and branch polarity — GUIDED. Next: construct missing/empty argument and readable-regular-list guards in the parameterized-list checkpoint without repair hints. Last evidence: omitted initial guard; later inverted -r branch; correct success/else repair verified 1/2 outcomes. Conceptual recognition alone has not established independent construction.
+- Function return versus stored flag — GUIDED. Later predict/apply return status separately from variable contents and script exit, without supplying assignment-status rule. Test-only function refactor and reporting-function alternative both worked; do not repeat completed function lab.
+- Line-input and parameter scope — GUIDED. Next combine script argument for list selection with function argument for each entry; preserve whitespace, maintain failure across iterations, and distinguish working-directory-relative names from script location. Supplied read loop correctly predicted and integrated today.
+- Verification coverage — immediate captures correct, scenario selection GUIDED. Later independently test all-success, failure-then-success, unavailable input, and invalid invocation, with complete actual transcripts. Failure-last tests needed a reminder; some previous worksheet evidence was replaced rather than appended.
+- Diagnostics and precheck limits — GUIDED. Later distinguish unreadable/nonexistent/non-regular input and prechecks versus actual opening/reading. Current inaccurate missing-only diagnostic and older usage filename remain minor unverified edits, not reasons to rerun completed functional labs.
+- Quizzes observed today: 3 questions, 3 correct, 0 incorrect, 0 I-don't-know. Topics: failure followed by printf, assignment status versus stored value (rule supplied), and missing-loop-input failure masked by final exit 0. Detailed evidence: sessions/2026-11-17.md.
+- Resume labs/2026-11-17-list-checkpoint.md: fixture directory recorded at closure; script and five tests remain TODO. Recheck temporary fixtures before use. Prior local-file/function/read-list labs are functionally complete with guidance; their old next-step instructions below are superseded.
+
 ## Current checkpoint — 2026-11-16 (session complete)
 
 - Remembering failure versus stopping — GUIDED. Supplied accumulator pattern correctly returned 1 after mixed outcomes and 0 after all successes, but learner also replaced input-guard exit 2 with assignment. Restored after correction; usage-only/status 2 verified after an additional reminder. Next independent application is the prepared file-checkpoint task. Later test initialization placement, persistence across iterations, and early invalid-input termination without scaffolding.
