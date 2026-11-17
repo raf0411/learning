@@ -7,7 +7,8 @@
 - Functions — GUIDED, documentation-assisted. Valid reporting function with local argument and outer flag; later correctly refactored to test-only function used directly in an if. Failure-first/success-last run verified status 1 after a test-selection reminder. Function return versus stored variable correctly recognized with assignment-status rule supplied.
 - Line input — GUIDED. Correct prediction and execution of supplied IFS=/read -r loop; integrated checker preserved spaced filename and remembered failure. Non-pipeline state persistence explained; independent scope reasoning untested.
 - Verification — immediate status captures repeatedly correct; full scenario coverage and precise evidence still need reminders. Minor usage filename and unreadable-versus-missing wording fixes requested but unverified. Completed functional labs need no repetition.
-- Next: labs/2026-11-17-list-checkpoint.md. At closure, fixture path recorded but script and all tests still TODO. Resume after fresh availability check; combine list argument, prechecks, function, line loop, and status policy without a supplied implementation. No active process cleanup pending. Detailed evidence: sessions/2026-11-17.md.
+- Process state (Running vs S) — improved to correct spaced recognition in a later same-day continuation: chose sleeping/kernel-wakeup over polling, T, and Z from STAT/ELAPSED/TIME evidence. Own-words explanation of ELAPSED vs TIME requested but not given; still GUIDED, not RETAINED.
+- Next: labs/2026-11-17-list-checkpoint.md. Re-read at continuation closure: still unchanged, script and all tests TODO. Resume after fresh availability check; combine list argument, prechecks, function, line loop, and status policy without a supplied implementation. No active process cleanup pending. Detailed evidence: sessions/2026-11-17.md.
 
 ## Current checkpoint — 2026-11-16 (session complete)
 
