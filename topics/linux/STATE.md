@@ -1,6 +1,13 @@
 # Learner State
 
-## Current checkpoint — 2026-11-21 (session complete)
+## Current checkpoint — 2026-11-21 continuation (session complete)
+
+- **Curriculum position:** Phase 12 capstone is now current, by learner choice. Phases 6, 8, 9, 10, and 11 are still open milestones; none were marked complete without evidence. Each closes when the matching capstone part is done independently.
+- **Target environments:** build and run failure tests on the Ubuntu VM. Do the real read-only run on the learner's homelab: an old laptop running Ubuntu with Docker (Navidrome, File Browser), reached by SSH over Tailscale.
+- **No new skill evidence.** The polarity opener was skipped and the kickoff worksheet is unattempted. All stages below are unchanged.
+- **Next:** `labs/2026-11-21-capstone-kickoff.md`, design spec and predicted tests before any code. Detailed evidence is in the continuation section of `sessions/2026-11-21.md`.
+
+## Earlier checkpoint — 2026-11-21 (first session)
 
 - **Parameterized list checker:** functionally complete. Final runs gave A 0, B 1, C 2, D 2, E 2, and `/dev/null` 2. Overall GUIDED.
 - **Task-model misconception:** the first attempt treated the argument as the pathname to check, reusing the 11-16 design. A diagnostic quiz confirmed this. It was corrected by a diagram and then applied correctly, but not yet retested.

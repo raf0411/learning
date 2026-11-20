@@ -1,6 +1,13 @@
 # Review
 
-## Current checkpoint — 2026-11-21 (session complete)
+## Current checkpoint — 2026-11-21 continuation (session complete)
+
+- **Quizzes:** none.
+- **Combined `[` tests and polarity:** still due, untested. The opener was skipped before any answer. Instead of a separate drill, test it through the capstone's log-file guard: predict scenarios C (missing) and D (directory) before coding it.
+- **Predict-then-verify:** still weak. Built into the capstone design; section 7's expected results must be filled before code.
+- All other items below are unchanged.
+
+## Earlier checkpoint — 2026-11-21 (first session)
 
 - **Quizzes:** 1 answered, 0 correct, 1 incorrect, 0 I-don't-know. The learner thought `check-list-arg.sh 'good paths.txt'` checks the argument itself rather than the lines inside the list.
 

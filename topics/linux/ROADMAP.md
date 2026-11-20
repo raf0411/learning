@@ -6,7 +6,7 @@
 ```
 
 **6 / 12 phases complete · 6 remaining**  
-Remaining: **5 in progress / milestone open · 1 upcoming**.
+Remaining: **6 in progress / milestone open · 0 upcoming**.
 
 *Based on completed `[x]` phases in the learning path, equally weighted—not time remaining or total Linux mastery.*
 <!-- learning-progress:end -->
@@ -15,8 +15,8 @@ Status key: `[ ]` upcoming, `[>]` current, `[x]` milestone demonstrated.
 
 ## Your path at a glance
 
-> **You are here → 11 · Bash scripting**  
-> Next: a fresh, reduced-scaffolding script task for the Phase 11 milestone. Predict first, then self-audit against the spec. Earlier open milestones stay in review as you advance.
+> **You are here → 12 · Portfolio capstone**  
+> Next: complete the design spec in `labs/2026-11-21-capstone-kickoff.md` (tests predicted before code). Open milestones 6, 8, 9, 10, 11 close through matching capstone parts performed independently.
 
 ```mermaid
 %%{init: {"flowchart": {"curve": "basis", "nodeSpacing": 20, "rankSpacing": 28}, "themeVariables": {"fontFamily": "Inter, ui-sans-serif, system-ui, sans-serif", "fontSize": "14px", "lineColor": "#94a3b8"}}}%%
@@ -48,9 +48,9 @@ flowchart TB
     subgraph D["10—12  /  INVESTIGATE → AUTOMATE → BUILD"]
         direction LR
         P10("10 · Services & networks<br/>Logs · cron · SSH<br/>◐ Milestone open")
-        P11("11 · Bash scripting<br/>Automate your checks<br/>▶ YOU ARE HERE")
-        P12("12 · Portfolio toolkit<br/>Operations & log analysis<br/>○ Up next")
-        P10 --> P11 -.-> P12
+        P11("11 · Bash scripting<br/>Automate your checks<br/>◐ Milestone open")
+        P12("12 · Portfolio toolkit<br/>Operations & log analysis<br/>▶ YOU ARE HERE")
+        P10 --> P11 --> P12
     end
 
     A --> B --> C --> D
@@ -61,9 +61,8 @@ flowchart TB
     classDef future fill:#f1f5f9,stroke:#94a3b8,color:#475569,stroke-width:1.5px,stroke-dasharray:5 4;
 
     class P1,P2,P3,P4,P5,P7 done;
-    class P6,P8,P9,P10 review;
-    class P11 current;
-    class P12 future;
+    class P6,P8,P9,P10,P11 review;
+    class P12 current;
 
     style A fill:transparent,stroke:#94a3b8,stroke-width:1px
     style B fill:transparent,stroke:#94a3b8,stroke-width:1px
@@ -206,7 +205,7 @@ Bash automation and integrated terminal work (11-12)
     - Milestone: write and troubleshoot a small script that safely automates a
       repeated terminal task
 
-12. `[ ]` **Portfolio capstone — Linux operations and log-analysis toolkit**
+12. `[>]` **Portfolio capstone — Linux operations and log-analysis toolkit**
     - Build a safe Bash command-line tool that inspects a Linux host and analyzes
       supplied sample logs without making destructive system changes
     - Produce a timestamped report containing selected system, disk, process,
@@ -365,6 +364,16 @@ completed local-file, function, or fixed-list labs.
 ### Parameterized list checkpoint — 2026-11-21
 
 The list checker is functionally complete, with all five spec tests passing. It was GUIDED: the task model and the combined list guard needed teaching. The line loop, function, and flag were constructed independently. The Phase 11 milestone remains open, and phase completion is unchanged at 6/12 (50%).
+
+### Capstone entry — 2026-11-21 (continuation)
+
+The learner chose to advance to Phase 12 rather than continue Phase 11 drills.
+The open milestones (6, 8, 9, 10, 11) were deliberately not marked complete;
+each closes when its matching capstone part is performed independently (mapping
+in `labs/2026-11-21-capstone-kickoff.md`). Started with a design-first spec and a
+predicted test plan before any code. Targets: build and failure tests on the
+disposable Ubuntu VM; real read-only run on the learner's Ubuntu homelab laptop
+(Docker, Tailscale) after the tests pass. Homelab output is sanitized before publishing.
 
 ## Current scope boundary
 
