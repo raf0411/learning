@@ -1,6 +1,29 @@
 # Learner State
 
-## Current checkpoint — 2026-11-17 (session complete)
+## Current checkpoint — 2026-11-21 (session complete)
+
+- **Parameterized list checker:** functionally complete. Final runs gave A 0, B 1, C 2, D 2, E 2, and `/dev/null` 2. Overall GUIDED.
+- **Task-model misconception:** the first attempt treated the argument as the pathname to check, reusing the 11-16 design. A diagnostic quiz confirmed this. It was corrected by a diagram and then applied correctly, but not yet retested.
+- **Line loop from `"$1"`, function, and flag:** INDEPENDENT construction once the task model was clear.
+- **Combining `[` tests:** GUIDED.
+  - Proposed `-d`, too narrow.
+  - Proposed `-fr`, which is invalid because test operators cannot be bundled.
+  - Proposed `![`, which fails because `!` needs a space.
+  - Branch polarity was inverted again; this is the second date with that mistake.
+  - Reached `[ -r "$1" ] && [ -f "$1" ]` after hints. Readable versus regular-file reasoning (directories usually have `r`) was taught.
+- **Self-audit and prediction:** weak.
+  - Did not flag two failing results: status 1 for the all-regular test, and status 0 for a directory list.
+  - Skipped the predictions table three times.
+  - Replaced earlier worksheet evidence instead of appending.
+  - Immediate `$?` capture remains reliable.
+- **ELAPSED versus TIME:** retrieval failed at the opener. After reteaching, the own-words answer was mostly correct (TIME correct, ELAPSED imprecise); the tutor supplied the link that polling would grow TIME. Still GUIDED.
+- **Next:**
+  - The usage-text fix is unverified; it is minor.
+  - Next session: a quick application on test combination and polarity.
+  - Then a fresh, different reduced-scaffolding script task for the Phase 11 milestone, with predictions and self-audit required.
+  - Detailed evidence: `sessions/2026-11-21.md`.
+
+## Previous checkpoint — 2026-11-17 (session complete)
 
 - Local-file loop/condition/failure flag — INDEPENDENT construction. Preserved spaced arguments, routed diagnostics, processed all paths, and returned remembered failure. Whole-script task remains GUIDED: omitted input guard, incomplete shebang, and missing test evidence needed hints.
 - Input validation — GUIDED. Correct missing/empty-argument guard after hints; later inverted readability guard rejected good input and allowed missing-list failure to end in 0. Correct success/else repair verified mixed-list 1 and unavailable-list 2. Independent guard construction remains the edge.

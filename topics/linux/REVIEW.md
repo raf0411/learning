@@ -1,5 +1,36 @@
 # Review
 
+## Current checkpoint — 2026-11-21 (session complete)
+
+- **Quizzes:** 1 answered, 0 correct, 1 incorrect, 0 I-don't-know. The learner thought `check-list-arg.sh 'good paths.txt'` checks the argument itself rather than the lines inside the list.
+
+- **Combined `[` tests and branch polarity**
+  - Stage: GUIDED
+  - Next: a short unfamiliar application without hints, such as a guard requiring two properties, where the learner states which branch runs for three inputs.
+  - Why: this session produced `-fr`, `![`, and an inverted `! -f`, with no spontaneous trace. Polarity has inverted on 11-17 and 11-21.
+
+- **Argument as data versus as the name of a data source**
+  - Stage: corrected, retest needed
+  - Next: later, in a new task specification, have the learner predict the outputs before coding.
+  - Why: attempt 1 reused the 11-16 argument-loop design, and the diagnostic quiz confirmed the misreading.
+
+- **Readable versus regular-file prechecks**
+  - Stage: taught
+  - Next: later, predict which of directory, `/dev/null`, a missing path, and a regular file pass `-r`, `-f`, and both.
+  - Why: the directory list passed `-r`, read failed, and the script exited 0. The learner did not flag this.
+
+- **Predict-then-verify and self-audit**
+  - Stage: weak
+  - Next: in the next script task, require a filled predictions table before any run and a per-test comparison to the spec. Append failures rather than replacing them.
+  - Why: two unflagged failures, three skipped predictions, and replaced evidence.
+
+- **ELAPSED versus TIME (process state)**
+  - Stage: GUIDED
+  - Next: after spacing, explain a ps/top row for a busy loop versus a sleep in own words, including why polling would raise TIME.
+  - Why: retrieval failed at the opener. The post-reteach answer was mostly correct, but ELAPSED was imprecise and the polling link was missing.
+
+- **Superseded:** the 11-17 next-step instruction to resume the list checkpoint is complete. Do not rerun it.
+
 ## Current checkpoint — 2026-11-17 (session complete)
 
 - Input validation and branch polarity — GUIDED. Next: construct missing/empty argument and readable-regular-list guards in the parameterized-list checkpoint without repair hints. Last evidence: omitted initial guard; later inverted -r branch; correct success/else repair verified 1/2 outcomes. Conceptual recognition alone has not established independent construction.

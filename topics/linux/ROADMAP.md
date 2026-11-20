@@ -16,7 +16,7 @@ Status key: `[ ]` upcoming, `[>]` current, `[x]` milestone demonstrated.
 ## Your path at a glance
 
 > **You are here → 11 · Bash scripting**  
-> Next: combine arguments, functions, line input, validation, and exit statuses in a parameterized list checker. Earlier open milestones stay in review as you advance.
+> Next: a fresh, reduced-scaffolding script task for the Phase 11 milestone. Predict first, then self-audit against the spec. Earlier open milestones stay in review as you advance.
 
 ```mermaid
 %%{init: {"flowchart": {"curve": "basis", "nodeSpacing": 20, "rankSpacing": 28}, "themeVariables": {"fontFamily": "Inter, ui-sans-serif, system-ui, sans-serif", "fontSize": "14px", "lineColor": "#94a3b8"}}}%%
@@ -361,6 +361,10 @@ Next: `labs/2026-11-17-list-checkpoint.md`. Fixture directory recorded at closur
 but script and all five tests remain TODO. Recheck fixture availability, then
 assess reduced-scaffolding integration before adding syntax. Do not repeat the
 completed local-file, function, or fixed-list labs.
+
+### Parameterized list checkpoint — 2026-11-21
+
+The list checker is functionally complete, with all five spec tests passing. It was GUIDED: the task model and the combined list guard needed teaching. The line loop, function, and flag were constructed independently. The Phase 11 milestone remains open, and phase completion is unchanged at 6/12 (50%).
 
 ## Current scope boundary
 
