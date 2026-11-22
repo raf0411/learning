@@ -1,6 +1,22 @@
 # Learner State
 
-## Current checkpoint — 2026-11-22 (session complete)
+## Current checkpoint — 2026-11-22 continuation (session complete)
+
+- **Curriculum position:** Phase 12 capstone. No milestones closed; completion is unchanged at 6/12.
+- **Built:** failed-logins section; fixture `samples/auth-mixed.log`; a 5th test that checks **output**, proven by a mutation test.
+- **Stages:**
+  - `>2` / `2>` / `>&2`: recognition correct on 2 quizzes; `>>` was written correctly. The regression looks repaired, but `2>` and `>&2` haven't been written yet. Retest by production after spacing.
+  - Count/frequency pipeline (`grep | awk '{print $NF}' | sort | uniq -c | sort -nr`): INDEPENDENT construction on known sample data. This is evidence toward the Phase 6 milestone, which stays open until it's done on unfamiliar data.
+  - False-positive reasoning: predicted the leak correctly; first fix independent, final pattern tightened on request.
+  - Output tests (`cmd | grep -q`, polarity): GUIDED. First attempt tested the fixture instead of the program; the pipe, the `bin/` path and the polarity each needed one cue.
+  - Mutation testing: performed correctly by the learner, with correct interpretation.
+- **Misconception found:** checking the test *input* instead of the program's output (a test that can't fail).
+- **Learning style:**
+  - Asked the tutor to stop chasing minor discrepancies once a result is verified correct.
+  - Single direct questions always got answered.
+- **Next:** system section (Host, Load, Disk /). Detailed evidence: `sessions/2026-11-22.md` (continuation).
+
+## Earlier checkpoint — 2026-11-22 (first session, complete)
 
 - **Curriculum position:** Phase 12, the capstone, is current. The real build has started on the VM at `~/Documents/sysprobe`. No milestones were closed; completion is unchanged at 6/12.
 - **Career direction:** entry-level or junior roles (support, NOC, junior sysadmin, cloud support) as a route to DevOps.

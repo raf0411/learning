@@ -1,6 +1,24 @@
 # Review
 
-## Current checkpoint — 2026-11-22 (session complete)
+## Current checkpoint — 2026-11-22 continuation (session complete)
+
+- **Quizzes:** 2 answered: 2 correct, 0 incorrect, 0 I-don't-know (both on `>2` / `>&2`). Direct open predictions: failed-login counts, the `7f3a` leak, mutated-test outcome, and `grep -q` not-found status were all correct.
+- **`>2` versus `2>` versus `>&2`**
+  - Stage: recognition repaired; `>>` produced correctly.
+  - Next: after spacing, have the learner *write* a stderr redirect in the build (e.g. a new error message or test case), not a quiz.
+- **Output tests that can actually fail**
+  - Stage: GUIDED.
+  - Next: the learner writes the system-section test without a model block and mutation-tests it unprompted.
+  - Why: the first attempt grepped the fixture, so sysprobe never ran.
+- **`grep -q` status polarity in `if`**
+  - Stage: GUIDED (correct after one direct question).
+  - Next: observe it in the next output test.
+- **Frequency pipeline on unfamiliar data**
+  - Stage: INDEPENDENT on known sample data.
+  - Next: an unseen log format in the capstone (e.g. the homelab run) to test transfer and the Phase 6 milestone.
+- Unchanged and still due: `-f`/`-e`/`-r` prediction; guard ordering when the service argument is added; `!` spacing check.
+
+## Earlier checkpoint — 2026-11-22 (first session, complete)
 
 - **Quizzes:** 3 answered: 0 correct, 2 incorrect, 1 I-don't-know.
   - Combined guard inputs: incorrect. The learner missed the directory and `/dev/null` because they read `-f` as "exists".

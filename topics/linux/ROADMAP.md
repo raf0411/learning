@@ -1,4 +1,3 @@
-<!-- learning-progress:start -->
 ## Linux learning progress
 
 ```text
@@ -9,65 +8,66 @@
 Remaining: **6 in progress / milestone open · 0 upcoming**.
 
 *Based on completed `[x]` phases in the learning path, equally weighted—not time remaining or total Linux mastery.*
-<!-- learning-progress:end -->
 
 Status key: `[ ]` upcoming, `[>]` current, `[x]` milestone demonstrated.
 
 ## Your path at a glance
 
 > **You are here → 12 · Portfolio capstone**  
-> Next: continue building `sysprobe` on the VM (`~/Documents/sysprobe`), starting with the failed-logins report section. Open milestones 6, 8, 9, 10 and 11 close when the matching capstone part is performed independently.
+> Next: continue building `sysprobe` on the VM (`~/Documents/sysprobe`) with the system section (Host, Load, Disk /). Open milestones 6, 8, 9, 10 and 11 close when the matching capstone part is performed independently.
 
 ```mermaid
-%%{init: {"flowchart": {"curve": "basis", "nodeSpacing": 20, "rankSpacing": 28}, "themeVariables": {"fontFamily": "Inter, ui-sans-serif, system-ui, sans-serif", "fontSize": "14px", "lineColor": "#94a3b8"}}}%%
+%%{init: {"theme": "base", "fontFamily": "Helvetica, Arial, sans-serif", "flowchart": {"curve": "linear", "nodeSpacing": 16, "rankSpacing": 10, "padding": 8, "htmlLabels": true, "wrappingWidth": 420}, "themeVariables": {"fontSize": "13px", "lineColor": "#d4d4d8", "titleColor": "#a1a1aa"}}}%%
 flowchart TB
     subgraph A["01—03  /  BUILD YOUR FOUNDATIONS"]
-        direction LR
-        P1("01 · Navigation<br/>Paths & filesystem<br/>✓ Complete")
-        P2("02 · File operations<br/>Organize safely<br/>✓ Complete")
-        P3("03 · Links & archives<br/>Connect & package files<br/>✓ Complete")
-        P1 --> P2 --> P3
+        direction TB
+        P1("<b>01 · Navigation</b><br/>Paths & filesystem<br/>✓ Complete")
+        P2("<b>02 · File operations</b><br/>Organize safely<br/>✓ Complete")
+        P3("<b>03 · Links & archives</b><br/>Connect & package files<br/>✓ Complete")
     end
 
     subgraph B["04—06  /  WORK WITH CONTENT"]
-        direction LR
-        P4("04 · Inspect & edit<br/>Files & documentation<br/>✓ Complete")
-        P5("05 · Shell mechanics<br/>Pipes & redirection<br/>✓ Complete")
-        P6("06 · Text processing<br/>Search & build reports<br/>◐ Milestone open")
-        P4 --> P5 --> P6
+        direction TB
+        P4("<b>04 · Inspect & edit</b><br/>Files & documentation<br/>✓ Complete")
+        P5("<b>05 · Shell mechanics</b><br/>Pipes & redirection<br/>✓ Complete")
+        P6("<b>06 · Text processing</b><br/>Search & build reports<br/>◐ Milestone open")
     end
 
     subgraph C["07—09  /  UNDERSTAND THE SYSTEM"]
-        direction LR
-        P7("07 · Linux & access<br/>Layout & permissions<br/>✓ Complete")
-        P8("08 · Packages<br/>Manage software<br/>◐ Milestone open")
-        P9("09 · Processes<br/>Jobs & resources<br/>◐ Milestone open")
-        P7 --> P8 --> P9
+        direction TB
+        P7("<b>07 · Linux & access</b><br/>Layout & permissions<br/>✓ Complete")
+        P8("<b>08 · Packages</b><br/>Manage software<br/>◐ Milestone open")
+        P9("<b>09 · Processes</b><br/>Jobs & resources<br/>◐ Milestone open")
     end
 
     subgraph D["10—12  /  INVESTIGATE → AUTOMATE → BUILD"]
-        direction LR
-        P10("10 · Services & networks<br/>Logs · cron · SSH<br/>◐ Milestone open")
-        P11("11 · Bash scripting<br/>Automate your checks<br/>◐ Milestone open")
-        P12("12 · Portfolio toolkit<br/>Operations & log analysis<br/>▶ YOU ARE HERE")
-        P10 --> P11 --> P12
+        direction TB
+        P10("<b>10 · Services & networks</b><br/>Logs · cron · SSH<br/>◐ Milestone open")
+        P11("<b>11 · Bash scripting</b><br/>Automate your checks<br/>◐ Milestone open")
+        P12("<b>12 · Portfolio toolkit</b><br/>Operations & log analysis<br/>▶ YOU ARE HERE")
     end
 
+    P1 --> P2 --> P3
+    P4 --> P5 --> P6
+    P7 --> P8 --> P9
+    P10 --> P11 --> P12
     A --> B --> C --> D
 
-    classDef done fill:#ecfdf5,stroke:#34d399,color:#064e3b,stroke-width:1.5px;
-    classDef review fill:#fffbeb,stroke:#fbbf24,color:#78350f,stroke-width:1.5px;
-    classDef current fill:#2563eb,stroke:#93c5fd,color:#ffffff,stroke-width:4px;
-    classDef future fill:#f1f5f9,stroke:#94a3b8,color:#475569,stroke-width:1.5px,stroke-dasharray:5 4;
+    classDef done fill:#ffffff,stroke:#86efac,color:#3f3f46,stroke-width:1px;
+    classDef review fill:#ffffff,stroke:#fcd34d,color:#3f3f46,stroke-width:1px;
+    classDef current fill:#18181b,stroke:#18181b,color:#ffffff,stroke-width:1px;
+    classDef future fill:#ffffff,stroke:#e4e4e7,color:#a1a1aa,stroke-width:1px,stroke-dasharray:4 4;
 
     class P1,P2,P3,P4,P5,P7 done;
     class P6,P8,P9,P10,P11 review;
     class P12 current;
 
-    style A fill:transparent,stroke:#94a3b8,stroke-width:1px
-    style B fill:transparent,stroke:#94a3b8,stroke-width:1px
-    style C fill:transparent,stroke:#94a3b8,stroke-width:1px
-    style D fill:transparent,stroke:#60a5fa,stroke-width:2px
+    linkStyle default stroke:#d4d4d8,stroke-width:1px;
+
+    style A fill:none,stroke:#f4f4f5,color:#a1a1aa
+    style B fill:none,stroke:#f4f4f5,color:#a1a1aa
+    style C fill:none,stroke:#f4f4f5,color:#a1a1aa
+    style D fill:none,stroke:#f4f4f5,color:#a1a1aa
 ```
 
 **Read left → right within each row, then down.**  
@@ -384,6 +384,8 @@ Built so far:
 - `tests/run-tests.sh` with 4 automated cases, mutation-tested.
 
 The kickoff worksheet remains the design reference. Its open items are the service argument, stop-versus-continue, §3 commands and §7 rows E/G. No milestones were closed; completion is unchanged at 6/12.
+
+Same-day continuation: added the failed-logins section, a mixed-auth fixture, and a 5th test that checks output, proven by a mutation test. Next is the system section. Completion is unchanged at 6/12.
 
 ## Current scope boundary
 

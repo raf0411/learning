@@ -31,7 +31,7 @@ Your pipeline, on one physical line:
 
 ```bash
 grep -i '^READY' deployments.log | cut -d ' ' -f 2 | sort | uniq -c | tr '[:upper:]' '[:lower:]' | sort -nr > report.txt
-cat report.txt
+cat report.txt 
 ```
 
 Predict the complete contents of `report.txt` (ignore alignment spaces):
