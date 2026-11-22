@@ -16,7 +16,7 @@ Status key: `[ ]` upcoming, `[>]` current, `[x]` milestone demonstrated.
 ## Your path at a glance
 
 > **You are here → 12 · Portfolio capstone**  
-> Next: complete the design spec in `labs/2026-11-21-capstone-kickoff.md` (tests predicted before code). Open milestones 6, 8, 9, 10, 11 close through matching capstone parts performed independently.
+> Next: continue building `sysprobe` on the VM (`~/Documents/sysprobe`), starting with the failed-logins report section. Open milestones 6, 8, 9, 10 and 11 close when the matching capstone part is performed independently.
 
 ```mermaid
 %%{init: {"flowchart": {"curve": "basis", "nodeSpacing": 20, "rankSpacing": 28}, "themeVariables": {"fontFamily": "Inter, ui-sans-serif, system-ui, sans-serif", "fontSize": "14px", "lineColor": "#94a3b8"}}}%%
@@ -196,7 +196,7 @@ Bash automation and integrated terminal work (11-12)
     - `ip`, `ss`, `ping`, `dig` or `getent`, `curl`, and `nc`
     - SSH client usage and secure file transfer with `scp` or `sftp`
     - Milestone: answer a service or connectivity question using process, log,
-      and network evidence rather than guesswork
+      and network evidence rather than guessworkwc
 
 11. `[>]` **Bash scripting fundamentals**
     - Script files, shebangs, execution, arguments, and command substitution
@@ -374,6 +374,16 @@ in `labs/2026-11-21-capstone-kickoff.md`). Started with a design-first spec and 
 predicted test plan before any code. Targets: build and failure tests on the
 disposable Ubuntu VM; real read-only run on the learner's Ubuntu homelab laptop
 (Docker, Tailscale) after the tests pass. Homelab output is sanitized before publishing.
+
+### Capstone build begins — 2026-11-22
+
+Switched from a paper-only spec to building with design questions inline.
+
+Built so far:
+- the project tree, an input guard and an ERROR-count section;
+- `tests/run-tests.sh` with 4 automated cases, mutation-tested.
+
+The kickoff worksheet remains the design reference. Its open items are the service argument, stop-versus-continue, §3 commands and §7 rows E/G. No milestones were closed; completion is unchanged at 6/12.
 
 ## Current scope boundary
 

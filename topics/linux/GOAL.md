@@ -23,6 +23,13 @@ The learner can:
 - use local and official documentation to solve unfamiliar terminal tasks;
 - verify command results, diagnose ordinary mistakes, and recover safely.
 
+## Career direction
+
+The learner is aiming for entry-level or junior roles, such as IT support, NOC, junior
+Linux sysadmin or cloud support, as a route to DevOps later (stated 2026-11-22).
+The capstone is meant as a portfolio piece for those roles. Later DevOps
+extensions (Git, CI, containers) are outside this roadmap's current scope.
+
 ## Success criteria
 
 Complete an unfamiliar integrated terminal scenario without procedural hints:

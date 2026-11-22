@@ -1,6 +1,34 @@
 # Review
 
-## Current checkpoint — 2026-11-21 continuation (session complete)
+## Current checkpoint — 2026-11-22 (session complete)
+
+- **Quizzes:** 3 answered: 0 correct, 2 incorrect, 1 I-don't-know.
+  - Combined guard inputs: incorrect. The learner missed the directory and `/dev/null` because they read `-f` as "exists".
+  - §7 self-audit: I don't know.
+  - Mutation-test prediction: incorrect. The learner included the no-argument case and missed that the `-z` guard runs first.
+- **Combined `[` tests and polarity**
+  - Stage: INDEPENDENT on construction.
+  - Next: none needed as a drill. Keep observing it in the capstone guards.
+  - Why: both guards were written today with correct polarity.
+  - Still open: the `!` spacing slip (`![`) recurred for the third date. Check it inside future script edits.
+- **`-f` versus `-e` (versus `-r`)**
+  - Stage: corrected through an experiment and own words.
+  - Next: after spacing, predict which of a directory, a device, a missing path, and a regular file pass `-e`, `-f`, and `-r`.
+- **`>2` versus `2>` versus `>&2`**
+  - Stage: misconception, a Phase 5 regression.
+  - Next: early next session, inside the build. Predict where stdout and stderr go for each of the three forms, then verify with a two-stream command.
+- **Guard ordering and guard-first structure**
+  - Stage: GUIDED.
+  - Next: when adding new guards (the service argument), predict which guard each test input reaches.
+- **Writing test cases (scenario input in the command; expected status from the policy)**
+  - Stage: GUIDED.
+  - Next: the learner adds new cases to `run-tests.sh` for the next feature without a model block.
+- **Predict-then-verify**
+  - Stage: weak.
+  - Ask the prediction as one direct question or a quiz; the learner skipped every comment-style or bundled request.
+- **Superseded:** the 11-21 item "test polarity through the capstone log guard" has been done.
+
+## Previous checkpoint — 2026-11-21 continuation (session complete)
 
 - **Quizzes:** none.
 - **Combined `[` tests and polarity:** still due, untested. The opener was skipped before any answer. Instead of a separate drill, test it through the capstone's log-file guard: predict scenarios C (missing) and D (directory) before coding it.

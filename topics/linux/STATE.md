@@ -1,6 +1,35 @@
 # Learner State
 
-## Current checkpoint — 2026-11-21 continuation (session complete)
+## Current checkpoint — 2026-11-22 (session complete)
+
+- **Curriculum position:** Phase 12, the capstone, is current. The real build has started on the VM at `~/Documents/sysprobe`. No milestones were closed; completion is unchanged at 6/12.
+- **Career direction:** entry-level or junior roles (support, NOC, junior sysadmin, cloud support) as a route to DevOps.
+- **Built today:**
+  - an input guard (`-z`; `! [ -f ] || ! [ -r ]` → stderr, exit 2);
+  - an ERROR-count section;
+  - `tests/run-tests.sh` with 4 automated cases, PASS/FAIL output and an exit flag;
+  - a mutation test that confirmed the tests catch the `![` bug.
+- **Stages:**
+  - Combined-test polarity: INDEPENDENT on construction today.
+  - `!` spacing: recurring slip (third date).
+  - `-f` (regular file) versus `-e` (exists): corrected; retest later.
+  - Guard-first structure (no `else`/`exit` on the success path): GUIDED.
+  - Test-runner construction: GUIDED. One model block was given; the rest was built independently.
+  - Guard ordering (which guard an input reaches): GUIDED.
+  - Exit codes 126 versus 127: introduced.
+- **Misconception found:** `>2` was believed to redirect to stderr; it actually writes stdout to a file named `2`. This is a Phase 5 regression. `2>dev/null` (missing slash) was a slip.
+- **Spec and self-audit:** still weak.
+  - The learner missed an output mismatch against the spec.
+  - The learner believed tests can't be planned before the code exists.
+  - The learner couldn't apply the row-audit method from a description. Explicit side-by-sides worked.
+- **Design concepts:** safety rules versus input validation are now distinguished. The exit policy is 1 = the tool found a problem, 2 = user error. Report questions about the whole file are only partly formed.
+- **Learning-style evidence:**
+  - Paper design tables reduced motivation; building with inline design questions worked.
+  - Needs explicit, unambiguous instructions.
+  - Skips predictions that are requested as comments or bundled into multi-part instructions, but answers direct single questions and quizzes.
+- **Next:** Build step 6 (failed-logins section). Detailed evidence: `sessions/2026-11-22.md`.
+
+## Previous checkpoint — 2026-11-21 continuation (session complete)
 
 - **Curriculum position:** Phase 12 capstone is now current, by learner choice. Phases 6, 8, 9, 10, and 11 are still open milestones; none were marked complete without evidence. Each closes when the matching capstone part is done independently.
 - **Target environments:** build and run failure tests on the Ubuntu VM. Do the real read-only run on the learner's homelab: an old laptop running Ubuntu with Docker (Navidrome, File Browser), reached by SSH over Tailscale.
