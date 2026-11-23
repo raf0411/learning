@@ -1,6 +1,27 @@
 # Learner State
 
-## Current checkpoint — 2026-11-22 continuation (session complete)
+## Current checkpoint — 2026-11-23 (session complete)
+
+- **Curriculum position:** Phase 12 capstone. No milestones closed; completion is unchanged at 6/12.
+- **Built:**
+  - the System section (Host, Load, Disk /);
+  - test 6, which works out its expected value at run time and is proven by a mutation test;
+  - a Load-spacing fix and a `Failed logins:` heading.
+  - Step 7b (the required-dependency check) is designed but unattempted.
+- **Stages:**
+  - Output tests that can fail: **INDEPENDENT** this session. Case 6 was written without a model block; it runs the program, narrows to the target line and has correct polarity.
+  - Computed expected value versus hard-coded literal: corrected (the quiz chose the literal), then constructed independently.
+  - Mutation testing: proposed **unprompted**, predicted correctly and executed correctly.
+  - Field extraction (`awk '{print $n}'`, sed text anchor): independent once the tool family is named. The learner asks for the tool rather than guessing.
+  - `du` versus `df`: **recurring confusion** (11-22 §3, 11-23 build). Corrected with an explanation and a hint.
+  - `-f` meaning: recall correct. Spacing was too short to count as retained.
+  - Required versus optional dependencies, and degrading gracefully: GUIDED. The learner's first instinct was to stop on any missing command.
+  - `command -v` (status 0/1, a builtin) versus `which`: taught and observed.
+- **Still weak:** self-audit. The report showed a wrong Disk line under 5/5 passing tests and the learner didn't notice; a side-by-side was needed.
+- **Learning style:** unchanged. Single questions and quizzes always get answered; bundled requests get partial replies.
+- **Next:** step 7b. Detailed evidence: `sessions/2026-11-23.md`.
+
+## Previous checkpoint — 2026-11-22 continuation (session complete)
 
 - **Curriculum position:** Phase 12 capstone. No milestones closed; completion is unchanged at 6/12.
 - **Built:** failed-logins section; fixture `samples/auth-mixed.log`; a 5th test that checks **output**, proven by a mutation test.

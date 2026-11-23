@@ -1,6 +1,33 @@
 # Review
 
-## Current checkpoint — 2026-11-22 continuation (session complete)
+## Current checkpoint — 2026-11-23 (session complete)
+
+- **Quizzes:** 3 answered: 2 correct, 1 incorrect, 0 I-don't-know.
+  - `-f` paths: correct.
+  - Test for a changing value: incorrect (chose the hard-coded literal).
+  - Mutation prediction (only case 6 fails): correct.
+- **`du` versus `df`**
+  - Stage: recurring confusion (2 dates).
+  - Next: in the homelab run or an unfamiliar disk question, choose the tool without a hint and state what each one measures.
+- **Computed expected value (no hard-coded literals for live data)**
+  - Stage: corrected, then constructed once.
+  - Next: a test for another changing value (e.g. the Host line, using `hostname` as the source of truth) without a hint.
+- **Output tests that can actually fail**
+  - Stage: INDEPENDENT (11-23, case 6). Upgraded from GUIDED.
+  - Next: observe in later features only; no drill.
+- **Mutation testing**
+  - Stage: proposed unprompted once.
+  - Next: see whether the learner mutation-tests the step-7b check without being asked.
+- **Self-audit against the target output**
+  - Stage: weak.
+  - Next: after a build step, ask a single question, "does every line match the target?", before giving any side-by-side.
+- **Required versus optional dependencies**
+  - Stage: GUIDED.
+  - Next: when a new command is added (e.g. `ss`, `systemctl`), the learner classifies it without a cue.
+- **`-f`/`-e`/`-r`:** recall correct (11-23), but the spacing was short. Retest after several days, preferably through the service-argument guard.
+- **Still due:** write `>&2` in production (step 7b); `!` spacing (step 7b); guard ordering once the service argument exists.
+
+## Previous checkpoint — 2026-11-22 continuation (session complete)
 
 - **Quizzes:** 2 answered: 2 correct, 0 incorrect, 0 I-don't-know (both on `>2` / `>&2`). Direct open predictions: failed-login counts, the `7f3a` leak, mutated-test outcome, and `grep -q` not-found status were all correct.
 - **`>2` versus `2>` versus `>&2`**
