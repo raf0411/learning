@@ -1,6 +1,33 @@
 # Learner State
 
-## Current checkpoint — 2026-11-23 (session complete)
+## Current checkpoint — 2026-11-24 (session complete)
+
+- **Curriculum position:** Phase 12 capstone. No milestones closed; completion is unchanged at 6/12.
+- **Built:**
+  - the required-dependency check (exit 3), plus test case 7, which the tutor supplied; the suite is 7/7;
+  - optional Host/Load/Disk lines that print `unavailable`, with mutations verified.
+  - The memory line was given but not attempted.
+- **Pace agreement (the learner's request):** finish a presentable portfolio sooner.
+  - The tutor hands over routine code (tests, guards, printf).
+  - New tools get one quick question; there are no predict-then-run detours unless something breaks.
+  - The learner must be able to explain every line.
+  - Milestones close only on independent work.
+- **Stages:**
+  - `>&2`: written correctly once in production (upgraded from recognition only).
+  - `!` spacing: correct today, with no slip.
+  - Mutation habit: used unprompted for the second time (a fake `nos` command), along with debug-printing a variable.
+  - `if` branching on any command's exit status: GUIDED (polarity was inverted once and fixed after a trace).
+  - `bash -n`: introduced and used to find a missing `fi`/`done`.
+  - Self-audit: **improved**. A single "does every line match?" question was enough; no side-by-side was needed.
+  - available vs free memory: **retained** (correct after 10 days).
+  - du vs df: **still unreliable**. This was the 3rd date, now in the reverse direction (chose `df` to find which directory is big).
+- **New misconceptions taught:**
+  - pipeline status is the last command's status (`command -v x | sed` is almost always true);
+  - PATH lookup: the learner thought a command is found anywhere on disk, or that the interactive alias is what scripts see;
+  - Bash arrays: commas become part of the elements, and `"$arr"` gives only the first element.
+- **Next:** confirm `nouptime` was reverted and the `<>` brackets were removed, then the memory line. Detail: `sessions/2026-11-24.md`.
+
+## Previous checkpoint — 2026-11-23 (session complete)
 
 - **Curriculum position:** Phase 12 capstone. No milestones closed; completion is unchanged at 6/12.
 - **Built:**

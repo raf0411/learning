@@ -14,7 +14,7 @@ Status key: `[ ]` upcoming, `[>]` current, `[x]` milestone demonstrated.
 ## Your path at a glance
 
 > **You are here → 12 · Portfolio capstone**  
-> Next: continue `sysprobe` on the VM (`~/Documents/sysprobe`) with the required-dependency check (`command -v`, exit 3), then mark optional lines "unavailable". Open milestones 6, 8, 9, 10 and 11 close when the matching capstone part is performed independently.
+> Next: continue `sysprobe` on the VM (`~/Documents/sysprobe`). Confirm the `nouptime` revert, then: memory line → top processes → service + journal → network → timestamped report → README and case study → homelab run. Open milestones 6, 8, 9, 10 and 11 close when the matching capstone part is performed independently.
 
 ```mermaid
 %%{init: {"theme": "base", "fontFamily": "Helvetica, Arial, sans-serif", "flowchart": {"curve": "linear", "nodeSpacing": 16, "rankSpacing": 10, "padding": 8, "htmlLabels": true, "wrappingWidth": 420}, "themeVariables": {"fontSize": "13px", "lineColor": "#d4d4d8", "titleColor": "#a1a1aa"}}}%%
@@ -390,6 +390,10 @@ Same-day continuation: added the failed-logins section, a mixed-auth fixture, an
 ### System section — 2026-11-23
 
 The System section (Host, Load, Disk /) is built. Test 6 works out its expected value at run time and is proven by a mutation test. The design now splits dependencies into required (`grep awk sort uniq`, which stop the run) and optional (which print "unavailable"). The dependency check is next. No milestones closed; completion is unchanged at 6/12.
+
+### Dependency checks — 2026-11-24
+
+Built the required-dependency check (exit 3) with test case 7 (7/7), and optional lines that print `unavailable`. At the learner's request, the pace is now project-first: the tutor supplies routine code, and milestones still close only on independent work. Remaining: memory, processes, service/journal, network, report file, README/case study, homelab run. Completion is unchanged at 6/12.
 
 ## Current scope boundary
 

@@ -1,6 +1,32 @@
 # Review
 
-## Current checkpoint — 2026-11-23 (session complete)
+## Current checkpoint — 2026-11-24 (session complete)
+
+- **Quizzes:** 3 answered: 1 correct, 2 incorrect, 0 I-don't-know.
+  - du vs df (which directory uses the space): incorrect (chose `df`).
+  - Simulating a missing command: incorrect (chose `unalias`).
+  - The `free` available column: correct.
+  - Open predictions: `df -h /` and `df -h /var/log` give the same output (correct); `PATH=/nonexistent` command lookup (predicted 0, actual 1).
+- **du vs df**
+  - Stage: confused on 3 dates, in both directions.
+  - Next: a disk question in the homelab run. The learner chooses the tool unaided and says what it measures (filesystem fullness vs what's using it).
+- **PATH lookup (only the listed directories; aliases don't apply in scripts)**
+  - Stage: misconception taught by experiment.
+  - Next: after spacing, ask why `PATH=/nonexistent` needs `/bin/bash` called by its absolute path.
+- **Pipeline exit status = the last command's status**
+  - Stage: misconception taught.
+  - Next: watch future `if cmd | cmd` conditions in the build; no drill.
+- **`if` on a command's status (without `[`)**
+  - Stage: GUIDED.
+  - Next: observe the next `command -v` or `grep -q` condition the learner writes.
+- **`>&2` production:** done once; observe it again in the service/network sections. The item is no longer due.
+- **`!` spacing:** correct today; observe only.
+- **Self-audit:** a single question was enough today. Keep asking only that single question.
+- **available vs free:** retained (10 days). Remove it from active review unless it slips.
+- **Still open:** `-f`/`-e`/`-r` retest through the service-argument guard; guard ordering once the service argument exists; required-vs-optional classification for `ss`/`systemctl`/`ps`.
+- **Pace agreement:** keep retrieval inside the build. No separate test drills.
+
+## Previous checkpoint — 2026-11-23 (session complete)
 
 - **Quizzes:** 3 answered: 2 correct, 1 incorrect, 0 I-don't-know.
   - `-f` paths: correct.
