@@ -1,6 +1,40 @@
 # Review
 
-## Current checkpoint — 2026-11-24 (session complete)
+## Current checkpoint — 2026-11-25 (session complete)
+
+- **Quizzes:** 1 answered: 1 correct, 0 incorrect, 0 I-don't-know.
+  - Merged `df && free` guard with free missing: correct (both unavailable).
+  - Open answers:
+    - `head -n 4` = header + 3: correct.
+    - `$7` explanation: incorrect (whitespace as fields).
+    - Pipeline status in case 8: partial.
+    - `ps` required: incorrect, then corrected with evidence.
+- **`command -v` takes names only**
+  - Stage: misconception taught.
+  - Next: observe the `systemctl`/`journalctl`/`ss` guards; no drill.
+- **awk field numbering (whitespace runs = one separator; a row label shifts fields)**
+  - Stage: taught.
+  - Next: when the network section selects an `ip`/`ss` column, the learner names `$N` and explains it without the diagnostic print.
+- **Tests that can actually FAIL**
+  - Stage: the `else PASS` bug was not spotted (guessed the condition twice).
+  - Next: when reviewing the next supplied test, ask "what does it print if the feature breaks?" before running.
+- **Required vs optional**
+  - Stage: GUIDED (2nd time).
+  - Next: `systemctl`/`journalctl`/`ss` classified by the design rule without a cue.
+- **Self-audit**
+  - Stage: regressed today (stray line and `Memory /:` label unnoticed).
+  - Next: keep the single question "does every line match?", and ask for run output rather than code.
+- **Mutation testing:** designs the mutation independently. Next: performs one without being asked.
+- **Carried over, still open:**
+  - du vs df (homelab disk question);
+  - PATH lookup (after spacing);
+  - pipeline exit status (observe);
+  - `if` on a command's status (observe);
+  - `>&2` in the service/network sections;
+  - `-f`/`-e`/`-r` through the service-argument guard;
+  - guard ordering once the service argument exists.
+
+## Previous checkpoint — 2026-11-24 (session complete)
 
 - **Quizzes:** 3 answered: 1 correct, 2 incorrect, 0 I-don't-know.
   - du vs df (which directory uses the space): incorrect (chose `df`).

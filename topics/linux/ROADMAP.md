@@ -14,7 +14,7 @@ Status key: `[ ]` upcoming, `[>]` current, `[x]` milestone demonstrated.
 ## Your path at a glance
 
 > **You are here → 12 · Portfolio capstone**  
-> Next: continue `sysprobe` on the VM (`~/Documents/sysprobe`). Confirm the `nouptime` revert, then: memory line → top processes → service + journal → network → timestamped report → README and case study → homelab run. Open milestones 6, 8, 9, 10 and 11 close when the matching capstone part is performed independently.
+> Next: continue `sysprobe` on the VM (`~/Documents/sysprobe`). Confirm the `nops` revert (9/9), then: service + journal → network → timestamped report → README and case study → homelab run. Open milestones 6, 8, 9, 10 and 11 close when the matching capstone part is performed independently.
 
 ```mermaid
 %%{init: {"theme": "base", "fontFamily": "Helvetica, Arial, sans-serif", "flowchart": {"curve": "linear", "nodeSpacing": 16, "rankSpacing": 10, "padding": 8, "htmlLabels": true, "wrappingWidth": 420}, "themeVariables": {"fontSize": "13px", "lineColor": "#d4d4d8", "titleColor": "#a1a1aa"}}}%%
@@ -394,6 +394,10 @@ The System section (Host, Load, Disk /) is built. Test 6 works out its expected 
 ### Dependency checks — 2026-11-24
 
 Built the required-dependency check (exit 3) with test case 7 (7/7), and optional lines that print `unavailable`. At the learner's request, the pace is now project-first: the tutor supplies routine code, and milestones still close only on independent work. Remaining: memory, processes, service/journal, network, report file, README/case study, homelab run. Completion is unchanged at 6/12.
+
+### Memory and top processes — 2026-11-25
+
+Built the Memory and Top processes lines, each with its own optional guard, and fixed an unsilenced Load guard. Tests are 9/9, both new cases mutation-proven. Remaining: service/journal, network, report file, README/case study, homelab run. Completion is unchanged at 6/12.
 
 ## Current scope boundary
 

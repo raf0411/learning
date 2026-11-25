@@ -1,6 +1,29 @@
 # Learner State
 
-## Current checkpoint — 2026-11-24 (session complete)
+## Current checkpoint — 2026-11-25 (session complete)
+
+- **Curriculum position:** Phase 12 capstone. No milestones closed; completion is unchanged at 6/12.
+- **Built:**
+  - Memory line (`free -h` → awk `$7`/`$2`) and top processes (`ps -eo pid,comm,%cpu --sort=-%cpu | head -n 4`), each with its own optional guard;
+  - Load-guard bug fixed (an unsilenced `command -v sed '<expr>'` printed `/usr/bin/sed`);
+  - `<>` brackets removed;
+  - tests 9/9 (cases 8 and 9 tutor-supplied, both mutation-proven).
+- **Stages:**
+  - Mutation testing: designed own mutation (`nofree`) for the 3rd time. Still needs a prompt to perform it.
+  - Immediate `$?` capture after a run: correct, unprompted.
+  - Separate guards for independent optional tools: GUIDED (merged with `&&` first, then the quiz prediction was correct and the split was correct).
+  - Required vs optional: GUIDED (said `ps` is required because it is "always available"; the design rule and `dpkg -S` evidence fixed it).
+  - Self-audit: **weaker today**. A stray output line and a wrong label went unnoticed across several pastes.
+- **New misconceptions taught:**
+  - `command -v` takes the command's usage arguments (it takes names only);
+  - awk counts spaces as fields (default splitting collapses whitespace; the `Mem:` label shifts the fields);
+  - a test with `else PASS` was not recognized as unable to fail.
+- **Work pattern:**
+  - The learner pastes code asking "like this?" instead of running it. Ask for run output.
+  - The learner copies template placeholders literally (`$?`). Use non-syntax placeholders like `<N>`.
+- **Next:** verify the `nops` revert, then the service + journal section. Detail: `sessions/2026-11-25.md`.
+
+## Previous checkpoint — 2026-11-24 (session complete)
 
 - **Curriculum position:** Phase 12 capstone. No milestones closed; completion is unchanged at 6/12.
 - **Built:**
