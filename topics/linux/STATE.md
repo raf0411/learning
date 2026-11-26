@@ -1,6 +1,31 @@
 # Learner State
 
-## Current checkpoint — 2026-11-25 (session complete)
+## Current checkpoint — 2026-11-26 (session complete)
+
+- **Curriculum position:** Phase 12 capstone. No milestones closed; completion is unchanged at 6/12.
+- **Built:**
+  - Service section: optional 2nd positional argument; `systemctl is-active` with a status-4 → `not found` branch; `journalctl` guard nested in the exists branch;
+  - fixed two test-runner flag bugs (case 9 had no `failed=1`; case 8 set it in the PASS branch);
+  - tests 11/11, status 0 (cases 10–11 tutor-supplied, both mutation-proven).
+- **Stages:**
+  - Runner exit-status diagnosis: INDEPENDENT for the missing flag; GUIDED for the PASS-branch flag.
+  - Required vs optional: GUIDED (3rd time). Confused the journal with the supplied sample log.
+  - Local docs: INDEPENDENT (found `man systemctl` EXIT STATUS, 3 vs 4).
+  - Pipeline status = last command: correct on 2-day retrieval.
+  - Branch placement/nesting: GUIDED (chose the wrong branch, then placed the block outside it).
+  - Silencing `command -v`: **repeated** the 11-25 bug; recognized only via that reference.
+  - Prediction: skipped when bundled; correct and complete when it was the single step.
+  - Self-audit: weak. Bugged output was pasted without comment twice, and the worksheet self-audit was declined.
+- **New concepts taught:**
+  - misleading output is worse than none (a typo reported as a stopped service);
+  - `journalctl` exits 0 for an unknown unit;
+  - `$?` right after `x=$(cmd)` holds cmd's status;
+  - check "was it requested" before "can I produce it";
+  - `!` in front of a pipeline flips its status.
+- **Work pattern:** asking for one specific `grep` output works better than "show me the code". Mutations make bugs visible that word explanations didn't (line 74).
+- **Next:** network section (`ip`, `ss`). Detail: `sessions/2026-11-26.md`.
+
+## Previous checkpoint — 2026-11-25 (session complete)
 
 - **Curriculum position:** Phase 12 capstone. No milestones closed; completion is unchanged at 6/12.
 - **Built:**

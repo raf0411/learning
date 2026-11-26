@@ -1,6 +1,48 @@
 # Review
 
-## Current checkpoint — 2026-11-25 (session complete)
+## Current checkpoint — 2026-11-26 (session complete)
+
+- **Quizzes:** none (quiz tool not used). Open answers:
+  - FAIL + status 0 is a problem: correct.
+  - missing-flag cause: correct, independent.
+  - `journalctl` required: incorrect, then corrected.
+  - `is-active nosuchsvc` status: predicted 1, actual 4.
+  - NOC consequence of `shh inactive`: incorrect.
+  - man EXIT STATUS 3/4: correct.
+  - journal placement (`-eq 4` branch): incorrect.
+  - `journalctl` unknown-unit status: predicted 4, actual 0.
+  - pipeline `$?` = tail's: correct.
+  - case 11 mutation prediction: correct.
+- **Silencing `command -v` (`> /dev/null`)**
+  - Stage: repeated bug (11-25 sed, 11-26 journalctl). Not reliable.
+  - Next: when the learner writes the `ip`/`ss` guards, check whether they are silenced before the first run, without a cue.
+- **Branch placement in nested if/else**
+  - Stage: GUIDED.
+  - Next: in the network section, the learner states which branch a new command belongs in, with a reason, before writing it.
+- **Misleading vs missing evidence** (typo → "inactive"; not requested vs unavailable)
+  - Stage: taught.
+  - Next: ask how the network section should report a missing tool vs no listening ports.
+- **Required vs optional**
+  - Stage: GUIDED (3rd).
+  - Next: `ip`/`ss` classified without a cue. Still due.
+- **Prediction before running**
+  - Stage: skipped when bundled.
+  - Next: always ask for the prediction as its own single step.
+- **Self-audit**
+  - Stage: weak; declined once.
+  - Next: keep to one targeted question ("N lines shouldn't be there"), then a narrower hint.
+- **Pipeline exit status:** retrieved correctly after 2 days. Observe only; not due.
+- **Local docs (EXIT STATUS lookup):** INDEPENDENT today.
+- **Still open from 11-25:**
+  - awk `$N` naming (network section);
+  - test that can fail ("what does it print if the feature breaks?");
+  - du vs df (homelab);
+  - PATH lookup;
+  - `>&2` in the network section;
+  - `-f`/`-e`/`-r` retest.
+- **Done:** guard ordering with the service argument: taught (partial answer) and built.
+
+## Previous checkpoint — 2026-11-25 (session complete)
 
 - **Quizzes:** 1 answered: 1 correct, 0 incorrect, 0 I-don't-know.
   - Merged `df && free` guard with free missing: correct (both unavailable).
