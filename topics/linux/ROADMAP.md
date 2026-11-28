@@ -14,7 +14,7 @@ Status key: `[ ]` upcoming, `[>]` current, `[x]` milestone demonstrated.
 ## Your path at a glance
 
 > **You are here → 12 · Portfolio capstone**  
-> Next: continue `sysprobe` on the VM (`~/Documents/sysprobe`), 11/11 tests passing. Network section (`ip`, `ss`) → timestamped report → README and case study → homelab run. Open milestones 6, 8, 9, 10 and 11 close when the matching capstone part is performed independently.
+> Next: continue `sysprobe` on the VM (`~/Documents/sysprobe`), 12/12 tests passing. Network section: Gateway and Address are done; `ss` Listening line next → timestamped report → README and case study → homelab run. Open milestones 6, 8, 9, 10 and 11 close when the matching capstone part is performed independently.
 
 ```mermaid
 %%{init: {"theme": "base", "fontFamily": "Helvetica, Arial, sans-serif", "flowchart": {"curve": "linear", "nodeSpacing": 16, "rankSpacing": 10, "padding": 8, "htmlLabels": true, "wrappingWidth": 420}, "themeVariables": {"fontSize": "13px", "lineColor": "#d4d4d8", "titleColor": "#a1a1aa"}}}%%
@@ -402,6 +402,10 @@ Built the Memory and Top processes lines, each with its own optional guard, and 
 ### Service and journal — 2026-11-26
 
 Built the Service section. The service is an optional 2nd argument; `systemctl` status 4 prints `not found`; the journal runs only for existing units. Fixed two test-runner flag bugs. Tests are 11/11, with both new cases mutation-proven. Remaining: network, report file, README/case study, homelab run. Completion is unchanged at 6/12.
+
+### Network: gateway and address — 2026-11-28
+
+Built the Gateway and Address lines. Each has three outcomes (normal / `unavailable` / `none`), all proven by runs. Tests are 12/12, with case 12 mutation-proven. Remaining: `ss` Listening line, report file, README/case study, homelab run. Completion is unchanged at 6/12.
 
 ## Current scope boundary
 

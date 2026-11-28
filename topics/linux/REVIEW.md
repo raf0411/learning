@@ -1,6 +1,43 @@
 # Review
 
-## Current checkpoint — 2026-11-26 (session complete)
+## Current checkpoint — 2026-11-28 (session complete)
+
+- **Quizzes:** 1 answered: 0 correct, 1 incorrect, 0 I-don't-know.
+  - `ip`/`ss` classification: incorrect ("section needs it" → required).
+  - Open answers:
+    - Docker exit status 3 vs 0: correct (missed the lost log summary);
+    - awk `$3`/`$5`: correct;
+    - outside-world address `127.0.0.1`: incorrect;
+    - empty route status: predicted non-zero, actual 0;
+    - row C message `not requested`: incorrect;
+    - row B after the separate `if`: correct;
+    - `noip` prediction: correct;
+    - Address B/C messages: correct;
+    - Address B prediction: correct.
+- **Required vs optional**
+  - Stage: incorrect on first answer, 4th time.
+  - Next: classify `ss` with the question "if it's missing, should I throw away the log summary?", without a cue.
+- **Empty output ≠ error** (`journalctl`, `ip route` exit 0 when nothing is found)
+  - Stage: taught twice.
+  - Next: predict the `ss` status when there are no listeners, or the status of a similar query.
+- **Message semantics** (not requested / unavailable / none)
+  - Stage: GUIDED, improving (Address correct).
+  - Next: the `ss` missing vs no-listeners messages, chosen without the table.
+- **Nested branch placement**
+  - Stage: GUIDED (final form self-written after the tree).
+  - Next: place the `ss` code, stating the branch and reason first.
+- **Silencing `command -v`**
+  - Stage: met once without a cue.
+  - Next: observe the `ss` guard. Downgrade if it regresses.
+- **Revert discipline / self-audit**
+  - Stage: weak.
+  - Next: after every mutation, ask for the `grep` or a green suite run before moving on. Keep to one targeted question.
+- **Variable run as a command**
+  - Stage: taught.
+  - Next: observe the next time a variable feeds a pipe.
+- **Done:** awk `$N` naming from raw output (INDEPENDENT); the `>&2` and other 11-25 carry-overs are still open as listed below.
+
+## Previous checkpoint — 2026-11-26 (session complete)
 
 - **Quizzes:** none (quiz tool not used). Open answers:
   - FAIL + status 0 is a problem: correct.

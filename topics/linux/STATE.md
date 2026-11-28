@@ -1,6 +1,30 @@
 # Learner State
 
-## Current checkpoint — 2026-11-26 (session complete)
+## Current checkpoint — 2026-11-28 (session complete)
+
+- **Curriculum position:** Phase 12 capstone. No milestones closed; completion is unchanged at 6/12.
+- **Built:**
+  - Network section: Gateway and Address lines, each with three outcomes (normal / `unavailable` / `none`), all proven by runs;
+  - journal print moved back under Service;
+  - tests 12/12, status 0 (case 12 tutor-supplied, mutation-proven).
+- **Stages:**
+  - awk `$N` from raw output: INDEPENDENT (`$3`/`$5` route, `$3` address).
+  - Silencing `command -v`: done without a cue on the first write. One observation.
+  - Required vs optional: incorrect again (4th). The misconception is "the section needs it" = required.
+  - Empty output status: predicted non-zero (2nd instance after `journalctl`). A query that finds nothing exits 0.
+  - Message semantics: wrong for Gateway row C (`not requested`); correct for Address B/C.
+  - Nested branch placement: GUIDED. Three wrong structures, then a correct self-written nested form after the decision tree.
+  - Mutation: designed `noip` independently; the prediction was correct.
+  - Self-audit and revert discipline: weak. Claimed a fix that wasn't there, left `noip` in once, resisted revert proof.
+- **New concepts taught:**
+  - loopback vs default-route interface;
+  - awk prints nothing on empty input;
+  - a variable as the first word is run as a command (`printf '%s\n' "$var" |`);
+  - reading `unexpected end of file from 'if'`;
+  - `grep -x`/`-F`.
+- **Next:** the `ss` Listening line, then the report file. Detail: `sessions/2026-11-28.md`.
+
+## Previous checkpoint — 2026-11-26 (session complete)
 
 - **Curriculum position:** Phase 12 capstone. No milestones closed; completion is unchanged at 6/12.
 - **Built:**
