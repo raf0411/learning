@@ -1,6 +1,23 @@
 # Review
 
-## Current checkpoint — 2026-11-28 (session complete)
+## Current checkpoint — 2026-11-28 continuation (session complete)
+
+- **Quizzes:** none. Open answers:
+  - `ss` optional: correct, with no cue;
+  - reason: circular;
+  - cost of required: partial;
+  - awk `$4`: correct;
+  - first line of `awk '{print $4}'`: incorrect (`Local`, from the header).
+- **Required vs optional**
+  - Stage: first-answer correct once (5th encounter).
+  - Next: on the next new tool, the learner gives the *cost* reason ("exit 3 loses the whole report") unprompted.
+- **Header lines in pipelines**
+  - Stage: misconception taught.
+  - Next: the `man ss` header option (open task). Later, predict the first output line when a new tool prints a header.
+- **Prediction:** keep it as its own single step. It was skipped again when bundled with a run.
+- Items below from the first 11-28 session remain due (empty-output status, message semantics, branch placement, `command -v` silencing, revert discipline).
+
+## Previous checkpoint — 2026-11-28 (first session, complete)
 
 - **Quizzes:** 1 answered: 0 correct, 1 incorrect, 0 I-don't-know.
   - `ip`/`ss` classification: incorrect ("section needs it" → required).

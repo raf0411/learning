@@ -1,6 +1,16 @@
 # Learner State
 
-## Current checkpoint — 2026-11-28 (session complete)
+## Current checkpoint — 2026-11-28 continuation (session complete)
+
+- **Curriculum position:** Phase 12 capstone, Network section, `ss` Listening line (observation only, no code yet). Completion is unchanged at 6/12.
+- **Stages:**
+  - Required vs optional: classified `ss` **correctly without a cue** (first time). Cost reasoning is partial: the learner said required would lose "the rest of the Network section" when it actually loses the whole report.
+  - awk `$N` from raw output: INDEPENDENT again (`$4` for Local Address:Port).
+  - Header lines: new misconception. The learner predicted awk would skip the header (`$4` → `Local`).
+  - Prediction: still skipped when bundled.
+- **Next:** find the header-suppression option in `man ss`, then the Listening line and case 13. Detail: `sessions/2026-11-28.md` (continuation).
+
+## Previous checkpoint — 2026-11-28 (first session, complete)
 
 - **Curriculum position:** Phase 12 capstone. No milestones closed; completion is unchanged at 6/12.
 - **Built:**
